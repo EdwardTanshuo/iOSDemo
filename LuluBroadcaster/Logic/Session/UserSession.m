@@ -29,8 +29,11 @@
     _userName = [[NSUserDefaults standardUserDefaults] objectForKey:USER_NAME_KEY];
     return _userName;
 }
-- (void) setUserName:(nonnull NSString*)new_value{
-    [[NSUserDefaults standardUserDefaults] setObject:new_value forKey:USER_NAME_KEY];
+- (void) setUserName:(NSString*)userName{
+    if(!userName){
+        return;
+    }
+    [[NSUserDefaults standardUserDefaults] setObject:userName forKey:USER_NAME_KEY];
 }
 
 #pragma mark password
@@ -38,8 +41,11 @@
     _password = [[NSUserDefaults standardUserDefaults] objectForKey:PASSWORD_KEY];
     return _password;
 }
-- (void) setPassword:(nonnull NSString*)new_value{
-    [[NSUserDefaults standardUserDefaults] setObject:new_value forKey:PASSWORD_KEY];
+- (void) setPassword:(nonnull NSString*)password{
+    if(!password){
+        return;
+    }
+    [[NSUserDefaults standardUserDefaults] setObject:password forKey:PASSWORD_KEY];
 }
 
 #pragma mark token
@@ -47,12 +53,16 @@
     _token = [[NSUserDefaults standardUserDefaults] objectForKey:TOKEN_KEY];
     return _token;
 }
-- (void) setToken:(nonnull NSString*)new_value{
-    if(_userName){
-        [SAMKeychain setPassword:new_value forService:new_value account:_userName];
+- (void) setToken:(nonnull NSString*)token{
+    if(token){
+        if(!token){
+            return;
+        }
+        [SAMKeychain setPassword:token forService:KEYCHAIN_SERVICE account:_userName];
     }else{
         assert(@"username is not exist");
     }
 }
+
 
 @end

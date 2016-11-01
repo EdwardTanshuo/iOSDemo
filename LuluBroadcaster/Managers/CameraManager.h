@@ -15,9 +15,13 @@
 @end
 
 @interface CameraManager : NSObject
+
 @property (nonatomic, weak) id<CameraManagerDelegate> delegate;
+
 #pragma mark singleton
 + (id)sharedManager;
+
+#pragma mark methods
 - (void)openCamera;
 - (void)closeCamera;
 @end

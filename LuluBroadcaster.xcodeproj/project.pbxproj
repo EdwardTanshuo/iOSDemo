@@ -23,6 +23,8 @@
 		D7D4AF0C1DC8065800A782F7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7D4AF0B1DC8065800A782F7 /* Security.framework */; };
 		D7D4AF141DC80B4400A782F7 /* HomepageController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D4AF131DC80B4400A782F7 /* HomepageController.m */; };
 		D7D4AF181DC80E7700A782F7 /* CameraManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D4AF171DC80E7700A782F7 /* CameraManager.m */; };
+		D7D4AF1C1DC8146400A782F7 /* StreamManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D4AF1B1DC8146400A782F7 /* StreamManager.m */; };
+		D7D4AF221DC817E400A782F7 /* SettingSession.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D4AF211DC817E400A782F7 /* SettingSession.m */; };
 		E8210C9AC4A2F1073D4164CC /* libPods-LuluBroadcaster.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C242F5B1374B50FF8F3A2FA /* libPods-LuluBroadcaster.a */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +64,10 @@
 		D7D4AF131DC80B4400A782F7 /* HomepageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomepageController.m; path = ViewControllers/HomepageController.m; sourceTree = "<group>"; };
 		D7D4AF161DC80E7700A782F7 /* CameraManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CameraManager.h; path = Managers/CameraManager.h; sourceTree = "<group>"; };
 		D7D4AF171DC80E7700A782F7 /* CameraManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CameraManager.m; path = Managers/CameraManager.m; sourceTree = "<group>"; };
+		D7D4AF1A1DC8146400A782F7 /* StreamManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StreamManager.h; path = Managers/StreamManager.h; sourceTree = "<group>"; };
+		D7D4AF1B1DC8146400A782F7 /* StreamManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StreamManager.m; path = Managers/StreamManager.m; sourceTree = "<group>"; };
+		D7D4AF201DC817E400A782F7 /* SettingSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingSession.h; path = Logic/Session/SettingSession.h; sourceTree = "<group>"; };
+		D7D4AF211DC817E400A782F7 /* SettingSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingSession.m; path = Logic/Session/SettingSession.m; sourceTree = "<group>"; };
 		DAFDB40B4891175C98C3CFD9 /* Pods-LuluBroadcaster.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LuluBroadcaster.release.xcconfig"; path = "Pods/Target Support Files/Pods-LuluBroadcaster/Pods-LuluBroadcaster.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -189,6 +195,7 @@
 		D7D4AF011DC801EC00A782F7 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				D7D4AF1D1DC8146A00A782F7 /* Stream */,
 				D7D4AF191DC80E7F00A782F7 /* Camera */,
 			);
 			name = Managers;
@@ -238,8 +245,8 @@
 		D7D4AF071DC8031800A782F7 /* Session */ = {
 			isa = PBXGroup;
 			children = (
-				D7D4AF081DC8037100A782F7 /* UserSession.h */,
-				D7D4AF091DC8037100A782F7 /* UserSession.m */,
+				D7D4AF1F1DC817B900A782F7 /* Setting */,
+				D7D4AF1E1DC817A900A782F7 /* User */,
 			);
 			name = Session;
 			sourceTree = "<group>";
@@ -260,6 +267,33 @@
 				D7D4AF171DC80E7700A782F7 /* CameraManager.m */,
 			);
 			name = Camera;
+			sourceTree = "<group>";
+		};
+		D7D4AF1D1DC8146A00A782F7 /* Stream */ = {
+			isa = PBXGroup;
+			children = (
+				D7D4AF1A1DC8146400A782F7 /* StreamManager.h */,
+				D7D4AF1B1DC8146400A782F7 /* StreamManager.m */,
+			);
+			name = Stream;
+			sourceTree = "<group>";
+		};
+		D7D4AF1E1DC817A900A782F7 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				D7D4AF081DC8037100A782F7 /* UserSession.h */,
+				D7D4AF091DC8037100A782F7 /* UserSession.m */,
+			);
+			name = User;
+			sourceTree = "<group>";
+		};
+		D7D4AF1F1DC817B900A782F7 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				D7D4AF201DC817E400A782F7 /* SettingSession.h */,
+				D7D4AF211DC817E400A782F7 /* SettingSession.m */,
+			);
+			name = Setting;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -387,7 +421,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7D4AEDE1DC7F33D00A782F7 /* AppDelegate.m in Sources */,
+				D7D4AF1C1DC8146400A782F7 /* StreamManager.m in Sources */,
 				D7D4AF141DC80B4400A782F7 /* HomepageController.m in Sources */,
+				D7D4AF221DC817E400A782F7 /* SettingSession.m in Sources */,
 				D7D4AF0A1DC8037100A782F7 /* UserSession.m in Sources */,
 				D7D4AEDB1DC7F33D00A782F7 /* main.m in Sources */,
 				D7D4AF181DC80E7700A782F7 /* CameraManager.m in Sources */,
