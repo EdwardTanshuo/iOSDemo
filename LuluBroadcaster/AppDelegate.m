@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "CameraManager.h"
+#import "LiveManager.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +19,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    //初始化相机
+    [CameraManager sharedManager];
+    [LiveManager sharedManager];
+    
     return YES;
 }
 

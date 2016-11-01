@@ -13,30 +13,34 @@
 		D7D4AEE61DC7F33E00A782F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7D4AEE51DC7F33E00A782F7 /* Assets.xcassets */; };
 		D7D4AEE91DC7F33E00A782F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7D4AEE71DC7F33E00A782F7 /* LaunchScreen.storyboard */; };
 		D7D4AEF11DC7F54F00A782F7 /* lib in Resources */ = {isa = PBXBuildFile; fileRef = D7D4AEF01DC7F54F00A782F7 /* lib */; };
-		D7D4AEF31DC7F5FC00A782F7 /* INSMediaSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7D4AEF21DC7F5FC00A782F7 /* INSMediaSDK.framework */; };
-		D7D4AEF61DC7F63A00A782F7 /* INSNanoSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7D4AEF41DC7F61F00A782F7 /* INSNanoSDK.framework */; };
 		D7D4AEF71DC7F65400A782F7 /* INSNanoSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7D4AEF41DC7F61F00A782F7 /* INSNanoSDK.framework */; };
-		D7D4AEF81DC7F65400A782F7 /* INSNanoSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D7D4AEF41DC7F61F00A782F7 /* INSNanoSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D7D4AEF91DC7F65400A782F7 /* INSMediaSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7D4AEF21DC7F5FC00A782F7 /* INSMediaSDK.framework */; };
-		D7D4AEFA1DC7F65400A782F7 /* INSMediaSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D7D4AEF21DC7F5FC00A782F7 /* INSMediaSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D7D4AF0A1DC8037100A782F7 /* UserSession.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D4AF091DC8037100A782F7 /* UserSession.m */; };
 		D7D4AF0C1DC8065800A782F7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7D4AF0B1DC8065800A782F7 /* Security.framework */; };
 		D7D4AF141DC80B4400A782F7 /* HomepageController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D4AF131DC80B4400A782F7 /* HomepageController.m */; };
 		D7D4AF181DC80E7700A782F7 /* CameraManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D4AF171DC80E7700A782F7 /* CameraManager.m */; };
 		D7D4AF1C1DC8146400A782F7 /* StreamManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D4AF1B1DC8146400A782F7 /* StreamManager.m */; };
 		D7D4AF221DC817E400A782F7 /* SettingSession.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D4AF211DC817E400A782F7 /* SettingSession.m */; };
+		D7D4AF241DC820E400A782F7 /* INSMediaSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7D4AF231DC820E400A782F7 /* INSMediaSDK.framework */; };
+		D7D4AF251DC820E400A782F7 /* INSMediaSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D7D4AF231DC820E400A782F7 /* INSMediaSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D7D4AF281DC820F000A782F7 /* INSNanoSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7D4AF271DC820F000A782F7 /* INSNanoSDK.framework */; };
+		D7D4AF291DC820F000A782F7 /* INSNanoSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D7D4AF271DC820F000A782F7 /* INSNanoSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D7D4AF2D1DC863F100A782F7 /* LiveManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D4AF2C1DC863F100A782F7 /* LiveManager.m */; };
+		D7D4AF351DC8658600A782F7 /* LiveController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D4AF331DC8658600A782F7 /* LiveController.m */; };
+		D7D4AF361DC8658600A782F7 /* LiveController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7D4AF341DC8658600A782F7 /* LiveController.xib */; };
+		D7D4AF3A1DC8662200A782F7 /* NavigationRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D4AF391DC8662200A782F7 /* NavigationRouter.m */; };
 		E8210C9AC4A2F1073D4164CC /* libPods-LuluBroadcaster.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C242F5B1374B50FF8F3A2FA /* libPods-LuluBroadcaster.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		D7D4AEFB1DC7F65400A782F7 /* Embed Frameworks */ = {
+		D7D4AF261DC820E400A782F7 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				D7D4AEF81DC7F65400A782F7 /* INSNanoSDK.framework in Embed Frameworks */,
-				D7D4AEFA1DC7F65400A782F7 /* INSMediaSDK.framework in Embed Frameworks */,
+				D7D4AF291DC820F000A782F7 /* INSNanoSDK.framework in Embed Frameworks */,
+				D7D4AF251DC820E400A782F7 /* INSMediaSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -68,6 +72,15 @@
 		D7D4AF1B1DC8146400A782F7 /* StreamManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StreamManager.m; path = Managers/StreamManager.m; sourceTree = "<group>"; };
 		D7D4AF201DC817E400A782F7 /* SettingSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingSession.h; path = Logic/Session/SettingSession.h; sourceTree = "<group>"; };
 		D7D4AF211DC817E400A782F7 /* SettingSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingSession.m; path = Logic/Session/SettingSession.m; sourceTree = "<group>"; };
+		D7D4AF231DC820E400A782F7 /* INSMediaSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = INSMediaSDK.framework; path = lib/release/INSMediaSDK.framework; sourceTree = "<group>"; };
+		D7D4AF271DC820F000A782F7 /* INSNanoSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = INSNanoSDK.framework; path = lib/release/INSNanoSDK.framework; sourceTree = "<group>"; };
+		D7D4AF2B1DC863F100A782F7 /* LiveManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LiveManager.h; path = Managers/LiveManager.h; sourceTree = "<group>"; };
+		D7D4AF2C1DC863F100A782F7 /* LiveManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LiveManager.m; path = Managers/LiveManager.m; sourceTree = "<group>"; };
+		D7D4AF321DC8658600A782F7 /* LiveController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveController.h; sourceTree = "<group>"; };
+		D7D4AF331DC8658600A782F7 /* LiveController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiveController.m; sourceTree = "<group>"; };
+		D7D4AF341DC8658600A782F7 /* LiveController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LiveController.xib; sourceTree = "<group>"; };
+		D7D4AF381DC8662200A782F7 /* NavigationRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NavigationRouter.h; path = Logic/Helper/NavigationRouter.h; sourceTree = "<group>"; };
+		D7D4AF391DC8662200A782F7 /* NavigationRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NavigationRouter.m; path = Logic/Helper/NavigationRouter.m; sourceTree = "<group>"; };
 		DAFDB40B4891175C98C3CFD9 /* Pods-LuluBroadcaster.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LuluBroadcaster.release.xcconfig"; path = "Pods/Target Support Files/Pods-LuluBroadcaster/Pods-LuluBroadcaster.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -76,11 +89,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7D4AF281DC820F000A782F7 /* INSNanoSDK.framework in Frameworks */,
+				D7D4AF241DC820E400A782F7 /* INSMediaSDK.framework in Frameworks */,
 				D7D4AF0C1DC8065800A782F7 /* Security.framework in Frameworks */,
 				D7D4AEF91DC7F65400A782F7 /* INSMediaSDK.framework in Frameworks */,
 				D7D4AEF71DC7F65400A782F7 /* INSNanoSDK.framework in Frameworks */,
-				D7D4AEF61DC7F63A00A782F7 /* INSNanoSDK.framework in Frameworks */,
-				D7D4AEF31DC7F5FC00A782F7 /* INSMediaSDK.framework in Frameworks */,
 				E8210C9AC4A2F1073D4164CC /* libPods-LuluBroadcaster.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -111,6 +124,8 @@
 		D7D4AECD1DC7F33D00A782F7 = {
 			isa = PBXGroup;
 			children = (
+				D7D4AF271DC820F000A782F7 /* INSNanoSDK.framework */,
+				D7D4AF231DC820E400A782F7 /* INSMediaSDK.framework */,
 				D7D4AED81DC7F33D00A782F7 /* LuluBroadcaster */,
 				D7D4AED71DC7F33D00A782F7 /* Products */,
 				205E8FB72BF337BBCC3B483E /* Pods */,
@@ -154,6 +169,7 @@
 		D7D4AEFC1DC8019C00A782F7 /* Logic */ = {
 			isa = PBXGroup;
 			children = (
+				D7D4AF371DC865E900A782F7 /* Helper */,
 				D7D4AF071DC8031800A782F7 /* Session */,
 				D7D4AF011DC801EC00A782F7 /* Managers */,
 				D7D4AF001DC801D700A782F7 /* Datasources */,
@@ -195,6 +211,7 @@
 		D7D4AF011DC801EC00A782F7 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				D7D4AF2A1DC863D400A782F7 /* Live */,
 				D7D4AF1D1DC8146A00A782F7 /* Stream */,
 				D7D4AF191DC80E7F00A782F7 /* Camera */,
 			);
@@ -204,6 +221,7 @@
 		D7D4AF021DC8020500A782F7 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				D7D4AF2E1DC8654F00A782F7 /* live */,
 				D7D4AF151DC80B4800A782F7 /* homepage */,
 			);
 			name = ViewControllers;
@@ -296,6 +314,34 @@
 			name = Setting;
 			sourceTree = "<group>";
 		};
+		D7D4AF2A1DC863D400A782F7 /* Live */ = {
+			isa = PBXGroup;
+			children = (
+				D7D4AF2B1DC863F100A782F7 /* LiveManager.h */,
+				D7D4AF2C1DC863F100A782F7 /* LiveManager.m */,
+			);
+			name = Live;
+			sourceTree = "<group>";
+		};
+		D7D4AF2E1DC8654F00A782F7 /* live */ = {
+			isa = PBXGroup;
+			children = (
+				D7D4AF321DC8658600A782F7 /* LiveController.h */,
+				D7D4AF331DC8658600A782F7 /* LiveController.m */,
+				D7D4AF341DC8658600A782F7 /* LiveController.xib */,
+			);
+			name = live;
+			sourceTree = "<group>";
+		};
+		D7D4AF371DC865E900A782F7 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				D7D4AF381DC8662200A782F7 /* NavigationRouter.h */,
+				D7D4AF391DC8662200A782F7 /* NavigationRouter.m */,
+			);
+			name = Helper;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -309,7 +355,7 @@
 				D7D4AED41DC7F33D00A782F7 /* Resources */,
 				E8F2245A3D81F0691F2F7554 /* [CP] Embed Pods Frameworks */,
 				1D4A99349C993AE72D72DD63 /* [CP] Copy Pods Resources */,
-				D7D4AEFB1DC7F65400A782F7 /* Embed Frameworks */,
+				D7D4AF261DC820E400A782F7 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -360,6 +406,7 @@
 			files = (
 				D7D4AEE91DC7F33E00A782F7 /* LaunchScreen.storyboard in Resources */,
 				D7D4AEE61DC7F33E00A782F7 /* Assets.xcassets in Resources */,
+				D7D4AF361DC8658600A782F7 /* LiveController.xib in Resources */,
 				D7D4AEF11DC7F54F00A782F7 /* lib in Resources */,
 				D7D4AEE41DC7F33D00A782F7 /* Main.storyboard in Resources */,
 			);
@@ -420,9 +467,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7D4AF3A1DC8662200A782F7 /* NavigationRouter.m in Sources */,
 				D7D4AEDE1DC7F33D00A782F7 /* AppDelegate.m in Sources */,
+				D7D4AF351DC8658600A782F7 /* LiveController.m in Sources */,
 				D7D4AF1C1DC8146400A782F7 /* StreamManager.m in Sources */,
 				D7D4AF141DC80B4400A782F7 /* HomepageController.m in Sources */,
+				D7D4AF2D1DC863F100A782F7 /* LiveManager.m in Sources */,
 				D7D4AF221DC817E400A782F7 /* SettingSession.m in Sources */,
 				D7D4AF0A1DC8037100A782F7 /* UserSession.m in Sources */,
 				D7D4AEDB1DC7F33D00A782F7 /* main.m in Sources */,
@@ -547,10 +597,11 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/lib/debug",
+					"$(PROJECT_DIR)/lib/release",
 				);
 				INFOPLIST_FILE = LuluBroadcaster/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.magiccube.lulu;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lulu.bc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -566,10 +617,11 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/lib/debug",
+					"$(PROJECT_DIR)/lib/release",
 				);
 				INFOPLIST_FILE = LuluBroadcaster/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.magiccube.lulu;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lulu.bc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

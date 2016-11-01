@@ -7,19 +7,28 @@
 //
 
 #import <Foundation/Foundation.h>
+@class CameraManager;
+
+typedef NS_ENUM(NSInteger, CameraStatus) {
+    CameraStatusConnected,
+    CameraStatusConnecting,
+    CameraStatusDisconnected
+};
+
 @protocol CameraManagerDelegate
-- (void) cameraDidDisconnect;
-- (void) cameraDidConnect;
-- (void) cameraIsConnecting;
-- (void) cameraConnectFail;
+- (void) cameraDidDisconnect:(CameraManager*) manager;
+- (void) cameraDidConnect:(CameraManager*) manager;
+- (void) cameraIsConnecting:(CameraManager*) manager;
+- (void) cameraConnectFail:(CameraManager*) manager;
 @end
 
 @interface CameraManager : NSObject
 
 @property (nonatomic, weak) id<CameraManagerDelegate> delegate;
+@property (nonatomic, assign) enum CameraStatus status;
 
 #pragma mark singleton
-+ (id)sharedManager;
++ (CameraManager*)sharedManager;
 
 #pragma mark methods
 - (void)openCamera;

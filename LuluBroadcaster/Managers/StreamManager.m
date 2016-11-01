@@ -11,17 +11,15 @@
 
 #import <INSNanoSDK/INSNanoSDK.h>
 
-@interface StreamManager()<INSLiveStreamerStateDelegate, INSLiveDataSourceProtocol>
+@interface StreamManager()<INSLiveStreamerStateDelegate>
 
 @property (nonatomic, strong) INSLiveDataSource* liveDataSource;
-
-- (void)startLiveWithWidth:(NSInteger)stitchWidth WithHeight:(NSInteger)stitchHeight WithBitrate:(NSInteger)bitrate;
 
 @end
 
 @implementation StreamManager
 #pragma mark singleton
-+ (id)sharedManager {
++ (StreamManager*)sharedManager {
     static StreamManager *sharedMyManager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -52,58 +50,6 @@
     
 }
 
-#pragma mark -
-#pragma mark INSLiveDataSourceProtocol
-
-- (void) sourceOnError:(NSError *)error{
-   
-}
-
-- (void) sourceOnH264Header:(const uint8_t *)sps spsSize:(size_t)spsSize pps:(const uint8_t *)pps ppsSize:(size_t)ppsSize{
-}
-
-- (void) sourceOnH264Nalu:(NSData *)nalu keyFrame:(BOOL)isKey timestamp:(int64_t)timestamp{
-   
-}
-
-- (void) sourceOnAACHeader:(const uint8_t *)aacHeader size:(size_t)headerSize{
-
-}
-
-- (void) sourceOnAACData:(const uint8_t *)aacData size:(size_t)size timestamp:(int64_t)timestamp{
-
-}
-
-- (void) sourceOnH264Nalu:(const uint8_t *)nalu size:(size_t)size keyFrame:(BOOL)isKey timestamp:(int64_t)timestamp{
-
-}
 
 
-- (void) sourceOnAACData:(NSData *)aacData timestamp:(int64_t)timestamp{
-}
-
-- (void) sourceOnRawPixelBuffer:(CVPixelBufferRef)pixelBuffer timestamp:(int64_t)timestamp{
-    
-}
-
-- (void) sourceOnStitchPixelBuffer:(CVPixelBufferRef)pixelBuffer timestamp:(int64_t)timestamp{
-    
-}
-
-#pragma mark methods
-- (void)startLiveWithWidth:(NSInteger)stitchWidth WithHeight:(NSInteger)stitchHeight WithBitrate:(NSInteger)bitrate{
-    self.liveDataSource = [[INSLiveDataSource alloc] initWitCameraResolution:INSCameraVideoResType_3040_1520P30 stitchWidth:stitchWidth stitchHeight:stitchHeight bitrate:bitrate];
-    self.liveDataSource.dataSourceDelegate = self;
-    [self.liveDataSource start];
-}
-
-- (void)startLive{
-    SettingSession* session = [[SettingSession alloc] init];
-    [self startLiveWithWidth:session.width WithHeight:session.height WithBitrate:session.bitrate];
-}
-
-- (void)stopLive{
-    [self.liveDataSource stop];
-    self.liveDataSource = nil;
-}
 @end

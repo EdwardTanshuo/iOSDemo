@@ -11,19 +11,14 @@
 
 @end
 
-@protocol StreamDataSourceDelegate
-
-@end
-
 
 @interface StreamManager : NSObject
 
 @property (nonatomic, weak) id<StreamManagerDelegate> delegate;
 
 #pragma mark singleton
-+ (id)sharedManager;
++ (StreamManager*)sharedManager;
 
 #pragma mark public methods
-- (void)startLive;
-- (void)stopLive;
+
 @end

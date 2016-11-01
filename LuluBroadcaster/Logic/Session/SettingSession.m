@@ -77,7 +77,7 @@
       [[NSUserDefaults standardUserDefaults] setObject:url forKey:URL_KEY];
 }
 
-#pragma mark url
+#pragma mark streamKey
 - (NSString*) streamKey{
     _url = [[NSUserDefaults standardUserDefaults] objectForKey:STREAM_TOKEN_KEY];
     return _url;

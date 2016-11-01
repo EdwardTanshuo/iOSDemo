@@ -15,11 +15,12 @@
 
 @implementation CameraManager
 #pragma mark singleton
-+ (id)sharedManager {
++ (CameraManager*)sharedManager {
     static CameraManager *sharedMyManager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         sharedMyManager = [[self alloc] init];
+        sharedMyManager.status = CameraStatusDisconnected;
         [[INSCameraAccessory defaultCamera] addObserver:sharedMyManager forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:nil];
     });
     return sharedMyManager;
@@ -36,17 +37,22 @@
         INSConnectStatus status = [[change valueForKey:NSKeyValueChangeNewKey] intValue];
         switch (status) {
             case INSConnectStatusDisconnect:
-                [_delegate cameraDidDisconnect];
+                _status = CameraStatusDisconnected;
+                [_delegate cameraDidDisconnect: self];
                 break;
             case INSConnectStatusConnecting:
-                [_delegate cameraIsConnecting];
+                _status = CameraStatusConnecting;
+                [_delegate cameraIsConnecting: self];
                 break;
             case INSConnectStatusConnected:
-                [_delegate cameraDidConnect];
+                 _status = CameraStatusConnected;
+                [_delegate cameraDidConnect: self];
                 break;
             case INSConnectStatusError:
-                [_delegate cameraConnectFail];
+                _status = CameraStatusDisconnected;
+                [_delegate cameraConnectFail: self];
                 break;
+                
             default:
                 break;
         }
