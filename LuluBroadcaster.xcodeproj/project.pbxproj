@@ -29,6 +29,7 @@
 		D7D4AF351DC8658600A782F7 /* LiveController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D4AF331DC8658600A782F7 /* LiveController.m */; };
 		D7D4AF361DC8658600A782F7 /* LiveController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7D4AF341DC8658600A782F7 /* LiveController.xib */; };
 		D7D4AF3A1DC8662200A782F7 /* NavigationRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D4AF391DC8662200A782F7 /* NavigationRouter.m */; };
+		D7D4AF3F1DC86DB100A782F7 /* BeautifyFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D4AF3E1DC86DB100A782F7 /* BeautifyFilter.m */; };
 		E8210C9AC4A2F1073D4164CC /* libPods-LuluBroadcaster.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C242F5B1374B50FF8F3A2FA /* libPods-LuluBroadcaster.a */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +82,8 @@
 		D7D4AF341DC8658600A782F7 /* LiveController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LiveController.xib; sourceTree = "<group>"; };
 		D7D4AF381DC8662200A782F7 /* NavigationRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NavigationRouter.h; path = Logic/Helper/NavigationRouter.h; sourceTree = "<group>"; };
 		D7D4AF391DC8662200A782F7 /* NavigationRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NavigationRouter.m; path = Logic/Helper/NavigationRouter.m; sourceTree = "<group>"; };
+		D7D4AF3D1DC86DB100A782F7 /* BeautifyFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BeautifyFilter.h; path = Logic/Helper/BeautifyFilter.h; sourceTree = "<group>"; };
+		D7D4AF3E1DC86DB100A782F7 /* BeautifyFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BeautifyFilter.m; path = Logic/Helper/BeautifyFilter.m; sourceTree = "<group>"; };
 		DAFDB40B4891175C98C3CFD9 /* Pods-LuluBroadcaster.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LuluBroadcaster.release.xcconfig"; path = "Pods/Target Support Files/Pods-LuluBroadcaster/Pods-LuluBroadcaster.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -336,10 +339,28 @@
 		D7D4AF371DC865E900A782F7 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				D7D4AF3C1DC86D7C00A782F7 /* Filter */,
+				D7D4AF3B1DC86D7100A782F7 /* Router */,
+			);
+			name = Helper;
+			sourceTree = "<group>";
+		};
+		D7D4AF3B1DC86D7100A782F7 /* Router */ = {
+			isa = PBXGroup;
+			children = (
 				D7D4AF381DC8662200A782F7 /* NavigationRouter.h */,
 				D7D4AF391DC8662200A782F7 /* NavigationRouter.m */,
 			);
-			name = Helper;
+			name = Router;
+			sourceTree = "<group>";
+		};
+		D7D4AF3C1DC86D7C00A782F7 /* Filter */ = {
+			isa = PBXGroup;
+			children = (
+				D7D4AF3D1DC86DB100A782F7 /* BeautifyFilter.h */,
+				D7D4AF3E1DC86DB100A782F7 /* BeautifyFilter.m */,
+			);
+			name = Filter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -470,6 +491,7 @@
 				D7D4AF3A1DC8662200A782F7 /* NavigationRouter.m in Sources */,
 				D7D4AEDE1DC7F33D00A782F7 /* AppDelegate.m in Sources */,
 				D7D4AF351DC8658600A782F7 /* LiveController.m in Sources */,
+				D7D4AF3F1DC86DB100A782F7 /* BeautifyFilter.m in Sources */,
 				D7D4AF1C1DC8146400A782F7 /* StreamManager.m in Sources */,
 				D7D4AF141DC80B4400A782F7 /* HomepageController.m in Sources */,
 				D7D4AF2D1DC863F100A782F7 /* LiveManager.m in Sources */,

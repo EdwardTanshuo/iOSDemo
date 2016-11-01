@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>GPUImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-LuluBroadcaster.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -22,17 +27,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>3366B4556B154114BBC2ABEBD68F3E0D</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>48E73C9DC2B3EF1323144693C64868BC</key>
+		<key>6610362E50A6DE8BACCA1F2885CD9157</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>928353533005A4198EBDA5B700D37B64</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E66FDA46F03094105AA0E27BB178BA71</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F331C31C629C05C16C0D02B986D8A752</key>
 		<dict>
 			<key>primary</key>
 			<true/>
