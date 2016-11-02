@@ -22,7 +22,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
-  - GPUImage
+  - GPUImage (~> 0.1.7)
   - NSLogger
   - SAMKeychain (from `https://github.com/soffes/SAMKeychain`)
 
@@ -41,6 +41,6 @@ SPEC CHECKSUMS:
   NSLogger: 5ed223a2436df96244e033be750656dacdeec034
   SAMKeychain: 1865333198217411f35327e8da61b43de79b635b
 
-PODFILE CHECKSUM: 7f197727cac367df92aaf8671f77bf1325f93f55
+PODFILE CHECKSUM: 94d9b88b65a3bd3c8ec8d0d19b8979e7be654b74
 
 COCOAPODS: 1.0.1

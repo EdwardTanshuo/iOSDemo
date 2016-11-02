@@ -136,6 +136,13 @@
 			name = buffer2image;
 			sourceTree = "<group>";
 		};
+		D70435261DC9A7FB00EF5FAE /* videoWritter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = videoWritter;
+			sourceTree = "<group>";
+		};
 		D7D4AECD1DC7F33D00A782F7 = {
 			isa = PBXGroup;
 			children = (
@@ -351,6 +358,7 @@
 		D7D4AF371DC865E900A782F7 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				D70435261DC9A7FB00EF5FAE /* videoWritter */,
 				D704351C1DC96FC200EF5FAE /* buffer2image */,
 				D7D4AF3C1DC86D7C00A782F7 /* Filter */,
 				D7D4AF3B1DC86D7100A782F7 /* Router */,
