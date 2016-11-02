@@ -6,5 +6,5 @@ pod 'AFNetworking', '~> 3.0'
 pod 'SAMKeychain', :git => 'https://github.com/soffes/SAMKeychain'
 pod 'GPUImage', '~> 0.1.7'
 pod 'NSLogger'
-
+pod 'PLStreamingKit'
 end

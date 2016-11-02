@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>HappyDNS.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>NSLogger.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -29,10 +34,20 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>pili-librtmp.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>283BF4BBFE1ED1DBC7AFD7B5D3516FD4</key>
+		<key>19BB3DF2897907AF2ECB9FB850102F4B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2BAC7CF49C86172B8F10A9ADFC08EF59</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -47,12 +62,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8408A46E0E323E1B4A9BEA85DBB49E20</key>
+		<key>77624852F2418A4F1977E7A161423F11</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>928353533005A4198EBDA5B700D37B64</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D0EA7BD0DF7B64D1D22AE99C93B3613D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
