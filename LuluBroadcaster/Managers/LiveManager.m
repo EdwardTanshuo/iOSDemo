@@ -27,11 +27,16 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         sharedMyManager = [[self alloc] init];
-        sharedMyManager.pixelBufferInput = [[YUGPUImageCVPixelBufferInput alloc] init];
-        sharedMyManager.filter = [[GPUImageBeautifyFilter alloc] init];
-        [sharedMyManager.pixelBufferInput addTarget: sharedMyManager.filter];
     });
     return sharedMyManager;
+}
+
+- (instancetype)init{
+    self.pixelBufferInput = [[YUGPUImageCVPixelBufferInput alloc] init];
+    self.filter = [[GPUImageBeautifyFilter alloc] init];
+    [self.pixelBufferInput addTarget: self.filter];
+    return [super init];
+    
 }
 
 - (void) dealloc{
@@ -73,7 +78,6 @@
 }
 
 - (void) sourceOnRawPixelBuffer:(CVPixelBufferRef)pixelBuffer timestamp:(int64_t)timestamp{
-    
     [_delegate recieveOnRawFragment:pixelBuffer timestamp:timestamp];
 }
 

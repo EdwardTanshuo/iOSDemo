@@ -21,16 +21,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [self setupViews];
     [self launchLive];
-    _imageView = [[GPUImageView alloc] initWithFrame:self.view.bounds];
-    _imageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    [_imageView setBackgroundColorRed:0 green:0 blue:0 alpha:1.0];
-    [self.view addSubview:_imageView];
-}
+   }
 
 - (void)launchLive{
     [LiveManager sharedManager].delegate = self;
     [[LiveManager sharedManager] startLiveWithView:_imageView];
+}
+
+- (void)setupViews{
+    _imageView = [[GPUImageView alloc] initWithFrame:self.view.bounds];
+    _imageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    [_imageView setBackgroundColorRed:0 green:0 blue:0 alpha:1.0];
+    [self.view addSubview:_imageView];
 }
 
 #pragma mark -
