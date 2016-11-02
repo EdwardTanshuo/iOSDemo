@@ -13,7 +13,7 @@
 #import "YUGPUImageCVPixelBufferInput.h"
 
 @interface LiveController ()<LiveDataSourceDelegate>
-
+@property (nonatomic, strong) GPUImageView* imageView;
 @end
 
 @implementation LiveController
@@ -22,19 +22,15 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self launchLive];
-    GPUImageView *imageView = [[GPUImageView alloc] initWithFrame:self.view.bounds];
-    imageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    [imageView setBackgroundColorRed:0 green:0 blue:0 alpha:1.0];
-    [self.view addSubview:imageView];
-    GPUImageBeautifyFilter *filter = [[GPUImageBeautifyFilter alloc] init];
-    [filter addTarget:imageView];
-    [[LiveManager sharedManager].pixelBufferInput addTarget:filter];
-
+    _imageView = [[GPUImageView alloc] initWithFrame:self.view.bounds];
+    _imageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    [_imageView setBackgroundColorRed:0 green:0 blue:0 alpha:1.0];
+    [self.view addSubview:_imageView];
 }
 
 - (void)launchLive{
     [LiveManager sharedManager].delegate = self;
-    [[LiveManager sharedManager] startLive];
+    [[LiveManager sharedManager] startLiveWithView:_imageView];
 }
 
 #pragma mark -

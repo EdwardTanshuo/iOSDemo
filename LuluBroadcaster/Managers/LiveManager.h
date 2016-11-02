@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
 #import "YUGPUImageCVPixelBufferInput.h"
+#import "GPUImageBeautifyFilter.h"
 
 @protocol LiveDataSourceDelegate
 - (void) recieveStichedFragment:(CVPixelBufferRef)pixelBuffer timestamp:(int64_t)timestamp;
@@ -21,12 +22,13 @@
 
 @property (nonatomic, weak) id<LiveDataSourceDelegate> delegate;
 @property (nonatomic,strong) YUGPUImageCVPixelBufferInput *pixelBufferInput;
+@property (nonatomic, strong) GPUImageBeautifyFilter* filter;
 
 #pragma mark singleton
 + (LiveManager*)sharedManager;
 
 #pragma mark public methods
-- (void)startLive;
+- (void)startLiveWithView: (GPUImageView*) view;
 - (void)stopLive;
 
 @end

@@ -10,12 +10,13 @@
 
 #import "LiveManager.h"
 #import "SettingSession.h"
-
+#import <GPUImage/GPUImage.h>
 #import <INSNanoSDK/INSNanoSDK.h>
 
 @interface LiveManager()<INSLiveDataSourceProtocol>
 
 @property (nonatomic, strong) INSLiveDataSource* liveDataSource;
+@property (nonatomic, weak) GPUImageView* view;
 
 @end
 
@@ -27,12 +28,15 @@
     dispatch_once(&onceToken, ^{
         sharedMyManager = [[self alloc] init];
         sharedMyManager.pixelBufferInput = [[YUGPUImageCVPixelBufferInput alloc] init];
+        sharedMyManager.filter = [[GPUImageBeautifyFilter alloc] init];
+        [sharedMyManager.pixelBufferInput addTarget: sharedMyManager.filter];
     });
     return sharedMyManager;
 }
 
 - (void) dealloc{
     [[INSCameraAccessory defaultCamera] removeObserver:self forKeyPath:@"status"];
+    [_pixelBufferInput removeTarget: _filter];
 }
 
 
@@ -85,14 +89,18 @@
     [self.liveDataSource start];
 }
 
-- (void)startLive{
+- (void)startLiveWithView: (GPUImageView*) view{
+    self.view = view;
+    [self.filter addTarget:view];
     SettingSession* session = [[SettingSession alloc] init];
     [self startLiveWithWidth:session.width WithHeight:session.height WithBitrate:session.bitrate];
 }
 
 - (void)stopLive{
+    [self.filter removeTarget:self.view];
     [self.liveDataSource stop];
     self.liveDataSource = nil;
+    [[GPUImageContext sharedFramebufferCache] purgeAllUnassignedFramebuffers];
 }
 
 - (void)parsePixelBuffer:(CVPixelBufferRef)pixelBuffer{

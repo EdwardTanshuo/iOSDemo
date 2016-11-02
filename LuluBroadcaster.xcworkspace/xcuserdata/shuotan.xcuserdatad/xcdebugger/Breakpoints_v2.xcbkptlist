@@ -138,11 +138,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LuluBroadcaster/LiveController.m"
-            timestampString = "499747180.213405"
+            timestampString = "499750906.581308"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
             landmarkName = "-launchLive"
             landmarkType = "5">
          </BreakpointContent>
@@ -170,11 +170,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LuluBroadcaster/Managers/LiveManager.m"
-            timestampString = "499745952.296834"
+            timestampString = "499750906.581308"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
             landmarkName = "-startLiveWithWidth:WithHeight:WithBitrate:"
             landmarkType = "5">
          </BreakpointContent>
@@ -186,12 +186,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LuluBroadcaster/Managers/LiveManager.m"
-            timestampString = "499745952.296834"
+            timestampString = "499750906.581308"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
             landmarkName = "-sourceOnRawPixelBuffer:timestamp:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LuluBroadcaster/Managers/LiveManager.m"
+            timestampString = "499750757.709725"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
+            landmarkName = "-stopLive"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
