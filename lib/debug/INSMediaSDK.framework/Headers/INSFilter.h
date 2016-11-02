@@ -24,7 +24,7 @@ extern NSString *const kGPUImageVertexShaderString;
 extern NSString *const kGPUImagePassthroughFragmentShaderString;
 
 
-struct GPUVector4 {
+/*struct GPUVector4 {
     GLfloat one;
     GLfloat two;
     GLfloat three;
@@ -52,7 +52,7 @@ struct GPUMatrix3x3 {
     GPUVector3 two;
     GPUVector3 three;
 };
-typedef struct GPUMatrix3x3 GPUMatrix3x3;
+typedef struct GPUMatrix3x3 GPUMatrix3x3;*/
 
 typedef NS_ENUM(NSUInteger, INSFilterType) {
     INSFilterTypeNull,                  //无滤镜

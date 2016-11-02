@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '283BF4BBFE1ED1DBC7AFD7B5D3516FD4'
-               BlueprintName = 'SAMKeychain'
+               BlueprintIdentifier = '76F40396582DBB99FE1D3F04F1ED95D0'
+               BlueprintName = 'NSLogger'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'libSAMKeychain.a'>
+               BuildableName = 'libNSLogger.a'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

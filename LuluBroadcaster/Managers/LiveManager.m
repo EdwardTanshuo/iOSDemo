@@ -6,6 +6,8 @@
 //  Copyright © 2016 ShuoTan. All rights reserved.
 //
 
+
+
 #import "LiveManager.h"
 #import "SettingSession.h"
 
@@ -24,6 +26,7 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         sharedMyManager = [[self alloc] init];
+        sharedMyManager.pixelBufferInput = [[YUGPUImageCVPixelBufferInput alloc] init];
     });
     return sharedMyManager;
 }
@@ -38,7 +41,7 @@
 #pragma mark INSLiveDataSourceProtocol
 
 - (void) sourceOnError:(NSError *)error{
-    
+    [_delegate recieveError:error];
 }
 
 - (void) sourceOnH264Header:(const uint8_t *)sps spsSize:(size_t)spsSize pps:(const uint8_t *)pps ppsSize:(size_t)ppsSize{
@@ -62,13 +65,16 @@
 
 
 - (void) sourceOnAACData:(NSData *)aacData timestamp:(int64_t)timestamp{
+    
 }
 
 - (void) sourceOnRawPixelBuffer:(CVPixelBufferRef)pixelBuffer timestamp:(int64_t)timestamp{
     
+    [_delegate recieveOnRawFragment:pixelBuffer timestamp:timestamp];
 }
 
 - (void) sourceOnStitchPixelBuffer:(CVPixelBufferRef)pixelBuffer timestamp:(int64_t)timestamp{
+    [self parsePixelBuffer: pixelBuffer];
     [_delegate recieveStichedFragment:pixelBuffer timestamp:timestamp];
 }
 
@@ -87,6 +93,10 @@
 - (void)stopLive{
     [self.liveDataSource stop];
     self.liveDataSource = nil;
+}
+
+- (void)parsePixelBuffer:(CVPixelBufferRef)pixelBuffer{
+     [self.pixelBufferInput processCVPixelBuffer:pixelBuffer];
 }
 @end
 
