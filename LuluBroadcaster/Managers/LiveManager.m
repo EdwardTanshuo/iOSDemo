@@ -80,7 +80,7 @@
 
 
 - (void) sourceOnAACData:(NSData *)aacData timestamp:(int64_t)timestamp{
-    
+    [[StreamManager sharedManager] appendAudioBuffer:aacData];
 }
 
 - (void) sourceOnRawPixelBuffer:(CVPixelBufferRef)pixelBuffer timestamp:(int64_t)timestamp{
@@ -121,7 +121,7 @@
     @autoreleasepool {
         GPUImageFramebuffer *imageFramebuffer = output.framebufferForOutput;
         CVPixelBufferRef pixelBuffer = [imageFramebuffer pixelBuffer];
-        
+        [[StreamManager sharedManager] appendVideoBuffer:pixelBuffer];
     }
 }
 @end

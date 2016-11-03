@@ -10,6 +10,8 @@
 #import "CameraManager.h"
 #import "LiveManager.h"
 #import "StreamManager.h"
+#import <NSLogger/LoggerClient.h>
+
 
 @interface AppDelegate ()
 
@@ -29,6 +31,14 @@
     
     //初始化推流
     [StreamManager sharedManager];
+    
+    //初始化日志
+    LoggerSetOptions(NULL,
+                     kLoggerOption_BufferLogsUntilConnection |
+                     kLoggerOption_UseSSL |
+                     kLoggerOption_CaptureSystemConsole|
+                     kLoggerOption_BrowseBonjour|
+                     kLoggerOption_BrowseOnlyLocalDomain | 0);
     return YES;
 }
 

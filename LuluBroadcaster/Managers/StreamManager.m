@@ -9,7 +9,7 @@
 #import "StreamManager.h"
 #import "SettingSession.h"
 #import <INSNanoSDK/INSNanoSDK.h>
-#import "LFLiveKit.h"
+
 
 @interface StreamManager()<LFLiveSessionDelegate>
 @property (nonatomic, strong) LFLiveSession* session;
@@ -41,17 +41,21 @@
 #pragma mark -
 #pragma mark LFLiveSessionDelegate
 - (void)liveSession:(nullable LFLiveSession *)session liveStateDidChange: (LFLiveState)state{
+    [_delegate liveSession:session liveStateDidChange:state];
 }
 - (void)liveSession:(nullable LFLiveSession *)session debugInfo:(nullable LFLiveDebug*)debugInfo{
+    [_delegate liveSession:session debugInfo:debugInfo];
 }
 - (void)liveSession:(nullable LFLiveSession*)session errorCode:(LFLiveSocketErrorCode)errorCode{
+    [_delegate liveSession:session errorCode:errorCode];
 }
 
 #pragma mark -
 #pragma mark methods
 - (void)startRTMP{
+    SettingSession* session = [[SettingSession alloc] init];
     LFLiveStreamInfo *streamInfo = [LFLiveStreamInfo new];
-    streamInfo.url = @"your server rtmp url";
+    streamInfo.url = [NSString stringWithFormat:@"%@%@", session.url, session.streamKey];
     [self.session startLive:streamInfo];
 }
 
@@ -59,10 +63,13 @@
     [self.session stopLive];
 }
 
-- (void)appendBuffer:(CVPixelBufferRef)buffer {
+- (void)appendVideoBuffer:(CVPixelBufferRef)buffer {
     [self.session pushVideo:buffer];
     CVPixelBufferRelease(buffer);
 }
 
+- (void)appendAudioBuffer:(NSData*)buffer{
+    [self.session pushAudio:buffer];
+}
 
 @end
