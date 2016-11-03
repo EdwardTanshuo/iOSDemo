@@ -182,8 +182,6 @@
 		D7D4AEE81DC7F33E00A782F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D7D4AEEA1DC7F33E00A782F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D7D4AEF01DC7F54F00A782F7 /* lib */ = {isa = PBXFileReference; lastKnownFileType = folder; name = lib; path = ../lib; sourceTree = "<group>"; };
-		D7D4AEF21DC7F5FC00A782F7 /* INSMediaSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = INSMediaSDK.framework; path = lib/debug/INSMediaSDK.framework; sourceTree = "<group>"; };
-		D7D4AEF41DC7F61F00A782F7 /* INSNanoSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = INSNanoSDK.framework; path = lib/debug/INSNanoSDK.framework; sourceTree = "<group>"; };
 		D7D4AF081DC8037100A782F7 /* UserSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserSession.h; path = Logic/Session/UserSession.h; sourceTree = "<group>"; };
 		D7D4AF091DC8037100A782F7 /* UserSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserSession.m; path = Logic/Session/UserSession.m; sourceTree = "<group>"; };
 		D7D4AF0B1DC8065800A782F7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -259,8 +257,6 @@
 				D7D6EBCB1DCAC461005935B8 /* VideoToolbox.framework */,
 				D7D6EBC91DCAC44A005935B8 /* AVFoundation.framework */,
 				D7D4AF0B1DC8065800A782F7 /* Security.framework */,
-				D7D4AEF41DC7F61F00A782F7 /* INSNanoSDK.framework */,
-				D7D4AEF21DC7F5FC00A782F7 /* INSMediaSDK.framework */,
 				3C242F5B1374B50FF8F3A2FA /* libPods-LuluBroadcaster.a */,
 			);
 			name = Frameworks;
