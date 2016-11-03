@@ -4,7 +4,7 @@
 // Created by Shuo Tan on 10/29/16.
 //
 
-#import <GPUImage/GPUImage.h>
+#import "GPUImage.h"
 
 @class GPUImageCombinationFilter;
 

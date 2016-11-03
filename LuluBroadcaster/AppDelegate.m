@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "CameraManager.h"
 #import "LiveManager.h"
+#import "StreamManager.h"
 
 @interface AppDelegate ()
 
@@ -22,8 +23,12 @@
     
     //初始化相机
     [CameraManager sharedManager];
+    
+    //初始化直播
     [LiveManager sharedManager];
     
+    //初始化推流
+    [StreamManager sharedManager];
     return YES;
 }
 

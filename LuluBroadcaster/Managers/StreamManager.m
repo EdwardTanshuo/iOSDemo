@@ -8,13 +8,11 @@
 
 #import "StreamManager.h"
 #import "SettingSession.h"
-
 #import <INSNanoSDK/INSNanoSDK.h>
+#import "LFLiveKit.h"
 
-@interface StreamManager()<INSLiveStreamerStateDelegate>
-
-@property (nonatomic, strong) INSLiveDataSource* liveDataSource;
-
+@interface StreamManager()<LFLiveSessionDelegate>
+@property (nonatomic, strong) LFLiveSession* session;
 @end
 
 @implementation StreamManager
@@ -28,28 +26,43 @@
     return sharedMyManager;
 }
 
+- (instancetype)init{
+    if (!_session) {
+        _session = [[LFLiveSession alloc] initWithAudioConfiguration:[LFLiveAudioConfiguration defaultConfiguration] videoConfiguration:[LFLiveVideoConfiguration defaultConfiguration]];
+        _session.delegate = self;
+    }
+    return [super init];
+}
+
 - (void) dealloc{
-    [[INSCameraAccessory defaultCamera] removeObserver:self forKeyPath:@"status"];
+    
 }
 
 #pragma mark -
-#pragma mark INSLiveStreamerStateDelegate
-
-- (void)streamer:(id<INSLiveStreamer>)streamer onError:(NSError*)error {
-    
+#pragma mark LFLiveSessionDelegate
+- (void)liveSession:(nullable LFLiveSession *)session liveStateDidChange: (LFLiveState)state{
+}
+- (void)liveSession:(nullable LFLiveSession *)session debugInfo:(nullable LFLiveDebug*)debugInfo{
+}
+- (void)liveSession:(nullable LFLiveSession*)session errorCode:(LFLiveSocketErrorCode)errorCode{
 }
 
-- (void)streamerOnStart:(id<INSLiveStreamer>)streamer {
-    
+#pragma mark -
+#pragma mark methods
+- (void)startRTMP{
+    LFLiveStreamInfo *streamInfo = [LFLiveStreamInfo new];
+    streamInfo.url = @"your server rtmp url";
+    [self.session startLive:streamInfo];
 }
 
-- (void)streamerOnStop:(id<INSLiveStreamer>)streamer {
-    
-}
-- (void)streamerOnLiveFps:(double)fps duration:(double)duration{
-    
+- (void)stopRTMP{
+    [self.session stopLive];
 }
 
+- (void)appendBuffer:(CVPixelBufferRef)buffer {
+    [self.session pushVideo:buffer];
+    CVPixelBufferRelease(buffer);
+}
 
 
 @end

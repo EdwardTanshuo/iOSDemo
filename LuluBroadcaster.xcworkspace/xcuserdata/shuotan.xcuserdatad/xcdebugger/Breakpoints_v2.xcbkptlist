@@ -170,11 +170,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LuluBroadcaster/Managers/LiveManager.m"
-            timestampString = "499756824.23588"
+            timestampString = "499837801.731138"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "105"
-            endingLineNumber = "105"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
             landmarkName = "-startLiveWithWidth:WithHeight:WithBitrate:"
             landmarkType = "5">
          </BreakpointContent>
@@ -186,11 +186,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LuluBroadcaster/Managers/LiveManager.m"
-            timestampString = "499756824.23588"
+            timestampString = "499837801.731138"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "94"
-            endingLineNumber = "94"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
             landmarkName = "-sourceOnRawPixelBuffer:timestamp:"
             landmarkType = "5">
          </BreakpointContent>
@@ -202,11 +202,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LuluBroadcaster/Managers/LiveManager.m"
-            timestampString = "499756824.23588"
+            timestampString = "499837801.731138"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "116"
-            endingLineNumber = "116"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
             landmarkName = "-stopLive"
             landmarkType = "5">
          </BreakpointContent>

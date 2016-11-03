@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <AVFoundation/AVFoundation.h>
+
 @protocol StreamManagerDelegate
 
 @end
@@ -20,5 +22,7 @@
 + (StreamManager*)sharedManager;
 
 #pragma mark public methods
-
+- (void)startRTMP;
+- (void)appendBuffer:(CVPixelBufferRef)buffer;
+- (void)stopRTMP;
 @end

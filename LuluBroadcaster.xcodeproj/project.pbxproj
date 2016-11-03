@@ -9,40 +9,103 @@
 /* Begin PBXBuildFile section */
 		D70435221DC9704F00EF5FAE /* YUGPUImageCVPixelBufferInput.m in Sources */ = {isa = PBXBuildFile; fileRef = D70435211DC9704F00EF5FAE /* YUGPUImageCVPixelBufferInput.m */; };
 		D70435251DC988A800EF5FAE /* GPUImageBeautifyFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = D70435241DC988A800EF5FAE /* GPUImageBeautifyFilter.m */; };
+		D7BA5C471DCACDE6000F1AB7 /* LFAudioCapture.m in Sources */ = {isa = PBXBuildFile; fileRef = D7BA5C121DCACDE6000F1AB7 /* LFAudioCapture.m */; };
+		D7BA5C481DCACDE6000F1AB7 /* LFVideoCapture.m in Sources */ = {isa = PBXBuildFile; fileRef = D7BA5C141DCACDE6000F1AB7 /* LFVideoCapture.m */; };
+		D7BA5C491DCACDE6000F1AB7 /* LFAVEncoder.mm in Sources */ = {isa = PBXBuildFile; fileRef = D7BA5C181DCACDE6000F1AB7 /* LFAVEncoder.mm */; };
+		D7BA5C4A1DCACDE6000F1AB7 /* LFMP4Atom.m in Sources */ = {isa = PBXBuildFile; fileRef = D7BA5C1A1DCACDE6000F1AB7 /* LFMP4Atom.m */; };
+		D7BA5C4B1DCACDE6000F1AB7 /* LFNALUnit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D7BA5C1B1DCACDE6000F1AB7 /* LFNALUnit.cpp */; };
+		D7BA5C4C1DCACDE6000F1AB7 /* LFVideoEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = D7BA5C1E1DCACDE6000F1AB7 /* LFVideoEncoder.m */; };
+		D7BA5C4D1DCACDE6000F1AB7 /* LFH264VideoEncoder.mm in Sources */ = {isa = PBXBuildFile; fileRef = D7BA5C211DCACDE6000F1AB7 /* LFH264VideoEncoder.mm */; };
+		D7BA5C4E1DCACDE6000F1AB7 /* LFHardwareAudioEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = D7BA5C231DCACDE6000F1AB7 /* LFHardwareAudioEncoder.m */; };
+		D7BA5C4F1DCACDE6000F1AB7 /* LFHardwareVideoEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = D7BA5C251DCACDE6000F1AB7 /* LFHardwareVideoEncoder.m */; };
+		D7BA5C501DCACDE6000F1AB7 /* LFLiveAudioConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = D7BA5C291DCACDE6000F1AB7 /* LFLiveAudioConfiguration.m */; };
+		D7BA5C511DCACDE6000F1AB7 /* LFLiveVideoConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = D7BA5C2B1DCACDE6000F1AB7 /* LFLiveVideoConfiguration.m */; };
+		D7BA5C521DCACDE6000F1AB7 /* LFGPUImageBeautyFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = D7BA5C2E1DCACDE6000F1AB7 /* LFGPUImageBeautyFilter.m */; };
+		D7BA5C531DCACDE6000F1AB7 /* LFGPUImageEmptyFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = D7BA5C301DCACDE6000F1AB7 /* LFGPUImageEmptyFilter.m */; };
+		D7BA5C541DCACDE6000F1AB7 /* LFLiveSession.m in Sources */ = {isa = PBXBuildFile; fileRef = D7BA5C331DCACDE6000F1AB7 /* LFLiveSession.m */; };
+		D7BA5C551DCACDE6000F1AB7 /* LFAudioFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = D7BA5C361DCACDE6000F1AB7 /* LFAudioFrame.m */; };
+		D7BA5C561DCACDE6000F1AB7 /* LFFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = D7BA5C381DCACDE6000F1AB7 /* LFFrame.m */; };
+		D7BA5C571DCACDE6000F1AB7 /* LFLiveDebug.m in Sources */ = {isa = PBXBuildFile; fileRef = D7BA5C3A1DCACDE6000F1AB7 /* LFLiveDebug.m */; };
+		D7BA5C581DCACDE6000F1AB7 /* LFLiveStreamInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D7BA5C3C1DCACDE6000F1AB7 /* LFLiveStreamInfo.m */; };
+		D7BA5C591DCACDE6000F1AB7 /* LFVideoFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = D7BA5C3E1DCACDE6000F1AB7 /* LFVideoFrame.m */; };
+		D7BA5C5A1DCACDE6000F1AB7 /* LFStreamingBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = D7BA5C411DCACDE6000F1AB7 /* LFStreamingBuffer.m */; };
+		D7BA5C5B1DCACDE6000F1AB7 /* LFStreamRtmpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = D7BA5C431DCACDE6000F1AB7 /* LFStreamRtmpSocket.m */; };
+		D7BA5C5C1DCACDE6000F1AB7 /* NSMutableArray+LFAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = D7BA5C461DCACDE6000F1AB7 /* NSMutableArray+LFAdd.m */; };
+		D7BA5C5F1DCAD750000F1AB7 /* GPUImageFramebuffer+CVBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = D7BA5C5E1DCAD750000F1AB7 /* GPUImageFramebuffer+CVBuffer.m */; };
+		D7BA5C631DCAD78C000F1AB7 /* LiveController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7BA5C611DCAD78C000F1AB7 /* LiveController.m */; };
+		D7BA5C641DCAD78C000F1AB7 /* LiveController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7BA5C621DCAD78C000F1AB7 /* LiveController.xib */; };
+		D7BA5C741DCAE8F0000F1AB7 /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7BA5C711DCAE874000F1AB7 /* GPUImage.framework */; };
+		D7BA5C781DCAEC38000F1AB7 /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7BA5C711DCAE874000F1AB7 /* GPUImage.framework */; };
+		D7BA5C791DCAEC38000F1AB7 /* GPUImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D7BA5C711DCAE874000F1AB7 /* GPUImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D7D4AEDB1DC7F33D00A782F7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D4AEDA1DC7F33D00A782F7 /* main.m */; };
 		D7D4AEDE1DC7F33D00A782F7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D4AEDD1DC7F33D00A782F7 /* AppDelegate.m */; };
 		D7D4AEE41DC7F33D00A782F7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7D4AEE21DC7F33D00A782F7 /* Main.storyboard */; };
 		D7D4AEE61DC7F33E00A782F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7D4AEE51DC7F33E00A782F7 /* Assets.xcassets */; };
 		D7D4AEE91DC7F33E00A782F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7D4AEE71DC7F33E00A782F7 /* LaunchScreen.storyboard */; };
 		D7D4AEF11DC7F54F00A782F7 /* lib in Resources */ = {isa = PBXBuildFile; fileRef = D7D4AEF01DC7F54F00A782F7 /* lib */; };
-		D7D4AEF71DC7F65400A782F7 /* INSNanoSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7D4AEF41DC7F61F00A782F7 /* INSNanoSDK.framework */; };
-		D7D4AEF91DC7F65400A782F7 /* INSMediaSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7D4AEF21DC7F5FC00A782F7 /* INSMediaSDK.framework */; };
 		D7D4AF0A1DC8037100A782F7 /* UserSession.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D4AF091DC8037100A782F7 /* UserSession.m */; };
 		D7D4AF0C1DC8065800A782F7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7D4AF0B1DC8065800A782F7 /* Security.framework */; };
 		D7D4AF141DC80B4400A782F7 /* HomepageController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D4AF131DC80B4400A782F7 /* HomepageController.m */; };
 		D7D4AF181DC80E7700A782F7 /* CameraManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D4AF171DC80E7700A782F7 /* CameraManager.m */; };
 		D7D4AF1C1DC8146400A782F7 /* StreamManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D4AF1B1DC8146400A782F7 /* StreamManager.m */; };
 		D7D4AF221DC817E400A782F7 /* SettingSession.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D4AF211DC817E400A782F7 /* SettingSession.m */; };
-		D7D4AF241DC820E400A782F7 /* INSMediaSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7D4AF231DC820E400A782F7 /* INSMediaSDK.framework */; };
-		D7D4AF251DC820E400A782F7 /* INSMediaSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D7D4AF231DC820E400A782F7 /* INSMediaSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D7D4AF281DC820F000A782F7 /* INSNanoSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7D4AF271DC820F000A782F7 /* INSNanoSDK.framework */; };
-		D7D4AF291DC820F000A782F7 /* INSNanoSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D7D4AF271DC820F000A782F7 /* INSNanoSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D7D4AF2D1DC863F100A782F7 /* LiveManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D4AF2C1DC863F100A782F7 /* LiveManager.m */; };
-		D7D4AF351DC8658600A782F7 /* LiveController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D4AF331DC8658600A782F7 /* LiveController.m */; };
-		D7D4AF361DC8658600A782F7 /* LiveController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7D4AF341DC8658600A782F7 /* LiveController.xib */; };
 		D7D4AF3A1DC8662200A782F7 /* NavigationRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D4AF391DC8662200A782F7 /* NavigationRouter.m */; };
+		D7D6EBCA1DCAC44A005935B8 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7D6EBC91DCAC44A005935B8 /* AVFoundation.framework */; };
+		D7D6EBCC1DCAC461005935B8 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7D6EBCB1DCAC461005935B8 /* VideoToolbox.framework */; };
+		D7D6EBCE1DCAC46E005935B8 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7D6EBCD1DCAC46E005935B8 /* AudioToolbox.framework */; };
+		D7D6EBD01DCAC4ED005935B8 /* libz.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D7D6EBCF1DCAC4ED005935B8 /* libz.1.dylib */; };
+		D7D6EBD21DCAC51A005935B8 /* libstdc++.6.0.9.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D7D6EBD11DCAC51A005935B8 /* libstdc++.6.0.9.dylib */; };
+		D7D6EBE21DCACC1D005935B8 /* INSMediaSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7D6EBE01DCACC1D005935B8 /* INSMediaSDK.framework */; };
+		D7D6EBE31DCACC1D005935B8 /* INSNanoSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7D6EBE11DCACC1D005935B8 /* INSNanoSDK.framework */; };
+		D7D6EBE61DCACC31005935B8 /* INSMediaSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7D6EBE41DCACC31005935B8 /* INSMediaSDK.framework */; };
+		D7D6EBE71DCACC31005935B8 /* INSMediaSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D7D6EBE41DCACC31005935B8 /* INSMediaSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D7D6EBE81DCACC31005935B8 /* INSNanoSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7D6EBE51DCACC31005935B8 /* INSNanoSDK.framework */; };
+		D7D6EBE91DCACC31005935B8 /* INSNanoSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D7D6EBE51DCACC31005935B8 /* INSNanoSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E8210C9AC4A2F1073D4164CC /* libPods-LuluBroadcaster.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C242F5B1374B50FF8F3A2FA /* libPods-LuluBroadcaster.a */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		D7BA5C6E1DCAE874000F1AB7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D7BA5C681DCAE874000F1AB7 /* GPUImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BCF1A33414DDB1EC00852800;
+			remoteInfo = GPUImage;
+		};
+		D7BA5C701DCAE874000F1AB7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D7BA5C681DCAE874000F1AB7 /* GPUImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BCE209E51943F20C002FEED8;
+			remoteInfo = GPUImageFramework;
+		};
+		D7BA5C721DCAE8C8000F1AB7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D7BA5C681DCAE874000F1AB7 /* GPUImage.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = BCE209E41943F20C002FEED8;
+			remoteInfo = GPUImageFramework;
+		};
+		D7BA5C7A1DCAEC38000F1AB7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D7BA5C681DCAE874000F1AB7 /* GPUImage.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = BCE209E41943F20C002FEED8;
+			remoteInfo = GPUImageFramework;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
-		D7D4AF261DC820E400A782F7 /* Embed Frameworks */ = {
+		D7D6EBEA1DCACC31005935B8 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				D7D4AF291DC820F000A782F7 /* INSNanoSDK.framework in Embed Frameworks */,
-				D7D4AF251DC820E400A782F7 /* INSMediaSDK.framework in Embed Frameworks */,
+				D7D6EBE91DCACC31005935B8 /* INSNanoSDK.framework in Embed Frameworks */,
+				D7D6EBE71DCACC31005935B8 /* INSMediaSDK.framework in Embed Frameworks */,
+				D7BA5C791DCAEC38000F1AB7 /* GPUImage.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -56,6 +119,60 @@
 		D70435211DC9704F00EF5FAE /* YUGPUImageCVPixelBufferInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YUGPUImageCVPixelBufferInput.m; path = Logic/Helper/buffer2image/YUGPUImageCVPixelBufferInput.m; sourceTree = "<group>"; };
 		D70435231DC988A800EF5FAE /* GPUImageBeautifyFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPUImageBeautifyFilter.h; path = Logic/Helper/filter/GPUImageBeautifyFilter.h; sourceTree = "<group>"; };
 		D70435241DC988A800EF5FAE /* GPUImageBeautifyFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPUImageBeautifyFilter.m; path = Logic/Helper/filter/GPUImageBeautifyFilter.m; sourceTree = "<group>"; };
+		D7BA5C111DCACDE6000F1AB7 /* LFAudioCapture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFAudioCapture.h; sourceTree = "<group>"; };
+		D7BA5C121DCACDE6000F1AB7 /* LFAudioCapture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFAudioCapture.m; sourceTree = "<group>"; };
+		D7BA5C131DCACDE6000F1AB7 /* LFVideoCapture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFVideoCapture.h; sourceTree = "<group>"; };
+		D7BA5C141DCACDE6000F1AB7 /* LFVideoCapture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFVideoCapture.m; sourceTree = "<group>"; };
+		D7BA5C171DCACDE6000F1AB7 /* LFAVEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFAVEncoder.h; sourceTree = "<group>"; };
+		D7BA5C181DCACDE6000F1AB7 /* LFAVEncoder.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LFAVEncoder.mm; sourceTree = "<group>"; };
+		D7BA5C191DCACDE6000F1AB7 /* LFMP4Atom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFMP4Atom.h; sourceTree = "<group>"; };
+		D7BA5C1A1DCACDE6000F1AB7 /* LFMP4Atom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFMP4Atom.m; sourceTree = "<group>"; };
+		D7BA5C1B1DCACDE6000F1AB7 /* LFNALUnit.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LFNALUnit.cpp; sourceTree = "<group>"; };
+		D7BA5C1C1DCACDE6000F1AB7 /* LFNALUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFNALUnit.h; sourceTree = "<group>"; };
+		D7BA5C1D1DCACDE6000F1AB7 /* LFVideoEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFVideoEncoder.h; sourceTree = "<group>"; };
+		D7BA5C1E1DCACDE6000F1AB7 /* LFVideoEncoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFVideoEncoder.m; sourceTree = "<group>"; };
+		D7BA5C1F1DCACDE6000F1AB7 /* LFAudioEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFAudioEncoding.h; sourceTree = "<group>"; };
+		D7BA5C201DCACDE6000F1AB7 /* LFH264VideoEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFH264VideoEncoder.h; sourceTree = "<group>"; };
+		D7BA5C211DCACDE6000F1AB7 /* LFH264VideoEncoder.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LFH264VideoEncoder.mm; sourceTree = "<group>"; };
+		D7BA5C221DCACDE6000F1AB7 /* LFHardwareAudioEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFHardwareAudioEncoder.h; sourceTree = "<group>"; };
+		D7BA5C231DCACDE6000F1AB7 /* LFHardwareAudioEncoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFHardwareAudioEncoder.m; sourceTree = "<group>"; };
+		D7BA5C241DCACDE6000F1AB7 /* LFHardwareVideoEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFHardwareVideoEncoder.h; sourceTree = "<group>"; };
+		D7BA5C251DCACDE6000F1AB7 /* LFHardwareVideoEncoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFHardwareVideoEncoder.m; sourceTree = "<group>"; };
+		D7BA5C261DCACDE6000F1AB7 /* LFVideoEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFVideoEncoding.h; sourceTree = "<group>"; };
+		D7BA5C281DCACDE6000F1AB7 /* LFLiveAudioConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFLiveAudioConfiguration.h; sourceTree = "<group>"; };
+		D7BA5C291DCACDE6000F1AB7 /* LFLiveAudioConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFLiveAudioConfiguration.m; sourceTree = "<group>"; };
+		D7BA5C2A1DCACDE6000F1AB7 /* LFLiveVideoConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFLiveVideoConfiguration.h; sourceTree = "<group>"; };
+		D7BA5C2B1DCACDE6000F1AB7 /* LFLiveVideoConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFLiveVideoConfiguration.m; sourceTree = "<group>"; };
+		D7BA5C2D1DCACDE6000F1AB7 /* LFGPUImageBeautyFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFGPUImageBeautyFilter.h; sourceTree = "<group>"; };
+		D7BA5C2E1DCACDE6000F1AB7 /* LFGPUImageBeautyFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFGPUImageBeautyFilter.m; sourceTree = "<group>"; };
+		D7BA5C2F1DCACDE6000F1AB7 /* LFGPUImageEmptyFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFGPUImageEmptyFilter.h; sourceTree = "<group>"; };
+		D7BA5C301DCACDE6000F1AB7 /* LFGPUImageEmptyFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFGPUImageEmptyFilter.m; sourceTree = "<group>"; };
+		D7BA5C311DCACDE6000F1AB7 /* LFLiveKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFLiveKit.h; sourceTree = "<group>"; };
+		D7BA5C321DCACDE6000F1AB7 /* LFLiveSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFLiveSession.h; sourceTree = "<group>"; };
+		D7BA5C331DCACDE6000F1AB7 /* LFLiveSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFLiveSession.m; sourceTree = "<group>"; };
+		D7BA5C351DCACDE6000F1AB7 /* LFAudioFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFAudioFrame.h; sourceTree = "<group>"; };
+		D7BA5C361DCACDE6000F1AB7 /* LFAudioFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFAudioFrame.m; sourceTree = "<group>"; };
+		D7BA5C371DCACDE6000F1AB7 /* LFFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFFrame.h; sourceTree = "<group>"; };
+		D7BA5C381DCACDE6000F1AB7 /* LFFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFFrame.m; sourceTree = "<group>"; };
+		D7BA5C391DCACDE6000F1AB7 /* LFLiveDebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFLiveDebug.h; sourceTree = "<group>"; };
+		D7BA5C3A1DCACDE6000F1AB7 /* LFLiveDebug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFLiveDebug.m; sourceTree = "<group>"; };
+		D7BA5C3B1DCACDE6000F1AB7 /* LFLiveStreamInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFLiveStreamInfo.h; sourceTree = "<group>"; };
+		D7BA5C3C1DCACDE6000F1AB7 /* LFLiveStreamInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFLiveStreamInfo.m; sourceTree = "<group>"; };
+		D7BA5C3D1DCACDE6000F1AB7 /* LFVideoFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFVideoFrame.h; sourceTree = "<group>"; };
+		D7BA5C3E1DCACDE6000F1AB7 /* LFVideoFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFVideoFrame.m; sourceTree = "<group>"; };
+		D7BA5C401DCACDE6000F1AB7 /* LFStreamingBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFStreamingBuffer.h; sourceTree = "<group>"; };
+		D7BA5C411DCACDE6000F1AB7 /* LFStreamingBuffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFStreamingBuffer.m; sourceTree = "<group>"; };
+		D7BA5C421DCACDE6000F1AB7 /* LFStreamRTMPSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFStreamRTMPSocket.h; sourceTree = "<group>"; };
+		D7BA5C431DCACDE6000F1AB7 /* LFStreamRtmpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFStreamRtmpSocket.m; sourceTree = "<group>"; };
+		D7BA5C441DCACDE6000F1AB7 /* LFStreamSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFStreamSocket.h; sourceTree = "<group>"; };
+		D7BA5C451DCACDE6000F1AB7 /* NSMutableArray+LFAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+LFAdd.h"; sourceTree = "<group>"; };
+		D7BA5C461DCACDE6000F1AB7 /* NSMutableArray+LFAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+LFAdd.m"; sourceTree = "<group>"; };
+		D7BA5C5D1DCAD750000F1AB7 /* GPUImageFramebuffer+CVBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GPUImageFramebuffer+CVBuffer.h"; path = "Logic/Helper/GPUImageFramebuffer+CVBuffer.h"; sourceTree = "<group>"; };
+		D7BA5C5E1DCAD750000F1AB7 /* GPUImageFramebuffer+CVBuffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "GPUImageFramebuffer+CVBuffer.m"; path = "Logic/Helper/GPUImageFramebuffer+CVBuffer.m"; sourceTree = "<group>"; };
+		D7BA5C601DCAD78C000F1AB7 /* LiveController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LiveController.h; path = ViewControllers/LiveController.h; sourceTree = "<group>"; };
+		D7BA5C611DCAD78C000F1AB7 /* LiveController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LiveController.m; path = ViewControllers/LiveController.m; sourceTree = "<group>"; };
+		D7BA5C621DCAD78C000F1AB7 /* LiveController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LiveController.xib; path = ViewControllers/LiveController.xib; sourceTree = "<group>"; };
+		D7BA5C681DCAE874000F1AB7 /* GPUImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GPUImage.xcodeproj; path = lib/GPUImage/framework/GPUImage.xcodeproj; sourceTree = "<group>"; };
 		D7D4AED61DC7F33D00A782F7 /* LuluBroadcaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LuluBroadcaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7D4AEDA1DC7F33D00A782F7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D7D4AEDC1DC7F33D00A782F7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -78,15 +195,21 @@
 		D7D4AF1B1DC8146400A782F7 /* StreamManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StreamManager.m; path = Managers/StreamManager.m; sourceTree = "<group>"; };
 		D7D4AF201DC817E400A782F7 /* SettingSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingSession.h; path = Logic/Session/SettingSession.h; sourceTree = "<group>"; };
 		D7D4AF211DC817E400A782F7 /* SettingSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingSession.m; path = Logic/Session/SettingSession.m; sourceTree = "<group>"; };
-		D7D4AF231DC820E400A782F7 /* INSMediaSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = INSMediaSDK.framework; path = lib/release/INSMediaSDK.framework; sourceTree = "<group>"; };
-		D7D4AF271DC820F000A782F7 /* INSNanoSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = INSNanoSDK.framework; path = lib/release/INSNanoSDK.framework; sourceTree = "<group>"; };
 		D7D4AF2B1DC863F100A782F7 /* LiveManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LiveManager.h; path = Managers/LiveManager.h; sourceTree = "<group>"; };
 		D7D4AF2C1DC863F100A782F7 /* LiveManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LiveManager.m; path = Managers/LiveManager.m; sourceTree = "<group>"; };
-		D7D4AF321DC8658600A782F7 /* LiveController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveController.h; sourceTree = "<group>"; };
-		D7D4AF331DC8658600A782F7 /* LiveController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiveController.m; sourceTree = "<group>"; };
-		D7D4AF341DC8658600A782F7 /* LiveController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LiveController.xib; sourceTree = "<group>"; };
 		D7D4AF381DC8662200A782F7 /* NavigationRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NavigationRouter.h; path = Logic/Helper/NavigationRouter.h; sourceTree = "<group>"; };
 		D7D4AF391DC8662200A782F7 /* NavigationRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NavigationRouter.m; path = Logic/Helper/NavigationRouter.m; sourceTree = "<group>"; };
+		D7D6EBC91DCAC44A005935B8 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		D7D6EBCB1DCAC461005935B8 /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
+		D7D6EBCD1DCAC46E005935B8 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		D7D6EBCF1DCAC4ED005935B8 /* libz.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.dylib; path = ../../../../usr/lib/libz.1.dylib; sourceTree = "<group>"; };
+		D7D6EBD11DCAC51A005935B8 /* libstdc++.6.0.9.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.0.9.dylib"; path = "../../../../usr/lib/libstdc++.6.0.9.dylib"; sourceTree = "<group>"; };
+		D7D6EBDC1DCACBF8005935B8 /* INSMediaSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = INSMediaSDK.framework; path = lib/Insta/debug/INSMediaSDK.framework; sourceTree = "<group>"; };
+		D7D6EBDD1DCACBF8005935B8 /* INSNanoSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = INSNanoSDK.framework; path = lib/Insta/debug/INSNanoSDK.framework; sourceTree = "<group>"; };
+		D7D6EBE01DCACC1D005935B8 /* INSMediaSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = INSMediaSDK.framework; path = lib/Insta/release/INSMediaSDK.framework; sourceTree = "<group>"; };
+		D7D6EBE11DCACC1D005935B8 /* INSNanoSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = INSNanoSDK.framework; path = lib/Insta/release/INSNanoSDK.framework; sourceTree = "<group>"; };
+		D7D6EBE41DCACC31005935B8 /* INSMediaSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = INSMediaSDK.framework; path = lib/Insta/release/INSMediaSDK.framework; sourceTree = "<group>"; };
+		D7D6EBE51DCACC31005935B8 /* INSNanoSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = INSNanoSDK.framework; path = lib/Insta/release/INSNanoSDK.framework; sourceTree = "<group>"; };
 		DAFDB40B4891175C98C3CFD9 /* Pods-LuluBroadcaster.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LuluBroadcaster.release.xcconfig"; path = "Pods/Target Support Files/Pods-LuluBroadcaster/Pods-LuluBroadcaster.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -95,11 +218,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D7D4AF281DC820F000A782F7 /* INSNanoSDK.framework in Frameworks */,
-				D7D4AF241DC820E400A782F7 /* INSMediaSDK.framework in Frameworks */,
+				D7BA5C781DCAEC38000F1AB7 /* GPUImage.framework in Frameworks */,
+				D7BA5C741DCAE8F0000F1AB7 /* GPUImage.framework in Frameworks */,
+				D7D6EBE81DCACC31005935B8 /* INSNanoSDK.framework in Frameworks */,
+				D7D6EBE21DCACC1D005935B8 /* INSMediaSDK.framework in Frameworks */,
+				D7D6EBE31DCACC1D005935B8 /* INSNanoSDK.framework in Frameworks */,
+				D7D6EBD21DCAC51A005935B8 /* libstdc++.6.0.9.dylib in Frameworks */,
+				D7D6EBD01DCAC4ED005935B8 /* libz.1.dylib in Frameworks */,
+				D7D6EBCE1DCAC46E005935B8 /* AudioToolbox.framework in Frameworks */,
+				D7D6EBE61DCACC31005935B8 /* INSMediaSDK.framework in Frameworks */,
+				D7D6EBCC1DCAC461005935B8 /* VideoToolbox.framework in Frameworks */,
+				D7D6EBCA1DCAC44A005935B8 /* AVFoundation.framework in Frameworks */,
 				D7D4AF0C1DC8065800A782F7 /* Security.framework in Frameworks */,
-				D7D4AEF91DC7F65400A782F7 /* INSMediaSDK.framework in Frameworks */,
-				D7D4AEF71DC7F65400A782F7 /* INSNanoSDK.framework in Frameworks */,
 				E8210C9AC4A2F1073D4164CC /* libPods-LuluBroadcaster.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -119,6 +249,15 @@
 		57615423CCA8F96E02CC14BF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D7D6EBE01DCACC1D005935B8 /* INSMediaSDK.framework */,
+				D7D6EBE11DCACC1D005935B8 /* INSNanoSDK.framework */,
+				D7D6EBDC1DCACBF8005935B8 /* INSMediaSDK.framework */,
+				D7D6EBDD1DCACBF8005935B8 /* INSNanoSDK.framework */,
+				D7D6EBD11DCAC51A005935B8 /* libstdc++.6.0.9.dylib */,
+				D7D6EBCF1DCAC4ED005935B8 /* libz.1.dylib */,
+				D7D6EBCD1DCAC46E005935B8 /* AudioToolbox.framework */,
+				D7D6EBCB1DCAC461005935B8 /* VideoToolbox.framework */,
+				D7D6EBC91DCAC44A005935B8 /* AVFoundation.framework */,
 				D7D4AF0B1DC8065800A782F7 /* Security.framework */,
 				D7D4AEF41DC7F61F00A782F7 /* INSNanoSDK.framework */,
 				D7D4AEF21DC7F5FC00A782F7 /* INSMediaSDK.framework */,
@@ -136,18 +275,141 @@
 			name = buffer2image;
 			sourceTree = "<group>";
 		};
-		D70435261DC9A7FB00EF5FAE /* videoWritter */ = {
+		D70435261DC9A7FB00EF5FAE /* gpuimage-ext */ = {
 			isa = PBXGroup;
 			children = (
+				D7BA5C5D1DCAD750000F1AB7 /* GPUImageFramebuffer+CVBuffer.h */,
+				D7BA5C5E1DCAD750000F1AB7 /* GPUImageFramebuffer+CVBuffer.m */,
 			);
-			name = videoWritter;
+			name = "gpuimage-ext";
+			sourceTree = "<group>";
+		};
+		D7BA5C0F1DCACDE6000F1AB7 /* LFLiveKit */ = {
+			isa = PBXGroup;
+			children = (
+				D7BA5C101DCACDE6000F1AB7 /* capture */,
+				D7BA5C151DCACDE6000F1AB7 /* coder */,
+				D7BA5C271DCACDE6000F1AB7 /* configuration */,
+				D7BA5C2C1DCACDE6000F1AB7 /* filter */,
+				D7BA5C311DCACDE6000F1AB7 /* LFLiveKit.h */,
+				D7BA5C321DCACDE6000F1AB7 /* LFLiveSession.h */,
+				D7BA5C331DCACDE6000F1AB7 /* LFLiveSession.m */,
+				D7BA5C341DCACDE6000F1AB7 /* objects */,
+				D7BA5C3F1DCACDE6000F1AB7 /* publish */,
+			);
+			path = LFLiveKit;
+			sourceTree = "<group>";
+		};
+		D7BA5C101DCACDE6000F1AB7 /* capture */ = {
+			isa = PBXGroup;
+			children = (
+				D7BA5C111DCACDE6000F1AB7 /* LFAudioCapture.h */,
+				D7BA5C121DCACDE6000F1AB7 /* LFAudioCapture.m */,
+				D7BA5C131DCACDE6000F1AB7 /* LFVideoCapture.h */,
+				D7BA5C141DCACDE6000F1AB7 /* LFVideoCapture.m */,
+			);
+			path = capture;
+			sourceTree = "<group>";
+		};
+		D7BA5C151DCACDE6000F1AB7 /* coder */ = {
+			isa = PBXGroup;
+			children = (
+				D7BA5C161DCACDE6000F1AB7 /* H264 */,
+				D7BA5C1F1DCACDE6000F1AB7 /* LFAudioEncoding.h */,
+				D7BA5C201DCACDE6000F1AB7 /* LFH264VideoEncoder.h */,
+				D7BA5C211DCACDE6000F1AB7 /* LFH264VideoEncoder.mm */,
+				D7BA5C221DCACDE6000F1AB7 /* LFHardwareAudioEncoder.h */,
+				D7BA5C231DCACDE6000F1AB7 /* LFHardwareAudioEncoder.m */,
+				D7BA5C241DCACDE6000F1AB7 /* LFHardwareVideoEncoder.h */,
+				D7BA5C251DCACDE6000F1AB7 /* LFHardwareVideoEncoder.m */,
+				D7BA5C261DCACDE6000F1AB7 /* LFVideoEncoding.h */,
+			);
+			path = coder;
+			sourceTree = "<group>";
+		};
+		D7BA5C161DCACDE6000F1AB7 /* H264 */ = {
+			isa = PBXGroup;
+			children = (
+				D7BA5C171DCACDE6000F1AB7 /* LFAVEncoder.h */,
+				D7BA5C181DCACDE6000F1AB7 /* LFAVEncoder.mm */,
+				D7BA5C191DCACDE6000F1AB7 /* LFMP4Atom.h */,
+				D7BA5C1A1DCACDE6000F1AB7 /* LFMP4Atom.m */,
+				D7BA5C1B1DCACDE6000F1AB7 /* LFNALUnit.cpp */,
+				D7BA5C1C1DCACDE6000F1AB7 /* LFNALUnit.h */,
+				D7BA5C1D1DCACDE6000F1AB7 /* LFVideoEncoder.h */,
+				D7BA5C1E1DCACDE6000F1AB7 /* LFVideoEncoder.m */,
+			);
+			path = H264;
+			sourceTree = "<group>";
+		};
+		D7BA5C271DCACDE6000F1AB7 /* configuration */ = {
+			isa = PBXGroup;
+			children = (
+				D7BA5C281DCACDE6000F1AB7 /* LFLiveAudioConfiguration.h */,
+				D7BA5C291DCACDE6000F1AB7 /* LFLiveAudioConfiguration.m */,
+				D7BA5C2A1DCACDE6000F1AB7 /* LFLiveVideoConfiguration.h */,
+				D7BA5C2B1DCACDE6000F1AB7 /* LFLiveVideoConfiguration.m */,
+			);
+			path = configuration;
+			sourceTree = "<group>";
+		};
+		D7BA5C2C1DCACDE6000F1AB7 /* filter */ = {
+			isa = PBXGroup;
+			children = (
+				D7BA5C2D1DCACDE6000F1AB7 /* LFGPUImageBeautyFilter.h */,
+				D7BA5C2E1DCACDE6000F1AB7 /* LFGPUImageBeautyFilter.m */,
+				D7BA5C2F1DCACDE6000F1AB7 /* LFGPUImageEmptyFilter.h */,
+				D7BA5C301DCACDE6000F1AB7 /* LFGPUImageEmptyFilter.m */,
+			);
+			path = filter;
+			sourceTree = "<group>";
+		};
+		D7BA5C341DCACDE6000F1AB7 /* objects */ = {
+			isa = PBXGroup;
+			children = (
+				D7BA5C351DCACDE6000F1AB7 /* LFAudioFrame.h */,
+				D7BA5C361DCACDE6000F1AB7 /* LFAudioFrame.m */,
+				D7BA5C371DCACDE6000F1AB7 /* LFFrame.h */,
+				D7BA5C381DCACDE6000F1AB7 /* LFFrame.m */,
+				D7BA5C391DCACDE6000F1AB7 /* LFLiveDebug.h */,
+				D7BA5C3A1DCACDE6000F1AB7 /* LFLiveDebug.m */,
+				D7BA5C3B1DCACDE6000F1AB7 /* LFLiveStreamInfo.h */,
+				D7BA5C3C1DCACDE6000F1AB7 /* LFLiveStreamInfo.m */,
+				D7BA5C3D1DCACDE6000F1AB7 /* LFVideoFrame.h */,
+				D7BA5C3E1DCACDE6000F1AB7 /* LFVideoFrame.m */,
+			);
+			path = objects;
+			sourceTree = "<group>";
+		};
+		D7BA5C3F1DCACDE6000F1AB7 /* publish */ = {
+			isa = PBXGroup;
+			children = (
+				D7BA5C401DCACDE6000F1AB7 /* LFStreamingBuffer.h */,
+				D7BA5C411DCACDE6000F1AB7 /* LFStreamingBuffer.m */,
+				D7BA5C421DCACDE6000F1AB7 /* LFStreamRTMPSocket.h */,
+				D7BA5C431DCACDE6000F1AB7 /* LFStreamRtmpSocket.m */,
+				D7BA5C441DCACDE6000F1AB7 /* LFStreamSocket.h */,
+				D7BA5C451DCACDE6000F1AB7 /* NSMutableArray+LFAdd.h */,
+				D7BA5C461DCACDE6000F1AB7 /* NSMutableArray+LFAdd.m */,
+			);
+			path = publish;
+			sourceTree = "<group>";
+		};
+		D7BA5C691DCAE874000F1AB7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D7BA5C6F1DCAE874000F1AB7 /* libGPUImage.a */,
+				D7BA5C711DCAE874000F1AB7 /* GPUImage.framework */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		D7D4AECD1DC7F33D00A782F7 = {
 			isa = PBXGroup;
 			children = (
-				D7D4AF271DC820F000A782F7 /* INSNanoSDK.framework */,
-				D7D4AF231DC820E400A782F7 /* INSMediaSDK.framework */,
+				D7BA5C681DCAE874000F1AB7 /* GPUImage.xcodeproj */,
+				D7D6EBE41DCACC31005935B8 /* INSMediaSDK.framework */,
+				D7D6EBE51DCACC31005935B8 /* INSNanoSDK.framework */,
 				D7D4AED81DC7F33D00A782F7 /* LuluBroadcaster */,
 				D7D4AED71DC7F33D00A782F7 /* Products */,
 				205E8FB72BF337BBCC3B483E /* Pods */,
@@ -204,6 +466,7 @@
 		D7D4AEFD1DC801A900A782F7 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				D7BA5C0F1DCACDE6000F1AB7 /* LFLiveKit */,
 				D7D4AEF01DC7F54F00A782F7 /* lib */,
 			);
 			name = Libraries;
@@ -348,9 +611,9 @@
 		D7D4AF2E1DC8654F00A782F7 /* live */ = {
 			isa = PBXGroup;
 			children = (
-				D7D4AF321DC8658600A782F7 /* LiveController.h */,
-				D7D4AF331DC8658600A782F7 /* LiveController.m */,
-				D7D4AF341DC8658600A782F7 /* LiveController.xib */,
+				D7BA5C601DCAD78C000F1AB7 /* LiveController.h */,
+				D7BA5C611DCAD78C000F1AB7 /* LiveController.m */,
+				D7BA5C621DCAD78C000F1AB7 /* LiveController.xib */,
 			);
 			name = live;
 			sourceTree = "<group>";
@@ -358,7 +621,7 @@
 		D7D4AF371DC865E900A782F7 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				D70435261DC9A7FB00EF5FAE /* videoWritter */,
+				D70435261DC9A7FB00EF5FAE /* gpuimage-ext */,
 				D704351C1DC96FC200EF5FAE /* buffer2image */,
 				D7D4AF3C1DC86D7C00A782F7 /* Filter */,
 				D7D4AF3B1DC86D7100A782F7 /* Router */,
@@ -397,11 +660,13 @@
 				D7D4AED41DC7F33D00A782F7 /* Resources */,
 				E8F2245A3D81F0691F2F7554 /* [CP] Embed Pods Frameworks */,
 				1D4A99349C993AE72D72DD63 /* [CP] Copy Pods Resources */,
-				D7D4AF261DC820E400A782F7 /* Embed Frameworks */,
+				D7D6EBEA1DCACC31005935B8 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				D7BA5C731DCAE8C8000F1AB7 /* PBXTargetDependency */,
+				D7BA5C7B1DCAEC38000F1AB7 /* PBXTargetDependency */,
 			);
 			name = LuluBroadcaster;
 			productName = LuluBroadcaster;
@@ -434,12 +699,35 @@
 			mainGroup = D7D4AECD1DC7F33D00A782F7;
 			productRefGroup = D7D4AED71DC7F33D00A782F7 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = D7BA5C691DCAE874000F1AB7 /* Products */;
+					ProjectRef = D7BA5C681DCAE874000F1AB7 /* GPUImage.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				D7D4AED51DC7F33D00A782F7 /* LuluBroadcaster */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		D7BA5C6F1DCAE874000F1AB7 /* libGPUImage.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libGPUImage.a;
+			remoteRef = D7BA5C6E1DCAE874000F1AB7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D7BA5C711DCAE874000F1AB7 /* GPUImage.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = GPUImage.framework;
+			remoteRef = D7BA5C701DCAE874000F1AB7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		D7D4AED41DC7F33D00A782F7 /* Resources */ = {
@@ -448,7 +736,7 @@
 			files = (
 				D7D4AEE91DC7F33E00A782F7 /* LaunchScreen.storyboard in Resources */,
 				D7D4AEE61DC7F33E00A782F7 /* Assets.xcassets in Resources */,
-				D7D4AF361DC8658600A782F7 /* LiveController.xib in Resources */,
+				D7BA5C641DCAD78C000F1AB7 /* LiveController.xib in Resources */,
 				D7D4AEF11DC7F54F00A782F7 /* lib in Resources */,
 				D7D4AEE41DC7F33D00A782F7 /* Main.storyboard in Resources */,
 			);
@@ -509,13 +797,36 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7BA5C471DCACDE6000F1AB7 /* LFAudioCapture.m in Sources */,
 				D7D4AF3A1DC8662200A782F7 /* NavigationRouter.m in Sources */,
+				D7BA5C531DCACDE6000F1AB7 /* LFGPUImageEmptyFilter.m in Sources */,
 				D7D4AEDE1DC7F33D00A782F7 /* AppDelegate.m in Sources */,
-				D7D4AF351DC8658600A782F7 /* LiveController.m in Sources */,
+				D7BA5C5B1DCACDE6000F1AB7 /* LFStreamRtmpSocket.m in Sources */,
+				D7BA5C5A1DCACDE6000F1AB7 /* LFStreamingBuffer.m in Sources */,
+				D7BA5C591DCACDE6000F1AB7 /* LFVideoFrame.m in Sources */,
+				D7BA5C5C1DCACDE6000F1AB7 /* NSMutableArray+LFAdd.m in Sources */,
+				D7BA5C4C1DCACDE6000F1AB7 /* LFVideoEncoder.m in Sources */,
+				D7BA5C4E1DCACDE6000F1AB7 /* LFHardwareAudioEncoder.m in Sources */,
+				D7BA5C481DCACDE6000F1AB7 /* LFVideoCapture.m in Sources */,
+				D7BA5C571DCACDE6000F1AB7 /* LFLiveDebug.m in Sources */,
+				D7BA5C551DCACDE6000F1AB7 /* LFAudioFrame.m in Sources */,
+				D7BA5C501DCACDE6000F1AB7 /* LFLiveAudioConfiguration.m in Sources */,
 				D7D4AF1C1DC8146400A782F7 /* StreamManager.m in Sources */,
 				D7D4AF141DC80B4400A782F7 /* HomepageController.m in Sources */,
+				D7BA5C4D1DCACDE6000F1AB7 /* LFH264VideoEncoder.mm in Sources */,
+				D7BA5C541DCACDE6000F1AB7 /* LFLiveSession.m in Sources */,
+				D7BA5C4F1DCACDE6000F1AB7 /* LFHardwareVideoEncoder.m in Sources */,
+				D7BA5C521DCACDE6000F1AB7 /* LFGPUImageBeautyFilter.m in Sources */,
+				D7BA5C5F1DCAD750000F1AB7 /* GPUImageFramebuffer+CVBuffer.m in Sources */,
+				D7BA5C491DCACDE6000F1AB7 /* LFAVEncoder.mm in Sources */,
+				D7BA5C561DCACDE6000F1AB7 /* LFFrame.m in Sources */,
 				D7D4AF2D1DC863F100A782F7 /* LiveManager.m in Sources */,
+				D7BA5C4B1DCACDE6000F1AB7 /* LFNALUnit.cpp in Sources */,
 				D7D4AF221DC817E400A782F7 /* SettingSession.m in Sources */,
+				D7BA5C511DCACDE6000F1AB7 /* LFLiveVideoConfiguration.m in Sources */,
+				D7BA5C631DCAD78C000F1AB7 /* LiveController.m in Sources */,
+				D7BA5C581DCACDE6000F1AB7 /* LFLiveStreamInfo.m in Sources */,
+				D7BA5C4A1DCACDE6000F1AB7 /* LFMP4Atom.m in Sources */,
 				D7D4AF0A1DC8037100A782F7 /* UserSession.m in Sources */,
 				D7D4AEDB1DC7F33D00A782F7 /* main.m in Sources */,
 				D70435251DC988A800EF5FAE /* GPUImageBeautifyFilter.m in Sources */,
@@ -525,6 +836,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D7BA5C731DCAE8C8000F1AB7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GPUImageFramework;
+			targetProxy = D7BA5C721DCAE8C8000F1AB7 /* PBXContainerItemProxy */;
+		};
+		D7BA5C7B1DCAEC38000F1AB7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GPUImageFramework;
+			targetProxy = D7BA5C7A1DCAEC38000F1AB7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		D7D4AEE21DC7F33D00A782F7 /* Main.storyboard */ = {
@@ -642,6 +966,18 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/lib/debug",
 					"$(PROJECT_DIR)/lib/release",
+					"$(PROJECT_DIR)/lib/Insta/debug",
+					"$(PROJECT_DIR)/lib/Insta/release",
+					"$(PROJECT_DIR)",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/NSLogger\"",
+					"\"${PODS_ROOT}/Headers/Public/SAMKeychain\"",
+					"\"${PODS_ROOT}/Headers/Public/pili-librtmp\"",
+					"\"$(PROJECT_DIR)/lib/GPUImage/framework/Source\"/**",
 				);
 				INFOPLIST_FILE = LuluBroadcaster/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -662,6 +998,18 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/lib/debug",
 					"$(PROJECT_DIR)/lib/release",
+					"$(PROJECT_DIR)/lib/Insta/debug",
+					"$(PROJECT_DIR)/lib/Insta/release",
+					"$(PROJECT_DIR)",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/NSLogger\"",
+					"\"${PODS_ROOT}/Headers/Public/SAMKeychain\"",
+					"\"${PODS_ROOT}/Headers/Public/pili-librtmp\"",
+					"\"$(PROJECT_DIR)/lib/GPUImage/framework/Source\"/**",
 				);
 				INFOPLIST_FILE = LuluBroadcaster/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

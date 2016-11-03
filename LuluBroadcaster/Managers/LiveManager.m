@@ -10,11 +10,11 @@
 
 #import "LiveManager.h"
 #import "SettingSession.h"
-#import <GPUImage/GPUImage.h>
+#import "StreamManager.h"
+#import "GPUImage.h"
 #import <INSNanoSDK/INSNanoSDK.h>
 
 @interface LiveManager()<INSLiveDataSourceProtocol>
-@property (nonatomic, strong) GPUImageRawDataOutput *rawDataOutput;
 @property (nonatomic, strong) INSLiveDataSource* liveDataSource;
 @property (nonatomic, weak) GPUImageView* view;
 
@@ -35,18 +35,12 @@
     self.pixelBufferInput = [[YUGPUImageCVPixelBufferInput alloc] init];
     self.filter = [[GPUImageBeautifyFilter alloc] init];
     [self.pixelBufferInput addTarget: self.filter];
-    self.rawDataOutput = [[GPUImageRawDataOutput alloc] initWithImageSize:CGSizeMake(3040.0, 1520.0) resultsInBGRAFormat:YES];
     __weak LiveManager* wself = self;
-    [_rawDataOutput setNewFrameAvailableBlock:^{
-        GLubyte *outputBytes = [wself.rawDataOutput rawBytesForImage];
-        NSInteger bytesPerRow = [wself.rawDataOutput bytesPerRowInOutput];
-        CVPixelBufferRef pixelBuffer = NULL;
-        CVPixelBufferCreateWithBytes(kCFAllocatorDefault, 3040.0, 1520.0, kCVPixelFormatType_32BGRA, outputBytes, bytesPerRow, nil, nil, nil, &pixelBuffer);
-        [wself.rawDataOutput unlockFramebufferAfterReading];
-        if(pixelBuffer == NULL) {
-            return ;
-        }
+    
+    [self.filter setFrameProcessingCompletionBlock:^(GPUImageOutput * output, CMTime time) {
+         [wself processVideo:output];
     }];
+    
     return [super init];
     
 }
@@ -121,6 +115,14 @@
 
 - (void)parsePixelBuffer:(CVPixelBufferRef)pixelBuffer{
      [self.pixelBufferInput processCVPixelBuffer:pixelBuffer];
+}
+
+- (void)processVideo:(GPUImageOutput*)output{
+    @autoreleasepool {
+        GPUImageFramebuffer *imageFramebuffer = output.framebufferForOutput;
+        CVPixelBufferRef pixelBuffer = [imageFramebuffer pixelBuffer];
+        
+    }
 }
 @end
 
