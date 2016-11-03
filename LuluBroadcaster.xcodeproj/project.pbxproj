@@ -400,6 +400,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		D7BA5C7C1DCAF185000F1AB7 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				D7D4AEE51DC7F33E00A782F7 /* Assets.xcassets */,
+			);
+			name = Resource;
+			sourceTree = "<group>";
+		};
 		D7D4AECD1DC7F33D00A782F7 = {
 			isa = PBXGroup;
 			children = (
@@ -409,6 +417,7 @@
 				D7D4AED81DC7F33D00A782F7 /* LuluBroadcaster */,
 				D7D4AED71DC7F33D00A782F7 /* Products */,
 				205E8FB72BF337BBCC3B483E /* Pods */,
+				D7D4AEFD1DC801A900A782F7 /* Libraries */,
 				57615423CCA8F96E02CC14BF /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -425,25 +434,13 @@
 			isa = PBXGroup;
 			children = (
 				D7D4AF061DC802E200A782F7 /* App */,
+				D7BA5C7C1DCAF185000F1AB7 /* Resource */,
 				D7D4AF051DC802C700A782F7 /* Storyboards */,
 				D7D4AF031DC8021400A782F7 /* Views */,
 				D7D4AF021DC8020500A782F7 /* ViewControllers */,
-				D7D4AEFD1DC801A900A782F7 /* Libraries */,
 				D7D4AEFC1DC8019C00A782F7 /* Logic */,
-				D7D4AEE51DC7F33E00A782F7 /* Assets.xcassets */,
-				D7D4AEE71DC7F33E00A782F7 /* LaunchScreen.storyboard */,
-				D7D4AEEA1DC7F33E00A782F7 /* Info.plist */,
-				D7D4AED91DC7F33D00A782F7 /* Supporting Files */,
 			);
 			path = LuluBroadcaster;
-			sourceTree = "<group>";
-		};
-		D7D4AED91DC7F33D00A782F7 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				D7D4AEDA1DC7F33D00A782F7 /* main.m */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		D7D4AEFC1DC8019C00A782F7 /* Logic */ = {
@@ -466,6 +463,7 @@
 				D7D4AEF01DC7F54F00A782F7 /* lib */,
 			);
 			name = Libraries;
+			path = LuluBroadcaster;
 			sourceTree = "<group>";
 		};
 		D7D4AEFE1DC801C600A782F7 /* Models */ = {
@@ -526,6 +524,7 @@
 		D7D4AF051DC802C700A782F7 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				D7D4AEE71DC7F33E00A782F7 /* LaunchScreen.storyboard */,
 				D7D4AEE21DC7F33D00A782F7 /* Main.storyboard */,
 			);
 			name = Storyboards;
@@ -535,6 +534,8 @@
 		D7D4AF061DC802E200A782F7 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				D7D4AEDA1DC7F33D00A782F7 /* main.m */,
+				D7D4AEEA1DC7F33E00A782F7 /* Info.plist */,
 				D7D4AEDC1DC7F33D00A782F7 /* AppDelegate.h */,
 				D7D4AEDD1DC7F33D00A782F7 /* AppDelegate.m */,
 			);
@@ -862,6 +863,7 @@
 				D7D4AEE81DC7F33E00A782F7 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = LuluBroadcaster;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
