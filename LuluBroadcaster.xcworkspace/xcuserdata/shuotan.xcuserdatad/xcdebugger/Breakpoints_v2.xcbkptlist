@@ -218,11 +218,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LuluBroadcaster/Managers/StreamManager.h"
-            timestampString = "499921433.973275"
+            timestampString = "499924414.063325"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
             landmarkName = "delegate"
             landmarkType = "19">
          </BreakpointContent>

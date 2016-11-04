@@ -17,6 +17,7 @@
 - (void)pending;
 - (void)stop;
 - (void)error: (LFLiveSocketErrorCode)code;
+- (void)debug: (nullable LFLiveDebug *)debugInfo;
 @end
 
 

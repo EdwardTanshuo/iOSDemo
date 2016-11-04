@@ -103,8 +103,12 @@
     _debug.text = @"stop";
 }
 
+- (void)debug:(LFLiveDebug *)debugInfo{
+    
+}
+
 - (void)error:(LFLiveSocketErrorCode)code{
-    _error.text = [NSString stringWithFormat:@"%d", code];
+   _error.text = [NSString stringWithFormat:@"%d", code];
 }
 
 @end

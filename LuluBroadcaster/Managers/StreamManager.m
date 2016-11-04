@@ -79,7 +79,7 @@
 }
 /** live debug info callback */
 - (void)liveSession:(nullable LFLiveSession *)session debugInfo:(nullable LFLiveDebug *)debugInfo{
-
+    [_delegate debug:debugInfo];
 }
 /** callback socket errorcode */
 - (void)liveSession:(nullable LFLiveSession *)session errorCode:(LFLiveSocketErrorCode)errorCode{
@@ -93,7 +93,9 @@
         return;
     SettingSession* setting = [[SettingSession alloc] init];
     LFLiveStreamInfo *streamInfo = [LFLiveStreamInfo new];
-    streamInfo.url = [NSString stringWithFormat:@"%@/%@", setting.url, setting.streamKey];
+    streamInfo.url = setting.url;
+    streamInfo.streamId = setting.streamKey;
+    
     [self.session startLive:streamInfo];
     _isStreaming = YES;
 }
