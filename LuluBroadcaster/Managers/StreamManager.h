@@ -8,19 +8,21 @@
 
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
-#import "LFLiveKit.h"
+#import <LFLiveKit/LFLiveSession.h>
 
 @protocol StreamManagerDelegate
-- (void)liveSession:(nullable LFLiveSession *)session liveStateDidChange: (LFLiveState)state;
-- (void)liveSession:(nullable LFLiveSession *)session debugInfo:(nullable LFLiveDebug*)debugInfo;
-- (void)liveSession:(nullable LFLiveSession*)session errorCode:(LFLiveSocketErrorCode)errorCode;
+- (void)ready;
+- (void)started;
+- (void)failed;
+- (void)pending;
+- (void)stop;
+- (void)error: (LFLiveSocketErrorCode)code;
 @end
 
 
 @interface StreamManager : NSObject
-
 @property (nonatomic, weak) id<StreamManagerDelegate> delegate;
-
+@property (nonatomic, assign) BOOL isStreaming;
 #pragma mark singleton
 + (StreamManager*)sharedManager;
 

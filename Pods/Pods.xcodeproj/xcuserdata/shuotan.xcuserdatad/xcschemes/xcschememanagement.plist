@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>LFLiveKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>NSLogger.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -24,20 +29,15 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>pili-librtmp.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>258250D54C06F2BA5F99E6595485271C</key>
+		<key>14521FA5B64C80595A2F948BD2984ED2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4C36BF17C364C903C67362EC7F018EA0</key>
+		<key>591DED6C4E2128C5D9D41BCB293AC26F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -47,12 +47,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>928353533005A4198EBDA5B700D37B64</key>
+		<key>8299FD839A3E3AA69AC9D20F84147EC1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>95236B154E74E536FD386F1EFAD5855E</key>
+		<key>928353533005A4198EBDA5B700D37B64</key>
 		<dict>
 			<key>primary</key>
 			<true/>

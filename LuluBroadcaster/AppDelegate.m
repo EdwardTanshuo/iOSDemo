@@ -35,10 +35,10 @@
     //初始化日志
     LoggerSetOptions(NULL,
                      kLoggerOption_BufferLogsUntilConnection |
-                     kLoggerOption_UseSSL |
                      kLoggerOption_CaptureSystemConsole|
                      kLoggerOption_BrowseBonjour|
                      kLoggerOption_BrowseOnlyLocalDomain | 0);
+   
     return YES;
 }
 

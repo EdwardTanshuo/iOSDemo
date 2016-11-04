@@ -11,6 +11,7 @@
 #import "YUGPUImageCVPixelBufferInput.h"
 #import "GPUImageBeautifyFilter.h"
 
+
 @protocol LiveDataSourceDelegate
 - (void) recieveStichedFragment:(CVPixelBufferRef)pixelBuffer timestamp:(int64_t)timestamp;
 - (void) recieveOnRawFragment:(CVPixelBufferRef)pixelBuffer timestamp:(int64_t)timestamp;

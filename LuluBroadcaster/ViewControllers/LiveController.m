@@ -16,6 +16,8 @@
 
 @interface LiveController ()<LiveDataSourceDelegate, StreamManagerDelegate>
 @property (nonatomic, strong) GPUImageView* imageView;
+@property (nonatomic, strong) UILabel* debug;
+@property (nonatomic, strong) UILabel* error;
 @end
 
 @implementation LiveController
@@ -26,12 +28,14 @@
     [self setupViews];
     [self launchLive];
     [self launchStream];
+    LogMessage(@"stream", 1, @"live started");
 }
 
 - (void)dealloc{
     [LiveManager sharedManager].delegate = nil;
     [StreamManager sharedManager].delegate = nil;
     [[LiveManager sharedManager] stopLive];
+    [[StreamManager sharedManager] stopRTMP];
 }
 
 - (void)launchLive{
@@ -49,13 +53,27 @@
     _imageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [_imageView setBackgroundColorRed:0 green:0 blue:0 alpha:1.0];
     [self.view addSubview:_imageView];
+    
+    UILabel* debug = [[UILabel alloc] initWithFrame:self.view.bounds];
+    debug.numberOfLines = 2;
+    [self.view addSubview:debug];
+    debug.textColor = [UIColor whiteColor];
+    _debug = debug;
+    
+    CGRect rect = self.view.bounds;
+    rect.origin.y += 40;
+    UILabel* error = [[UILabel alloc] initWithFrame:rect];
+    error.numberOfLines = 2;
+    [self.view addSubview:error];
+    error.textColor = [UIColor redColor];
+    _error = error;
 }
 
 #pragma mark -
 #pragma mark LiveDataSourceDelegate
 
 - (void)recieveStichedFragment:(CVPixelBufferRef)pixelBuffer timestamp:(int64_t)timestamp{
-     //assert(false);
+    
 }
 
 - (void)recieveOnRawFragment:(CVPixelBufferRef)pixelBuffer timestamp:(int64_t)timestamp{
@@ -68,17 +86,25 @@
 }
 
 #pragma mark -
-#pragma mark LiveDataSourceDelegate
-- (void) liveSession:(LFLiveSession *)session errorCode:(LFLiveSocketErrorCode)errorCode{
-    LogMessage(@"stream", 1, @"err");
+#pragma mark StreamManagerDelegate
+- (void)ready{
+    _debug.text = @"ready";
+}
+- (void)started{
+    _debug.text = @"started";
+}
+- (void)failed{
+    _debug.text = @"failed";
+}
+- (void)pending{
+    _debug.text = @"pending";
+}
+- (void)stop{
+    _debug.text = @"stop";
 }
 
-- (void) liveSession:(LFLiveSession *)session debugInfo:(LFLiveDebug *)debugInfo{
-    LogMessage(@"stream", 1, @"debug");
-}
-
-- (void) liveSession:(LFLiveSession *)session liveStateDidChange:(LFLiveState)state{
-    LogMessage(@"stream", 1, @"change");
+- (void)error:(LFLiveSocketErrorCode)code{
+    _error.text = [NSString stringWithFormat:@"%d", code];
 }
 
 @end

@@ -121,7 +121,9 @@
     @autoreleasepool {
         GPUImageFramebuffer *imageFramebuffer = output.framebufferForOutput;
         CVPixelBufferRef pixelBuffer = [imageFramebuffer pixelBuffer];
-        [[StreamManager sharedManager] appendVideoBuffer:pixelBuffer];
+        if([StreamManager sharedManager].isStreaming){
+            [[StreamManager sharedManager] appendVideoBuffer:pixelBuffer];
+        }
     }
 }
 @end

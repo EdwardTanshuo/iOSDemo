@@ -9,6 +9,9 @@
 #import "StreamManager.h"
 #import "SettingSession.h"
 #import <INSNanoSDK/INSNanoSDK.h>
+#import <NSLogger/NSLogger.h>
+
+#define NOW [[NSDate new] timeIntervalSince1970]
 
 
 @interface StreamManager()<LFLiveSessionDelegate>
@@ -27,10 +30,23 @@
 }
 
 - (instancetype)init{
-    if (!_session) {
-        _session = [[LFLiveSession alloc] initWithAudioConfiguration:[LFLiveAudioConfiguration defaultConfiguration] videoConfiguration:[LFLiveVideoConfiguration defaultConfiguration]];
-        _session.delegate = self;
-    }
+    _isStreaming = NO;
+    LFLiveAudioConfiguration *audioConfiguration = [LFLiveAudioConfiguration new];
+    audioConfiguration.numberOfChannels = 2;
+    audioConfiguration.audioBitrate = LFLiveAudioBitRate_128Kbps;
+    audioConfiguration.audioSampleRate = LFLiveAudioSampleRate_44100Hz;
+    
+    LFLiveVideoConfiguration *videoConfiguration = [LFLiveVideoConfiguration new];
+    videoConfiguration.videoSize = CGSizeMake(3040, 1520);
+    videoConfiguration.videoBitRate = 2 * 1024 * 1024;
+    videoConfiguration.videoMaxBitRate = 3 * 1024 * 1024;
+    videoConfiguration.videoMinBitRate = 1 * 1024 * 1024;
+    videoConfiguration.videoFrameRate = 30;
+    videoConfiguration.videoMaxKeyframeInterval = 30;
+    videoConfiguration.sessionPreset = LFCaptureSessionPreset720x1280;
+    self.session = [[LFLiveSession alloc]initWithAudioConfiguration:[LFLiveAudioConfiguration defaultConfiguration] videoConfiguration:videoConfiguration];
+    _session.running = YES;
+    self.session.delegate = self;
     return [super init];
 }
 
@@ -39,36 +55,67 @@
 }
 
 #pragma mark -
-#pragma mark LFLiveSessionDelegate
-- (void)liveSession:(nullable LFLiveSession *)session liveStateDidChange: (LFLiveState)state{
-    [_delegate liveSession:session liveStateDidChange:state];
+#pragma mark VCSessionDelegate
+- (void)liveSession:(nullable LFLiveSession *)session liveStateDidChange:(LFLiveState)state{
+    switch (state) {
+        case LFLiveReady:
+            [_delegate ready];
+            break;
+        case LFLiveStart:
+            [_delegate started];
+            break;
+        case LFLiveError:
+            [_delegate failed];
+            break;
+        case LFLivePending:
+            [_delegate pending];
+            break;
+        case LFLiveStop:
+            [_delegate stop];
+            break;
+        default:
+            break;
+    }
 }
-- (void)liveSession:(nullable LFLiveSession *)session debugInfo:(nullable LFLiveDebug*)debugInfo{
-    [_delegate liveSession:session debugInfo:debugInfo];
+/** live debug info callback */
+- (void)liveSession:(nullable LFLiveSession *)session debugInfo:(nullable LFLiveDebug *)debugInfo{
+
 }
-- (void)liveSession:(nullable LFLiveSession*)session errorCode:(LFLiveSocketErrorCode)errorCode{
-    [_delegate liveSession:session errorCode:errorCode];
+/** callback socket errorcode */
+- (void)liveSession:(nullable LFLiveSession *)session errorCode:(LFLiveSocketErrorCode)errorCode{
+    [_delegate error:errorCode];
 }
 
 #pragma mark -
 #pragma mark methods
 - (void)startRTMP{
-    SettingSession* session = [[SettingSession alloc] init];
+    if (!_session)
+        return;
+    SettingSession* setting = [[SettingSession alloc] init];
     LFLiveStreamInfo *streamInfo = [LFLiveStreamInfo new];
-    streamInfo.url = [NSString stringWithFormat:@"%@%@", session.url, session.streamKey];
+    streamInfo.url = [NSString stringWithFormat:@"%@/%@", setting.url, setting.streamKey];
     [self.session startLive:streamInfo];
+    _isStreaming = YES;
 }
 
 - (void)stopRTMP{
+    if (!_session)
+        return;
+    _isStreaming = NO;
     [self.session stopLive];
 }
 
+
 - (void)appendVideoBuffer:(CVPixelBufferRef)buffer {
+    if (!_session || !_isStreaming)
+        return;
     [self.session pushVideo:buffer];
-    CVPixelBufferRelease(buffer);
 }
 
 - (void)appendAudioBuffer:(NSData*)buffer{
+    //[self.session end];
+    if (!_session || !_isStreaming)
+        return;
     [self.session pushAudio:buffer];
 }
 
