@@ -9,11 +9,12 @@
 /* Begin PBXBuildFile section */
 		D70435221DC9704F00EF5FAE /* YUGPUImageCVPixelBufferInput.m in Sources */ = {isa = PBXBuildFile; fileRef = D70435211DC9704F00EF5FAE /* YUGPUImageCVPixelBufferInput.m */; };
 		D70435251DC988A800EF5FAE /* GPUImageBeautifyFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = D70435241DC988A800EF5FAE /* GPUImageBeautifyFilter.m */; };
+		D732D0861DCD45FF001B3B11 /* LFLiveKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D7979EF11DCD44420056B35A /* LFLiveKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D732D0891DCD4624001B3B11 /* LFLiveKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7979EF11DCD44420056B35A /* LFLiveKit.framework */; };
+		D732D08B1DCD465D001B3B11 /* pili-librtmp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D732D08A1DCD465D001B3B11 /* pili-librtmp.framework */; };
 		D7979E1E1DCB50AC0056B35A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7979E1D1DCB50AC0056B35A /* CoreData.framework */; };
-		D7BA5C5F1DCAD750000F1AB7 /* GPUImageFramebuffer+CVBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = D7BA5C5E1DCAD750000F1AB7 /* GPUImageFramebuffer+CVBuffer.m */; };
 		D7BA5C631DCAD78C000F1AB7 /* LiveController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7BA5C611DCAD78C000F1AB7 /* LiveController.m */; };
 		D7BA5C641DCAD78C000F1AB7 /* LiveController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7BA5C621DCAD78C000F1AB7 /* LiveController.xib */; };
-		D7BA5C741DCAE8F0000F1AB7 /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7BA5C711DCAE874000F1AB7 /* GPUImage.framework */; };
 		D7BA5C781DCAEC38000F1AB7 /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7BA5C711DCAE874000F1AB7 /* GPUImage.framework */; };
 		D7BA5C791DCAEC38000F1AB7 /* GPUImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D7BA5C711DCAE874000F1AB7 /* GPUImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D7D4AEDB1DC7F33D00A782F7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D4AEDA1DC7F33D00A782F7 /* main.m */; };
@@ -83,6 +84,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				D7D6EBE91DCACC31005935B8 /* INSNanoSDK.framework in Embed Frameworks */,
+				D732D0861DCD45FF001B3B11 /* LFLiveKit.framework in Embed Frameworks */,
 				D7D6EBE71DCACC31005935B8 /* INSMediaSDK.framework in Embed Frameworks */,
 				D7BA5C791DCAEC38000F1AB7 /* GPUImage.framework in Embed Frameworks */,
 			);
@@ -98,9 +100,9 @@
 		D70435211DC9704F00EF5FAE /* YUGPUImageCVPixelBufferInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YUGPUImageCVPixelBufferInput.m; path = Logic/Helper/buffer2image/YUGPUImageCVPixelBufferInput.m; sourceTree = "<group>"; };
 		D70435231DC988A800EF5FAE /* GPUImageBeautifyFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPUImageBeautifyFilter.h; path = Logic/Helper/filter/GPUImageBeautifyFilter.h; sourceTree = "<group>"; };
 		D70435241DC988A800EF5FAE /* GPUImageBeautifyFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPUImageBeautifyFilter.m; path = Logic/Helper/filter/GPUImageBeautifyFilter.m; sourceTree = "<group>"; };
+		D732D08A1DCD465D001B3B11 /* pili-librtmp.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "pili-librtmp.framework"; path = "lib/LFLive/Vendor/pili-librtmp.framework"; sourceTree = "<group>"; };
 		D7979E1D1DCB50AC0056B35A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		D7BA5C5D1DCAD750000F1AB7 /* GPUImageFramebuffer+CVBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GPUImageFramebuffer+CVBuffer.h"; path = "Logic/Helper/GPUImageFramebuffer+CVBuffer.h"; sourceTree = "<group>"; };
-		D7BA5C5E1DCAD750000F1AB7 /* GPUImageFramebuffer+CVBuffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "GPUImageFramebuffer+CVBuffer.m"; path = "Logic/Helper/GPUImageFramebuffer+CVBuffer.m"; sourceTree = "<group>"; };
+		D7979EF11DCD44420056B35A /* LFLiveKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LFLiveKit.framework; path = lib/LFLive/LFLiveKit.framework; sourceTree = "<group>"; };
 		D7BA5C601DCAD78C000F1AB7 /* LiveController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LiveController.h; path = ViewControllers/LiveController.h; sourceTree = "<group>"; };
 		D7BA5C611DCAD78C000F1AB7 /* LiveController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LiveController.m; path = ViewControllers/LiveController.m; sourceTree = "<group>"; };
 		D7BA5C621DCAD78C000F1AB7 /* LiveController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LiveController.xib; path = ViewControllers/LiveController.xib; sourceTree = "<group>"; };
@@ -148,9 +150,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D732D08B1DCD465D001B3B11 /* pili-librtmp.framework in Frameworks */,
+				D732D0891DCD4624001B3B11 /* LFLiveKit.framework in Frameworks */,
 				D7979E1E1DCB50AC0056B35A /* CoreData.framework in Frameworks */,
 				D7BA5C781DCAEC38000F1AB7 /* GPUImage.framework in Frameworks */,
-				D7BA5C741DCAE8F0000F1AB7 /* GPUImage.framework in Frameworks */,
 				D7D6EBE81DCACC31005935B8 /* INSNanoSDK.framework in Frameworks */,
 				D7D6EBE21DCACC1D005935B8 /* INSMediaSDK.framework in Frameworks */,
 				D7D6EBE31DCACC1D005935B8 /* INSNanoSDK.framework in Frameworks */,
@@ -180,6 +183,7 @@
 		57615423CCA8F96E02CC14BF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D732D08A1DCD465D001B3B11 /* pili-librtmp.framework */,
 				D7979E1D1DCB50AC0056B35A /* CoreData.framework */,
 				D7D6EBE01DCACC1D005935B8 /* INSMediaSDK.framework */,
 				D7D6EBE11DCACC1D005935B8 /* INSNanoSDK.framework */,
@@ -205,15 +209,6 @@
 			name = buffer2image;
 			sourceTree = "<group>";
 		};
-		D70435261DC9A7FB00EF5FAE /* gpuimage-ext */ = {
-			isa = PBXGroup;
-			children = (
-				D7BA5C5D1DCAD750000F1AB7 /* GPUImageFramebuffer+CVBuffer.h */,
-				D7BA5C5E1DCAD750000F1AB7 /* GPUImageFramebuffer+CVBuffer.m */,
-			);
-			name = "gpuimage-ext";
-			sourceTree = "<group>";
-		};
 		D7BA5C691DCAE874000F1AB7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -235,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				D7BA5C681DCAE874000F1AB7 /* GPUImage.xcodeproj */,
+				D7979EF11DCD44420056B35A /* LFLiveKit.framework */,
 				D7D6EBE41DCACC31005935B8 /* INSMediaSDK.framework */,
 				D7D6EBE51DCACC31005935B8 /* INSNanoSDK.framework */,
 				D7D4AED81DC7F33D00A782F7 /* LuluBroadcaster */,
@@ -440,7 +436,6 @@
 		D7D4AF371DC865E900A782F7 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				D70435261DC9A7FB00EF5FAE /* gpuimage-ext */,
 				D704351C1DC96FC200EF5FAE /* buffer2image */,
 				D7D4AF3C1DC86D7C00A782F7 /* Filter */,
 				D7D4AF3B1DC86D7100A782F7 /* Router */,
@@ -620,7 +615,6 @@
 				D7D4AEDE1DC7F33D00A782F7 /* AppDelegate.m in Sources */,
 				D7D4AF1C1DC8146400A782F7 /* StreamManager.m in Sources */,
 				D7D4AF141DC80B4400A782F7 /* HomepageController.m in Sources */,
-				D7BA5C5F1DCAD750000F1AB7 /* GPUImageFramebuffer+CVBuffer.m in Sources */,
 				D7D4AF2D1DC863F100A782F7 /* LiveManager.m in Sources */,
 				D7D4AF221DC817E400A782F7 /* SettingSession.m in Sources */,
 				D7BA5C631DCAD78C000F1AB7 /* LiveController.m in Sources */,
@@ -767,6 +761,9 @@
 					"$(PROJECT_DIR)/lib/Insta/debug",
 					"$(PROJECT_DIR)/lib/Insta/release",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/lib/pili",
+					"$(PROJECT_DIR)/lib/LFLive",
+					"$(PROJECT_DIR)/lib/LFLive/Vendor",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -776,6 +773,7 @@
 					"\"${PODS_ROOT}/Headers/Public/SAMKeychain\"",
 					"\"${PODS_ROOT}/Headers/Public/pili-librtmp\"",
 					"\"$(PROJECT_DIR)/lib/GPUImage/framework/Source\"/**",
+					"\"$(PROJECT_DIR)/lib/LFLive\"/**",
 				);
 				INFOPLIST_FILE = LuluBroadcaster/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -812,6 +810,9 @@
 					"$(PROJECT_DIR)/lib/Insta/debug",
 					"$(PROJECT_DIR)/lib/Insta/release",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/lib/pili",
+					"$(PROJECT_DIR)/lib/LFLive",
+					"$(PROJECT_DIR)/lib/LFLive/Vendor",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -821,6 +822,7 @@
 					"\"${PODS_ROOT}/Headers/Public/SAMKeychain\"",
 					"\"${PODS_ROOT}/Headers/Public/pili-librtmp\"",
 					"\"$(PROJECT_DIR)/lib/GPUImage/framework/Source\"/**",
+					"\"$(PROJECT_DIR)/lib/LFLive\"/**",
 				);
 				INFOPLIST_FILE = LuluBroadcaster/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

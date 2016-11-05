@@ -10,6 +10,8 @@
 #import "SettingSession.h"
 #import <INSNanoSDK/INSNanoSDK.h>
 #import <NSLogger/NSLogger.h>
+#import <LFLiveKit/LFLiveKit.h>
+
 
 #define NOW [[NSDate new] timeIntervalSince1970]
 
@@ -37,14 +39,14 @@
     audioConfiguration.audioSampleRate = LFLiveAudioSampleRate_44100Hz;
     
     LFLiveVideoConfiguration *videoConfiguration = [LFLiveVideoConfiguration new];
-    videoConfiguration.videoSize = CGSizeMake(3040, 1520);
+    videoConfiguration.videoSize = CGSizeMake(1280, 720);
     videoConfiguration.videoBitRate = 2 * 1024 * 1024;
     videoConfiguration.videoMaxBitRate = 3 * 1024 * 1024;
     videoConfiguration.videoMinBitRate = 1 * 1024 * 1024;
     videoConfiguration.videoFrameRate = 30;
     videoConfiguration.videoMaxKeyframeInterval = 30;
     videoConfiguration.sessionPreset = LFCaptureSessionPreset720x1280;
-    self.session = [[LFLiveSession alloc]initWithAudioConfiguration:[LFLiveAudioConfiguration defaultConfiguration] videoConfiguration:videoConfiguration];
+    self.session = [[LFLiveSession alloc]initWithAudioConfiguration:[LFLiveAudioConfiguration defaultConfiguration] videoConfiguration:[LFLiveVideoConfiguration defaultConfiguration]];
     _session.running = YES;
     self.session.delegate = self;
     return [super init];
@@ -86,6 +88,7 @@
     [_delegate error:errorCode];
 }
 
+
 #pragma mark -
 #pragma mark methods
 - (void)startRTMP{
@@ -93,7 +96,7 @@
         return;
     SettingSession* setting = [[SettingSession alloc] init];
     LFLiveStreamInfo *streamInfo = [LFLiveStreamInfo new];
-    streamInfo.url = setting.url;
+    streamInfo.url = [NSString stringWithFormat:@"%@/%@", setting.url, setting.streamKey];
     streamInfo.streamId = setting.streamKey;
     
     [self.session startLive:streamInfo];
@@ -111,6 +114,8 @@
 - (void)appendVideoBuffer:(CVPixelBufferRef)buffer {
     if (!_session || !_isStreaming)
         return;
+
+    [_delegate bufferFetched:buffer];
     [self.session pushVideo:buffer];
 }
 
@@ -119,6 +124,16 @@
     if (!_session || !_isStreaming)
         return;
     [self.session pushAudio:buffer];
+}
+
+- (void)processVideo:(GPUImageOutput*)output{
+    @autoreleasepool {
+        GPUImageFramebuffer *imageFramebuffer = output.framebufferForOutput;
+        CVPixelBufferRef pixelBuffer = [imageFramebuffer pixelBuffer];
+        if(self.isStreaming){
+            [self appendVideoBuffer:pixelBuffer];
+        }
+    }
 }
 
 @end

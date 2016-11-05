@@ -8,7 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
-#import <LFLiveKit/LFLiveSession.h>
+#import <LFLiveKit/LFLiveKit.h>
+#import "GPUImage.h"
 
 @protocol StreamManagerDelegate
 - (void)ready;
@@ -18,6 +19,7 @@
 - (void)stop;
 - (void)error: (LFLiveSocketErrorCode)code;
 - (void)debug: (nullable LFLiveDebug *)debugInfo;
+- (void)bufferFetched: (CVPixelBufferRef)buffer;
 @end
 
 
@@ -32,4 +34,5 @@
 - (void)appendVideoBuffer:(CVPixelBufferRef)buffer;
 - (void)appendAudioBuffer:(NSData*)buffer;
 - (void)stopRTMP;
+- (void)processVideo:(GPUImageOutput*)output;
 @end

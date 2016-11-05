@@ -35,10 +35,9 @@
     self.pixelBufferInput = [[YUGPUImageCVPixelBufferInput alloc] init];
     self.filter = [[GPUImageBeautifyFilter alloc] init];
     [self.pixelBufferInput addTarget: self.filter];
-    __weak LiveManager* wself = self;
     
     [self.filter setFrameProcessingCompletionBlock:^(GPUImageOutput * output, CMTime time) {
-         [wself processVideo:output];
+         [[StreamManager sharedManager] processVideo:output];
     }];
     
     return [super init];
@@ -117,14 +116,6 @@
      [self.pixelBufferInput processCVPixelBuffer:pixelBuffer];
 }
 
-- (void)processVideo:(GPUImageOutput*)output{
-    @autoreleasepool {
-        GPUImageFramebuffer *imageFramebuffer = output.framebufferForOutput;
-        CVPixelBufferRef pixelBuffer = [imageFramebuffer pixelBuffer];
-        if([StreamManager sharedManager].isStreaming){
-            [[StreamManager sharedManager] appendVideoBuffer:pixelBuffer];
-        }
-    }
-}
+
 @end
 

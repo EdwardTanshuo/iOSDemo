@@ -16,8 +16,10 @@
 
 @interface LiveController ()<LiveDataSourceDelegate, StreamManagerDelegate>
 @property (nonatomic, strong) GPUImageView* imageView;
+
 @property (nonatomic, strong) UILabel* debug;
 @property (nonatomic, strong) UILabel* error;
+
 @end
 
 @implementation LiveController
@@ -67,6 +69,7 @@
     [self.view addSubview:error];
     error.textColor = [UIColor redColor];
     _error = error;
+
 }
 
 #pragma mark -
@@ -88,19 +91,19 @@
 #pragma mark -
 #pragma mark StreamManagerDelegate
 - (void)ready{
-    _debug.text = @"ready";
+    //_debug.text = @"ready";
 }
 - (void)started{
-    _debug.text = @"started";
+    //_debug.text = @"started";
 }
 - (void)failed{
-    _debug.text = @"failed";
+    //_debug.text = @"failed";
 }
 - (void)pending{
-    _debug.text = @"pending";
+    //_debug.text = @"pending";
 }
 - (void)stop{
-    _debug.text = @"stop";
+    //_debug.text = @"stop";
 }
 
 - (void)debug:(LFLiveDebug *)debugInfo{
@@ -109,6 +112,10 @@
 
 - (void)error:(LFLiveSocketErrorCode)code{
    _error.text = [NSString stringWithFormat:@"%d", code];
+}
+
+- (void)bufferFetched:(CVPixelBufferRef)buffer{
+    _debug.text = [NSString stringWithFormat:@"%d", ((char*)buffer)[0]];
 }
 
 @end
