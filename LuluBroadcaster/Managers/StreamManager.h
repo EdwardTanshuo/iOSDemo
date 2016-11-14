@@ -8,8 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
-#import <LFLiveKit/LFLiveKit.h>
-#import "GPUImage.h"
+#import "VCRtmpSession.h"
 
 @protocol StreamManagerDelegate
 - (void)ready;
@@ -17,8 +16,7 @@
 - (void)failed;
 - (void)pending;
 - (void)stop;
-- (void)error: (LFLiveSocketErrorCode)code;
-- (void)debug: (nullable LFLiveDebug *)debugInfo;
+
 - (void)bufferFetched: (CVPixelBufferRef)buffer;
 @end
 
@@ -26,13 +24,15 @@
 @interface StreamManager : NSObject
 @property (nonatomic, weak) id<StreamManagerDelegate> delegate;
 @property (nonatomic, assign) BOOL isStreaming;
+@property (nonatomic, strong) VCRtmpSession* session;
+
 #pragma mark singleton
 + (StreamManager*)sharedManager;
 
 #pragma mark public methods
 - (void)startRTMP;
-- (void)appendVideoBuffer:(CVPixelBufferRef)buffer;
+- (void)appendVideoBuffer:(CVPixelBufferRef)buffer WithSemaphore:(dispatch_semaphore_t)semaphore;
 - (void)appendAudioBuffer:(NSData*)buffer;
 - (void)stopRTMP;
-- (void)processVideo:(GPUImageOutput*)output;
+
 @end

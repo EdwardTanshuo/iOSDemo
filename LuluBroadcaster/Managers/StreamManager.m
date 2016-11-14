@@ -10,14 +10,12 @@
 #import "SettingSession.h"
 #import <INSNanoSDK/INSNanoSDK.h>
 #import <NSLogger/NSLogger.h>
-#import <LFLiveKit/LFLiveKit.h>
+#import "avformat.h"
 
 
-#define NOW [[NSDate new] timeIntervalSince1970]
+@interface StreamManager()
 
 
-@interface StreamManager()<LFLiveSessionDelegate>
-@property (nonatomic, strong) LFLiveSession* session;
 @end
 
 @implementation StreamManager
@@ -28,78 +26,28 @@
     dispatch_once(&onceToken, ^{
         sharedMyManager = [[self alloc] init];
     });
+    
     return sharedMyManager;
 }
 
 - (instancetype)init{
     _isStreaming = NO;
-    LFLiveAudioConfiguration *audioConfiguration = [LFLiveAudioConfiguration new];
-    audioConfiguration.numberOfChannels = 2;
-    audioConfiguration.audioBitrate = LFLiveAudioBitRate_128Kbps;
-    audioConfiguration.audioSampleRate = LFLiveAudioSampleRate_44100Hz;
-    
-    LFLiveVideoConfiguration *videoConfiguration = [LFLiveVideoConfiguration new];
-    videoConfiguration.videoSize = CGSizeMake(1280, 720);
-    videoConfiguration.videoBitRate = 2 * 1024 * 1024;
-    videoConfiguration.videoMaxBitRate = 3 * 1024 * 1024;
-    videoConfiguration.videoMinBitRate = 1 * 1024 * 1024;
-    videoConfiguration.videoFrameRate = 30;
-    videoConfiguration.videoMaxKeyframeInterval = 30;
-    videoConfiguration.sessionPreset = LFCaptureSessionPreset720x1280;
-    self.session = [[LFLiveSession alloc]initWithAudioConfiguration:[LFLiveAudioConfiguration defaultConfiguration] videoConfiguration:[LFLiveVideoConfiguration defaultConfiguration]];
-    _session.running = YES;
-    self.session.delegate = self;
+    self.session = [[VCRtmpSession alloc] initWithVideoSize:VIDEO_SIZE_CIF fps:30 bitrate:BITRATE_CIF];
+    [self.session startRtmpSession:@"rtmp://10.10.17.182:1935/rtmplive/kjkjkj"];
     return [super init];
 }
+
 
 - (void) dealloc{
     
 }
 
 #pragma mark -
-#pragma mark VCSessionDelegate
-- (void)liveSession:(nullable LFLiveSession *)session liveStateDidChange:(LFLiveState)state{
-    switch (state) {
-        case LFLiveReady:
-            [_delegate ready];
-            break;
-        case LFLiveStart:
-            [_delegate started];
-            break;
-        case LFLiveError:
-            [_delegate failed];
-            break;
-        case LFLivePending:
-            [_delegate pending];
-            break;
-        case LFLiveStop:
-            [_delegate stop];
-            break;
-        default:
-            break;
-    }
-}
-/** live debug info callback */
-- (void)liveSession:(nullable LFLiveSession *)session debugInfo:(nullable LFLiveDebug *)debugInfo{
-    [_delegate debug:debugInfo];
-}
-/** callback socket errorcode */
-- (void)liveSession:(nullable LFLiveSession *)session errorCode:(LFLiveSocketErrorCode)errorCode{
-    [_delegate error:errorCode];
-}
-
-
-#pragma mark -
 #pragma mark methods
 - (void)startRTMP{
     if (!_session)
         return;
-    SettingSession* setting = [[SettingSession alloc] init];
-    LFLiveStreamInfo *streamInfo = [LFLiveStreamInfo new];
-    streamInfo.url = [NSString stringWithFormat:@"%@/%@", setting.url, setting.streamKey];
-    streamInfo.streamId = setting.streamKey;
     
-    [self.session startLive:streamInfo];
     _isStreaming = YES;
 }
 
@@ -107,33 +55,9 @@
     if (!_session)
         return;
     _isStreaming = NO;
-    [self.session stopLive];
+    [self.session endRtmpSession];
+    
 }
 
-
-- (void)appendVideoBuffer:(CVPixelBufferRef)buffer {
-    if (!_session || !_isStreaming)
-        return;
-
-    [_delegate bufferFetched:buffer];
-    [self.session pushVideo:buffer];
-}
-
-- (void)appendAudioBuffer:(NSData*)buffer{
-    //[self.session end];
-    if (!_session || !_isStreaming)
-        return;
-    [self.session pushAudio:buffer];
-}
-
-- (void)processVideo:(GPUImageOutput*)output{
-    @autoreleasepool {
-        GPUImageFramebuffer *imageFramebuffer = output.framebufferForOutput;
-        CVPixelBufferRef pixelBuffer = [imageFramebuffer pixelBuffer];
-        if(self.isStreaming){
-            [self appendVideoBuffer:pixelBuffer];
-        }
-    }
-}
 
 @end

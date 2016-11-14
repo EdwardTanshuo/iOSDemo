@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>KZPropertyMapper.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>NSLogger.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,7 +32,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>4953D6EF1596F6491FE67FA9A80E2A42</key>
+		<key>01D52635B7FA66EB3D46A9006D145C7C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -42,7 +47,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>ED9A374FFBBF7948102234EB7F05EA56</key>
+		<key>B580BCEF64B936DDB68FF33400103375</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E3A36AA72D59ECBC8DE72492879D5B25</key>
 		<dict>
 			<key>primary</key>
 			<true/>

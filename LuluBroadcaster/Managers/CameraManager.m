@@ -8,7 +8,8 @@
 
 #import "CameraManager.h"
 #import <INSNanoSDK/INSNanoSDK.h>
-
+#import "LiveManager.h"
+#import <NSLogger/NSLogger.h>
 @interface CameraManager()
 
 @end
@@ -61,10 +62,14 @@
 
 #pragma mark methods
 - (void)openCamera{
-     [[INSCameraAccessory defaultCamera] openCamera];
+    LogMessage(@"camera", 1, @"pre-opene");
+    [[INSCameraAccessory defaultCamera] openCamera];
+ 
+    LogMessage(@"camera", 1, @"opened");
 }
 
 - (void)closeCamera{
      [[INSCameraAccessory defaultCamera] closeCamera];
+    
 }
 @end

@@ -14,6 +14,7 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
+  - KZPropertyMapper (2.6)
   - NSLogger (1.7.0):
     - NSLogger/Standard (= 1.7.0)
   - NSLogger/Standard (1.7.0)
@@ -21,6 +22,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
+  - KZPropertyMapper
   - NSLogger
   - SAMKeychain (from `https://github.com/soffes/SAMKeychain`)
 
@@ -35,9 +37,10 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  KZPropertyMapper: bcaabe1ec5b4368acb8092faf40666096ba9bb23
   NSLogger: daa17368272ddf10a0850c218fe49de23b50f2eb
   SAMKeychain: 1865333198217411f35327e8da61b43de79b635b
 
-PODFILE CHECKSUM: 2f0c65649a53a8983efdd31f1452c2ee8a7919ea
+PODFILE CHECKSUM: b51f0fde343be1ef11fecd1bea9c2639077d217d
 
 COCOAPODS: 1.0.1

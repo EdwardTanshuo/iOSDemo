@@ -9,9 +9,7 @@
 #import "LiveController.h"
 #import "LiveManager.h"
 #import "StreamManager.h"
-#import "GPUImage.h"
-#import "GPUImageBeautifyFilter.h"
-#import "YUGPUImageCVPixelBufferInput.h"
+#import <GPUImage/GPUImageFramework.h>
 #import <NSLogger/LoggerClient.h>
 
 @interface LiveController ()<LiveDataSourceDelegate, StreamManagerDelegate>
@@ -29,25 +27,17 @@
     // Do any additional setup after loading the view from its nib.
     [self setupViews];
     [self launchLive];
-    [self launchStream];
-    LogMessage(@"stream", 1, @"live started");
 }
 
 - (void)dealloc{
     [LiveManager sharedManager].delegate = nil;
-    [StreamManager sharedManager].delegate = nil;
     [[LiveManager sharedManager] stopLive];
-    [[StreamManager sharedManager] stopRTMP];
+   
 }
 
 - (void)launchLive{
     [LiveManager sharedManager].delegate = self;
     [[LiveManager sharedManager] startLiveWithView:_imageView];
-}
-
-- (void)launchStream{
-    [StreamManager sharedManager].delegate = self;
-    [[StreamManager sharedManager] startRTMP];
 }
 
 - (void)setupViews{
@@ -88,31 +78,8 @@
      self.view.backgroundColor = [UIColor blackColor];
 }
 
-#pragma mark -
-#pragma mark StreamManagerDelegate
-- (void)ready{
-    //_debug.text = @"ready";
-}
-- (void)started{
-    //_debug.text = @"started";
-}
-- (void)failed{
-    //_debug.text = @"failed";
-}
-- (void)pending{
-    //_debug.text = @"pending";
-}
-- (void)stop{
-    //_debug.text = @"stop";
-}
 
-- (void)debug:(LFLiveDebug *)debugInfo{
-    
-}
 
-- (void)error:(LFLiveSocketErrorCode)code{
-   _error.text = [NSString stringWithFormat:@"%d", code];
-}
 
 - (void)bufferFetched:(CVPixelBufferRef)buffer{
     _debug.text = [NSString stringWithFormat:@"%d", ((char*)buffer)[0]];

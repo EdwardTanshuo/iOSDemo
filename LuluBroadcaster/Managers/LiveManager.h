@@ -6,10 +6,9 @@
 //  Copyright © 2016 ShuoTan. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
-#import "YUGPUImageCVPixelBufferInput.h"
-#import "GPUImageBeautifyFilter.h"
+
 
 
 @protocol LiveDataSourceDelegate
@@ -20,16 +19,15 @@
 
 
 @interface LiveManager : NSObject
-
+@property (nonatomic, assign) BOOL isLiving;
 @property (nonatomic, weak) id<LiveDataSourceDelegate> delegate;
-@property (nonatomic,strong) YUGPUImageCVPixelBufferInput *pixelBufferInput;
-@property (nonatomic, strong) GPUImageBeautifyFilter* filter;
+
 
 #pragma mark singleton
 + (LiveManager*)sharedManager;
 
 #pragma mark public methods
-- (void)startLiveWithView: (GPUImageView*) view;
+- (void)startLiveWithView: (UIView*) view;
 - (void)stopLive;
 
 @end

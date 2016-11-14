@@ -23,21 +23,13 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    //初始化相机
-    [CameraManager sharedManager];
-    
-    //初始化直播
-    [LiveManager sharedManager];
-    
-    //初始化推流
-    [StreamManager sharedManager];
-    
     //初始化日志
     LoggerSetOptions(NULL,
                      kLoggerOption_BufferLogsUntilConnection |
                      kLoggerOption_CaptureSystemConsole|
                      kLoggerOption_BrowseBonjour|
                      kLoggerOption_BrowseOnlyLocalDomain | 0);
+    LogMessage(@"app", 1, @"hello");
    
     return YES;
 }

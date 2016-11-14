@@ -21,6 +21,8 @@
     // Do any additional setup after loading the view.
     [CameraManager sharedManager].delegate = self;
     [self setupViews];
+    
+    self.navigationItem.title = @"直播";
 }
 
 - (void) dealloc{
