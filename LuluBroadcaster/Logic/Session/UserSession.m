@@ -64,5 +64,14 @@
     }
 }
 
+#pragma mark methods
+- (BOOL)hasToken{
+    if(self.token){
+        return YES;
+    }
+    else{
+        return NO;
+    }
+}
 
 @end

@@ -17,6 +17,8 @@
 		D76E56EA1DD91C37004BE5B9 /* LuluRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D76E56E91DD91C37004BE5B9 /* LuluRequest.m */; };
 		D76E56ED1DD91C8D004BE5B9 /* Broadcaster.m in Sources */ = {isa = PBXBuildFile; fileRef = D76E56EC1DD91C8D004BE5B9 /* Broadcaster.m */; };
 		D76E56F01DD924E3004BE5B9 /* LoginRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D76E56EF1DD924E3004BE5B9 /* LoginRequest.m */; };
+		D78D0B611DDA7CA100B01108 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = D78D0B5F1DDA7CA100B01108 /* LoginController.m */; };
+		D78D0B621DDA7CA100B01108 /* LoginController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D78D0B601DDA7CA100B01108 /* LoginController.xib */; };
 		D7979E1E1DCB50AC0056B35A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7979E1D1DCB50AC0056B35A /* CoreData.framework */; };
 		D7AEC1301DD18DB600F9BC7F /* LICENSE_1_0.txt in Resources */ = {isa = PBXBuildFile; fileRef = D7AEBDA01DD18DB500F9BC7F /* LICENSE_1_0.txt */; };
 		D7AEC1311DD18DB600F9BC7F /* copying.txt in Resources */ = {isa = PBXBuildFile; fileRef = D7AEBDA21DD18DB500F9BC7F /* copying.txt */; };
@@ -305,6 +307,9 @@
 		D76E56EC1DD91C8D004BE5B9 /* Broadcaster.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Broadcaster.m; path = Models/Broadcaster.m; sourceTree = "<group>"; };
 		D76E56EE1DD924E3004BE5B9 /* LoginRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginRequest.h; path = Request/LoginRequest.h; sourceTree = "<group>"; };
 		D76E56EF1DD924E3004BE5B9 /* LoginRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginRequest.m; path = Request/LoginRequest.m; sourceTree = "<group>"; };
+		D78D0B5E1DDA7CA100B01108 /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginController.h; path = ViewControllers/LoginController.h; sourceTree = "<group>"; };
+		D78D0B5F1DDA7CA100B01108 /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginController.m; path = ViewControllers/LoginController.m; sourceTree = "<group>"; };
+		D78D0B601DDA7CA100B01108 /* LoginController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginController.xib; path = ViewControllers/LoginController.xib; sourceTree = "<group>"; };
 		D7979E1D1DCB50AC0056B35A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		D7AEA1561DD18DA900F9BC7F /* accumulators.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = accumulators.hpp; sourceTree = "<group>"; };
 		D7AEA1571DD18DA900F9BC7F /* accumulators_fwd.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = accumulators_fwd.hpp; sourceTree = "<group>"; };
@@ -8086,6 +8091,16 @@
 				D76E56E21DD6A2BD004BE5B9 /* ColorConstant.m */,
 			);
 			name = Constant;
+			sourceTree = "<group>";
+		};
+		D78D0B5D1DDA7C8100B01108 /* login */ = {
+			isa = PBXGroup;
+			children = (
+				D78D0B5E1DDA7CA100B01108 /* LoginController.h */,
+				D78D0B5F1DDA7CA100B01108 /* LoginController.m */,
+				D78D0B601DDA7CA100B01108 /* LoginController.xib */,
+			);
+			name = login;
 			sourceTree = "<group>";
 		};
 		D7AEA1521DD18DA900F9BC7F /* RtmpLivePushSDK */ = {
@@ -20778,6 +20793,7 @@
 		D7D4AF021DC8020500A782F7 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				D78D0B5D1DDA7C8100B01108 /* login */,
 				D7D4AF2E1DC8654F00A782F7 /* live */,
 				D7D4AF151DC80B4800A782F7 /* homepage */,
 			);
@@ -21254,6 +21270,7 @@
 				D7AEC1AB1DD18DB700F9BC7F /* type_mat2x3.inl in Resources */,
 				D7AEC1751DD18DB600F9BC7F /* matrix_cross_product.inl in Resources */,
 				D7AEC1A11DD18DB700F9BC7F /* intrinsic_common.inl in Resources */,
+				D78D0B621DDA7CA100B01108 /* LoginController.xib in Resources */,
 				D7AEC1EE1DD18DB700F9BC7F /* rotate_vector.inl in Resources */,
 				D7AEC1381DD18DB600F9BC7F /* func_packing.inl in Resources */,
 				D7AEC19F1DD18DB700F9BC7F /* func_trigonometric.inl in Resources */,
@@ -21480,6 +21497,7 @@
 				D7D4AF0A1DC8037100A782F7 /* UserSession.m in Sources */,
 				D7D4AEDB1DC7F33D00A782F7 /* main.m in Sources */,
 				D70435251DC988A800EF5FAE /* GPUImageMyBeautifyFilter.m in Sources */,
+				D78D0B611DDA7CA100B01108 /* LoginController.m in Sources */,
 				D7AEC1FF1DD18DB700F9BC7F /* README.md in Sources */,
 				D7AEC2011DD18DB700F9BC7F /* README.md in Sources */,
 				D7D4AF181DC80E7700A782F7 /* CameraManager.m in Sources */,

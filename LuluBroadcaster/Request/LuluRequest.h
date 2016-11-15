@@ -6,6 +6,8 @@
 //  Copyright © 2016 ShuoTan. All rights reserved.
 //
 
+#define BASE_URL @"http://release.mofangvr.com:3000/api/"
+
 #import <Foundation/Foundation.h>
 #import "Broadcaster.h"
 

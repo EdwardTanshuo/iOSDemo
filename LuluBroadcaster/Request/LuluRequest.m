@@ -15,11 +15,16 @@
 
 @implementation LuluRequest
 - (instancetype)init{
-    _base_url = @"127.0.0.1:3000/api/";
+    _base_url = BASE_URL;
     _apis = @{@"login": @"login"};
     _manager = [AFHTTPSessionManager manager];
     _manager.requestSerializer = [AFJSONRequestSerializer serializer];
     _manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    AFSecurityPolicy *securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
+    [securityPolicy setValidatesDomainName:NO];
+    [securityPolicy setAllowInvalidCertificates:YES];
+    _manager.securityPolicy = securityPolicy;
+   
     return [super init];
 }
 
@@ -28,8 +33,8 @@
 }
 
 - (NSString*) urlByService:(NSString*) service{
-    if([_apis objectForKey:@"service"]){
-        return [NSString stringWithFormat:@"%@%@", _base_url, _apis[@"service"]];
+    if([_apis objectForKey:service]){
+        return [NSString stringWithFormat:@"%@%@", _base_url, _apis[service]];
     }
     else{
         return @"";

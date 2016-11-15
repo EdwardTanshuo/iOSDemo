@@ -17,7 +17,7 @@
 @implementation LoginRequest
 
 #pragma mark singleton
-+ (LoginRequest*)sharedRequest {
++ (LoginRequest* _Nullable)sharedRequest {
     static LoginRequest *sharedMyRequest = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -31,6 +31,7 @@
 }
 
 - (void)login:(void (^)(Broadcaster * _Nullable, NSError * _Nullable))complete{
+    NSLog(@"%@",[self urlByService:@"login"]);
     [self postWithURL:[self urlByService:@"login"] Parameters:@{} Success:^(id  _Nullable responseObject) {
         
     } Failure:^(NSError * _Nonnull error) {

@@ -9,5 +9,6 @@
 #import "LuluRequest.h"
 
 @interface LoginRequest : LuluRequest
++ (LoginRequest* _Nullable)sharedRequest;
 - (void)login: (void (^_Nullable)(Broadcaster* _Nullable broadcaster,  NSError* _Nullable  error)) complete;
 @end

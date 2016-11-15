@@ -10,4 +10,7 @@
 
 @interface NavigationRouter : NSObject
 + (void)popLiveControllerFrom:(UIViewController*)parentController;
++ (void)showLoginControllerOnWindow: (UIWindow*)window;
++ (void)showTabControllerOnWindow: (UIWindow*)window;
++ (void)showAlertInViewController: (UIViewController*)controller WithTitle: (NSString*)title WithMessage: (NSString*)msg;
 @end

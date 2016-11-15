@@ -11,7 +11,8 @@
 #import "LiveManager.h"
 #import "StreamManager.h"
 #import <NSLogger/LoggerClient.h>
-
+#import "UserSession.h"
+#import "NavigationRouter.h"
 
 @interface AppDelegate ()
 
@@ -30,7 +31,16 @@
                      kLoggerOption_BrowseBonjour|
                      kLoggerOption_BrowseOnlyLocalDomain | 0);
     LogMessage(@"app", 1, @"hello");
-   
+    
+    //judge user have token
+    UserSession* session = [[UserSession alloc] init];
+    if(![session hasToken]){
+        [NavigationRouter showLoginControllerOnWindow:self.window];
+    }
+    else{
+        [NavigationRouter showTabControllerOnWindow:self.window];
+    }
+    
     return YES;
 }
 

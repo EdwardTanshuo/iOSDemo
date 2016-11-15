@@ -116,7 +116,7 @@
         <!--Customer Tab Bar Controller-->
         <scene sceneID="nbR-eJ-d1l">
             <objects>
-                <tabBarController id="Gix-e1-DJ1" customClass="CustomerTabBarController" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tab_main" id="Gix-e1-DJ1" customClass="CustomerTabBarController" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="ChX-6q-HKu">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
