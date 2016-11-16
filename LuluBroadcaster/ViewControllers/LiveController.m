@@ -79,8 +79,6 @@
 }
 
 
-
-
 - (void)bufferFetched:(CVPixelBufferRef)buffer{
     _debug.text = [NSString stringWithFormat:@"%d", ((char*)buffer)[0]];
 }
