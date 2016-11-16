@@ -9,8 +9,8 @@
 #import "LoginController.h"
 #import "LoginRequest.h"
 #import "NavigationRouter.h"
-
 #import "AppDelegate.h"
+#import "UserSession.h"
 
 @interface LoginController ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *blank;
@@ -49,8 +49,11 @@
     [_blank addTarget:self action:@selector(hideInput:) forControlEvents:UIControlEventTouchDown];
     
     //text fields
+    UserSession* session = [[UserSession alloc] init];
     _username.delegate = self;
     _password.delegate = self;
+    _username.text = session.userName;
+    _password.text = session.password;
 }
 
 - (BOOL)prefersStatusBarHidden{
@@ -69,14 +72,26 @@
         return;
     }
     sender.userInteractionEnabled = NO;
-    [[LoginRequest sharedRequest] login:^(Broadcaster * _Nullable broadcaster, NSError * _Nullable error) {
+    
+    __weak LoginController* wself = self;
+    [[LoginRequest sharedRequest] loginWithEmail:self.username.text Password:self.password.text Callback:^(Broadcaster * _Nullable broadcaster, NSError * _Nullable error) {
         sender.userInteractionEnabled = YES;
         if(broadcaster){
+            UserSession* session = [[UserSession alloc] init];
+            [session saveSessionWithEmail:wself.username.text WithPassword:wself.password.text];
             [NavigationRouter showTabControllerOnWindow:((AppDelegate*)[UIApplication sharedApplication]).window];
         }
         else{
-            [NavigationRouter showAlertInViewController:self WithTitle:@"登陆错误" WithMessage:@"请检查用户名或者密码"];
+            NSString* msg = nil;
+            if(error.userInfo[@"msg"]){
+                msg = error.userInfo[@"msg"];
+            }
+            else{
+                msg = @"无法登陆";
+            }
+            [NavigationRouter showAlertInViewController:self WithTitle:@"登陆错误" WithMessage:msg];
         }
+
     }];
 }
 

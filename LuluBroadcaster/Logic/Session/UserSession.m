@@ -53,15 +53,12 @@
     _token = [[NSUserDefaults standardUserDefaults] objectForKey:TOKEN_KEY];
     return _token;
 }
+
 - (void) setToken:(nonnull NSString*)token{
-    if(token){
-        if(!token){
-            return;
-        }
-        [SAMKeychain setPassword:token forService:KEYCHAIN_SERVICE account:_userName];
-    }else{
-        assert(@"username is not exist");
+    if(!token){
+        return;
     }
+    [[NSUserDefaults standardUserDefaults] setObject:token forKey:TOKEN_KEY];
 }
 
 #pragma mark methods
@@ -74,4 +71,12 @@
     }
 }
 
+- (void)saveSessionWithEmail:(NSString*)email WithPassword:(NSString*)password{
+    self.userName = email;
+    self.password = password;
+}
+
+- (void)saveToken: (NSString*)token WithEmail:(NSString*)email{
+    self.token = token;
+}
 @end

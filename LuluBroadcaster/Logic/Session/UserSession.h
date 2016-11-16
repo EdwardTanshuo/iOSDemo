@@ -10,11 +10,12 @@
 
 @interface UserSession : NSObject
 #pragma mark public
-@property (nonatomic, strong) NSString* userName;
-@property (nonatomic, strong) NSString* password;
-@property (nonatomic, strong) NSString* token;
+@property (nonatomic, strong, readonly) NSString* userName;
+@property (nonatomic, strong, readonly) NSString* password;
+@property (nonatomic, strong, readonly) NSString* token;
 
 #pragma mark methods
 - (BOOL)hasToken;
-
+- (void)saveSessionWithEmail:(NSString*)email WithPassword:(NSString*)password;
+- (void)saveToken: (NSString*)token WithEmail:(NSString*)email;
 @end

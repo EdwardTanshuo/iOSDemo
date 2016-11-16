@@ -67,6 +67,26 @@
     }];
 }
 
+- (NSError* _Nullable)checkResponse: (id _Nullable)response{
+    NSError* error = nil;
+    if(!response){
+        error = [NSError errorWithDomain:@"com.mofangvr.lulu" code:404 userInfo:@{@"msg": @"unhandle error"}];
+        return error;
+    }
+    else if(![[response objectForKey:@"errCode"] isKindOfClass:[NSNumber class]]){
+        error = [NSError errorWithDomain:@"com.mofangvr.lulu" code:403 userInfo:@{@"msg": @"unsupport response format, must include errCode"}];
+        return error;
+    }
+    else if([[response objectForKey:@"errCode"] integerValue] != 0){
+        NSString* message = [response objectForKey:@"message"];
+        if(!message){
+            message = @"no info";
+        }
+        error = [NSError errorWithDomain:@"com.mofangvr.lulu" code:[[response objectForKey:@"errCode"] integerValue] userInfo:@{@"msg": message}];
+        return error;
+    }
+    return nil;
+}
 
 
 @end

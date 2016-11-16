@@ -26,4 +26,6 @@
         Parameters: (id _Nullable)params
            Success: (void (^_Nullable)(id _Nullable responseObject)) success
            Failure: (void (^_Nullable)(NSError * _Nonnull error)) failure;
+
+- (NSError* _Nullable)checkResponse: (id _Nullable)response;
 @end

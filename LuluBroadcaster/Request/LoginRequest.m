@@ -9,6 +9,7 @@
 #import "LoginRequest.h"
 #import "Broadcaster.h"
 #import <KZPropertyMapper/KZPropertyMapper.h>
+#import "UserSession.h"
 
 @interface LoginRequest()
 
@@ -30,10 +31,33 @@
     return [super init];
 }
 
-- (void)login:(void (^)(Broadcaster * _Nullable, NSError * _Nullable))complete{
+- (void)loginWithEmail: (NSString* _Nonnull) email
+              Password: (NSString* _Nonnull) password
+              Callback: (void (^_Nullable)(Broadcaster * _Nullable, NSError * _Nullable))complete{
     NSLog(@"%@",[self urlByService:@"login"]);
-    [self postWithURL:[self urlByService:@"login"] Parameters:@{} Success:^(id  _Nullable responseObject) {
+    [self postWithURL:[self urlByService:@"login"] Parameters:@{@"email": email, @"password": password} Success:^(id  _Nullable responseObject) {
         
+        //check err
+        NSError* err = [self checkResponse:responseObject];
+        
+        //parse result
+        if(err){
+            complete(nil, err);
+        }
+        else{
+            //save token
+            if(responseObject[@"data"][@"token"]){
+                UserSession* session = [[UserSession alloc] init];
+                [session saveToken:responseObject[@"data"][@"token"] WithEmail:email];
+            }
+            
+            if(responseObject[@"data"][@"user"]){
+                complete([Broadcaster broadcasterWithJSON:responseObject[@"data"][@"user"]], nil);
+            }
+            else{
+                complete([[Broadcaster alloc] init], nil);
+            }
+        }
     } Failure:^(NSError * _Nonnull error) {
         complete(nil, error);
     }];

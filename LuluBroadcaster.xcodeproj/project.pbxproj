@@ -21660,6 +21660,7 @@
 					"\"Security\"",
 					"-framework",
 					"\"SystemConfiguration\"",
+					"$(inherited)",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.lulu.bc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -21712,6 +21713,7 @@
 					"\"Security\"",
 					"-framework",
 					"\"SystemConfiguration\"",
+					"$(inherited)",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.lulu.bc;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -9,13 +9,13 @@
 #import <Foundation/Foundation.h>
 @interface Broadcaster : NSObject
 @property (nonatomic, strong, nonnull) NSString* name;
-@property (nonatomic, strong, nonnull) NSString* bio;
-@property (nonatomic, strong, nonnull) NSString* location;
-@property (nonatomic, strong, nonnull) NSString* password;
+@property (nonatomic, strong, nonnull) NSString* email;
 @property (nonatomic, strong, nonnull) NSString* wowzaUri;
 @property (nonatomic, strong, nonnull) NSString* wowzaLogin;
 @property (nonatomic, strong, nonnull) NSString* wowzaPassword;
 @property (nonatomic, strong, nonnull) NSString* profileImageURL;
 @property (nonatomic, strong, nonnull) NSString* danmuPassword;
+
++ (Broadcaster* _Nonnull)broadcasterWithJSON:(id _Nonnull)data;
 
 @end
