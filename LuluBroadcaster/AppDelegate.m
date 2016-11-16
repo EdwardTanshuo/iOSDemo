@@ -33,13 +33,7 @@
     LogMessage(@"app", 1, @"hello");
     
     //judge user have token
-    UserSession* session = [[UserSession alloc] init];
-    if(![session hasToken]){
-        [NavigationRouter showLoginControllerOnWindow:self.window];
-    }
-    else{
-        [NavigationRouter showTabControllerOnWindow:self.window];
-    }
+    [NavigationRouter showLoginControllerOnWindow:self.window];
     
     return YES;
 }

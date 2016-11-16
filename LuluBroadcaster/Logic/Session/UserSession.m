@@ -15,6 +15,8 @@
 #import "UserSession.h"
 #import <SAMKeychain/SAMKeychain.h>
 
+static Broadcaster* g_broadcaster;
+
 @interface UserSession()
 
 @end
@@ -23,6 +25,16 @@
 @synthesize userName = _userName;
 @synthesize password = _password;
 @synthesize token = _token;
+@synthesize currentBroadcaster = _currentBroadcaster;
+
+#pragma mark currentBroadcaster
+- (Broadcaster*) currentBroadcaster{
+    _currentBroadcaster = g_broadcaster;
+    return _currentBroadcaster;
+}
+- (void) setCurrentBroadcaster:(Broadcaster*)broadcaster{
+    _currentBroadcaster = broadcaster;
+}
 
 #pragma mark userName
 - (NSString*) userName{

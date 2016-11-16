@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CustomerTabBarController : UITabBarController
+@protocol CustomerTabBarControllerDelegate
+- (void)didPressCameraButton;
+@end
 
+@interface CustomerTabBarController : UITabBarController
+@property (weak, nonatomic, nullable) id<CustomerTabBarControllerDelegate> camearaDelegate;
 @end

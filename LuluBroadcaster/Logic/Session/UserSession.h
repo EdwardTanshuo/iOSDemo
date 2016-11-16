@@ -7,12 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Broadcaster.h"
 
 @interface UserSession : NSObject
 #pragma mark public
 @property (nonatomic, strong, readonly) NSString* userName;
 @property (nonatomic, strong, readonly) NSString* password;
 @property (nonatomic, strong, readonly) NSString* token;
+@property (nonatomic, strong) Broadcaster* currentBroadcaster;
 
 #pragma mark methods
 - (BOOL)hasToken;

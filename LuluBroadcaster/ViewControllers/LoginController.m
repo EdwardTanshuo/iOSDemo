@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *password;
 @property (weak, nonatomic) IBOutlet UIButton *confirm;
 @property (weak, nonatomic) IBOutlet UIView *panel;
+@property (weak, nonatomic) IBOutlet UIView *loading;
 @end
 
 @implementation LoginController
@@ -54,6 +55,9 @@
     _password.delegate = self;
     _username.text = session.userName;
     _password.text = session.password;
+    
+    //loading mask
+    _loading.hidden = YES;
 }
 
 - (BOOL)prefersStatusBarHidden{
@@ -71,15 +75,20 @@
         [NavigationRouter showAlertInViewController:self WithTitle:@"用户信息不全" WithMessage:@"请检查用户名或者密码"];
         return;
     }
+    
     sender.userInteractionEnabled = NO;
+    _loading.hidden = NO;
     
     __weak LoginController* wself = self;
     [[LoginRequest sharedRequest] loginWithEmail:self.username.text Password:self.password.text Callback:^(Broadcaster * _Nullable broadcaster, NSError * _Nullable error) {
         sender.userInteractionEnabled = YES;
+        _loading.hidden = YES;
+        
         if(broadcaster){
             UserSession* session = [[UserSession alloc] init];
+            session.currentBroadcaster = broadcaster;
             [session saveSessionWithEmail:wself.username.text WithPassword:wself.password.text];
-            [NavigationRouter showTabControllerOnWindow:((AppDelegate*)[UIApplication sharedApplication]).window];
+            [NavigationRouter showTabControllerOnWindow:((AppDelegate*)[UIApplication sharedApplication].delegate).window];
         }
         else{
             NSString* msg = nil;

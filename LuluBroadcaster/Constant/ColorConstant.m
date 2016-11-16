@@ -10,6 +10,6 @@
 
 @implementation ColorConstant
 + (UIColor*) mclMediumPinkColor{
-    return [UIColor colorWithRed:241.0 / 255.0 green:118.0 / 255.0 blue:161.0 / 255.0 alpha:1.0];
+    return [UIColor colorWithRed:206.0 / 255.0 green:133.0 / 255.0 blue:209.0 / 255.0 alpha:1.0];
 }
 @end

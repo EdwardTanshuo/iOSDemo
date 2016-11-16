@@ -9,9 +9,11 @@
 #import "HomepageController.h"
 #import "CameraManager.h"
 #import "NavigationRouter.h"
+#import "CustomerTabBarController.h"
 
-@interface HomepageController ()<CameraManagerDelegate>
+@interface HomepageController ()<CameraManagerDelegate, CustomerTabBarControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
+@property (assign, nonatomic) CameraStatus status;
 @end
 
 @implementation HomepageController
@@ -21,6 +23,8 @@
     // Do any additional setup after loading the view.
     [CameraManager sharedManager].delegate = self;
     [self setupViews];
+    
+    ((CustomerTabBarController*)(self.navigationController.tabBarController)).camearaDelegate = self;
     
     self.navigationItem.title = @"直播";
 }
@@ -34,11 +38,7 @@
 #pragma mark methods
 - (void)setupViews{
     [self setupStatus];
-    [self setupButtons];
-}
-
-- (void)setupButtons{
-    [self.startButton addTarget:self action:@selector(startLive) forControlEvents:UIControlEventTouchUpInside];
+    
 }
 
 - (void)setupStatus{
@@ -51,14 +51,17 @@
         case CameraStatusConnected:
             [self.startButton setTitle:@"开始测试" forState:UIControlStateNormal];
             self.startButton.userInteractionEnabled = YES;
+            self.status = CameraStatusConnected;
             break;
         case CameraStatusConnecting:
             [self.startButton setTitle:@"连接中" forState:UIControlStateNormal];
             self.startButton.userInteractionEnabled = NO;
+            self.status = CameraStatusConnecting;
             break;
         case CameraStatusDisconnected:
             [self.startButton setTitle:@"没有找到相机" forState:UIControlStateNormal];
             self.startButton.userInteractionEnabled = NO;
+            self.status = CameraStatusDisconnected;
             break;
         default:
             break;
@@ -95,5 +98,15 @@
     [self updateStatus: manager];
 }
 
+#pragma mark -
+#pragma mark CustomerTabBarControllerDelegate
+- (void)didPressCameraButton{
+    if(self.status == CameraStatusConnected){
+        [self startLive];
+    }
+    else{
+        [NavigationRouter showAlertInViewController:self WithTitle:@"相机未连接" WithMessage:@"请检查您的nano是否已经连接"];
+    }
+}
 
 @end

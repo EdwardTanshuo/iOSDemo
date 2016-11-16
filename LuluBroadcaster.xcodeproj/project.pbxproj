@@ -11,6 +11,7 @@
 		D70435251DC988A800EF5FAE /* GPUImageMyBeautifyFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = D70435241DC988A800EF5FAE /* GPUImageMyBeautifyFilter.m */; };
 		D74338BA1DD46BBB00CC3831 /* GPUImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D74338B71DD46BB200CC3831 /* GPUImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D74338BB1DD46BD000CC3831 /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D74338B71DD46BB200CC3831 /* GPUImage.framework */; };
+		D75590111DDC67D80050BB47 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D75590101DDC67D80050BB47 /* SettingViewController.m */; };
 		D76E56E01DD6A1BB004BE5B9 /* CustomerNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D76E56DF1DD6A1BB004BE5B9 /* CustomerNavigationController.m */; };
 		D76E56E31DD6A2BD004BE5B9 /* ColorConstant.m in Sources */ = {isa = PBXBuildFile; fileRef = D76E56E21DD6A2BD004BE5B9 /* ColorConstant.m */; };
 		D76E56E71DD7E5C7004BE5B9 /* CustomerTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = D76E56E61DD7E5C7004BE5B9 /* CustomerTabBarController.m */; };
@@ -295,6 +296,8 @@
 		D70435231DC988A800EF5FAE /* GPUImageMyBeautifyFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPUImageMyBeautifyFilter.h; path = Logic/Helper/filter/GPUImageMyBeautifyFilter.h; sourceTree = "<group>"; };
 		D70435241DC988A800EF5FAE /* GPUImageMyBeautifyFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPUImageMyBeautifyFilter.m; path = Logic/Helper/filter/GPUImageMyBeautifyFilter.m; sourceTree = "<group>"; };
 		D74338B71DD46BB200CC3831 /* GPUImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GPUImage.framework; path = lib/GPUImage/GPUImage.framework; sourceTree = "<group>"; };
+		D755900F1DDC67D80050BB47 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingViewController.h; path = ViewControllers/SettingViewController.h; sourceTree = "<group>"; };
+		D75590101DDC67D80050BB47 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingViewController.m; path = ViewControllers/SettingViewController.m; sourceTree = "<group>"; };
 		D76E56DE1DD6A1BB004BE5B9 /* CustomerNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomerNavigationController.h; path = navigationController/CustomerNavigationController.h; sourceTree = "<group>"; };
 		D76E56DF1DD6A1BB004BE5B9 /* CustomerNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomerNavigationController.m; path = navigationController/CustomerNavigationController.m; sourceTree = "<group>"; };
 		D76E56E11DD6A2BD004BE5B9 /* ColorConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ColorConstant.h; path = Constant/ColorConstant.h; sourceTree = "<group>"; };
@@ -8064,6 +8067,15 @@
 				D70435211DC9704F00EF5FAE /* YUGPUImageCVPixelBufferInput.m */,
 			);
 			name = buffer2image;
+			sourceTree = "<group>";
+		};
+		D755900E1DDC67AC0050BB47 /* setting */ = {
+			isa = PBXGroup;
+			children = (
+				D755900F1DDC67D80050BB47 /* SettingViewController.h */,
+				D75590101DDC67D80050BB47 /* SettingViewController.m */,
+			);
+			name = setting;
 			sourceTree = "<group>";
 		};
 		D76E56E41DD7E57A004BE5B9 /* customerTabBar */ = {
@@ -20793,6 +20805,7 @@
 		D7D4AF021DC8020500A782F7 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				D755900E1DDC67AC0050BB47 /* setting */,
 				D78D0B5D1DDA7C8100B01108 /* login */,
 				D7D4AF2E1DC8654F00A782F7 /* live */,
 				D7D4AF151DC80B4800A782F7 /* homepage */,
@@ -21492,6 +21505,7 @@
 				D7D4AF141DC80B4400A782F7 /* HomepageController.m in Sources */,
 				D7D4AF2D1DC863F100A782F7 /* LiveManager.m in Sources */,
 				D76E56ED1DD91C8D004BE5B9 /* Broadcaster.m in Sources */,
+				D75590111DDC67D80050BB47 /* SettingViewController.m in Sources */,
 				D7D4AF221DC817E400A782F7 /* SettingSession.m in Sources */,
 				D7BA5C631DCAD78C000F1AB7 /* LiveController.m in Sources */,
 				D7D4AF0A1DC8037100A782F7 /* UserSession.m in Sources */,
