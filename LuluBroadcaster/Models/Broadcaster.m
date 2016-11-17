@@ -24,6 +24,7 @@
     self.wowzaPassword = @"";
     self.profileImageURL = @"";
     self.danmuPassword = @"";
+    self.room = @"";
     
     return [super init];
 }
@@ -35,7 +36,8 @@
                               @"wowzaLogin":KZProperty(wowzaLogin),
                               @"wowzaPassword":KZProperty(wowzaPassword),
                               @"profileImageURL":KZProperty(profileImageURL),
-                              @"danmuPassword":KZProperty(danmuPassword)
+                              @"danmuPassword":KZProperty(danmuPassword),
+                              @"_id":KZProperty(room)
                               };
     [KZPropertyMapper mapValuesFrom:data toInstance:self usingMapping:mapping];
 }

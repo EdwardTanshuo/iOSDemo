@@ -11,8 +11,9 @@
 #import "StreamManager.h"
 #import <GPUImage/GPUImageFramework.h>
 #import <NSLogger/LoggerClient.h>
+#import "DanmuSocket.h"
 
-@interface LiveController ()<LiveDataSourceDelegate, StreamManagerDelegate>
+@interface LiveController ()<LiveDataSourceDelegate>
 @property (nonatomic, strong) GPUImageView* imageView;
 
 @property (nonatomic, strong) UILabel* debug;

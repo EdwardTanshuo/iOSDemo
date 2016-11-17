@@ -15,6 +15,7 @@
 @property (nonatomic, strong, nonnull) NSString* wowzaPassword;
 @property (nonatomic, strong, nonnull) NSString* profileImageURL;
 @property (nonatomic, strong, nonnull) NSString* danmuPassword;
+@property (nonatomic, strong, nonnull) NSString* room;
 
 + (Broadcaster* _Nonnull)broadcasterWithJSON:(id _Nonnull)data;
 

@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '01D52635B7FA66EB3D46A9006D145C7C'
+               BlueprintIdentifier = 'C43EDAC2C3394B6D5CB3DDFEA4679BE9'
                BlueprintName = 'KZPropertyMapper'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'libKZPropertyMapper.a'>
+               BuildableName = 'KZPropertyMapper.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

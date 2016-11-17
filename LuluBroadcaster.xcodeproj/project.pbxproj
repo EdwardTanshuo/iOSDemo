@@ -20,6 +20,8 @@
 		D76E56F01DD924E3004BE5B9 /* LoginRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D76E56EF1DD924E3004BE5B9 /* LoginRequest.m */; };
 		D78D0B611DDA7CA100B01108 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = D78D0B5F1DDA7CA100B01108 /* LoginController.m */; };
 		D78D0B621DDA7CA100B01108 /* LoginController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D78D0B601DDA7CA100B01108 /* LoginController.xib */; };
+		D78D0C441DDD2C2E00DE1193 /* LuluSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = D78D0C431DDD2C2E00DE1193 /* LuluSocket.m */; };
+		D78D0C4A1DDD2C8700DE1193 /* DanmuSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = D78D0C491DDD2C8700DE1193 /* DanmuSocket.m */; };
 		D7979E1E1DCB50AC0056B35A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7979E1D1DCB50AC0056B35A /* CoreData.framework */; };
 		D7AEC1301DD18DB600F9BC7F /* LICENSE_1_0.txt in Resources */ = {isa = PBXBuildFile; fileRef = D7AEBDA01DD18DB500F9BC7F /* LICENSE_1_0.txt */; };
 		D7AEC1311DD18DB600F9BC7F /* copying.txt in Resources */ = {isa = PBXBuildFile; fileRef = D7AEBDA21DD18DB500F9BC7F /* copying.txt */; };
@@ -269,7 +271,7 @@
 		D7E831751DCF363500F03BED /* libpostproc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D7E8316D1DCF363500F03BED /* libpostproc.a */; };
 		D7E831761DCF363500F03BED /* libswresample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D7E8316E1DCF363500F03BED /* libswresample.a */; };
 		D7E831771DCF363500F03BED /* libswscale.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D7E8316F1DCF363500F03BED /* libswscale.a */; };
-		E8210C9AC4A2F1073D4164CC /* libPods-LuluBroadcaster.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C242F5B1374B50FF8F3A2FA /* libPods-LuluBroadcaster.a */; };
+		F8A13342BDD6C1436E55D75B /* Pods_LuluBroadcaster.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1383794F7AE3E4AF62FC259A /* Pods_LuluBroadcaster.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -289,8 +291,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1383794F7AE3E4AF62FC259A /* Pods_LuluBroadcaster.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LuluBroadcaster.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		34C1BAE70B5550356746639A /* Pods-LuluBroadcaster.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LuluBroadcaster.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LuluBroadcaster/Pods-LuluBroadcaster.debug.xcconfig"; sourceTree = "<group>"; };
-		3C242F5B1374B50FF8F3A2FA /* libPods-LuluBroadcaster.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LuluBroadcaster.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D70435201DC9704F00EF5FAE /* YUGPUImageCVPixelBufferInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YUGPUImageCVPixelBufferInput.h; path = Logic/Helper/buffer2image/YUGPUImageCVPixelBufferInput.h; sourceTree = "<group>"; };
 		D70435211DC9704F00EF5FAE /* YUGPUImageCVPixelBufferInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YUGPUImageCVPixelBufferInput.m; path = Logic/Helper/buffer2image/YUGPUImageCVPixelBufferInput.m; sourceTree = "<group>"; };
 		D70435231DC988A800EF5FAE /* GPUImageMyBeautifyFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPUImageMyBeautifyFilter.h; path = Logic/Helper/filter/GPUImageMyBeautifyFilter.h; sourceTree = "<group>"; };
@@ -313,6 +315,10 @@
 		D78D0B5E1DDA7CA100B01108 /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginController.h; path = ViewControllers/LoginController.h; sourceTree = "<group>"; };
 		D78D0B5F1DDA7CA100B01108 /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginController.m; path = ViewControllers/LoginController.m; sourceTree = "<group>"; };
 		D78D0B601DDA7CA100B01108 /* LoginController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginController.xib; path = ViewControllers/LoginController.xib; sourceTree = "<group>"; };
+		D78D0C421DDD2C2E00DE1193 /* LuluSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LuluSocket.h; path = Socket/LuluSocket.h; sourceTree = "<group>"; };
+		D78D0C431DDD2C2E00DE1193 /* LuluSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LuluSocket.m; path = Socket/LuluSocket.m; sourceTree = "<group>"; };
+		D78D0C481DDD2C8700DE1193 /* DanmuSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DanmuSocket.h; path = Socket/DanmuSocket.h; sourceTree = "<group>"; };
+		D78D0C491DDD2C8700DE1193 /* DanmuSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DanmuSocket.m; path = Socket/DanmuSocket.m; sourceTree = "<group>"; };
 		D7979E1D1DCB50AC0056B35A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		D7AEA1561DD18DA900F9BC7F /* accumulators.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = accumulators.hpp; sourceTree = "<group>"; };
 		D7AEA1571DD18DA900F9BC7F /* accumulators_fwd.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = accumulators_fwd.hpp; sourceTree = "<group>"; };
@@ -8024,8 +8030,8 @@
 				D7D6EBCA1DCAC44A005935B8 /* AVFoundation.framework in Frameworks */,
 				D7E831721DCF363500F03BED /* libavfilter.a in Frameworks */,
 				D7D4AF0C1DC8065800A782F7 /* Security.framework in Frameworks */,
-				E8210C9AC4A2F1073D4164CC /* libPods-LuluBroadcaster.a in Frameworks */,
 				D7E831701DCF363500F03BED /* libavcodec.a in Frameworks */,
+				F8A13342BDD6C1436E55D75B /* Pods_LuluBroadcaster.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -8055,7 +8061,7 @@
 				D7D6EBCB1DCAC461005935B8 /* VideoToolbox.framework */,
 				D7D6EBC91DCAC44A005935B8 /* AVFoundation.framework */,
 				D7D4AF0B1DC8065800A782F7 /* Security.framework */,
-				3C242F5B1374B50FF8F3A2FA /* libPods-LuluBroadcaster.a */,
+				1383794F7AE3E4AF62FC259A /* Pods_LuluBroadcaster.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -8113,6 +8119,17 @@
 				D78D0B601DDA7CA100B01108 /* LoginController.xib */,
 			);
 			name = login;
+			sourceTree = "<group>";
+		};
+		D78D0C411DDD2BFD00DE1193 /* Socket */ = {
+			isa = PBXGroup;
+			children = (
+				D78D0C421DDD2C2E00DE1193 /* LuluSocket.h */,
+				D78D0C431DDD2C2E00DE1193 /* LuluSocket.m */,
+				D78D0C481DDD2C8700DE1193 /* DanmuSocket.h */,
+				D78D0C491DDD2C8700DE1193 /* DanmuSocket.m */,
+			);
+			name = Socket;
 			sourceTree = "<group>";
 		};
 		D7AEA1521DD18DA900F9BC7F /* RtmpLivePushSDK */ = {
@@ -20743,6 +20760,7 @@
 		D7D4AEFC1DC8019C00A782F7 /* Logic */ = {
 			isa = PBXGroup;
 			children = (
+				D78D0C411DDD2BFD00DE1193 /* Socket */,
 				D76E7EB01DD69F0200794450 /* Constant */,
 				D7D4AF371DC865E900A782F7 /* Helper */,
 				D7D4AF071DC8031800A782F7 /* Session */,
@@ -21497,6 +21515,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7D4AF3A1DC8662200A782F7 /* NavigationRouter.m in Sources */,
+				D78D0C441DDD2C2E00DE1193 /* LuluSocket.m in Sources */,
 				D76E56E71DD7E5C7004BE5B9 /* CustomerTabBarController.m in Sources */,
 				D7D4AEDE1DC7F33D00A782F7 /* AppDelegate.m in Sources */,
 				D76E56EA1DD91C37004BE5B9 /* LuluRequest.m in Sources */,
@@ -21517,6 +21536,7 @@
 				D7D4AF181DC80E7700A782F7 /* CameraManager.m in Sources */,
 				D76E56E01DD6A1BB004BE5B9 /* CustomerNavigationController.m in Sources */,
 				D70435221DC9704F00EF5FAE /* YUGPUImageCVPixelBufferInput.m in Sources */,
+				D78D0C4A1DDD2C8700DE1193 /* DanmuSocket.m in Sources */,
 				D76E56F01DD924E3004BE5B9 /* LoginRequest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -21654,28 +21674,10 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/lib/ffmpeg/arm64/lib",
-					"$(PROJECT_DIR)/lib/GPUImage/lib",
 					"$(PROJECT_DIR)/lib/RtmpLivePushSDK/lib",
 					"$(PROJECT_DIR)/lib/RtmpLivePushSDK/VideoCore/RtmpManager/lib",
 				);
-				OTHER_LDFLAGS = (
-					"-l\"AFNetworking\"",
-					"-l\"NSLogger\"",
-					"-l\"SAMKeychain\"",
-					"-framework",
-					"\"CFNetwork\"",
-					"-framework",
-					"\"CoreGraphics\"",
-					"-framework",
-					"\"Foundation\"",
-					"-framework",
-					"\"MobileCoreServices\"",
-					"-framework",
-					"\"Security\"",
-					"-framework",
-					"\"SystemConfiguration\"",
-					"$(inherited)",
-				);
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lulu.bc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -21707,28 +21709,10 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/lib/ffmpeg/arm64/lib",
-					"$(PROJECT_DIR)/lib/GPUImage/lib",
 					"$(PROJECT_DIR)/lib/RtmpLivePushSDK/lib",
 					"$(PROJECT_DIR)/lib/RtmpLivePushSDK/VideoCore/RtmpManager/lib",
 				);
-				OTHER_LDFLAGS = (
-					"-l\"AFNetworking\"",
-					"-l\"NSLogger\"",
-					"-l\"SAMKeychain\"",
-					"-framework",
-					"\"CFNetwork\"",
-					"-framework",
-					"\"CoreGraphics\"",
-					"-framework",
-					"\"Foundation\"",
-					"-framework",
-					"\"MobileCoreServices\"",
-					"-framework",
-					"\"Security\"",
-					"-framework",
-					"\"SystemConfiguration\"",
-					"$(inherited)",
-				);
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lulu.bc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

@@ -19,12 +19,14 @@ PODS:
     - NSLogger/Standard (= 1.7.0)
   - NSLogger/Standard (1.7.0)
   - SAMKeychain (1.5.2)
+  - Socket.IO-Client-Swift (7.0.3)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
   - KZPropertyMapper
   - NSLogger
   - SAMKeychain (from `https://github.com/soffes/SAMKeychain`)
+  - Socket.IO-Client-Swift (~> 7.0.3)
 
 EXTERNAL SOURCES:
   SAMKeychain:
@@ -40,7 +42,8 @@ SPEC CHECKSUMS:
   KZPropertyMapper: bcaabe1ec5b4368acb8092faf40666096ba9bb23
   NSLogger: daa17368272ddf10a0850c218fe49de23b50f2eb
   SAMKeychain: 1865333198217411f35327e8da61b43de79b635b
+  Socket.IO-Client-Swift: cca640f81f8856278c8bcd56ea42d1d070a011b6
 
-PODFILE CHECKSUM: b51f0fde343be1ef11fecd1bea9c2639077d217d
+PODFILE CHECKSUM: 7caaee570b7e06997253e8f3806cba2e7a3c63f7
 
 COCOAPODS: 1.0.1
