@@ -17,7 +17,7 @@ static inline NSURL* socket_url();
 @property (nonatomic, strong) SocketIOClient* socket;
 @property (nonatomic, assign) BOOL connected;
 
-- (void) setupListener;
+- (void)setupListener;
 - (BOOL)isConnected;
 - (void)connect;
 - (void)disconnect;

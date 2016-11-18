@@ -29,6 +29,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SDWebImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Socket.IO-Client-Swift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -37,17 +42,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>177F624845C7EE2A0D7CAF9A467F47BD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>1C3436CEA5C3D39764C5F54374794ECB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1C543C94196EF39D4844D4DB0B25267A</key>
+		<key>744B2E4CCD3F382396DB8618C7EA5AF3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>72AA46E800F241726F1B74FFEB19D173</key>
+		<key>977227A256AA8BB84D8C5D334D8529D1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -57,7 +67,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E629C5B9A256A9BBEFBDAE0C35889047</key>
+		<key>EF3B36CC7891A63CF44F51531814ECD8</key>
 		<dict>
 			<key>primary</key>
 			<true/>

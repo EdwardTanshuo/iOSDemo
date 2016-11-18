@@ -10,10 +10,13 @@
 #import "CameraManager.h"
 #import "NavigationRouter.h"
 #import "CustomerTabBarController.h"
+#import "StreamCell.h"
+#import "BroadcasterDatasource.h"
 
-@interface HomepageController ()<CameraManagerDelegate, CustomerTabBarControllerDelegate>
-@property (weak, nonatomic) IBOutlet UIButton *startButton;
+@interface HomepageController ()<CameraManagerDelegate, CustomerTabBarControllerDelegate, UITableViewDelegate, UITableViewDataSource, BroadcasterDatasourceDelegate>
+@property (weak, nonatomic) IBOutlet UITableView *table;
 @property (assign, nonatomic) CameraStatus status;
+@property (strong, nonatomic) BroadcasterDatasource* datasource;
 @end
 
 @implementation HomepageController
@@ -23,10 +26,12 @@
     // Do any additional setup after loading the view.
     [CameraManager sharedManager].delegate = self;
     [self setupViews];
+    [self setupTable];
+    [self setupDatasource];
     
     ((CustomerTabBarController*)(self.navigationController.tabBarController)).camearaDelegate = self;
     
-    self.navigationItem.title = @"直播";
+    self.navigationItem.title = @"相机(断开)";
 }
 
 - (void) dealloc{
@@ -41,6 +46,14 @@
     
 }
 
+- (void)setupTable{
+    self.table.delegate = self;
+    self.table.dataSource = self;
+    
+    [self.table registerNib:[UINib nibWithNibName:@"StreamCell" bundle:nil] forCellReuseIdentifier:@"StreamCellID"];
+}
+
+
 - (void)setupStatus{
     [self updateStatus: [CameraManager sharedManager]];
     [self openCamera];
@@ -49,23 +62,28 @@
 - (void)updateStatus:(CameraManager*) manager{
     switch (manager.status) {
         case CameraStatusConnected:
-            [self.startButton setTitle:@"开始测试" forState:UIControlStateNormal];
-            self.startButton.userInteractionEnabled = YES;
+            self.navigationItem.title = @"相机(断开)";
             self.status = CameraStatusConnected;
+            [((CustomerTabBarController*)(self.navigationController.tabBarController)) active];
             break;
         case CameraStatusConnecting:
-            [self.startButton setTitle:@"连接中" forState:UIControlStateNormal];
-            self.startButton.userInteractionEnabled = NO;
+            self.navigationItem.title = @"相机(连接中)";
             self.status = CameraStatusConnecting;
+            [((CustomerTabBarController*)(self.navigationController.tabBarController)) inactive];
             break;
         case CameraStatusDisconnected:
-            [self.startButton setTitle:@"没有找到相机" forState:UIControlStateNormal];
-            self.startButton.userInteractionEnabled = NO;
+            self.navigationItem.title = @"相机(断开)";
             self.status = CameraStatusDisconnected;
+            [((CustomerTabBarController*)(self.navigationController.tabBarController)) inactive];
             break;
         default:
             break;
     }
+}
+
+- (void)setupDatasource{
+    _datasource = [[BroadcasterDatasource alloc] init];
+    _datasource.delegate = self;
 }
 
 - (void)startLive{
@@ -78,6 +96,7 @@
 
 #pragma mark -
 #pragma mark actions
+
 
 #pragma mark -
 #pragma mark CameraManagerDelegate
@@ -109,4 +128,27 @@
     }
 }
 
+#pragma mark -
+#pragma mark UITableViewDatasource
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    StreamCell* cell = [tableView dequeueReusableCellWithIdentifier:@"StreamCellID"];
+    cell.broadcaster = [self.datasource getModelAtIndexPath:indexPath];
+    [cell configWithBroadcaster:cell.broadcaster];
+    return cell;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return [self.datasource numOfRows];
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 1;
+}
+
+#pragma mark -
+#pragma mark BroadcasterDatasourceDelegate
+- (void)dataHasChanged:(NSArray<Broadcaster *> *)broadcasters{
+    [self.table reloadData];
+}
 @end

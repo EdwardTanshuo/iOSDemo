@@ -28,7 +28,7 @@
         <scene sceneID="mW6-Cv-rdA">
             <objects>
                 <navigationController id="luV-me-rhL" customClass="CustomerNavigationController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="tab_personal_default" id="YqY-sX-rhW"/>
+                    <tabBarItem key="tabBarItem" title="" image="tab_personal_default" selectedImage="tab_personal_select" id="YqY-sX-rhW"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ztv-mB-AHE">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -94,7 +94,7 @@
         <scene sceneID="psc-f1-jiZ">
             <objects>
                 <navigationController id="TpZ-n5-h3B" customClass="CustomerNavigationController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="tab_setting_default" id="Yig-eV-kDZ"/>
+                    <tabBarItem key="tabBarItem" title="" image="tab_camera_default" selectedImage="tab_camera_select" id="Yig-eV-kDZ"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="nCd-vW-LKD">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -119,24 +119,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ii9-tR-qEJ">
-                                <rect key="frame" x="223" y="285" width="155" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="155" id="3fk-A3-f3y"/>
-                                    <constraint firstAttribute="height" constant="30" id="8E6-LQ-ckd"/>
-                                </constraints>
-                                <state key="normal" title="测试"/>
-                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vWi-Ed-Qht">
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ii9-tR-qEJ" firstAttribute="centerX" secondItem="kcZ-bj-gQ8" secondAttribute="centerX" id="a8j-rD-btU"/>
-                            <constraint firstItem="ii9-tR-qEJ" firstAttribute="centerY" secondItem="kcZ-bj-gQ8" secondAttribute="centerY" id="xjk-z3-RRS"/>
+                            <constraint firstItem="rou-wY-2XB" firstAttribute="top" secondItem="vWi-Ed-Qht" secondAttribute="bottom" id="6v2-gV-hnT"/>
+                            <constraint firstAttribute="trailing" secondItem="vWi-Ed-Qht" secondAttribute="trailing" id="Isv-gg-Fqk"/>
+                            <constraint firstItem="vWi-Ed-Qht" firstAttribute="leading" secondItem="kcZ-bj-gQ8" secondAttribute="leading" id="dgp-sK-gXB"/>
+                            <constraint firstItem="vWi-Ed-Qht" firstAttribute="top" secondItem="Sgo-BO-sKY" secondAttribute="bottom" id="t9X-ZT-bT1"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="jb5-Qe-ry7"/>
                     <connections>
-                        <outlet property="startButton" destination="ii9-tR-qEJ" id="4nd-Lk-Moy"/>
+                        <outlet property="table" destination="vWi-Ed-Qht" id="ajA-ke-FHd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hkl-Of-r95" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -164,7 +162,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="tab_personal_default" width="40" height="40"/>
-        <image name="tab_setting_default" width="40" height="40"/>
+        <image name="tab_camera_default" width="32" height="25"/>
+        <image name="tab_camera_select" width="31" height="24"/>
+        <image name="tab_personal_default" width="24" height="26"/>
+        <image name="tab_personal_select" width="24" height="26"/>
     </resources>
 </document>

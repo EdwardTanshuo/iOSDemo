@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		D70435221DC9704F00EF5FAE /* YUGPUImageCVPixelBufferInput.m in Sources */ = {isa = PBXBuildFile; fileRef = D70435211DC9704F00EF5FAE /* YUGPUImageCVPixelBufferInput.m */; };
 		D70435251DC988A800EF5FAE /* GPUImageMyBeautifyFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = D70435241DC988A800EF5FAE /* GPUImageMyBeautifyFilter.m */; };
+		D726B0AF1DDE84E2002B9068 /* StreamCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D726B0AD1DDE84E2002B9068 /* StreamCell.m */; };
+		D726B0B01DDE84E2002B9068 /* StreamCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D726B0AE1DDE84E2002B9068 /* StreamCell.xib */; };
+		D726B0B31DDEC093002B9068 /* BroadcasterDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = D726B0B21DDEC093002B9068 /* BroadcasterDatasource.m */; };
+		D726B0B61DDEE5F2002B9068 /* ListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D726B0B51DDEE5F2002B9068 /* ListRequest.m */; };
 		D74338BA1DD46BBB00CC3831 /* GPUImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D74338B71DD46BB200CC3831 /* GPUImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D74338BB1DD46BD000CC3831 /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D74338B71DD46BB200CC3831 /* GPUImage.framework */; };
 		D75590111DDC67D80050BB47 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D75590101DDC67D80050BB47 /* SettingViewController.m */; };
@@ -297,6 +301,13 @@
 		D70435211DC9704F00EF5FAE /* YUGPUImageCVPixelBufferInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YUGPUImageCVPixelBufferInput.m; path = Logic/Helper/buffer2image/YUGPUImageCVPixelBufferInput.m; sourceTree = "<group>"; };
 		D70435231DC988A800EF5FAE /* GPUImageMyBeautifyFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPUImageMyBeautifyFilter.h; path = Logic/Helper/filter/GPUImageMyBeautifyFilter.h; sourceTree = "<group>"; };
 		D70435241DC988A800EF5FAE /* GPUImageMyBeautifyFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPUImageMyBeautifyFilter.m; path = Logic/Helper/filter/GPUImageMyBeautifyFilter.m; sourceTree = "<group>"; };
+		D726B0AC1DDE84E2002B9068 /* StreamCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StreamCell.h; path = Views/StreamCell.h; sourceTree = "<group>"; };
+		D726B0AD1DDE84E2002B9068 /* StreamCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StreamCell.m; path = Views/StreamCell.m; sourceTree = "<group>"; };
+		D726B0AE1DDE84E2002B9068 /* StreamCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StreamCell.xib; path = Views/StreamCell.xib; sourceTree = "<group>"; };
+		D726B0B11DDEC093002B9068 /* BroadcasterDatasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BroadcasterDatasource.h; path = DataSource/BroadcasterDatasource.h; sourceTree = "<group>"; };
+		D726B0B21DDEC093002B9068 /* BroadcasterDatasource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BroadcasterDatasource.m; path = DataSource/BroadcasterDatasource.m; sourceTree = "<group>"; };
+		D726B0B41DDEE5F2002B9068 /* ListRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ListRequest.h; path = Request/ListRequest.h; sourceTree = "<group>"; };
+		D726B0B51DDEE5F2002B9068 /* ListRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ListRequest.m; path = Request/ListRequest.m; sourceTree = "<group>"; };
 		D74338B71DD46BB200CC3831 /* GPUImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GPUImage.framework; path = lib/GPUImage/GPUImage.framework; sourceTree = "<group>"; };
 		D755900F1DDC67D80050BB47 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingViewController.h; path = ViewControllers/SettingViewController.h; sourceTree = "<group>"; };
 		D75590101DDC67D80050BB47 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingViewController.m; path = ViewControllers/SettingViewController.m; sourceTree = "<group>"; };
@@ -20799,6 +20810,8 @@
 				D76E56E91DD91C37004BE5B9 /* LuluRequest.m */,
 				D76E56EE1DD924E3004BE5B9 /* LoginRequest.h */,
 				D76E56EF1DD924E3004BE5B9 /* LoginRequest.m */,
+				D726B0B41DDEE5F2002B9068 /* ListRequest.h */,
+				D726B0B51DDEE5F2002B9068 /* ListRequest.m */,
 			);
 			name = Requests;
 			sourceTree = "<group>";
@@ -20806,6 +20819,8 @@
 		D7D4AF001DC801D700A782F7 /* Datasources */ = {
 			isa = PBXGroup;
 			children = (
+				D726B0B11DDEC093002B9068 /* BroadcasterDatasource.h */,
+				D726B0B21DDEC093002B9068 /* BroadcasterDatasource.m */,
 			);
 			name = Datasources;
 			sourceTree = "<group>";
@@ -20842,6 +20857,9 @@
 		D7D4AF041DC8021C00A782F7 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				D726B0AC1DDE84E2002B9068 /* StreamCell.h */,
+				D726B0AD1DDE84E2002B9068 /* StreamCell.m */,
+				D726B0AE1DDE84E2002B9068 /* StreamCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -21280,6 +21298,7 @@
 				D7AEC1491DD18DB600F9BC7F /* type_mat3x4.inl in Resources */,
 				D7AEC1E91DD18DB700F9BC7F /* perpendicular.inl in Resources */,
 				D7AEC1EF1DD18DB700F9BC7F /* simd_mat4.inl in Resources */,
+				D726B0B01DDE84E2002B9068 /* StreamCell.xib in Resources */,
 				D7AEC1571DD18DB600F9BC7F /* matrix_transform.inl in Resources */,
 				D7AEC1A31DD18DB700F9BC7F /* intrinsic_geometric.inl in Resources */,
 				D7AEC1441DD18DB600F9BC7F /* type_mat2x2.inl in Resources */,
@@ -21518,14 +21537,17 @@
 				D78D0C441DDD2C2E00DE1193 /* LuluSocket.m in Sources */,
 				D76E56E71DD7E5C7004BE5B9 /* CustomerTabBarController.m in Sources */,
 				D7D4AEDE1DC7F33D00A782F7 /* AppDelegate.m in Sources */,
+				D726B0B61DDEE5F2002B9068 /* ListRequest.m in Sources */,
 				D76E56EA1DD91C37004BE5B9 /* LuluRequest.m in Sources */,
 				D7D4AF1C1DC8146400A782F7 /* StreamManager.m in Sources */,
 				D76E56E31DD6A2BD004BE5B9 /* ColorConstant.m in Sources */,
 				D7D4AF141DC80B4400A782F7 /* HomepageController.m in Sources */,
 				D7D4AF2D1DC863F100A782F7 /* LiveManager.m in Sources */,
+				D726B0AF1DDE84E2002B9068 /* StreamCell.m in Sources */,
 				D76E56ED1DD91C8D004BE5B9 /* Broadcaster.m in Sources */,
 				D75590111DDC67D80050BB47 /* SettingViewController.m in Sources */,
 				D7D4AF221DC817E400A782F7 /* SettingSession.m in Sources */,
+				D726B0B31DDEC093002B9068 /* BroadcasterDatasource.m in Sources */,
 				D7BA5C631DCAD78C000F1AB7 /* LiveController.m in Sources */,
 				D7D4AF0A1DC8037100A782F7 /* UserSession.m in Sources */,
 				D7D4AEDB1DC7F33D00A782F7 /* main.m in Sources */,

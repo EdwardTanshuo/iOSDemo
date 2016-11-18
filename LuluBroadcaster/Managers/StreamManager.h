@@ -31,8 +31,6 @@
 
 #pragma mark public methods
 - (void)startRTMP;
-- (void)appendVideoBuffer:(CVPixelBufferRef)buffer WithSemaphore:(dispatch_semaphore_t)semaphore;
-- (void)appendAudioBuffer:(NSData*)buffer;
 - (void)stopRTMP;
 
 @end

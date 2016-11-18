@@ -14,4 +14,7 @@
 
 @interface CustomerTabBarController : UITabBarController
 @property (weak, nonatomic, nullable) id<CustomerTabBarControllerDelegate> camearaDelegate;
+
+- (void)active;
+- (void)inactive;
 @end
