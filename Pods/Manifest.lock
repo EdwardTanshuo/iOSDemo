@@ -23,6 +23,7 @@ PODS:
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
   - Socket.IO-Client-Swift (7.0.3)
+  - SVPullToRefresh (0.4.1)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
@@ -31,6 +32,7 @@ DEPENDENCIES:
   - SAMKeychain (from `https://github.com/soffes/SAMKeychain`)
   - SDWebImage
   - Socket.IO-Client-Swift (~> 7.0.3)
+  - SVPullToRefresh
 
 EXTERNAL SOURCES:
   SAMKeychain:
@@ -48,7 +50,8 @@ SPEC CHECKSUMS:
   SAMKeychain: 1865333198217411f35327e8da61b43de79b635b
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   Socket.IO-Client-Swift: cca640f81f8856278c8bcd56ea42d1d070a011b6
+  SVPullToRefresh: ba2e718695a43253d8bea6852d2960097dc15d8c
 
-PODFILE CHECKSUM: 080dc06023b76334f939f01823fd50d08d2f9e79
+PODFILE CHECKSUM: 213578f00c4b67facfd2c642c3a0683362ddf8fa
 
 COCOAPODS: 1.0.1

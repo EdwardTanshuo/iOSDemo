@@ -16,6 +16,12 @@
     return broadcaster;
 }
 
++ (Broadcaster* _Nonnull)broadcasterPHPWithJSON:(id _Nonnull)data{
+    Broadcaster* broadcaster = [[Broadcaster alloc] init];
+    [broadcaster doMappingWithPHPData:data];
+    return broadcaster;
+}
+
 - (instancetype)init{
     self.name = @"";
     self.email = @"";
@@ -25,6 +31,7 @@
     self.profileImageURL = @"";
     self.danmuPassword = @"";
     self.room = @"";
+    self.viewers_count = 0;
     
     return [super init];
 }
@@ -37,7 +44,19 @@
                               @"wowzaPassword":KZProperty(wowzaPassword),
                               @"profileImageURL":KZProperty(profileImageURL),
                               @"danmuPassword":KZProperty(danmuPassword),
-                              @"_id":KZProperty(room)
+                              @"_id":KZProperty(room),
+                              @"viewers_count":KZProperty(viewers_count)
+                              };
+    [KZPropertyMapper mapValuesFrom:data toInstance:self usingMapping:mapping];
+}
+
+- (void)doMappingWithPHPData: (id)data{
+    NSDictionary* mapping = @{@"name": KZProperty(name),
+                              @"stream_link": KZProperty(wowzaUri),
+                              @"avatar":KZProperty(profileImageURL),
+                              @"danmu_password":KZProperty(danmuPassword),
+                              @"id":KZProperty(room),
+                              @"viewers_count":KZProperty(viewers_count)
                               };
     [KZPropertyMapper mapValuesFrom:data toInstance:self usingMapping:mapping];
 }

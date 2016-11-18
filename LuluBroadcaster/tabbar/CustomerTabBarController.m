@@ -14,6 +14,9 @@
 @end
 
 @implementation CustomerTabBarController
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations{
+    return UIInterfaceOrientationMaskAll;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -21,7 +24,7 @@
     self.tabBar.tintColor = [ColorConstant mclMediumPinkColor];
     [self.tabBar setShadowImage:[UIImage new]];
     [self.tabBar setBackgroundImage:[UIImage new]];
-    self.tabBar.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    self.tabBar.backgroundColor = [UIColor whiteColor];
     
     for(UITabBarItem* item in self.tabBar.items){
         item.imageInsets = UIEdgeInsetsMake(4.0, 0.0, -4.0, 0.0);

@@ -11,10 +11,12 @@
 #import "Broadcaster.h"
 
 @interface StreamCell : UITableViewCell
-
+@property (weak, nonatomic) IBOutlet UIView *recordIcon;
+@property (weak, nonatomic) IBOutlet UIView *live_tag;
 @property (weak, nonatomic) IBOutlet UIImageView *avatar;
 @property (weak, nonatomic) IBOutlet UILabel *name;
 @property (weak, nonatomic) IBOutlet UILabel *viewer_count;
+@property (weak, nonatomic) IBOutlet UIImageView *preview;
 @property (strong, nonatomic) Broadcaster *broadcaster;
 
 - (void)configWithBroadcaster: (Broadcaster*)broadcaster;

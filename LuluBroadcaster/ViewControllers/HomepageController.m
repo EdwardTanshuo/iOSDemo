@@ -12,6 +12,8 @@
 #import "CustomerTabBarController.h"
 #import "StreamCell.h"
 #import "BroadcasterDatasource.h"
+#import "ListRequest.h"
+#import <SVPullToRefresh/SVPullToRefresh.h>
 
 @interface HomepageController ()<CameraManagerDelegate, CustomerTabBarControllerDelegate, UITableViewDelegate, UITableViewDataSource, BroadcasterDatasourceDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *table;
@@ -20,6 +22,9 @@
 @end
 
 @implementation HomepageController
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations{
+    return UIInterfaceOrientationMaskAll;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -28,6 +33,7 @@
     [self setupViews];
     [self setupTable];
     [self setupDatasource];
+    [self setupLoadersCallback];
     
     ((CustomerTabBarController*)(self.navigationController.tabBarController)).camearaDelegate = self;
     
@@ -49,6 +55,7 @@
 - (void)setupTable{
     self.table.delegate = self;
     self.table.dataSource = self;
+    self.table.backgroundColor = [UIColor clearColor];
     
     [self.table registerNib:[UINib nibWithNibName:@"StreamCell" bundle:nil] forCellReuseIdentifier:@"StreamCellID"];
 }
@@ -57,6 +64,22 @@
 - (void)setupStatus{
     [self updateStatus: [CameraManager sharedManager]];
     [self openCamera];
+}
+
+- (void)fetchData{
+    [[ListRequest sharedRequest] getList:^(NSArray<Broadcaster *> * _Nullable broadcasters, NSError * _Nullable error) {
+        if(broadcasters){
+            [self.datasource update:broadcasters];
+        }
+        [self.table.pullToRefreshView stopAnimating];
+    }];
+}
+
+- (void) setupLoadersCallback{
+    __weak HomepageController* wself = self;
+    [self.table addPullToRefreshWithActionHandler:^{
+        [wself fetchData];
+    }];
 }
 
 - (void)updateStatus:(CameraManager*) manager{
@@ -144,6 +167,10 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 280.0;
 }
 
 #pragma mark -

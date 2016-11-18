@@ -14,6 +14,9 @@
 @end
 
 @implementation CustomerNavigationController
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations{
+    return UIInterfaceOrientationMaskAll;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

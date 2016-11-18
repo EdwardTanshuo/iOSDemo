@@ -16,7 +16,9 @@
 @implementation LuluRequest
 - (instancetype)init{
     _base_url = BASE_URL;
-    _apis = @{@"login": @"login"};
+    _php_url = PHP_URL;
+    
+    _apis = @{@"login": @"login", @"broadcasters": @"account/feed"};
     _manager = [AFHTTPSessionManager manager];
     _manager.requestSerializer = [AFJSONRequestSerializer serializer];
     _manager.responseSerializer = [AFJSONResponseSerializer serializer];
@@ -24,6 +26,7 @@
     [securityPolicy setValidatesDomainName:NO];
     [securityPolicy setAllowInvalidCertificates:YES];
     _manager.securityPolicy = securityPolicy;
+    [_manager.requestSerializer setValue:@"d858bd235c7faf19f5da18a1118788e2" forHTTPHeaderField:@"X_MCV_TOKEN"];
    
     return [super init];
 }
@@ -35,6 +38,14 @@
 - (NSString*) urlByService:(NSString*) service{
     if([_apis objectForKey:service]){
         return [NSString stringWithFormat:@"%@%@", _base_url, _apis[service]];
+    }
+    else{
+        return @"";
+    }
+}
+- (NSString* _Nonnull) phpUrlByService:(NSString* _Nonnull) service{
+    if([_apis objectForKey:service]){
+        return [NSString stringWithFormat:@"%@%@", _php_url, _apis[service]];
     }
     else{
         return @"";

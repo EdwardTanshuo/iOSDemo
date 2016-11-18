@@ -34,6 +34,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SVPullToRefresh.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Socket.IO-Client-Swift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -42,22 +47,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>177F624845C7EE2A0D7CAF9A467F47BD</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>1C3436CEA5C3D39764C5F54374794ECB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>744B2E4CCD3F382396DB8618C7EA5AF3</key>
+		<key>5F6F9FE6BAC45592CF0E29395E00531A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>977227A256AA8BB84D8C5D334D8529D1</key>
+		<key>6A0EF66BF4B1BC94E455894BA6717350</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>824AB556E9B7F06426B2EFCA7BC53287</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9FDAEB6CB774532F8980EA7BD8973C37</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -67,7 +77,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EF3B36CC7891A63CF44F51531814ECD8</key>
+		<key>E9A4B0B17C417930FF94AE5CE4692F65</key>
 		<dict>
 			<key>primary</key>
 			<true/>

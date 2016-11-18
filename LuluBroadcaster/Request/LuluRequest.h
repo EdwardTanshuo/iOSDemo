@@ -7,15 +7,18 @@
 //
 
 #define BASE_URL @"http://release.mofangvr.com:3000/api/"
+#define PHP_URL @"http://release.mofangvr.com/api/"
 
 #import <Foundation/Foundation.h>
 #import "Broadcaster.h"
 
 @interface LuluRequest : NSObject
 @property (nonatomic, readonly, copy, nonnull) NSString* base_url;
+@property (nonatomic, readonly, copy, nonnull) NSString* php_url;
 @property (nonatomic, readonly, copy, nonnull) NSDictionary* apis;
 
 - (NSString* _Nonnull) urlByService:(NSString* _Nonnull) service;
+- (NSString* _Nonnull) phpUrlByService:(NSString* _Nonnull) service;
 
 - (void)postWithURL: (NSString* _Nonnull)url
          Parameters: (id _Nullable)params

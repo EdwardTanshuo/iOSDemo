@@ -24,6 +24,10 @@
 @implementation LoginController
 #pragma mark -
 #pragma mark setup
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations{
+    return UIInterfaceOrientationMaskAll;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.

@@ -9,5 +9,6 @@
 #import "LuluRequest.h"
 
 @interface ListRequest : LuluRequest
-
++ (ListRequest* _Nullable)sharedRequest;
+- (void)getList: (void (^_Nullable)(NSArray<Broadcaster* >*  _Nullable, NSError * _Nullable))complete;
 @end
