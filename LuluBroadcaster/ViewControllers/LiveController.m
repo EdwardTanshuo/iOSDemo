@@ -11,13 +11,15 @@
 #import "StreamManager.h"
 #import <GPUImage/GPUImageFramework.h>
 #import <NSLogger/LoggerClient.h>
-#import "DanmuSocket.h"
+#import "DanmuManager.h"
 
-@interface LiveController ()<LiveDataSourceDelegate>
+@interface LiveController ()<LiveDataSourceDelegate, DanmuDatasourceDelegate, UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) GPUImageView* imageView;
 
 @property (nonatomic, strong) UILabel* debug;
 @property (nonatomic, strong) UILabel* error;
+
+@property (weak, nonatomic) IBOutlet UITableView *danmu_table;
 
 @end
 
@@ -31,13 +33,17 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self setupViews];
+    [self setupDanmuTable];
     [self launchLive];
+    
+    [DanmuManager sharedManager].delegate = self;
 }
 
 - (void)dealloc{
     [LiveManager sharedManager].delegate = nil;
     [[LiveManager sharedManager] stopLive];
-   
+    
+    [DanmuManager sharedManager].delegate = nil;
 }
 
 - (void)launchLive{
@@ -67,6 +73,11 @@
 
 }
 
+- (void)setupDanmuTable{
+    _danmu_table.delegate = self;
+    _danmu_table.dataSource = self;
+}
+
 #pragma mark -
 #pragma mark LiveDataSourceDelegate
 
@@ -88,4 +99,56 @@
     _debug.text = [NSString stringWithFormat:@"%d", ((char*)buffer)[0]];
 }
 
+#pragma mark -
+#pragma mark DanmuDatasourceDelegate
+- (void)dataHasChanged:(NSArray<Danmu *> *)danmus{
+    [self.danmu_table reloadData];
+}
+
+#pragma mark -
+#pragma mark UITableViewDataSource
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return nil;
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return [[DanmuManager sharedManager].datasource numOfRows];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 100.0;
+}
+
+#pragma mark -
+#pragma mark danmu list
+- (void)updateTableContentInset{
+    NSInteger numRows = [[DanmuManager sharedManager].datasource numOfRows];
+    CGFloat contentInsetTop = self.danmu_table.bounds.size.height;
+    NSInteger i = 0;
+    for(i = 0; i < numRows; i ++){
+        contentInsetTop = contentInsetTop - [self tableView:self.danmu_table heightForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
+        if(contentInsetTop <= 0){
+            contentInsetTop = 0;
+            break;
+        }
+    }
+    self.danmu_table.contentInset =  UIEdgeInsetsMake(contentInsetTop, 0, 0, 0);
+}
+
+- (void)tableViewScrollToBottom: (BOOL)animation{
+    __weak LiveController* wself = self;
+    dispatch_time_t time = dispatch_time(DISPATCH_TIME_NOW, 1);
+    dispatch_after(time, dispatch_get_main_queue(), ^{
+        NSInteger numberOfSections = 1;
+        NSInteger numberOfRows = [wself.danmu_table numberOfRowsInSection:numberOfSections - 1];
+        if(numberOfRows > 0){
+            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:numberOfRows - 1 inSection:numberOfSections - 1];
+            [wself.danmu_table scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:true];
+        }
+    });
+}
 @end

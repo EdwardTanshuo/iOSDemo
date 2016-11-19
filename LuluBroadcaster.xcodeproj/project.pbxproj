@@ -22,6 +22,9 @@
 		D76E56EA1DD91C37004BE5B9 /* LuluRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D76E56E91DD91C37004BE5B9 /* LuluRequest.m */; };
 		D76E56ED1DD91C8D004BE5B9 /* Broadcaster.m in Sources */ = {isa = PBXBuildFile; fileRef = D76E56EC1DD91C8D004BE5B9 /* Broadcaster.m */; };
 		D76E56F01DD924E3004BE5B9 /* LoginRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D76E56EF1DD924E3004BE5B9 /* LoginRequest.m */; };
+		D7850CDD1DDFC8B900E21D8A /* DanmuManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D7850CDC1DDFC8B900E21D8A /* DanmuManager.m */; };
+		D7850CE01DDFCA0300E21D8A /* Danmu.m in Sources */ = {isa = PBXBuildFile; fileRef = D7850CDF1DDFCA0300E21D8A /* Danmu.m */; };
+		D7850CE31DDFCBD900E21D8A /* DanmuDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = D7850CE21DDFCBD900E21D8A /* DanmuDatasource.m */; };
 		D78D0B611DDA7CA100B01108 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = D78D0B5F1DDA7CA100B01108 /* LoginController.m */; };
 		D78D0B621DDA7CA100B01108 /* LoginController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D78D0B601DDA7CA100B01108 /* LoginController.xib */; };
 		D78D0C441DDD2C2E00DE1193 /* LuluSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = D78D0C431DDD2C2E00DE1193 /* LuluSocket.m */; };
@@ -323,6 +326,12 @@
 		D76E56EC1DD91C8D004BE5B9 /* Broadcaster.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Broadcaster.m; path = Models/Broadcaster.m; sourceTree = "<group>"; };
 		D76E56EE1DD924E3004BE5B9 /* LoginRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginRequest.h; path = Request/LoginRequest.h; sourceTree = "<group>"; };
 		D76E56EF1DD924E3004BE5B9 /* LoginRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginRequest.m; path = Request/LoginRequest.m; sourceTree = "<group>"; };
+		D7850CDB1DDFC8B900E21D8A /* DanmuManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DanmuManager.h; path = Managers/DanmuManager.h; sourceTree = "<group>"; };
+		D7850CDC1DDFC8B900E21D8A /* DanmuManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DanmuManager.m; path = Managers/DanmuManager.m; sourceTree = "<group>"; };
+		D7850CDE1DDFCA0300E21D8A /* Danmu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Danmu.h; path = Models/Danmu.h; sourceTree = "<group>"; };
+		D7850CDF1DDFCA0300E21D8A /* Danmu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Danmu.m; path = Models/Danmu.m; sourceTree = "<group>"; };
+		D7850CE11DDFCBD900E21D8A /* DanmuDatasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DanmuDatasource.h; path = DataSource/DanmuDatasource.h; sourceTree = "<group>"; };
+		D7850CE21DDFCBD900E21D8A /* DanmuDatasource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DanmuDatasource.m; path = DataSource/DanmuDatasource.m; sourceTree = "<group>"; };
 		D78D0B5E1DDA7CA100B01108 /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginController.h; path = ViewControllers/LoginController.h; sourceTree = "<group>"; };
 		D78D0B5F1DDA7CA100B01108 /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginController.m; path = ViewControllers/LoginController.m; sourceTree = "<group>"; };
 		D78D0B601DDA7CA100B01108 /* LoginController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginController.xib; path = ViewControllers/LoginController.xib; sourceTree = "<group>"; };
@@ -8120,6 +8129,33 @@
 				D76E56E21DD6A2BD004BE5B9 /* ColorConstant.m */,
 			);
 			name = Constant;
+			sourceTree = "<group>";
+		};
+		D7850CDA1DDFC88900E21D8A /* danmu */ = {
+			isa = PBXGroup;
+			children = (
+				D7850CDB1DDFC8B900E21D8A /* DanmuManager.h */,
+				D7850CDC1DDFC8B900E21D8A /* DanmuManager.m */,
+			);
+			name = danmu;
+			sourceTree = "<group>";
+		};
+		D7850CE41DDFCBDE00E21D8A /* broadcaster */ = {
+			isa = PBXGroup;
+			children = (
+				D726B0B11DDEC093002B9068 /* BroadcasterDatasource.h */,
+				D726B0B21DDEC093002B9068 /* BroadcasterDatasource.m */,
+			);
+			name = broadcaster;
+			sourceTree = "<group>";
+		};
+		D7850CE51DDFCBEB00E21D8A /* danmu */ = {
+			isa = PBXGroup;
+			children = (
+				D7850CE11DDFCBD900E21D8A /* DanmuDatasource.h */,
+				D7850CE21DDFCBD900E21D8A /* DanmuDatasource.m */,
+			);
+			name = danmu;
 			sourceTree = "<group>";
 		};
 		D78D0B5D1DDA7C8100B01108 /* login */ = {
@@ -20799,6 +20835,8 @@
 			children = (
 				D76E56EB1DD91C8D004BE5B9 /* Broadcaster.h */,
 				D76E56EC1DD91C8D004BE5B9 /* Broadcaster.m */,
+				D7850CDE1DDFCA0300E21D8A /* Danmu.h */,
+				D7850CDF1DDFCA0300E21D8A /* Danmu.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -20819,8 +20857,8 @@
 		D7D4AF001DC801D700A782F7 /* Datasources */ = {
 			isa = PBXGroup;
 			children = (
-				D726B0B11DDEC093002B9068 /* BroadcasterDatasource.h */,
-				D726B0B21DDEC093002B9068 /* BroadcasterDatasource.m */,
+				D7850CE51DDFCBEB00E21D8A /* danmu */,
+				D7850CE41DDFCBDE00E21D8A /* broadcaster */,
 			);
 			name = Datasources;
 			sourceTree = "<group>";
@@ -20828,6 +20866,7 @@
 		D7D4AF011DC801EC00A782F7 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				D7850CDA1DDFC88900E21D8A /* danmu */,
 				D7D4AF2A1DC863D400A782F7 /* Live */,
 				D7D4AF1D1DC8146A00A782F7 /* Stream */,
 				D7D4AF191DC80E7F00A782F7 /* Camera */,
@@ -21533,12 +21572,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7850CE31DDFCBD900E21D8A /* DanmuDatasource.m in Sources */,
 				D7D4AF3A1DC8662200A782F7 /* NavigationRouter.m in Sources */,
 				D78D0C441DDD2C2E00DE1193 /* LuluSocket.m in Sources */,
 				D76E56E71DD7E5C7004BE5B9 /* CustomerTabBarController.m in Sources */,
 				D7D4AEDE1DC7F33D00A782F7 /* AppDelegate.m in Sources */,
 				D726B0B61DDEE5F2002B9068 /* ListRequest.m in Sources */,
+				D7850CDD1DDFC8B900E21D8A /* DanmuManager.m in Sources */,
 				D76E56EA1DD91C37004BE5B9 /* LuluRequest.m in Sources */,
+				D7850CE01DDFCA0300E21D8A /* Danmu.m in Sources */,
 				D7D4AF1C1DC8146400A782F7 /* StreamManager.m in Sources */,
 				D76E56E31DD6A2BD004BE5B9 /* ColorConstant.m in Sources */,
 				D7D4AF141DC80B4400A782F7 /* HomepageController.m in Sources */,

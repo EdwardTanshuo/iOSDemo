@@ -40,6 +40,10 @@
     self.navigationItem.title = @"相机(断开)";
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    [self fetchData];
+}
+
 - (void) dealloc{
     [CameraManager sharedManager].delegate = nil;
     [[CameraManager sharedManager] closeCamera];
@@ -95,7 +99,7 @@
             [((CustomerTabBarController*)(self.navigationController.tabBarController)) inactive];
             break;
         case CameraStatusDisconnected:
-            self.navigationItem.title = @"相机(断开)";
+            self.navigationItem.title = @"相机(已连接)";
             self.status = CameraStatusDisconnected;
             [((CustomerTabBarController*)(self.navigationController.tabBarController)) inactive];
             break;

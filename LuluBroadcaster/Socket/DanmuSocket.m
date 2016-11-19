@@ -25,6 +25,8 @@
 }
 
 - (void)setupListener{
+    __weak DanmuSocket* wself = self;
+    
     //链接事件
     [self.socket on:@"connect" callback:^(NSArray * _Nonnull datas, SocketAckEmitter * _Nonnull emitter) {
         self.connected = YES;
@@ -37,7 +39,15 @@
     }];
     //获取消息
     [self.socket on:@"danmu" callback:^(NSArray * _Nonnull datas, SocketAckEmitter * _Nonnull emitter) {
-        
+        if([datas count] > 0){
+            NSArray* array = datas[0][@"data"];
+            for(id danmu_json in array){
+                if(danmu_json[@"username"] && danmu_json[@"text"] && [danmu_json[@"username"] isKindOfClass:[NSString class]] && [danmu_json[@"text"] isKindOfClass:[NSString class]]){
+                    Danmu* danmu = [[Danmu alloc] initWithUser:(NSString*)(danmu_json[@"username"]) WithMessage:(NSString*)(danmu_json[@"text"])];
+                    [_delegate hasRecievedDanmu:danmu];
+                }
+            }
+        }
     }];
     //授权成功
     [self.socket on:@"connected" callback:^(NSArray * _Nonnull datas, SocketAckEmitter * _Nonnull emitter) {
