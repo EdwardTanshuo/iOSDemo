@@ -16,7 +16,6 @@
 - (void)failed;
 - (void)pending;
 - (void)stop;
-
 - (void)bufferFetched: (CVPixelBufferRef)buffer;
 @end
 

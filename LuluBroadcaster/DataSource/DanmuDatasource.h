@@ -6,13 +6,12 @@
 //  Copyright © 2016 ShuoTan. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 #import "Danmu.h"
 
 @protocol DanmuDatasourceDelegate <NSObject>
 - (void)dataHasChanged: (NSArray<Danmu*>* _Nonnull) danmus;
 @end
-
 
 @interface DanmuDatasource : NSObject
 @property (nonatomic, strong, nonnull) NSArray<Danmu*>* danmus;
@@ -21,4 +20,5 @@
 - (void)appendDanmu: (Danmu* _Nonnull)danmu;
 - (NSInteger)numOfRows;
 - (void)update: (NSArray<Danmu*>* _Nullable)danmus;
+- (Danmu* _Nonnull) getModelAtIndexPath: (NSIndexPath* _Nonnull) indexPath;
 @end

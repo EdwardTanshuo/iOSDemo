@@ -25,6 +25,8 @@
 		D7850CDD1DDFC8B900E21D8A /* DanmuManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D7850CDC1DDFC8B900E21D8A /* DanmuManager.m */; };
 		D7850CE01DDFCA0300E21D8A /* Danmu.m in Sources */ = {isa = PBXBuildFile; fileRef = D7850CDF1DDFCA0300E21D8A /* Danmu.m */; };
 		D7850CE31DDFCBD900E21D8A /* DanmuDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = D7850CE21DDFCBD900E21D8A /* DanmuDatasource.m */; };
+		D7850CE91DDFEB4B00E21D8A /* DanmuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D7850CE71DDFEB4B00E21D8A /* DanmuCell.m */; };
+		D7850CEA1DDFEB4B00E21D8A /* DanmuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7850CE81DDFEB4B00E21D8A /* DanmuCell.xib */; };
 		D78D0B611DDA7CA100B01108 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = D78D0B5F1DDA7CA100B01108 /* LoginController.m */; };
 		D78D0B621DDA7CA100B01108 /* LoginController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D78D0B601DDA7CA100B01108 /* LoginController.xib */; };
 		D78D0C441DDD2C2E00DE1193 /* LuluSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = D78D0C431DDD2C2E00DE1193 /* LuluSocket.m */; };
@@ -332,6 +334,9 @@
 		D7850CDF1DDFCA0300E21D8A /* Danmu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Danmu.m; path = Models/Danmu.m; sourceTree = "<group>"; };
 		D7850CE11DDFCBD900E21D8A /* DanmuDatasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DanmuDatasource.h; path = DataSource/DanmuDatasource.h; sourceTree = "<group>"; };
 		D7850CE21DDFCBD900E21D8A /* DanmuDatasource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DanmuDatasource.m; path = DataSource/DanmuDatasource.m; sourceTree = "<group>"; };
+		D7850CE61DDFEB4B00E21D8A /* DanmuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DanmuCell.h; path = Views/DanmuCell.h; sourceTree = "<group>"; };
+		D7850CE71DDFEB4B00E21D8A /* DanmuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DanmuCell.m; path = Views/DanmuCell.m; sourceTree = "<group>"; };
+		D7850CE81DDFEB4B00E21D8A /* DanmuCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DanmuCell.xib; path = Views/DanmuCell.xib; sourceTree = "<group>"; };
 		D78D0B5E1DDA7CA100B01108 /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginController.h; path = ViewControllers/LoginController.h; sourceTree = "<group>"; };
 		D78D0B5F1DDA7CA100B01108 /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginController.m; path = ViewControllers/LoginController.m; sourceTree = "<group>"; };
 		D78D0B601DDA7CA100B01108 /* LoginController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginController.xib; path = ViewControllers/LoginController.xib; sourceTree = "<group>"; };
@@ -8070,6 +8075,7 @@
 		57615423CCA8F96E02CC14BF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D7850CEB1DDFECC100E21D8A /* ext-frameworks */,
 				D7AEC2081DD1997300F9BC7F /* libstdc++.tbd */,
 				D7AEC2061DD1996300F9BC7F /* libz.tbd */,
 				D7979E1D1DCB50AC0056B35A /* CoreData.framework */,
@@ -8122,22 +8128,22 @@
 			name = customerNavigationBar;
 			sourceTree = "<group>";
 		};
-		D76E7EB01DD69F0200794450 /* Constant */ = {
+		D76E7EB01DD69F0200794450 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
 				D76E56E11DD6A2BD004BE5B9 /* ColorConstant.h */,
 				D76E56E21DD6A2BD004BE5B9 /* ColorConstant.m */,
 			);
-			name = Constant;
+			name = Constants;
 			sourceTree = "<group>";
 		};
-		D7850CDA1DDFC88900E21D8A /* danmu */ = {
+		D7850CDA1DDFC88900E21D8A /* Danmu */ = {
 			isa = PBXGroup;
 			children = (
 				D7850CDB1DDFC8B900E21D8A /* DanmuManager.h */,
 				D7850CDC1DDFC8B900E21D8A /* DanmuManager.m */,
 			);
-			name = danmu;
+			name = Danmu;
 			sourceTree = "<group>";
 		};
 		D7850CE41DDFCBDE00E21D8A /* broadcaster */ = {
@@ -8158,6 +8164,16 @@
 			name = danmu;
 			sourceTree = "<group>";
 		};
+		D7850CEB1DDFECC100E21D8A /* ext-frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D74338B71DD46BB200CC3831 /* GPUImage.framework */,
+				D7D6EBE41DCACC31005935B8 /* INSMediaSDK.framework */,
+				D7D6EBE51DCACC31005935B8 /* INSNanoSDK.framework */,
+			);
+			name = "ext-frameworks";
+			sourceTree = "<group>";
+		};
 		D78D0B5D1DDA7C8100B01108 /* login */ = {
 			isa = PBXGroup;
 			children = (
@@ -8168,7 +8184,7 @@
 			name = login;
 			sourceTree = "<group>";
 		};
-		D78D0C411DDD2BFD00DE1193 /* Socket */ = {
+		D78D0C411DDD2BFD00DE1193 /* Sockets */ = {
 			isa = PBXGroup;
 			children = (
 				D78D0C421DDD2C2E00DE1193 /* LuluSocket.h */,
@@ -8176,7 +8192,7 @@
 				D78D0C481DDD2C8700DE1193 /* DanmuSocket.h */,
 				D78D0C491DDD2C8700DE1193 /* DanmuSocket.m */,
 			);
-			name = Socket;
+			name = Sockets;
 			sourceTree = "<group>";
 		};
 		D7AEA1521DD18DA900F9BC7F /* RtmpLivePushSDK */ = {
@@ -20761,20 +20777,17 @@
 			path = RTMP;
 			sourceTree = "<group>";
 		};
-		D7BA5C7C1DCAF185000F1AB7 /* Resource */ = {
+		D7BA5C7C1DCAF185000F1AB7 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				D7D4AEE51DC7F33E00A782F7 /* Assets.xcassets */,
 			);
-			name = Resource;
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		D7D4AECD1DC7F33D00A782F7 = {
 			isa = PBXGroup;
 			children = (
-				D74338B71DD46BB200CC3831 /* GPUImage.framework */,
-				D7D6EBE41DCACC31005935B8 /* INSMediaSDK.framework */,
-				D7D6EBE51DCACC31005935B8 /* INSNanoSDK.framework */,
 				D7D4AED81DC7F33D00A782F7 /* LuluBroadcaster */,
 				D7D4AED71DC7F33D00A782F7 /* Products */,
 				205E8FB72BF337BBCC3B483E /* Pods */,
@@ -20795,28 +20808,28 @@
 			isa = PBXGroup;
 			children = (
 				D7D4AF061DC802E200A782F7 /* App */,
-				D7BA5C7C1DCAF185000F1AB7 /* Resource */,
+				D7BA5C7C1DCAF185000F1AB7 /* Resources */,
 				D7D4AF051DC802C700A782F7 /* Storyboards */,
 				D7D4AF031DC8021400A782F7 /* Views */,
 				D7D4AF021DC8020500A782F7 /* ViewControllers */,
-				D7D4AEFC1DC8019C00A782F7 /* Logic */,
+				D7D4AEFC1DC8019C00A782F7 /* Logics */,
 			);
 			path = LuluBroadcaster;
 			sourceTree = "<group>";
 		};
-		D7D4AEFC1DC8019C00A782F7 /* Logic */ = {
+		D7D4AEFC1DC8019C00A782F7 /* Logics */ = {
 			isa = PBXGroup;
 			children = (
-				D78D0C411DDD2BFD00DE1193 /* Socket */,
-				D76E7EB01DD69F0200794450 /* Constant */,
-				D7D4AF371DC865E900A782F7 /* Helper */,
-				D7D4AF071DC8031800A782F7 /* Session */,
+				D78D0C411DDD2BFD00DE1193 /* Sockets */,
+				D76E7EB01DD69F0200794450 /* Constants */,
+				D7D4AF371DC865E900A782F7 /* Helpers */,
+				D7D4AF071DC8031800A782F7 /* Sessions */,
 				D7D4AF011DC801EC00A782F7 /* Managers */,
 				D7D4AF001DC801D700A782F7 /* Datasources */,
 				D7D4AEFF1DC801D000A782F7 /* Requests */,
 				D7D4AEFE1DC801C600A782F7 /* Models */,
 			);
-			name = Logic;
+			name = Logics;
 			sourceTree = "<group>";
 		};
 		D7D4AEFD1DC801A900A782F7 /* Libraries */ = {
@@ -20866,7 +20879,7 @@
 		D7D4AF011DC801EC00A782F7 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				D7850CDA1DDFC88900E21D8A /* danmu */,
+				D7850CDA1DDFC88900E21D8A /* Danmu */,
 				D7D4AF2A1DC863D400A782F7 /* Live */,
 				D7D4AF1D1DC8146A00A782F7 /* Stream */,
 				D7D4AF191DC80E7F00A782F7 /* Camera */,
@@ -20899,6 +20912,9 @@
 				D726B0AC1DDE84E2002B9068 /* StreamCell.h */,
 				D726B0AD1DDE84E2002B9068 /* StreamCell.m */,
 				D726B0AE1DDE84E2002B9068 /* StreamCell.xib */,
+				D7850CE61DDFEB4B00E21D8A /* DanmuCell.h */,
+				D7850CE71DDFEB4B00E21D8A /* DanmuCell.m */,
+				D7850CE81DDFEB4B00E21D8A /* DanmuCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -20916,21 +20932,21 @@
 		D7D4AF061DC802E200A782F7 /* App */ = {
 			isa = PBXGroup;
 			children = (
-				D7D4AEDA1DC7F33D00A782F7 /* main.m */,
 				D7D4AEEA1DC7F33E00A782F7 /* Info.plist */,
+				D7D4AEDA1DC7F33D00A782F7 /* main.m */,
 				D7D4AEDC1DC7F33D00A782F7 /* AppDelegate.h */,
 				D7D4AEDD1DC7F33D00A782F7 /* AppDelegate.m */,
 			);
 			name = App;
 			sourceTree = "<group>";
 		};
-		D7D4AF071DC8031800A782F7 /* Session */ = {
+		D7D4AF071DC8031800A782F7 /* Sessions */ = {
 			isa = PBXGroup;
 			children = (
 				D7D4AF1F1DC817B900A782F7 /* Setting */,
 				D7D4AF1E1DC817A900A782F7 /* User */,
 			);
-			name = Session;
+			name = Sessions;
 			sourceTree = "<group>";
 		};
 		D7D4AF151DC80B4800A782F7 /* homepage */ = {
@@ -20997,7 +21013,7 @@
 			name = live;
 			sourceTree = "<group>";
 		};
-		D7D4AF371DC865E900A782F7 /* Helper */ = {
+		D7D4AF371DC865E900A782F7 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
 				D76E56E41DD7E57A004BE5B9 /* customerTabBar */,
@@ -21006,7 +21022,7 @@
 				D7D4AF3C1DC86D7C00A782F7 /* Filter */,
 				D7D4AF3B1DC86D7100A782F7 /* Router */,
 			);
-			name = Helper;
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 		D7D4AF3B1DC86D7100A782F7 /* Router */ = {
@@ -21347,6 +21363,7 @@
 				D7AEC1D41DD18DB700F9BC7F /* gradient_paint.inl in Resources */,
 				D7AEC1A81DD18DB700F9BC7F /* type_half.inl in Resources */,
 				D7AEC1C01DD18DB700F9BC7F /* random.inl in Resources */,
+				D7850CEA1DDFEB4B00E21D8A /* DanmuCell.xib in Resources */,
 				D7AEC1C61DD18DB700F9BC7F /* associated_min_max.inl in Resources */,
 				D7AEC1D81DD18DB700F9BC7F /* integer.inl in Resources */,
 				D7AEC1691DD18DB600F9BC7F /* extend.inl in Resources */,
@@ -21578,6 +21595,7 @@
 				D76E56E71DD7E5C7004BE5B9 /* CustomerTabBarController.m in Sources */,
 				D7D4AEDE1DC7F33D00A782F7 /* AppDelegate.m in Sources */,
 				D726B0B61DDEE5F2002B9068 /* ListRequest.m in Sources */,
+				D7850CE91DDFEB4B00E21D8A /* DanmuCell.m in Sources */,
 				D7850CDD1DDFC8B900E21D8A /* DanmuManager.m in Sources */,
 				D76E56EA1DD91C37004BE5B9 /* LuluRequest.m in Sources */,
 				D7850CE01DDFCA0300E21D8A /* Danmu.m in Sources */,

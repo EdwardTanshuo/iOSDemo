@@ -54,4 +54,13 @@
 - (void)update: (NSArray<Danmu*>* _Nullable)danmus{
     self.danmus = danmus;
 }
+
+- (Danmu* _Nonnull) getModelAtIndexPath: (NSIndexPath* _Nonnull) indexPath{
+    if([_danmus objectAtIndex:indexPath.row]){
+        return _danmus[indexPath.row];
+    }
+    else{
+        return nil;
+    }
+}
 @end

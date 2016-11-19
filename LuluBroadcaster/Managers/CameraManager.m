@@ -64,7 +64,6 @@
 - (void)openCamera{
     LogMessage(@"camera", 1, @"pre-opene");
     [[INSCameraAccessory defaultCamera] openCamera];
- 
     LogMessage(@"camera", 1, @"opened");
 }
 

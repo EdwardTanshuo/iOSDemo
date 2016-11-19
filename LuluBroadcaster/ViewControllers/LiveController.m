@@ -12,6 +12,7 @@
 #import <GPUImage/GPUImageFramework.h>
 #import <NSLogger/LoggerClient.h>
 #import "DanmuManager.h"
+#import "DanmuCell.h"
 
 @interface LiveController ()<LiveDataSourceDelegate, DanmuDatasourceDelegate, UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) GPUImageView* imageView;
@@ -76,6 +77,9 @@
 - (void)setupDanmuTable{
     _danmu_table.delegate = self;
     _danmu_table.dataSource = self;
+    _danmu_table.backgroundColor = [UIColor clearColor];
+
+    [self.danmu_table registerNib:[UINib nibWithNibName:@"DanmuCell" bundle:nil] forCellReuseIdentifier:@"DanmuCellID"];
 }
 
 #pragma mark -
@@ -108,7 +112,9 @@
 #pragma mark -
 #pragma mark UITableViewDataSource
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return nil;
+    DanmuCell* cell = (DanmuCell*)[tableView dequeueReusableCellWithIdentifier:@"DanmuCellID"];
+    [cell configureWithDanmu:[[DanmuManager sharedManager].datasource getModelAtIndexPath:indexPath]];
+    return cell;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -120,7 +126,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 100.0;
+    return [DanmuCell height:[[DanmuManager sharedManager].datasource getModelAtIndexPath:indexPath]];
 }
 
 #pragma mark -
