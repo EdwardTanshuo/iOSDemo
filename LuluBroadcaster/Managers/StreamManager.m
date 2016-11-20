@@ -47,8 +47,8 @@
     if (!_session)
         return;
     SettingSession* setting = [[SettingSession alloc] init];
-    [self.session startRtmpSession:@"rtmp://192.168.0.17:1935/rtmplive/kjkjkj"];
-    [NSString stringWithFormat:@"%@/%@", setting.url, setting.streamKey];
+    //[self.session startRtmpSession:@"rtmp://192.168.0.17:1935/rtmplive/kjkjkj"];
+    [self.session startRtmpSession:[NSString stringWithFormat:@"%@/%@", setting.url, setting.streamKey]];
     _isStreaming = YES;
 }
 
