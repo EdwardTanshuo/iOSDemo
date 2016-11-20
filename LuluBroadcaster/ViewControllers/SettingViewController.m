@@ -10,6 +10,7 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "ColorConstant.h"
 #import "UserSession.h"
+#import "NavigationRouter.h"
 
 @interface SettingViewController ()
 @property (weak, nonatomic) IBOutlet UIView *avata_pad;
@@ -53,4 +54,8 @@
     
     self.name.text = session.currentBroadcaster.name;
 }
+
+#pragma mark -
+#pragma mark actions
+
 @end

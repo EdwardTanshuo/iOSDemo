@@ -10,6 +10,7 @@
 #import "LiveController.h"
 #import "LoginController.h"
 #import "CustomerTabBarController.h"
+#import "HistoryViewController.h"
 
 @implementation NavigationRouter
 + (void)popLiveControllerFrom:(UIViewController*)parentController{
@@ -39,4 +40,9 @@
     [controller presentViewController:alert animated:YES completion:nil];
 }
 
++ (void)showHistoryViewController: (UIViewController*)controller{
+    UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    HistoryViewController* history = [sb instantiateViewControllerWithIdentifier:@"history"];
+    [controller.navigationController pushViewController:history animated:YES];
+}
 @end

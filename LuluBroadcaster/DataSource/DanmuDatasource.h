@@ -19,6 +19,7 @@
 
 - (void)appendDanmu: (Danmu* _Nonnull)danmu;
 - (NSInteger)numOfRows;
-- (void)update: (NSArray<Danmu*>* _Nullable)danmus;
 - (Danmu* _Nonnull) getModelAtIndexPath: (NSIndexPath* _Nonnull) indexPath;
+- (void)update: (NSArray<Danmu*>* _Nullable)danmus;
+
 @end

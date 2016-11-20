@@ -22,6 +22,12 @@
 		D76E56EA1DD91C37004BE5B9 /* LuluRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D76E56E91DD91C37004BE5B9 /* LuluRequest.m */; };
 		D76E56ED1DD91C8D004BE5B9 /* Broadcaster.m in Sources */ = {isa = PBXBuildFile; fileRef = D76E56EC1DD91C8D004BE5B9 /* Broadcaster.m */; };
 		D76E56F01DD924E3004BE5B9 /* LoginRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D76E56EF1DD924E3004BE5B9 /* LoginRequest.m */; };
+		D77EA5BB1DE12FA5008B0669 /* HistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D77EA5BA1DE12FA5008B0669 /* HistoryViewController.m */; };
+		D77EA5BE1DE14B52008B0669 /* HistoryRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D77EA5BD1DE14B52008B0669 /* HistoryRequest.m */; };
+		D77EA5C21DE15086008B0669 /* Broad.m in Sources */ = {isa = PBXBuildFile; fileRef = D77EA5C11DE15086008B0669 /* Broad.m */; };
+		D77EA5C61DE1976E008B0669 /* HistoryDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = D77EA5C51DE1976E008B0669 /* HistoryDatasource.m */; };
+		D77EA5CB1DE1A1FC008B0669 /* HistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D77EA5C91DE1A1FC008B0669 /* HistoryCell.m */; };
+		D77EA5CC1DE1A1FC008B0669 /* HistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D77EA5CA1DE1A1FC008B0669 /* HistoryCell.xib */; };
 		D7850CDD1DDFC8B900E21D8A /* DanmuManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D7850CDC1DDFC8B900E21D8A /* DanmuManager.m */; };
 		D7850CE01DDFCA0300E21D8A /* Danmu.m in Sources */ = {isa = PBXBuildFile; fileRef = D7850CDF1DDFCA0300E21D8A /* Danmu.m */; };
 		D7850CE31DDFCBD900E21D8A /* DanmuDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = D7850CE21DDFCBD900E21D8A /* DanmuDatasource.m */; };
@@ -328,6 +334,17 @@
 		D76E56EC1DD91C8D004BE5B9 /* Broadcaster.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Broadcaster.m; path = Models/Broadcaster.m; sourceTree = "<group>"; };
 		D76E56EE1DD924E3004BE5B9 /* LoginRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginRequest.h; path = Request/LoginRequest.h; sourceTree = "<group>"; };
 		D76E56EF1DD924E3004BE5B9 /* LoginRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginRequest.m; path = Request/LoginRequest.m; sourceTree = "<group>"; };
+		D77EA5B91DE12FA5008B0669 /* HistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HistoryViewController.h; path = ViewControllers/HistoryViewController.h; sourceTree = "<group>"; };
+		D77EA5BA1DE12FA5008B0669 /* HistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HistoryViewController.m; path = ViewControllers/HistoryViewController.m; sourceTree = "<group>"; };
+		D77EA5BC1DE14B52008B0669 /* HistoryRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HistoryRequest.h; path = Request/HistoryRequest.h; sourceTree = "<group>"; };
+		D77EA5BD1DE14B52008B0669 /* HistoryRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HistoryRequest.m; path = Request/HistoryRequest.m; sourceTree = "<group>"; };
+		D77EA5C01DE15086008B0669 /* Broad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Broad.h; path = Models/Broad.h; sourceTree = "<group>"; };
+		D77EA5C11DE15086008B0669 /* Broad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Broad.m; path = Models/Broad.m; sourceTree = "<group>"; };
+		D77EA5C41DE1976E008B0669 /* HistoryDatasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HistoryDatasource.h; path = DataSource/HistoryDatasource.h; sourceTree = "<group>"; };
+		D77EA5C51DE1976E008B0669 /* HistoryDatasource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HistoryDatasource.m; path = DataSource/HistoryDatasource.m; sourceTree = "<group>"; };
+		D77EA5C81DE1A1FC008B0669 /* HistoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HistoryCell.h; path = Views/HistoryCell.h; sourceTree = "<group>"; };
+		D77EA5C91DE1A1FC008B0669 /* HistoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HistoryCell.m; path = Views/HistoryCell.m; sourceTree = "<group>"; };
+		D77EA5CA1DE1A1FC008B0669 /* HistoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HistoryCell.xib; path = Views/HistoryCell.xib; sourceTree = "<group>"; };
 		D7850CDB1DDFC8B900E21D8A /* DanmuManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DanmuManager.h; path = Managers/DanmuManager.h; sourceTree = "<group>"; };
 		D7850CDC1DDFC8B900E21D8A /* DanmuManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DanmuManager.m; path = Managers/DanmuManager.m; sourceTree = "<group>"; };
 		D7850CDE1DDFCA0300E21D8A /* Danmu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Danmu.h; path = Models/Danmu.h; sourceTree = "<group>"; };
@@ -8135,6 +8152,38 @@
 				D76E56E21DD6A2BD004BE5B9 /* ColorConstant.m */,
 			);
 			name = Constants;
+			sourceTree = "<group>";
+		};
+		D77EA5B61DE12F29008B0669 /* history */ = {
+			isa = PBXGroup;
+			children = (
+				D77EA5B91DE12FA5008B0669 /* HistoryViewController.h */,
+				D77EA5BA1DE12FA5008B0669 /* HistoryViewController.m */,
+			);
+			name = history;
+			sourceTree = "<group>";
+		};
+		D77EA5B71DE12F32008B0669 /* transactions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = transactions;
+			sourceTree = "<group>";
+		};
+		D77EA5B81DE12F39008B0669 /* info */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = info;
+			sourceTree = "<group>";
+		};
+		D77EA5C31DE1974D008B0669 /* history */ = {
+			isa = PBXGroup;
+			children = (
+				D77EA5C41DE1976E008B0669 /* HistoryDatasource.h */,
+				D77EA5C51DE1976E008B0669 /* HistoryDatasource.m */,
+			);
+			name = history;
 			sourceTree = "<group>";
 		};
 		D7850CDA1DDFC88900E21D8A /* Danmu */ = {
@@ -20850,6 +20899,8 @@
 				D76E56EC1DD91C8D004BE5B9 /* Broadcaster.m */,
 				D7850CDE1DDFCA0300E21D8A /* Danmu.h */,
 				D7850CDF1DDFCA0300E21D8A /* Danmu.m */,
+				D77EA5C01DE15086008B0669 /* Broad.h */,
+				D77EA5C11DE15086008B0669 /* Broad.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -20863,6 +20914,8 @@
 				D76E56EF1DD924E3004BE5B9 /* LoginRequest.m */,
 				D726B0B41DDEE5F2002B9068 /* ListRequest.h */,
 				D726B0B51DDEE5F2002B9068 /* ListRequest.m */,
+				D77EA5BC1DE14B52008B0669 /* HistoryRequest.h */,
+				D77EA5BD1DE14B52008B0669 /* HistoryRequest.m */,
 			);
 			name = Requests;
 			sourceTree = "<group>";
@@ -20870,6 +20923,7 @@
 		D7D4AF001DC801D700A782F7 /* Datasources */ = {
 			isa = PBXGroup;
 			children = (
+				D77EA5C31DE1974D008B0669 /* history */,
 				D7850CE51DDFCBEB00E21D8A /* danmu */,
 				D7850CE41DDFCBDE00E21D8A /* broadcaster */,
 			);
@@ -20890,6 +20944,9 @@
 		D7D4AF021DC8020500A782F7 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				D77EA5B81DE12F39008B0669 /* info */,
+				D77EA5B71DE12F32008B0669 /* transactions */,
+				D77EA5B61DE12F29008B0669 /* history */,
 				D755900E1DDC67AC0050BB47 /* setting */,
 				D78D0B5D1DDA7C8100B01108 /* login */,
 				D7D4AF2E1DC8654F00A782F7 /* live */,
@@ -20915,6 +20972,9 @@
 				D7850CE61DDFEB4B00E21D8A /* DanmuCell.h */,
 				D7850CE71DDFEB4B00E21D8A /* DanmuCell.m */,
 				D7850CE81DDFEB4B00E21D8A /* DanmuCell.xib */,
+				D77EA5C81DE1A1FC008B0669 /* HistoryCell.h */,
+				D77EA5C91DE1A1FC008B0669 /* HistoryCell.m */,
+				D77EA5CA1DE1A1FC008B0669 /* HistoryCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -21470,6 +21530,7 @@
 				D7AEC1A01DD18DB700F9BC7F /* func_vector_relational.inl in Resources */,
 				D7AEC15F1DD18DB600F9BC7F /* ulp.inl in Resources */,
 				D7AEC1841DD18DB600F9BC7F /* polar_coordinates.inl in Resources */,
+				D77EA5CC1DE1A1FC008B0669 /* HistoryCell.xib in Resources */,
 				D7AEC1BC1DD18DB700F9BC7F /* matrix_inverse.inl in Resources */,
 				D7AEC1C11DD18DB700F9BC7F /* reciprocal.inl in Resources */,
 				D7AEC1891DD18DB600F9BC7F /* simd_mat4.inl in Resources */,
@@ -21592,6 +21653,7 @@
 				D7850CE31DDFCBD900E21D8A /* DanmuDatasource.m in Sources */,
 				D7D4AF3A1DC8662200A782F7 /* NavigationRouter.m in Sources */,
 				D78D0C441DDD2C2E00DE1193 /* LuluSocket.m in Sources */,
+				D77EA5BB1DE12FA5008B0669 /* HistoryViewController.m in Sources */,
 				D76E56E71DD7E5C7004BE5B9 /* CustomerTabBarController.m in Sources */,
 				D7D4AEDE1DC7F33D00A782F7 /* AppDelegate.m in Sources */,
 				D726B0B61DDEE5F2002B9068 /* ListRequest.m in Sources */,
@@ -21610,12 +21672,16 @@
 				D726B0B31DDEC093002B9068 /* BroadcasterDatasource.m in Sources */,
 				D7BA5C631DCAD78C000F1AB7 /* LiveController.m in Sources */,
 				D7D4AF0A1DC8037100A782F7 /* UserSession.m in Sources */,
+				D77EA5BE1DE14B52008B0669 /* HistoryRequest.m in Sources */,
 				D7D4AEDB1DC7F33D00A782F7 /* main.m in Sources */,
+				D77EA5C21DE15086008B0669 /* Broad.m in Sources */,
 				D70435251DC988A800EF5FAE /* GPUImageMyBeautifyFilter.m in Sources */,
 				D78D0B611DDA7CA100B01108 /* LoginController.m in Sources */,
 				D7AEC1FF1DD18DB700F9BC7F /* README.md in Sources */,
 				D7AEC2011DD18DB700F9BC7F /* README.md in Sources */,
 				D7D4AF181DC80E7700A782F7 /* CameraManager.m in Sources */,
+				D77EA5CB1DE1A1FC008B0669 /* HistoryCell.m in Sources */,
+				D77EA5C61DE1976E008B0669 /* HistoryDatasource.m in Sources */,
 				D76E56E01DD6A1BB004BE5B9 /* CustomerNavigationController.m in Sources */,
 				D70435221DC9704F00EF5FAE /* YUGPUImageCVPixelBufferInput.m in Sources */,
 				D78D0C4A1DDD2C8700DE1193 /* DanmuSocket.m in Sources */,

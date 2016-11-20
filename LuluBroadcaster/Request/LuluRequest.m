@@ -8,17 +8,22 @@
 
 #import "LuluRequest.h"
 #import <AFNetworking/AFNetworking.h>
+#import "UserSession.h"
 
-@interface LuluRequest()
+@interface LuluRequest(){
+    BOOL lock;
+}
 @property (nonatomic, strong, nullable) AFHTTPSessionManager* manager;
 @end
 
 @implementation LuluRequest
 - (instancetype)init{
+    lock = NO;
+    
     _base_url = BASE_URL;
     _php_url = PHP_URL;
     
-    _apis = @{@"login": @"login", @"broadcasters": @"account/feed"};
+    _apis = @{@"login": @"login", @"broadcasters": @"account/feed", @"history": @"transactions/borad"};
     _manager = [AFHTTPSessionManager manager];
     _manager.requestSerializer = [AFJSONRequestSerializer serializer];
     _manager.responseSerializer = [AFJSONResponseSerializer serializer];
@@ -29,6 +34,10 @@
     [_manager.requestSerializer setValue:@"d858bd235c7faf19f5da18a1118788e2" forHTTPHeaderField:@"X_MCV_TOKEN"];
    
     return [super init];
+}
+
+- (void)addAuth: (NSString* _Nonnull)token{
+     [_manager.requestSerializer setValue:token forHTTPHeaderField:@"authorization"];
 }
 
 - (void)dealloc{
@@ -58,10 +67,22 @@
             Failure: (void (^_Nullable)(NSError * _Nonnull error)) failure
 
 {
+    if(lock){
+        NSError* err = nil;
+        err = [NSError errorWithDomain:@"com.mofangvr.lulu" code:500 userInfo:@{@"msg": @"too busy"}];
+        return failure(err);
+    }
+    lock = YES;
+    UserSession* session = [[UserSession alloc] init];
+    if(session.token){
+        [self addAuth:session.token];
+    }
     [_manager POST:url parameters:params progress:nil success:^(NSURLSessionTask *task, id responseObject) {
-        success(responseObject);
+        lock = NO;
+        return success(responseObject);
     } failure:^(NSURLSessionTask *operation, NSError *error) {
-        failure(error);
+        lock = NO;
+        return failure(error);
     }];
 }
 
@@ -71,10 +92,22 @@
            Failure: (void (^_Nullable)(NSError * _Nonnull error)) failure
 
 {
+    if(lock){
+        NSError* err = nil;
+        err = [NSError errorWithDomain:@"com.mofangvr.lulu" code:500 userInfo:@{@"msg": @"too busy"}];
+        return failure(err);
+    }
+    lock = YES;
+    UserSession* session = [[UserSession alloc] init];
+    if(session.token){
+        [self addAuth:session.token];
+    }
     [_manager GET:url parameters:params progress:nil success:^(NSURLSessionTask *task, id responseObject) {
-        success(responseObject);
+        lock = NO;
+        return success(responseObject);
     } failure:^(NSURLSessionTask *operation, NSError *error) {
-        failure(error);
+        lock = NO;
+        return failure(error);
     }];
 }
 
