@@ -10,6 +10,7 @@
 #import "Broadcaster.h"
 #import <KZPropertyMapper/KZPropertyMapper.h>
 #import "UserSession.h"
+#import "SettingSession.h"
 
 @interface LoginRequest()
 

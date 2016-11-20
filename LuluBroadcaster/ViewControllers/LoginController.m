@@ -11,6 +11,7 @@
 #import "NavigationRouter.h"
 #import "AppDelegate.h"
 #import "UserSession.h"
+#import "SettingSession.h"
 
 @interface LoginController ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *blank;
@@ -92,6 +93,10 @@
             UserSession* session = [[UserSession alloc] init];
             session.currentBroadcaster = broadcaster;
             [session saveSessionWithEmail:wself.username.text WithPassword:wself.password.text];
+            
+            SettingSession* setting = [[SettingSession alloc] init];
+            setting.streamKey = broadcaster.wowzaUri;
+            
             [NavigationRouter showTabControllerOnWindow:((AppDelegate*)[UIApplication sharedApplication].delegate).window];
         }
         else{

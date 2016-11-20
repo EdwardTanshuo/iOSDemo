@@ -33,7 +33,6 @@
 - (instancetype)init{
     _isStreaming = NO;
     self.session = [[VCRtmpSession alloc] initWithVideoSize:VIDEO_SIZE_CIF fps:30 bitrate:BITRATE_CIF];
-    [self.session startRtmpSession:@"rtmp://10.10.17.182:1935/rtmplive/kjkjkj"];
     return [super init];
 }
 
@@ -47,7 +46,9 @@
 - (void)startRTMP{
     if (!_session)
         return;
-    
+    SettingSession* setting = [[SettingSession alloc] init];
+    [self.session startRtmpSession:@"rtmp://192.168.0.17:1935/rtmplive/kjkjkj"];
+    [NSString stringWithFormat:@"%@/%@", setting.url, setting.streamKey];
     _isStreaming = YES;
 }
 

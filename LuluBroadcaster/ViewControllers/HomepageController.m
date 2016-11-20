@@ -89,17 +89,17 @@
 - (void)updateStatus:(CameraManager*) manager{
     switch (manager.status) {
         case CameraStatusConnected:
-            self.navigationItem.title = @"相机(断开)";
+            self.navigationItem.title = @"相机(连接)";
             self.status = CameraStatusConnected;
             [((CustomerTabBarController*)(self.navigationController.tabBarController)) active];
             break;
         case CameraStatusConnecting:
-            self.navigationItem.title = @"相机(连接中)";
+            self.navigationItem.title = @"相机(连接中..)";
             self.status = CameraStatusConnecting;
             [((CustomerTabBarController*)(self.navigationController.tabBarController)) inactive];
             break;
         case CameraStatusDisconnected:
-            self.navigationItem.title = @"相机(已连接)";
+            self.navigationItem.title = @"相机(断开)";
             self.status = CameraStatusDisconnected;
             [((CustomerTabBarController*)(self.navigationController.tabBarController)) inactive];
             break;

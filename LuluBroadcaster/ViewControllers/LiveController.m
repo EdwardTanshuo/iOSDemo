@@ -9,6 +9,7 @@
 #import "LiveController.h"
 #import "LiveManager.h"
 #import "StreamManager.h"
+#import "CameraManager.h"
 #import <GPUImage/GPUImageFramework.h>
 #import <NSLogger/LoggerClient.h>
 #import "DanmuManager.h"
@@ -17,10 +18,8 @@
 @interface LiveController ()<LiveDataSourceDelegate, DanmuDatasourceDelegate, UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) GPUImageView* imageView;
 
-@property (nonatomic, strong) UILabel* debug;
-@property (nonatomic, strong) UILabel* error;
-
 @property (weak, nonatomic) IBOutlet UITableView *danmu_table;
+@property (weak, nonatomic) IBOutlet UIButton *close;
 
 @end
 
@@ -28,6 +27,10 @@
 
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations{
     return UIInterfaceOrientationMaskAll;
+}
+
+- (BOOL)prefersStatusBarHidden{
+    return YES;
 }
 
 - (void)viewDidLoad {
@@ -41,10 +44,7 @@
 }
 
 - (void)dealloc{
-    [LiveManager sharedManager].delegate = nil;
-    [[LiveManager sharedManager] stopLive];
-    
-    [DanmuManager sharedManager].delegate = nil;
+   
 }
 
 - (void)launchLive{
@@ -56,22 +56,8 @@
     _imageView = [[GPUImageView alloc] initWithFrame:self.view.bounds];
     _imageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [_imageView setBackgroundColorRed:0 green:0 blue:0 alpha:1.0];
-    [self.view addSubview:_imageView];
+    [self.view insertSubview:_imageView atIndex:0];
     
-    UILabel* debug = [[UILabel alloc] initWithFrame:self.view.bounds];
-    debug.numberOfLines = 2;
-    [self.view addSubview:debug];
-    debug.textColor = [UIColor whiteColor];
-    _debug = debug;
-    
-    CGRect rect = self.view.bounds;
-    rect.origin.y += 40;
-    UILabel* error = [[UILabel alloc] initWithFrame:rect];
-    error.numberOfLines = 2;
-    [self.view addSubview:error];
-    error.textColor = [UIColor redColor];
-    _error = error;
-
 }
 
 - (void)setupDanmuTable{
@@ -81,6 +67,16 @@
 
     [self.danmu_table registerNib:[UINib nibWithNibName:@"DanmuCell" bundle:nil] forCellReuseIdentifier:@"DanmuCellID"];
 }
+
+#pragma mark -
+#pragma mark actions
+- (IBAction)closeActions:(id)sender {
+    [LiveManager sharedManager].delegate = nil;
+    [[LiveManager sharedManager] stopLive];
+    [DanmuManager sharedManager].delegate = nil;
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 
 #pragma mark -
 #pragma mark LiveDataSourceDelegate
@@ -100,7 +96,7 @@
 
 
 - (void)bufferFetched:(CVPixelBufferRef)buffer{
-    _debug.text = [NSString stringWithFormat:@"%d", ((char*)buffer)[0]];
+    
 }
 
 #pragma mark -

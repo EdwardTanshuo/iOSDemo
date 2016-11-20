@@ -17,7 +17,7 @@
 #define DEFAULT_BITRATE 600*1024
 #define DEFAULT_HEIGHT 720
 #define DEFAULT_WIDTH 1440
-#define DEFAULT_URL @"rtmp://10.10.17.182:1935/rtmplive"
+#define DEFAULT_URL @"rtmp://192.168.0.17:1935/rtmplive"
 #define DEFAULT_STREAM_KEY @"kjkjkj"
 
 @interface SettingSession()
