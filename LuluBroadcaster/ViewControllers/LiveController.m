@@ -107,6 +107,8 @@
 #pragma mark DanmuDatasourceDelegate
 - (void)dataHasChanged:(NSArray<Danmu *> *)danmus{
     [self.danmu_table reloadData];
+    [self updateTableContentInset];
+    [self tableViewScrollToBottom: true];
 }
 
 #pragma mark -

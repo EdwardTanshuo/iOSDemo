@@ -33,6 +33,7 @@ static Broadcaster* g_broadcaster;
     return _currentBroadcaster;
 }
 - (void) setCurrentBroadcaster:(Broadcaster*)broadcaster{
+    g_broadcaster = broadcaster;
     _currentBroadcaster = broadcaster;
 }
 
