@@ -203,11 +203,21 @@
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z9o-pH-uHM">
+                                                    <rect key="frame" x="0.0" y="1" width="599" height="39"/>
+                                                    <connections>
+                                                        <action selector="clean:" destination="gX2-ak-55c" eventType="touchUpInside" id="pl6-N3-3C4"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="z9o-pH-uHM" firstAttribute="leading" secondItem="fwp-4I-8JA" secondAttribute="leadingMargin" constant="-8" id="3Pz-Fo-U2l"/>
+                                                <constraint firstItem="z9o-pH-uHM" firstAttribute="top" secondItem="fwp-4I-8JA" secondAttribute="topMargin" constant="-7" id="9Z7-cC-rG9"/>
                                                 <constraint firstItem="D4U-oq-NU4" firstAttribute="top" secondItem="fwp-4I-8JA" secondAttribute="topMargin" constant="1" id="A7L-OJ-0uD"/>
                                                 <constraint firstItem="35B-eJ-nMg" firstAttribute="leading" secondItem="fwp-4I-8JA" secondAttribute="leadingMargin" constant="8" id="O8r-jL-KQq"/>
                                                 <constraint firstItem="35B-eJ-nMg" firstAttribute="top" secondItem="fwp-4I-8JA" secondAttribute="topMargin" constant="1" id="TPU-yw-Adr"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="z9o-pH-uHM" secondAttribute="bottom" constant="-8" id="aPu-3Y-qvq"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="z9o-pH-uHM" secondAttribute="trailing" constant="-40" id="plB-lg-t05"/>
                                                 <constraint firstItem="D4U-oq-NU4" firstAttribute="leading" secondItem="35B-eJ-nMg" secondAttribute="trailing" constant="8" id="zLS-VK-uRG"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -260,6 +270,7 @@
                     <connections>
                         <outlet property="avata_pad" destination="5NK-cd-vHf" id="qSa-5k-4qv"/>
                         <outlet property="avatar" destination="7YD-Dx-Bkf" id="avQ-Wz-xQv"/>
+                        <outlet property="cleanButton" destination="z9o-pH-uHM" id="lsw-PJ-sTl"/>
                         <outlet property="name" destination="xcX-jR-hDE" id="U7X-NG-ao7"/>
                     </connections>
                 </tableViewController>
@@ -300,10 +311,10 @@
             </objects>
             <point key="canvasLocation" x="2026" y="1646"/>
         </scene>
-        <!--View Controller-->
+        <!--Transaction View Controller-->
         <scene sceneID="sFm-YX-dkt">
             <objects>
-                <viewController id="ise-JQ-tOC" sceneMemberID="viewController">
+                <viewController id="ise-JQ-tOC" customClass="TransactionViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="teM-VJ-7Zr"/>
                         <viewControllerLayoutGuide type="bottom" id="v4u-wa-6Hr"/>
@@ -311,8 +322,23 @@
                     <view key="view" contentMode="scaleToFill" id="qzd-iz-iHj">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sDG-us-0db">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="sDG-us-0db" firstAttribute="top" secondItem="teM-VJ-7Zr" secondAttribute="bottom" id="0lh-dU-n0M"/>
+                            <constraint firstItem="v4u-wa-6Hr" firstAttribute="top" secondItem="sDG-us-0db" secondAttribute="bottom" constant="-49" id="La5-0s-MSS"/>
+                            <constraint firstItem="sDG-us-0db" firstAttribute="leading" secondItem="qzd-iz-iHj" secondAttribute="leading" id="ska-cD-7S4"/>
+                            <constraint firstAttribute="trailing" secondItem="sDG-us-0db" secondAttribute="trailing" id="xb7-I0-TuY"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="table" destination="sDG-us-0db" id="W3x-rc-cVs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tgT-OK-N4j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

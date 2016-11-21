@@ -11,6 +11,7 @@
 #import "LoginController.h"
 #import "CustomerTabBarController.h"
 #import "HistoryViewController.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @implementation NavigationRouter
 + (void)popLiveControllerFrom:(UIViewController*)parentController{
@@ -40,9 +41,27 @@
     [controller presentViewController:alert animated:YES completion:nil];
 }
 
++ (void)showCleanActionSheetInViewController: (UIViewController*)controller{
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"清理缓存？" message:@"请确认是否需要清理本地数据" preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertAction* act0 = [UIAlertAction actionWithTitle:@"是的" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        SDImageCache *imageCache = [SDImageCache sharedImageCache];
+        [imageCache clearMemory];
+        [imageCache clearDisk];
+    }];
+    
+    UIAlertAction* act1 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    
+    [alert addAction:act0];
+    [alert addAction:act1];
+    [controller presentViewController:alert animated:YES completion:nil];
+}
+
 + (void)showHistoryViewController: (UIViewController*)controller{
     UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     HistoryViewController* history = [sb instantiateViewControllerWithIdentifier:@"history"];
     [controller.navigationController pushViewController:history animated:YES];
 }
+
 @end

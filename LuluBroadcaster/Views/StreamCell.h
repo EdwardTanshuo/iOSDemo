@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <SDWebImage/UIImageView+WebCache.h>
 #import "Broadcaster.h"
 
 @interface StreamCell : UITableViewCell

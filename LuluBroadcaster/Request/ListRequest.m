@@ -23,7 +23,7 @@
     [self getWithURL:[self phpUrlByService:@"broadcasters"] Parameters:nil Success:^(id  _Nullable responseObject) {
         NSArray* jsons = responseObject[@"result"][@"items"];
         NSMutableArray* temp = [NSMutableArray arrayWithCapacity:0];
-        for(Broadcaster* iter in jsons){
+        for(id iter in jsons){
             [temp addObject:[Broadcaster broadcasterPHPWithJSON:iter]];
         }
         NSLog(@"%@", responseObject);

@@ -22,9 +22,15 @@
                         page: (NSUInteger)page
                       callback: (void (^_Nullable)(NSArray<Broad* >*  _Nullable, NSError * _Nullable,  NSInteger))complete{
     [self getWithURL:[self urlByService:@"history"] Parameters:@{@"pagenum": @(page), @"pagesize": @(size)} Success:^(id  _Nullable responseObject) {
+        NSError* err = [self checkResponse:responseObject];
+        //parse result
+        if(err){
+            return complete(nil, err, 0);
+        }
+
         NSArray* jsons = responseObject[@"data"][@"data"];
         NSMutableArray* temp = [NSMutableArray arrayWithCapacity:0];
-        for(Broadcaster* iter in jsons){
+        for(id iter in jsons){
             [temp addObject:[Broad broadWithJSON:iter]];
         }
         NSInteger num = [responseObject[@"data"][@"totalCount"] integerValue];

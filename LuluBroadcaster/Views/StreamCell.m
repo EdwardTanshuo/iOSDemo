@@ -7,7 +7,7 @@
 //
 
 #import "StreamCell.h"
-
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @implementation StreamCell
 

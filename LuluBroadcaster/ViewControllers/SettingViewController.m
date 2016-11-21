@@ -15,6 +15,7 @@
 @interface SettingViewController ()
 @property (weak, nonatomic) IBOutlet UIView *avata_pad;
 @property (weak, nonatomic) IBOutlet UIImageView *avatar;
+@property (weak, nonatomic) IBOutlet UIButton *cleanButton;
 @property (weak, nonatomic) IBOutlet UILabel *name;
 @end
 
@@ -57,5 +58,8 @@
 
 #pragma mark -
 #pragma mark actions
+- (IBAction)clean:(id)sender {
+    [NavigationRouter showCleanActionSheetInViewController: self];
+}
 
 @end

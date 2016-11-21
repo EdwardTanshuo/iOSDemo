@@ -11,7 +11,7 @@
 
 @protocol HistoryDatasourceDelegate <NSObject>
 - (void)dataHasChanged: (NSArray<Broad*>* _Nonnull) histories;
-- (void)dataHasFailed: (NSError*)error;
+- (void)dataHasFailed: (NSError* )error;
 @end
 
 

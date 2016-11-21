@@ -13,5 +13,6 @@
 + (void)showLoginControllerOnWindow: (UIWindow*)window;
 + (void)showTabControllerOnWindow: (UIWindow*)window;
 + (void)showAlertInViewController: (UIViewController*)controller WithTitle: (NSString*)title WithMessage: (NSString*)msg;
++ (void)showCleanActionSheetInViewController: (UIViewController*)controller;
 + (void)showHistoryViewController: (UIViewController*)controller;
 @end

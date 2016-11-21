@@ -15,7 +15,6 @@
 
 @interface StreamManager()
 
-
 @end
 
 @implementation StreamManager
