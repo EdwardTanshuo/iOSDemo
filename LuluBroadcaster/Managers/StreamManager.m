@@ -10,8 +10,6 @@
 #import "SettingSession.h"
 #import <INSNanoSDK/INSNanoSDK.h>
 #import <NSLogger/NSLogger.h>
-#import "avformat.h"
-
 
 @interface StreamManager()
 
