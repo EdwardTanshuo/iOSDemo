@@ -17,7 +17,10 @@
 #import "GPUImageMyBeautifyFilter.h"
 #import <NSLogger/NSLogger.h>
 
-@interface LiveManager()<INSLiveDataSourceProtocol>
+@interface LiveManager()<INSLiveDataSourceProtocol>{
+    CVPixelBufferRef m_pixelBuffer;
+}
+
 @property (nonatomic, strong) INSLiveDataSource* liveDataSource;
 @property (nonatomic, weak) GPUImageView* view;
 @property (nonatomic, strong) GPUImageRawDataOutput* output;
@@ -25,6 +28,7 @@
 @property (nonatomic, strong) GPUImageMyBeautifyFilter* filter;
 @property (nonatomic, strong) GPUImageTransformFilter* scaler;
 @property (nonatomic, assign) NSInteger current_frame;
+@property (nonatomic, strong) dispatch_semaphore_t frameRenderingSemaphore;
 @end
 
 @implementation LiveManager
@@ -39,6 +43,10 @@
 }
 
 - (instancetype)init{
+    m_pixelBuffer = NULL;
+    
+    self.frameRenderingSemaphore = dispatch_semaphore_create(1);
+    
     self.isLiving = NO;
     self.current_frame = 0;
     self.pixelBufferInput = [[YUGPUImageCVPixelBufferInput alloc] init];
@@ -46,18 +54,26 @@
     _output = [[GPUImageRawDataOutput alloc] initWithImageSize:CGSizeMake(720, 360) resultsInBGRAFormat:YES];
     __weak GPUImageRawDataOutput *weakOutput = _output;
     __weak LiveManager* wself = self;
+    CVPixelBufferRef* buffer = &m_pixelBuffer;
     
     [_output setNewFrameAvailableBlock:^{
+        if (dispatch_semaphore_wait(wself.frameRenderingSemaphore, DISPATCH_TIME_NOW) != 0) {
+            return;
+        }
         __strong GPUImageRawDataOutput *strongOutput = weakOutput;
         [strongOutput lockFramebufferForReading];
         GLubyte *outputBytes = [strongOutput rawBytesForImage];
         NSInteger bytesPerRow = [strongOutput bytesPerRowInOutput];
-        CVPixelBufferRef pixelBuffer = NULL;
-        CVPixelBufferCreateWithBytes(kCFAllocatorDefault, 720, 360, kCVPixelFormatType_32BGRA, outputBytes, bytesPerRow, nil, nil, nil, &pixelBuffer);
-        
-        [wself PixelBufferCallback:pixelBuffer];;
-        CFRelease(pixelBuffer);
+        //CVPixelBufferRef pixelBuffer = NULL;
+        CVPixelBufferCreateWithBytes(kCFAllocatorDefault, 720, 360, kCVPixelFormatType_32BGRA, outputBytes, bytesPerRow, nil, nil, nil, buffer);
+        /*dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+            
+        });*/
+        [wself PixelBufferCallback:*buffer];;
+        CFRelease(*buffer);
         [strongOutput unlockFramebufferAfterReading];
+        dispatch_semaphore_signal(wself.frameRenderingSemaphore);
+
     }];
     
     self.scaler = [[GPUImageTransformFilter alloc] init];
