@@ -172,7 +172,8 @@
 #pragma mark-
 #pragma mark--视频数据处理回调
 -(void)PixelBufferCallback:(CVPixelBufferRef)pixelFrameBuffer{
-    
+    _current_frame++;
+   
     if([StreamManager sharedManager].session && [StreamManager sharedManager].isStreaming && self.isLiving){
         [[StreamManager sharedManager].session PutBuffer:pixelFrameBuffer];
     }

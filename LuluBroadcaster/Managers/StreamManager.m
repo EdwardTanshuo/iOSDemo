@@ -31,7 +31,7 @@
 
 - (instancetype)init{
     _isStreaming = NO;
-    self.session = [[VCRtmpSession alloc] initWithVideoSize:VIDEO_SIZE_CIF fps:30 bitrate:BITRATE_CIF];
+    self.session = [[VCRtmpSession alloc] initWithVideoSize:VIDEO_SIZE_CIF fps:20 bitrate:BITRATE_CIF];
     return [super init];
 }
 
