@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		D70435221DC9704F00EF5FAE /* YUGPUImageCVPixelBufferInput.m in Sources */ = {isa = PBXBuildFile; fileRef = D70435211DC9704F00EF5FAE /* YUGPUImageCVPixelBufferInput.m */; };
 		D70435251DC988A800EF5FAE /* GPUImageMyBeautifyFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = D70435241DC988A800EF5FAE /* GPUImageMyBeautifyFilter.m */; };
+		D71CAB2D1DE62D0500DC890E /* FaceDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = D71CAB2C1DE62D0500DC890E /* FaceDetector.m */; };
+		D71CAB311DE6347C00DC890E /* FaceDetectManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D71CAB301DE6347C00DC890E /* FaceDetectManager.m */; };
 		D726B0AF1DDE84E2002B9068 /* StreamCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D726B0AD1DDE84E2002B9068 /* StreamCell.m */; };
 		D726B0B01DDE84E2002B9068 /* StreamCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D726B0AE1DDE84E2002B9068 /* StreamCell.xib */; };
 		D726B0B31DDEC093002B9068 /* BroadcasterDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = D726B0B21DDEC093002B9068 /* BroadcasterDatasource.m */; };
@@ -312,6 +314,10 @@
 		D70435211DC9704F00EF5FAE /* YUGPUImageCVPixelBufferInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YUGPUImageCVPixelBufferInput.m; path = Logic/Helper/buffer2image/YUGPUImageCVPixelBufferInput.m; sourceTree = "<group>"; };
 		D70435231DC988A800EF5FAE /* GPUImageMyBeautifyFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPUImageMyBeautifyFilter.h; path = Logic/Helper/filter/GPUImageMyBeautifyFilter.h; sourceTree = "<group>"; };
 		D70435241DC988A800EF5FAE /* GPUImageMyBeautifyFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPUImageMyBeautifyFilter.m; path = Logic/Helper/filter/GPUImageMyBeautifyFilter.m; sourceTree = "<group>"; };
+		D71CAB2B1DE62D0500DC890E /* FaceDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FaceDetector.h; path = Logic/Helper/FaceDetector/FaceDetector.h; sourceTree = "<group>"; };
+		D71CAB2C1DE62D0500DC890E /* FaceDetector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FaceDetector.m; path = Logic/Helper/FaceDetector/FaceDetector.m; sourceTree = "<group>"; };
+		D71CAB2F1DE6347C00DC890E /* FaceDetectManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FaceDetectManager.h; path = Managers/FaceDetectManager.h; sourceTree = "<group>"; };
+		D71CAB301DE6347C00DC890E /* FaceDetectManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FaceDetectManager.m; path = Managers/FaceDetectManager.m; sourceTree = "<group>"; };
 		D726B0AC1DDE84E2002B9068 /* StreamCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StreamCell.h; path = Views/StreamCell.h; sourceTree = "<group>"; };
 		D726B0AD1DDE84E2002B9068 /* StreamCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StreamCell.m; path = Views/StreamCell.m; sourceTree = "<group>"; };
 		D726B0AE1DDE84E2002B9068 /* StreamCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StreamCell.xib; path = Views/StreamCell.xib; sourceTree = "<group>"; };
@@ -8009,6 +8015,24 @@
 				D70435211DC9704F00EF5FAE /* YUGPUImageCVPixelBufferInput.m */,
 			);
 			name = buffer2image;
+			sourceTree = "<group>";
+		};
+		D71CAB2A1DE62CBB00DC890E /* faceDetect */ = {
+			isa = PBXGroup;
+			children = (
+				D71CAB2B1DE62D0500DC890E /* FaceDetector.h */,
+				D71CAB2C1DE62D0500DC890E /* FaceDetector.m */,
+			);
+			name = faceDetect;
+			sourceTree = "<group>";
+		};
+		D71CAB2E1DE6345300DC890E /* FaceDetect */ = {
+			isa = PBXGroup;
+			children = (
+				D71CAB2F1DE6347C00DC890E /* FaceDetectManager.h */,
+				D71CAB301DE6347C00DC890E /* FaceDetectManager.m */,
+			);
+			name = FaceDetect;
 			sourceTree = "<group>";
 		};
 		D755900E1DDC67AC0050BB47 /* setting */ = {
@@ -20853,6 +20877,7 @@
 		D7D4AF011DC801EC00A782F7 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				D71CAB2E1DE6345300DC890E /* FaceDetect */,
 				D7850CDA1DDFC88900E21D8A /* Danmu */,
 				D7D4AF2A1DC863D400A782F7 /* Live */,
 				D7D4AF1D1DC8146A00A782F7 /* Stream */,
@@ -20999,6 +21024,7 @@
 		D7D4AF371DC865E900A782F7 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				D71CAB2A1DE62CBB00DC890E /* faceDetect */,
 				D77EA5E51DE2E358008B0669 /* timeAgo */,
 				D76E56E41DD7E57A004BE5B9 /* customerTabBar */,
 				D76E7EAF1DD69ED200794450 /* customerNavigationBar */,
@@ -21366,6 +21392,7 @@
 			files = (
 				D7850CE31DDFCBD900E21D8A /* DanmuDatasource.m in Sources */,
 				D78D0C441DDD2C2E00DE1193 /* LuluSocket.m in Sources */,
+				D71CAB2D1DE62D0500DC890E /* FaceDetector.m in Sources */,
 				D77EA5BB1DE12FA5008B0669 /* HistoryViewController.m in Sources */,
 				D76E56E71DD7E5C7004BE5B9 /* CustomerTabBarController.m in Sources */,
 				D7D4AEDE1DC7F33D00A782F7 /* AppDelegate.m in Sources */,
@@ -21399,6 +21426,7 @@
 				D77EA5CB1DE1A1FC008B0669 /* HistoryCell.m in Sources */,
 				D77EA5C61DE1976E008B0669 /* HistoryDatasource.m in Sources */,
 				D76E56E01DD6A1BB004BE5B9 /* CustomerNavigationController.m in Sources */,
+				D71CAB311DE6347C00DC890E /* FaceDetectManager.m in Sources */,
 				D77EA5D31DE2C8C9008B0669 /* User.m in Sources */,
 				D77EA5D61DE2D321008B0669 /* TransactionRequest.m in Sources */,
 				D70435221DC9704F00EF5FAE /* YUGPUImageCVPixelBufferInput.m in Sources */,
@@ -21525,8 +21553,8 @@
 			baseConfigurationReference = 34C1BAE70B5550356746639A /* Pods-LuluBroadcaster.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Magic Cube Interactive Inc (P2N553FFL7)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Magic Cube Interactive Inc (P2N553FFL7)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ruotian Rong (NV89B5CCZ8)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ruotian Rong (NV89B5CCZ8)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/lib/Insta/debug",
@@ -21553,7 +21581,7 @@
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lulu.bc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "13d9a45b-1a39-44fb-a18c-2f2b7dc58be0";
+				PROVISIONING_PROFILE = "5bb7aff4-18a3-4ee4-b609-44ec8d4f314b";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -21563,8 +21591,8 @@
 			baseConfigurationReference = DAFDB40B4891175C98C3CFD9 /* Pods-LuluBroadcaster.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Magic Cube Interactive Inc (P2N553FFL7)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Magic Cube Interactive Inc (P2N553FFL7)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ruotian Rong (NV89B5CCZ8)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ruotian Rong (NV89B5CCZ8)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/lib/Insta/debug",
@@ -21591,7 +21619,7 @@
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lulu.bc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "13d9a45b-1a39-44fb-a18c-2f2b7dc58be0";
+				PROVISIONING_PROFILE = "5bb7aff4-18a3-4ee4-b609-44ec8d4f314b";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

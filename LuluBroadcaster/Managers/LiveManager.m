@@ -11,24 +11,28 @@
 #import "LiveManager.h"
 #import "SettingSession.h"
 #import "StreamManager.h"
+#import "FaceDetectManager.h"
 #import <GPUImage/GPUImageFramework.h>
 #import <INSNanoSDK/INSNanoSDK.h>
 #import "YUGPUImageCVPixelBufferInput.h"
 #import "GPUImageMyBeautifyFilter.h"
 #import <NSLogger/NSLogger.h>
 
-@interface LiveManager()<INSLiveDataSourceProtocol>{
+@interface LiveManager()<INSLiveDataSourceProtocol, FaceDetectManagerDelegate>{
     CVPixelBufferRef m_pixelBuffer;
+    CVPixelBufferRef m_faceBuffer;
 }
 
 @property (nonatomic, strong) INSLiveDataSource* liveDataSource;
 @property (nonatomic, weak) GPUImageView* view;
 @property (nonatomic, strong) GPUImageRawDataOutput* output;
+@property (nonatomic, strong) GPUImageRawDataOutput* face_output;
 @property (nonatomic,strong) YUGPUImageCVPixelBufferInput *pixelBufferInput;
 @property (nonatomic, strong) GPUImageMyBeautifyFilter* filter;
 @property (nonatomic, strong) GPUImageTransformFilter* scaler;
 @property (nonatomic, assign) NSInteger current_frame;
 @property (nonatomic, strong) dispatch_semaphore_t frameRenderingSemaphore;
+@property (nonatomic, strong) dispatch_semaphore_t frameFaceSemaphore;
 @end
 
 @implementation LiveManager
@@ -44,18 +48,24 @@
 
 - (instancetype)init{
     m_pixelBuffer = NULL;
+    m_faceBuffer = NULL;
+    __weak LiveManager* wself = self;
+    
+    [FaceDetectManager sharedManager].delegate = self;
     
     self.frameRenderingSemaphore = dispatch_semaphore_create(1);
+    self.frameFaceSemaphore = dispatch_semaphore_create(1);
     
     self.isLiving = NO;
     self.current_frame = 0;
+    
     self.pixelBufferInput = [[YUGPUImageCVPixelBufferInput alloc] init];
+    
     self.filter = [[GPUImageMyBeautifyFilter alloc] init];
+   
     _output = [[GPUImageRawDataOutput alloc] initWithImageSize:CGSizeMake(720, 360) resultsInBGRAFormat:YES];
     __weak GPUImageRawDataOutput *weakOutput = _output;
-    __weak LiveManager* wself = self;
     CVPixelBufferRef* buffer = &m_pixelBuffer;
-    
     [_output setNewFrameAvailableBlock:^{
         if (dispatch_semaphore_wait(wself.frameRenderingSemaphore, DISPATCH_TIME_NOW) != 0) {
             return;
@@ -64,11 +74,7 @@
         [strongOutput lockFramebufferForReading];
         GLubyte *outputBytes = [strongOutput rawBytesForImage];
         NSInteger bytesPerRow = [strongOutput bytesPerRowInOutput];
-        //CVPixelBufferRef pixelBuffer = NULL;
         CVPixelBufferCreateWithBytes(kCFAllocatorDefault, 720, 360, kCVPixelFormatType_32BGRA, outputBytes, bytesPerRow, nil, nil, nil, buffer);
-        /*dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-            
-        });*/
         [wself PixelBufferCallback:*buffer];;
         CFRelease(*buffer);
         [strongOutput unlockFramebufferAfterReading];
@@ -76,11 +82,30 @@
 
     }];
     
+    _face_output = [[GPUImageRawDataOutput alloc] initWithImageSize:CGSizeMake(720, 360) resultsInBGRAFormat:YES];
+     __weak GPUImageRawDataOutput *weakFaceOutput = _face_output;
+    CVPixelBufferRef* face_buffer = &m_faceBuffer;
+    [_face_output setNewFrameAvailableBlock:^{
+        if (dispatch_semaphore_wait(wself.frameFaceSemaphore, DISPATCH_TIME_NOW) != 0) {
+            return;
+        }
+        __strong GPUImageRawDataOutput *strongOutput = weakFaceOutput;
+        [strongOutput lockFramebufferForReading];
+        GLubyte *outputBytes = [strongOutput rawBytesForImage];
+        NSInteger bytesPerRow = [strongOutput bytesPerRowInOutput];
+        CVPixelBufferCreateWithBytes(kCFAllocatorDefault, 720, 360, kCVPixelFormatType_32BGRA, outputBytes, bytesPerRow, nil, nil, nil, face_buffer);
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+            [[FaceDetectManager sharedManager] appendBuffer:*face_buffer];
+        });
+        //[wself pudgeOutput:strongOutput buffer:*face_buffer semaphore:wself.frameFaceSemaphore];
+    }];
+    
     self.scaler = [[GPUImageTransformFilter alloc] init];
     [self.scaler forceProcessingAtSizeRespectingAspectRatio:CGSizeMake(720, 360)];
     
     [self.pixelBufferInput addTarget: self.scaler];
     [self.scaler addTarget:self.filter];
+    [self.scaler addTarget:self.face_output];
     [self.filter addTarget:_output];
     
     return [super init];
@@ -92,6 +117,10 @@
     [_pixelBufferInput removeTarget: _filter];
 }
 
+- (void) pudgeOutput: (GPUImageRawDataOutput*)output buffer: (CVPixelBufferRef)buffer semaphore: (dispatch_semaphore_t)semaphore{
+    [output unlockFramebufferAfterReading];
+    dispatch_semaphore_signal(semaphore);
+}
 
 
 #pragma mark -
@@ -177,6 +206,12 @@
     if([StreamManager sharedManager].session && [StreamManager sharedManager].isStreaming && self.isLiving){
         [[StreamManager sharedManager].session PutBuffer:pixelFrameBuffer];
     }
+}
+
+#pragma mark-
+#pragma mark--FaceDetectManagerDelegate
+- (void)faceHasBeenDetected:(NSArray *)features{
+    [self pudgeOutput:self.face_output buffer:m_faceBuffer semaphore:self.frameFaceSemaphore];
 }
 
 @end
