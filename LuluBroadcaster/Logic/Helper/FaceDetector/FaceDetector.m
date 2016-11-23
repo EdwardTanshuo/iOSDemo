@@ -7,6 +7,7 @@
 //
 
 #import "FaceDetector.h"
+#import <ImageIO/ImageIO.h>
 @interface FaceDetector ()
 @property (nonatomic, strong) CIDetector* faceDetector;
 @end
@@ -21,8 +22,8 @@
 - (NSArray*)DetectFaceFromBuffer:(CVPixelBufferRef)buffer{
     CVPixelBufferLockBaseAddress(buffer, kCVPixelBufferLock_ReadOnly);
     CIImage* ciImage = [[CIImage alloc] initWithCVPixelBuffer:buffer];
-    int exifOrientation = 6; //   6  =  0th row is on the right, and 0th column is the top. Portrait mode.
-    NSDictionary *imageOptions = @{CIDetectorImageOrientation : @(exifOrientation)};
+    //[[ciImage properties] valueForKey:(NSString *)kCGImagePropertyOrientation];
+    NSDictionary *imageOptions = @{CIDetectorImageOrientation : @(1)};
     
     NSArray *features = [self.faceDetector featuresInImage:ciImage
                                                    options:imageOptions];

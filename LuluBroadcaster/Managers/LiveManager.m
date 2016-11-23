@@ -211,6 +211,18 @@
 #pragma mark-
 #pragma mark--FaceDetectManagerDelegate
 - (void)faceHasBeenDetected:(NSArray *)features{
+    LogMessage(@"face", 0, @"detector callback: %ld faces has been detected", [features count]);
+    for (CIFaceFeature *f in features) {
+        if (f.hasLeftEyePosition) {
+            LogMessage(@"face", 0, @"Left eye %g %g", f.leftEyePosition.x, f.leftEyePosition.y);
+        }
+        if (f.hasRightEyePosition) {
+            LogMessage(@"face", 0, @"Right eye %g %g", f.rightEyePosition.x, f.rightEyePosition.y);
+        }
+        if (f.hasMouthPosition) {
+            LogMessage(@"face", 0, @"Mouth %g %g", f.mouthPosition.x, f.mouthPosition.y);
+        }
+    }
     [self pudgeOutput:self.face_output buffer:m_faceBuffer semaphore:self.frameFaceSemaphore];
 }
 
