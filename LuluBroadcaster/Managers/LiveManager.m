@@ -18,6 +18,9 @@
 #import "GPUImageMyBeautifyFilter.h"
 #import <NSLogger/NSLogger.h>
 
+#define OUT_W 1024
+#define OUT_H 512
+
 @interface LiveManager()<INSLiveDataSourceProtocol, FaceDetectManagerDelegate>{
     CVPixelBufferRef m_pixelBuffer;
     CVPixelBufferRef m_faceBuffer;
@@ -63,7 +66,7 @@
     
     self.filter = [[GPUImageMyBeautifyFilter alloc] init];
    
-    _output = [[GPUImageRawDataOutput alloc] initWithImageSize:CGSizeMake(720, 360) resultsInBGRAFormat:YES];
+    _output = [[GPUImageRawDataOutput alloc] initWithImageSize:CGSizeMake(OUT_W, OUT_H) resultsInBGRAFormat:YES];
     __weak GPUImageRawDataOutput *weakOutput = _output;
     CVPixelBufferRef* buffer = &m_pixelBuffer;
     [_output setNewFrameAvailableBlock:^{
@@ -74,7 +77,7 @@
         [strongOutput lockFramebufferForReading];
         GLubyte *outputBytes = [strongOutput rawBytesForImage];
         NSInteger bytesPerRow = [strongOutput bytesPerRowInOutput];
-        CVPixelBufferCreateWithBytes(kCFAllocatorDefault, 720, 360, kCVPixelFormatType_32BGRA, outputBytes, bytesPerRow, nil, nil, nil, buffer);
+        CVPixelBufferCreateWithBytes(kCFAllocatorDefault, OUT_W, OUT_H, kCVPixelFormatType_32BGRA, outputBytes, bytesPerRow, nil, nil, nil, buffer);
         [wself PixelBufferCallback:*buffer];;
         CFRelease(*buffer);
         [strongOutput unlockFramebufferAfterReading];
@@ -82,7 +85,7 @@
 
     }];
     
-    _face_output = [[GPUImageRawDataOutput alloc] initWithImageSize:CGSizeMake(720, 360) resultsInBGRAFormat:YES];
+    _face_output = [[GPUImageRawDataOutput alloc] initWithImageSize:CGSizeMake(OUT_W, OUT_H) resultsInBGRAFormat:YES];
      __weak GPUImageRawDataOutput *weakFaceOutput = _face_output;
     CVPixelBufferRef* face_buffer = &m_faceBuffer;
     [_face_output setNewFrameAvailableBlock:^{
@@ -93,19 +96,18 @@
         [strongOutput lockFramebufferForReading];
         GLubyte *outputBytes = [strongOutput rawBytesForImage];
         NSInteger bytesPerRow = [strongOutput bytesPerRowInOutput];
-        CVPixelBufferCreateWithBytes(kCFAllocatorDefault, 720, 360, kCVPixelFormatType_32BGRA, outputBytes, bytesPerRow, nil, nil, nil, face_buffer);
+        CVPixelBufferCreateWithBytes(kCFAllocatorDefault, OUT_W, OUT_H, kCVPixelFormatType_32BGRA, outputBytes, bytesPerRow, nil, nil, nil, face_buffer);
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
             [[FaceDetectManager sharedManager] appendBuffer:*face_buffer];
         });
-        //[wself pudgeOutput:strongOutput buffer:*face_buffer semaphore:wself.frameFaceSemaphore];
     }];
     
     self.scaler = [[GPUImageTransformFilter alloc] init];
-    [self.scaler forceProcessingAtSizeRespectingAspectRatio:CGSizeMake(720, 360)];
+    [self.scaler forceProcessingAtSizeRespectingAspectRatio:CGSizeMake(OUT_W, OUT_H)];
     
     [self.pixelBufferInput addTarget: self.scaler];
     [self.scaler addTarget:self.filter];
-    [self.scaler addTarget:self.face_output];
+    //[self.scaler addTarget:self.face_output];
     [self.filter addTarget:_output];
     
     return [super init];

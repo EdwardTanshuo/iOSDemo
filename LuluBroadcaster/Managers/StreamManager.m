@@ -11,10 +11,22 @@
 #import <INSNanoSDK/INSNanoSDK.h>
 #import <NSLogger/NSLogger.h>
 
+#define AUDIO_DEF_SAMPLERATE 22050
+#define AUDIO_DEF_CHANNELNUM 2
+#define AUDIO_DEF_BITRATE    64000
+
+#define VIDEO_SIZE_CIF CGSizeMake(1024, 512) //推荐600kbps， 25帧
+#define VIDEO_SIZE_D1  CGSizeMake(540, 960) //推荐800kbps, 25帧
+//不推荐手机做720P直播，WIFI信号不稳定，会导致上行速率波动，效果不好
+
+#define BITRATE_CIF (800*1024)
+#define BITRATE_D1  (800*1000)
+
 @interface StreamManager(){
     CVPixelBufferRef m_buffer;
 }
 @property (nonatomic, strong) dispatch_semaphore_t bufferCopySemaphore;
+@property (nonatomic, strong) NSTimer* timer;
 @end
 
 @implementation StreamManager
@@ -32,27 +44,39 @@
 - (instancetype)init{
     //initilaize buffer
     m_buffer = NULL;
-    
+
     self.bufferCopySemaphore = dispatch_semaphore_create(1);
     
     _isStreaming = NO;
-    self.session = [[VCRtmpSession alloc] initWithVideoSize:VIDEO_SIZE_CIF fps:20 bitrate:BITRATE_CIF];
+    self.session = [[VCRtmpSession alloc] initWithVideoSize:VIDEO_SIZE_CIF fps:12 bitrate:BITRATE_CIF];
     return [super init];
 }
 
 
 - (void) dealloc{
-    free(m_buffer);
+    CFRelease(CFRelease);
 }
 
 #pragma mark -
 #pragma mark methods
+- (void)rtmpProcess{
+    dispatch_semaphore_wait(self.bufferCopySemaphore, DISPATCH_TIME_NOW);
+    LogMessage(@"debug", 0, @"hi");
+    if(m_buffer){
+        CVPixelBufferLockBaseAddress(m_buffer, kCVPixelBufferLock_ReadOnly);
+        [self.session PutBuffer:m_buffer];
+        CVPixelBufferUnlockBaseAddress(m_buffer, kCVPixelBufferLock_ReadOnly);
+    }
+    dispatch_semaphore_signal(self.bufferCopySemaphore);
+}
+
 - (void)startRTMP{
     if (!_session)
         return;
     SettingSession* setting = [[SettingSession alloc] init];
-    [self.session startRtmpSession:@"rtmp://10.10.17.182:1935/rtmplive/kjkjkj"];
-    //[self.session startRtmpSession:[NSString stringWithFormat:@"%@/%@", setting.url, setting.streamKey]];
+    //[self.session startRtmpSession:@"rtmp://10.10.17.182:1935/rtmplive/kjkjkj"];
+    [self.session startRtmpSession:[NSString stringWithFormat:@"%@/%@", setting.url, setting.streamKey]];
+    //_timer = [NSTimer scheduledTimerWithTimeInterval:0.04 target:self selector:@selector(rtmpProcess) userInfo:nil repeats:YES];
     _isStreaming = YES;
 }
 
@@ -61,7 +85,7 @@
         return;
     _isStreaming = NO;
     [self.session endRtmpSession];
-    
+    //[_timer invalidate];
 }
 
 - (void)refreshBuffer: (CVPixelBufferRef)new_buffer{
@@ -89,7 +113,6 @@
     m_buffer = pixelBufferCopy;
     CVPixelBufferUnlockBaseAddress(pixelBufferCopy, kCVPixelBufferLock_ReadOnly);
     CVPixelBufferUnlockBaseAddress(new_buffer, kCVPixelBufferLock_ReadOnly);
-    CFRelease(new_buffer);
     dispatch_semaphore_signal(self.bufferCopySemaphore);
 }
 
