@@ -29,6 +29,7 @@
 + (StreamManager*)sharedManager;
 
 #pragma mark public methods
+- (void)refreshBuffer: (CVPixelBufferRef)new_buffer;
 - (void)startRTMP;
 - (void)stopRTMP;
 

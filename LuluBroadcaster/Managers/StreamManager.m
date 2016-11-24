@@ -11,8 +11,10 @@
 #import <INSNanoSDK/INSNanoSDK.h>
 #import <NSLogger/NSLogger.h>
 
-@interface StreamManager()
-
+@interface StreamManager(){
+    CVPixelBufferRef m_buffer;
+}
+@property (nonatomic, strong) dispatch_semaphore_t bufferCopySemaphore;
 @end
 
 @implementation StreamManager
@@ -28,6 +30,11 @@
 }
 
 - (instancetype)init{
+    //initilaize buffer
+    m_buffer = NULL;
+    
+    self.bufferCopySemaphore = dispatch_semaphore_create(1);
+    
     _isStreaming = NO;
     self.session = [[VCRtmpSession alloc] initWithVideoSize:VIDEO_SIZE_CIF fps:20 bitrate:BITRATE_CIF];
     return [super init];
@@ -35,7 +42,7 @@
 
 
 - (void) dealloc{
-    
+    free(m_buffer);
 }
 
 #pragma mark -
@@ -55,6 +62,35 @@
     _isStreaming = NO;
     [self.session endRtmpSession];
     
+}
+
+- (void)refreshBuffer: (CVPixelBufferRef)new_buffer{
+    dispatch_semaphore_wait(self.bufferCopySemaphore, DISPATCH_TIME_NOW);
+    
+    // Get pixel buffer info
+    CVPixelBufferLockBaseAddress(new_buffer, kCVPixelBufferLock_ReadOnly);
+    size_t sizeToCopy = CVPixelBufferGetDataSize(new_buffer);
+    int bufferWidth = (int)CVPixelBufferGetWidth(new_buffer);
+    int bufferHeight = (int)CVPixelBufferGetHeight(new_buffer);
+    uint8_t *baseAddress = CVPixelBufferGetBaseAddress(new_buffer);
+    
+    //clean the old buffer
+    if(m_buffer){
+        CFRelease(m_buffer);
+        m_buffer = NULL;
+    }
+    
+    // Copy the pixel buffer
+    CVPixelBufferRef pixelBufferCopy = NULL;
+    CVReturn status = CVPixelBufferCreate(kCFAllocatorDefault, bufferWidth, bufferHeight, kCVPixelFormatType_32BGRA, NULL, &pixelBufferCopy);
+    CVPixelBufferLockBaseAddress(pixelBufferCopy, kCVPixelBufferLock_ReadOnly);
+    uint8_t *copyBaseAddress = CVPixelBufferGetBaseAddress(pixelBufferCopy);
+    memcpy(copyBaseAddress, baseAddress, sizeToCopy);
+    m_buffer = pixelBufferCopy;
+    CVPixelBufferUnlockBaseAddress(pixelBufferCopy, kCVPixelBufferLock_ReadOnly);
+    CVPixelBufferUnlockBaseAddress(new_buffer, kCVPixelBufferLock_ReadOnly);
+    CFRelease(new_buffer);
+    dispatch_semaphore_signal(self.bufferCopySemaphore);
 }
 
 

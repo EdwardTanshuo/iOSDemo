@@ -202,11 +202,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LuluBroadcaster/Managers/LiveManager.m"
-            timestampString = "501631369.861825"
+            timestampString = "501636069.698535"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "231"
-            endingLineNumber = "231">
+            startingLineNumber = "232"
+            endingLineNumber = "232">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -310,11 +310,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LuluBroadcaster/Managers/LiveManager.m"
-            timestampString = "501631369.861825"
+            timestampString = "501636069.698535"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "250"
-            endingLineNumber = "250">
+            startingLineNumber = "251"
+            endingLineNumber = "251">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -324,11 +324,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LuluBroadcaster/Managers/LiveManager.m"
-            timestampString = "501631369.861825"
+            timestampString = "501636069.698535"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "244"
-            endingLineNumber = "244">
+            startingLineNumber = "245"
+            endingLineNumber = "245">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -370,11 +370,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LuluBroadcaster/Managers/LiveManager.m"
-            timestampString = "501631369.861825"
+            timestampString = "501636069.698535"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "247"
-            endingLineNumber = "247">
+            startingLineNumber = "248"
+            endingLineNumber = "248">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1376,11 +1376,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LuluBroadcaster/Managers/LiveManager.m"
-            timestampString = "501631369.861825"
+            timestampString = "501636069.698535"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "218"
-            endingLineNumber = "218"
+            startingLineNumber = "219"
+            endingLineNumber = "219"
             landmarkName = "-faceHasBeenDetected:"
             landmarkType = "5">
          </BreakpointContent>

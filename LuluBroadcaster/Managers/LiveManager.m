@@ -204,6 +204,7 @@
     _current_frame++;
    
     if([StreamManager sharedManager].session && [StreamManager sharedManager].isStreaming && self.isLiving){
+        //[[StreamManager sharedManager] refreshBuffer:pixelFrameBuffer];
         [[StreamManager sharedManager].session PutBuffer:pixelFrameBuffer];
     }
 }
