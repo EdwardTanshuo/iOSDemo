@@ -34,13 +34,16 @@
 }
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self setupViews];
     [self setupDanmuTable];
-    [self launchLive];
+    [self setupDanmuDatasource];
     
-    [DanmuManager sharedManager].delegate = self;
+    [self launchLive];
+  
+   
 }
 
 - (void)dealloc{
@@ -60,6 +63,10 @@
     
 }
 
+- (void)setupDanmuDatasource{
+     [DanmuManager sharedManager].delegate = self;
+}
+
 - (void)setupDanmuTable{
     _danmu_table.delegate = self;
     _danmu_table.dataSource = self;
@@ -71,8 +78,8 @@
 #pragma mark -
 #pragma mark actions
 - (IBAction)closeActions:(id)sender {
-    [LiveManager sharedManager].delegate = nil;
     [[LiveManager sharedManager] stopLive];
+    [LiveManager sharedManager].delegate = nil;
     [DanmuManager sharedManager].delegate = nil;
     [self dismissViewControllerAnimated:YES completion:nil];
 }

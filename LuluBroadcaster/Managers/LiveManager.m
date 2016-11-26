@@ -24,6 +24,7 @@
 @interface LiveManager()<INSLiveDataSourceProtocol, FaceDetectManagerDelegate>{
     CVPixelBufferRef m_pixelBuffer;
     CVPixelBufferRef m_faceBuffer;
+    __weak GPUImageView* pano;
 }
 
 @property (nonatomic, strong) INSLiveDataSource* liveDataSource;
@@ -70,6 +71,9 @@
     __weak GPUImageRawDataOutput *weakOutput = _output;
     CVPixelBufferRef* buffer = &m_pixelBuffer;
     [_output setNewFrameAvailableBlock:^{
+        if(!wself){
+            return;
+        }
         if (dispatch_semaphore_wait(wself.frameRenderingSemaphore, DISPATCH_TIME_NOW) != 0) {
             return;
         }
@@ -89,6 +93,9 @@
      __weak GPUImageRawDataOutput *weakFaceOutput = _face_output;
     CVPixelBufferRef* face_buffer = &m_faceBuffer;
     [_face_output setNewFrameAvailableBlock:^{
+        if(!wself){
+            return;
+        }
         if (dispatch_semaphore_wait(wself.frameFaceSemaphore, DISPATCH_TIME_NOW) != 0) {
             return;
         }
@@ -105,18 +112,12 @@
     self.scaler = [[GPUImageTransformFilter alloc] init];
     [self.scaler forceProcessingAtSizeRespectingAspectRatio:CGSizeMake(OUT_W, OUT_H)];
     
-    [self.pixelBufferInput addTarget: self.scaler];
-    [self.scaler addTarget:self.filter];
-    [self.scaler addTarget:self.face_output];
-    [self.filter addTarget:_output];
-    
     return [super init];
     
 }
 
 - (void) dealloc{
     [[INSCameraAccessory defaultCamera] removeObserver:self forKeyPath:@"status"];
-    [_pixelBufferInput removeTarget: _filter];
 }
 
 - (void) pudgeOutput: (GPUImageRawDataOutput*)output buffer: (CVPixelBufferRef)buffer semaphore: (dispatch_semaphore_t)semaphore{
@@ -174,7 +175,11 @@
 
 
 - (void)startLiveWithView: (UIView*) view{
+    if(self.isLiving){
+        return;
+    }
     self.isLiving = YES;
+    [self setupPipes];
     GPUImageView* g_v = (GPUImageView*)view;
     self.view = g_v;
     if(view){
@@ -187,13 +192,31 @@
 }
 
 - (void)stopLive{
+    if(!self.isLiving){
+        return;
+    }
     self.isLiving = NO;
     if(self.view){
         [self.filter removeTarget:self.view];
     }
+    [self tearDown];
     [self.liveDataSource stop];
     self.liveDataSource = nil;
     [[StreamManager sharedManager] stopRTMP];
+}
+
+- (void)tearDown{
+    [self.pixelBufferInput removeTarget: self.scaler];
+    [self.scaler removeTarget:self.filter];
+    [self.scaler removeTarget:self.face_output];
+    [self.filter removeTarget:self.output];
+}
+
+- (void)setupPipes{
+    [self.pixelBufferInput addTarget: self.scaler];
+    [self.scaler addTarget:self.filter];
+    [self.scaler addTarget:self.face_output];
+    [self.filter addTarget:self.output];
 }
 
 - (void)parsePixelBuffer:(CVPixelBufferRef)pixelBuffer{

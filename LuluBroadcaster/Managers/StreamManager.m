@@ -47,7 +47,7 @@
     self.bufferCopySemaphore = dispatch_semaphore_create(1);
     
     _isStreaming = NO;
-    self.session = [[VCRtmpSession alloc] initWithVideoSize:VIDEO_SIZE_CIF fps:12 bitrate:BITRATE_CIF];
+   
     return [super init];
 }
 
@@ -73,8 +73,9 @@
 }
 
 - (void)startRTMP{
-    if (!_session)
+    if (_session)
         return;
+    self.session = [[VCRtmpSession alloc] initWithVideoSize:VIDEO_SIZE_CIF fps:12 bitrate:BITRATE_CIF];
     SettingSession* setting = [[SettingSession alloc] init];
     [self.session startRtmpSession:@"rtmp://10.10.17.182:1935/rtmplive/kjkjkj"];
     //[self.session startRtmpSession:[NSString stringWithFormat:@"%@/%@", setting.url, setting.streamKey]];
@@ -87,6 +88,7 @@
         return;
     _isStreaming = NO;
     [self.session endRtmpSession];
+    self.session = nil;
     //[_timer invalidate];
 }
 
