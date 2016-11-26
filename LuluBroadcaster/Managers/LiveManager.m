@@ -18,8 +18,8 @@
 #import "GPUImageMyBeautifyFilter.h"
 #import <NSLogger/NSLogger.h>
 
-#define OUT_W 1024
-#define OUT_H 512
+#define OUT_W 960
+#define OUT_H 480
 
 @interface LiveManager()<INSLiveDataSourceProtocol, FaceDetectManagerDelegate>{
     CVPixelBufferRef m_pixelBuffer;
@@ -107,7 +107,7 @@
     
     [self.pixelBufferInput addTarget: self.scaler];
     [self.scaler addTarget:self.filter];
-    //[self.scaler addTarget:self.face_output];
+    [self.scaler addTarget:self.face_output];
     [self.filter addTarget:_output];
     
     return [super init];
