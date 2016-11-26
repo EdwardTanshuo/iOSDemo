@@ -178,6 +178,9 @@
     if(self.isLiving){
         return;
     }
+    //禁止休眠
+    [UIApplication sharedApplication].idleTimerDisabled = YES;
+    
     self.isLiving = YES;
     [self setupPipes];
     GPUImageView* g_v = (GPUImageView*)view;
@@ -195,6 +198,9 @@
     if(!self.isLiving){
         return;
     }
+    //允许休眠
+    [UIApplication sharedApplication].idleTimerDisabled = NO;
+    
     self.isLiving = NO;
     if(self.view){
         [self.filter removeTarget:self.view];

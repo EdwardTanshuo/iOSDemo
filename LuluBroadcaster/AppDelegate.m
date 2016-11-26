@@ -24,7 +24,8 @@
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    //允许休眠
+    [UIApplication sharedApplication].idleTimerDisabled = NO;
     
     //初始化日志
     LoggerSetOptions(NULL,
