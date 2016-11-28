@@ -992,11 +992,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LuluBroadcaster/ViewControllers/SettingViewController.m"
-            timestampString = "501411896.930081"
+            timestampString = "502068920.993091"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
             landmarkName = "-setupView"
             landmarkType = "5">
             <Locations>
@@ -1040,11 +1040,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LuluBroadcaster/ViewControllers/SettingViewController.m"
-            timestampString = "501411896.930081"
+            timestampString = "502068920.993091"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
             landmarkName = "-reloadInfo"
             landmarkType = "5">
          </BreakpointContent>
@@ -1317,7 +1317,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "10"
             endingLineNumber = "10"
-            landmarkName = "date"
+            landmarkName = "time"
             landmarkType = "19">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1328,11 +1328,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LuluBroadcaster/Views/HistoryCell.m"
-            timestampString = "501334194.918398"
+            timestampString = "502066065.122026"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
             landmarkName = "-configureWithBroad:"
             landmarkType = "5">
          </BreakpointContent>

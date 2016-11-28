@@ -260,6 +260,35 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection headerTitle=" " id="6nJ-Rk-zEy">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="40" id="b5D-cg-M1D">
+                                        <rect key="frame" x="0.0" y="411" width="600" height="40"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="b5D-cg-M1D" id="zL5-Cx-vfE">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="40"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Ju-RP-nGK">
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="40"/>
+                                                    <state key="normal" title="登出">
+                                                        <color key="titleColor" red="0.80784313730000001" green="0.65327606989999998" blue="0.95617239899999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="logout:" destination="gX2-ak-55c" eventType="touchUpInside" id="mg8-Nd-0XL"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="2Ju-RP-nGK" firstAttribute="top" secondItem="zL5-Cx-vfE" secondAttribute="top" id="A5F-2Z-aId"/>
+                                                <constraint firstAttribute="bottom" secondItem="2Ju-RP-nGK" secondAttribute="bottom" id="TF4-5J-Acv"/>
+                                                <constraint firstAttribute="trailing" secondItem="2Ju-RP-nGK" secondAttribute="trailing" id="eRO-Zn-ZAr"/>
+                                                <constraint firstItem="2Ju-RP-nGK" firstAttribute="leading" secondItem="zL5-Cx-vfE" secondAttribute="leading" id="qsW-t2-Klc"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="gX2-ak-55c" id="GcH-TF-ZRr"/>

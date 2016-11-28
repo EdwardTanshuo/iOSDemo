@@ -27,9 +27,8 @@
 }
 
 - (void) configureWithTransaction: (Transaction* _Nullable)transaction{
-    [self.avatar sd_setImageWithURL:[NSURL URLWithString:transaction.issuer.avatar] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-        self.avatar.image = image;
-    }];
+    self.avatar.image = [UIImage imageNamed:@"transaction_placeholder"];
+    [self.avatar sd_setImageWithURL:[NSURL URLWithString:transaction.issuer.avatar] placeholderImage:[UIImage imageNamed:@"transaction_placeholder"]];
     
     self.username.text = transaction.issuer.name;
     self.amount.text = [NSString stringWithFormat:@"%ld", transaction.quantity];

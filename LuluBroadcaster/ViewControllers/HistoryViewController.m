@@ -11,7 +11,7 @@
 #import "HistoryCell.h"
 #import <SVPullToRefresh/SVPullToRefresh.h>
 
-#define CELL_HEIGHT 60.0
+#define CELL_HEIGHT 72.0
 
 @interface HistoryViewController ()<HistoryDatasourceDelegate, UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *table;

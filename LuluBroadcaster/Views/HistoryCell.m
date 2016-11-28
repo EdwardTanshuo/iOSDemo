@@ -5,9 +5,10 @@
 //  Created by ShuoTan on 11/20/16.
 //  Copyright © 2016 ShuoTan. All rights reserved.
 //
-
+#import "NSDate+TimeAgo.h"
 #import "HistoryCell.h"
 @interface HistoryCell()
+@property (weak, nonatomic) IBOutlet UILabel *time;
 @property (weak, nonatomic, nullable) IBOutlet UILabel *date;
 @property (weak, nonatomic, nullable) IBOutlet UILabel *amount;
 @end
@@ -23,16 +24,18 @@
     self.history = history;
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"MM-dd hh:mm"];
+    [formatter setDateFormat:@"hh:mm"];
     //Optionally for time zone conversions
     [formatter setTimeZone:[NSTimeZone defaultTimeZone]];
     
     NSString *start_str = [formatter stringFromDate:history.start];
     NSString *end_str = [formatter stringFromDate:history.end];
-    NSString* final = [NSString stringWithFormat:@"%@ 至 %@", start_str, end_str];
-    self.date.text = final;
+    NSString* final = [NSString stringWithFormat:@"%@ -- %@", start_str, end_str];
+    self.time.text = final;
     
-    self.amount.text = [NSString stringWithFormat:@"%ld", history.value];
+    self.date.text = [history.start timeAgo];
+    
+    self.amount.text = [NSString stringWithFormat:@"+%ld", history.value];
 }
 
 @end

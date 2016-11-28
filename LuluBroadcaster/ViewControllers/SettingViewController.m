@@ -11,6 +11,7 @@
 #import "ColorConstant.h"
 #import "UserSession.h"
 #import "NavigationRouter.h"
+#import "AppDelegate.h"
 
 @interface SettingViewController ()
 @property (weak, nonatomic) IBOutlet UIView *avata_pad;
@@ -60,6 +61,10 @@
 #pragma mark actions
 - (IBAction)clean:(id)sender {
     [NavigationRouter showCleanActionSheetInViewController: self];
+}
+
+- (IBAction)logout:(id)sender {
+    [NavigationRouter showLoginControllerOnWindow:((AppDelegate*)[UIApplication sharedApplication].delegate).window];
 }
 
 @end
