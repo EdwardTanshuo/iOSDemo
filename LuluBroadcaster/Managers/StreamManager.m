@@ -12,17 +12,6 @@
 #import <NSLogger/NSLogger.h>
 
 
-#define AUDIO_DEF_SAMPLERATE 22050
-#define AUDIO_DEF_CHANNELNUM 2
-#define AUDIO_DEF_BITRATE    64000
-
-#define VIDEO_SIZE_CIF CGSizeMake(960, 480) //推荐600kbps， 25帧
-#define VIDEO_SIZE_D1  CGSizeMake(540, 960) //推荐800kbps, 25帧
-//不推荐手机做720P直播，WIFI信号不稳定，会导致上行速率波动，效果不好
-
-#define BITRATE_CIF (500*1024)
-#define BITRATE_D1  (800*1000)
-
 @interface StreamManager()<LFLiveSessionDelegate>{
     CVPixelBufferRef m_buffer;
 }
