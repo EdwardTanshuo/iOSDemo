@@ -11,6 +11,7 @@
 #import <INSNanoSDK/INSNanoSDK.h>
 #import <NSLogger/NSLogger.h>
 
+
 #define AUDIO_DEF_SAMPLERATE 22050
 #define AUDIO_DEF_CHANNELNUM 2
 #define AUDIO_DEF_BITRATE    64000
@@ -22,11 +23,12 @@
 #define BITRATE_CIF (500*1024)
 #define BITRATE_D1  (800*1000)
 
-@interface StreamManager(){
+@interface StreamManager()<LFLiveSessionDelegate>{
     CVPixelBufferRef m_buffer;
 }
 @property (nonatomic, strong) dispatch_semaphore_t bufferCopySemaphore;
 @property (nonatomic, strong) NSTimer* timer;
+
 @end
 
 @implementation StreamManager
@@ -58,68 +60,72 @@
 
 #pragma mark -
 #pragma mark methods
-- (void)rtmpProcess{
-    LogMessage(@"debug", 0, @"stepa");
-    //dispatch_semaphore_wait(self.bufferCopySemaphore, DISPATCH_TIME_NOW);
-    if(m_buffer){
-        //CVPixelBufferLockBaseAddress(m_buffer, kCVPixelBufferLock_ReadOnly);
-        LogMessage(@"debug", 0, @"stepb");
-        [self.session PutBuffer:m_buffer];
-        LogMessage(@"debug", 0, @"stepc");
-        //CVPixelBufferUnlockBaseAddress(m_buffer, kCVPixelBufferLock_ReadOnly);
-        LogMessage(@"debug", 0, @"stepd");
-    }
-    //dispatch_semaphore_signal(self.bufferCopySemaphore);
-}
 
 - (void)startRTMP{
-    if (_session)
+    if (_isStreaming)
         return;
-    self.session = [[VCRtmpSession alloc] initWithVideoSize:VIDEO_SIZE_CIF fps:12 bitrate:BITRATE_CIF];
-    SettingSession* setting = [[SettingSession alloc] init];
-    //[self.session startRtmpSession:@"rtmp://10.10.17.182:1935/rtmplive/kjkjkj"];
-    [self.session startRtmpSession:[NSString stringWithFormat:@"%@/%@", setting.url, setting.streamKey]];
+    [self startSessionLive];
     //_timer = [NSTimer scheduledTimerWithTimeInterval:0.04 target:self selector:@selector(rtmpProcess) userInfo:nil repeats:YES];
     _isStreaming = YES;
 }
 
 - (void)stopRTMP{
-    if (!_session)
+    if (!_isStreaming)
         return;
     _isStreaming = NO;
-    [self.session endRtmpSession];
-    self.session = nil;
+    [self stopSessionLive];
     //[_timer invalidate];
 }
 
-- (void)refreshBuffer: (CVPixelBufferRef)new_buffer{
-    //dispatch_semaphore_wait(self.bufferCopySemaphore, DISPATCH_TIME_NOW);
-    LogMessage(@"debug", 0, @"step1");
-    // Get pixel buffer info
-    CVPixelBufferLockBaseAddress(new_buffer, kCVPixelBufferLock_ReadOnly);
-    CVPixelBufferLockBaseAddress(m_buffer, kCVPixelBufferLock_ReadOnly);
-    LogMessage(@"debug", 0, @"step2");
-    size_t sizeToCopy = CVPixelBufferGetDataSize(new_buffer);
-    int bufferWidth = (int)CVPixelBufferGetWidth(new_buffer);
-    int bufferHeight = (int)CVPixelBufferGetHeight(new_buffer);
-    uint8_t *baseAddress = CVPixelBufferGetBaseAddress(new_buffer);
-    LogMessage(@"debug", 0, @"step3");
-    //clean the old buffer
-    if(m_buffer){
-        CFRelease(m_buffer);
-        m_buffer = NULL;
+#pragma mark -
+#pragma mark session
+- (LFLiveSession*)session {
+    if (!_session) {
+        LFLiveVideoConfiguration* configuration = [LFLiveVideoConfiguration new];
+        configuration.sessionPreset = LFCaptureSessionPreset540x960;
+        configuration.videoFrameRate = 20;
+        configuration.videoMaxFrameRate = 25;
+        configuration.videoMinFrameRate = 10;
+        configuration.videoBitRate = 800 * 1000;
+        configuration.videoMaxBitRate = 960 * 1000;
+        configuration.videoMinBitRate = 500 * 1000;
+        configuration.videoSize = CGSizeMake(960, 480);
+        configuration.outputImageOrientation = UIInterfaceOrientationLandscapeLeft;
+        _session = [[LFLiveSession alloc] initWithAudioConfiguration:[LFLiveAudioConfiguration defaultConfiguration] videoConfiguration:configuration captureType:LFLiveCaptureMaskAudioInputVideo];
+        
+        _session.delegate = self;
     }
-    LogMessage(@"debug", 0, @"step4");
-    // Copy the pixel buffer
-    CVReturn status = CVPixelBufferCreate(kCFAllocatorDefault, bufferWidth, bufferHeight, kCVPixelFormatType_32BGRA, NULL, &m_buffer);
-    LogMessage(@"debug", 0, @"step5");
-    uint8_t *copyBaseAddress = CVPixelBufferGetBaseAddress(m_buffer);
-    memcpy(copyBaseAddress, baseAddress, sizeToCopy);
-    LogMessage(@"debug", 0, @"step6");
-    CVPixelBufferUnlockBaseAddress(m_buffer, kCVPixelBufferLock_ReadOnly);
-    CVPixelBufferUnlockBaseAddress(new_buffer, kCVPixelBufferLock_ReadOnly);
-    //dispatch_semaphore_signal(self.bufferCopySemaphore);
+    return _session;
 }
 
+- (void)startSessionLive {
+    LFLiveStreamInfo *streamInfo = [LFLiveStreamInfo new];
+    //[self.session startRtmpSession:[NSString stringWithFormat:@"%@/%@", setting.url, setting.streamKey]];
+    streamInfo.url = @"rtmp://10.10.17.182:1935/rtmplive/kjkjkj";
+    [self.session startLive:streamInfo];
+    [self.session setRunning:YES];
+}
+
+- (void)stopSessionLive {
+    [self.session stopLive];
+    [self.session setRunning:NO];
+}
+
+
+#pragma mark-
+#pragma mark--LFLiveSessionDelegate
+- (void)liveSession:(nullable LFLiveSession *)session liveStateDidChange:(LFLiveState)state{
+    LogMessage(@"stream", 0, @"%lu", (unsigned long)state);
+}
+
+/** live debug info callback */
+- (void)liveSession:(nullable LFLiveSession *)session debugInfo:(nullable LFLiveDebug *)debugInfo{
+    LogMessage(@"stream", 0, @"%@", debugInfo);
+}
+
+/** callback socket errorcode */
+- (void)liveSession:(nullable LFLiveSession *)session errorCode:(LFLiveSocketErrorCode)errorCode{
+    LogMessage(@"stream", 0, @"%lu", (unsigned long)errorCode);
+}
 
 @end

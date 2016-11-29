@@ -9,4 +9,5 @@ pod 'KZPropertyMapper'
 pod 'Socket.IO-Client-Swift', '~> 7.0.3' # Or latest version
 pod 'SDWebImage'
 pod 'SVPullToRefresh'
+pod 'LFLiveKit', '~> 2.5'
 end

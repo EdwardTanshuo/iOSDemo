@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
-#import "VCRtmpSession.h"
+#import <LFLiveKit/LFLiveKit.h>
 
 @protocol StreamManagerDelegate
 - (void)ready;
@@ -23,13 +23,12 @@
 @interface StreamManager : NSObject
 @property (nonatomic, weak) id<StreamManagerDelegate> delegate;
 @property (nonatomic, assign) BOOL isStreaming;
-@property (nonatomic, strong) VCRtmpSession* session;
+@property (nonatomic, strong) LFLiveSession* session;
 
 #pragma mark singleton
 + (StreamManager*)sharedManager;
 
 #pragma mark public methods
-- (void)refreshBuffer: (CVPixelBufferRef)new_buffer;
 - (void)startRTMP;
 - (void)stopRTMP;
 

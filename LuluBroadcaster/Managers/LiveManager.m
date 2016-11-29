@@ -18,6 +18,7 @@
 #import "GPUImageMyBeautifyFilter.h"
 #import <NSLogger/NSLogger.h>
 
+
 #define OUT_W 960
 #define OUT_H 480
 
@@ -34,6 +35,7 @@
 @property (nonatomic,strong) YUGPUImageCVPixelBufferInput *pixelBufferInput;
 @property (nonatomic, strong) GPUImageMyBeautifyFilter* filter;
 @property (nonatomic, strong) GPUImageTransformFilter* scaler;
+
 @property (nonatomic, assign) NSInteger current_frame;
 @property (nonatomic, strong) dispatch_semaphore_t frameRenderingSemaphore;
 @property (nonatomic, strong) dispatch_semaphore_t frameFaceSemaphore;
@@ -126,6 +128,7 @@
 }
 
 
+
 #pragma mark -
 #pragma mark INSLiveDataSourceProtocol
 
@@ -190,7 +193,6 @@
     }
     SettingSession* session = [[SettingSession alloc] init];
     [self startLiveWithWidth:session.width WithHeight:session.height WithBitrate:session.bitrate];
-    
     [[StreamManager sharedManager] startRTMP];
 }
 
@@ -236,15 +238,15 @@
    
     if([StreamManager sharedManager].session && [StreamManager sharedManager].isStreaming && self.isLiving){
         //[[StreamManager sharedManager] refreshBuffer:pixelFrameBuffer];
-        [[StreamManager sharedManager].session PutBuffer:pixelFrameBuffer];
+       [[StreamManager sharedManager].session pushVideo:pixelFrameBuffer];
     }
 }
 
 #pragma mark-
 #pragma mark--FaceDetectManagerDelegate
 - (void)faceHasBeenDetected:(NSArray *)features{
-    LogMessage(@"face", 0, @"detector callback: %ld faces has been detected", [features count]);
-    for (CIFaceFeature *f in features) {
+    //LogMessage(@"face", 0, @"detector callback: %ld faces has been detected", [features count]);
+    /*for (CIFaceFeature *f in features) {
         if (f.hasLeftEyePosition) {
             LogMessage(@"face", 0, @"Left eye %g %g", f.leftEyePosition.x, f.leftEyePosition.y);
         }
@@ -254,9 +256,10 @@
         if (f.hasMouthPosition) {
             LogMessage(@"face", 0, @"Mouth %g %g", f.mouthPosition.x, f.mouthPosition.y);
         }
-    }
+    }*/
     [self pudgeOutput:self.face_output buffer:m_faceBuffer semaphore:self.frameFaceSemaphore];
 }
+
 
 @end
 
