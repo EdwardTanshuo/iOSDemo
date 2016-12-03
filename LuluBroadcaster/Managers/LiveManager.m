@@ -16,11 +16,12 @@
 #import <INSNanoSDK/INSNanoSDK.h>
 #import "YUGPUImageCVPixelBufferInput.h"
 #import "GPUImageMyBeautifyFilter.h"
+#import "LFGPUImageBeautyFilter.h"
 #import <NSLogger/NSLogger.h>
 
 
-#define OUT_W 960
-#define OUT_H 480
+#define OUT_W 1440
+#define OUT_H 720
 
 @interface LiveManager()<INSLiveDataSourceProtocol, FaceDetectManagerDelegate>{
     CVPixelBufferRef m_pixelBuffer;
@@ -29,11 +30,11 @@
 }
 
 @property (nonatomic, strong) INSLiveDataSource* liveDataSource;
-@property (nonatomic, weak) GPUImageView* view;
+@property (nonatomic, weak)   GPUImageView* view;
 @property (nonatomic, strong) GPUImageRawDataOutput* output;
 @property (nonatomic, strong) GPUImageRawDataOutput* face_output;
-@property (nonatomic,strong) YUGPUImageCVPixelBufferInput *pixelBufferInput;
-@property (nonatomic, strong) GPUImageMyBeautifyFilter* filter;
+@property (nonatomic, strong) YUGPUImageCVPixelBufferInput *pixelBufferInput;
+@property (nonatomic, strong) GPUImageBrightnessFilter* filter;
 @property (nonatomic, strong) GPUImageTransformFilter* scaler;
 
 @property (nonatomic, assign) NSInteger current_frame;
@@ -67,8 +68,9 @@
     
     self.pixelBufferInput = [[YUGPUImageCVPixelBufferInput alloc] init];
     
-    self.filter = [[GPUImageMyBeautifyFilter alloc] init];
-   
+    self.filter = [[GPUImageBrightnessFilter alloc] init];
+    [self.filter setBrightness:0.6];
+    
     _output = [[GPUImageRawDataOutput alloc] initWithImageSize:CGSizeMake(OUT_W, OUT_H) resultsInBGRAFormat:YES];
     __weak GPUImageRawDataOutput *weakOutput = _output;
     CVPixelBufferRef* buffer = &m_pixelBuffer;
@@ -88,11 +90,11 @@
         CFRelease(*buffer);
         [strongOutput unlockFramebufferAfterReading];
         dispatch_semaphore_signal(wself.frameRenderingSemaphore);
-
+        
     }];
     
     _face_output = [[GPUImageRawDataOutput alloc] initWithImageSize:CGSizeMake(OUT_W, OUT_H) resultsInBGRAFormat:YES];
-     __weak GPUImageRawDataOutput *weakFaceOutput = _face_output;
+    __weak GPUImageRawDataOutput *weakFaceOutput = _face_output;
     CVPixelBufferRef* face_buffer = &m_faceBuffer;
     [_face_output setNewFrameAvailableBlock:^{
         if(!wself){
@@ -228,25 +230,25 @@
 }
 
 - (void)parsePixelBuffer:(CVPixelBufferRef)pixelBuffer{
-     [self.pixelBufferInput processCVPixelBuffer:pixelBuffer];
+    [self.pixelBufferInput processCVPixelBuffer:pixelBuffer];
 }
 
 #pragma mark-
 #pragma mark--视频数据处理回调
 -(void)PixelBufferCallback:(CVPixelBufferRef)pixelFrameBuffer{
     _current_frame++;
-   
+    
     if([StreamManager sharedManager].session && [StreamManager sharedManager].isStreaming && self.isLiving){
         //[[StreamManager sharedManager] refreshBuffer:pixelFrameBuffer];
-       [[StreamManager sharedManager].session pushVideo:pixelFrameBuffer];
+        [[StreamManager sharedManager].session pushVideo:pixelFrameBuffer];
     }
 }
 
 #pragma mark-
 #pragma mark--FaceDetectManagerDelegate
 - (void)faceHasBeenDetected:(NSArray *)features{
-    //LogMessage(@"face", 0, @"detector callback: %ld faces has been detected", [features count]);
-    /*for (CIFaceFeature *f in features) {
+    LogMessage(@"face", 0, @"detector callback: %ld faces has been detected", [features count]);
+    for (CIFaceFeature *f in features) {
         if (f.hasLeftEyePosition) {
             LogMessage(@"face", 0, @"Left eye %g %g", f.leftEyePosition.x, f.leftEyePosition.y);
         }
@@ -256,7 +258,7 @@
         if (f.hasMouthPosition) {
             LogMessage(@"face", 0, @"Mouth %g %g", f.mouthPosition.x, f.mouthPosition.y);
         }
-    }*/
+    }
     [self pudgeOutput:self.face_output buffer:m_faceBuffer semaphore:self.frameFaceSemaphore];
 }
 

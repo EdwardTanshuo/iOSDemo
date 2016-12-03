@@ -75,10 +75,10 @@
         configuration.videoFrameRate = 20;
         configuration.videoMaxFrameRate = 25;
         configuration.videoMinFrameRate = 10;
-        configuration.videoBitRate = 800 * 1000;
-        configuration.videoMaxBitRate = 960 * 1000;
-        configuration.videoMinBitRate = 500 * 1000;
-        configuration.videoSize = CGSizeMake(960, 480);
+        configuration.videoBitRate = 2000 * 1000;
+        configuration.videoMaxBitRate = 2160 * 1000;
+        configuration.videoMinBitRate = 1400 * 1000;
+        configuration.videoSize = CGSizeMake(1440, 720);
         configuration.outputImageOrientation = UIInterfaceOrientationLandscapeLeft;
         _session = [[LFLiveSession alloc] initWithAudioConfiguration:[LFLiveAudioConfiguration defaultConfiguration] videoConfiguration:configuration captureType:LFLiveCaptureMaskAudioInputVideo];
         

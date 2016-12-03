@@ -75,6 +75,8 @@
 		D7D6EBE71DCACC31005935B8 /* INSMediaSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D7D6EBE41DCACC31005935B8 /* INSMediaSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D7D6EBE81DCACC31005935B8 /* INSNanoSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7D6EBE51DCACC31005935B8 /* INSNanoSDK.framework */; };
 		D7D6EBE91DCACC31005935B8 /* INSNanoSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D7D6EBE51DCACC31005935B8 /* INSNanoSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D7D86E8D1DF286CE00815BEC /* LFGPUImageBeautyFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D86E8A1DF286CE00815BEC /* LFGPUImageBeautyFilter.m */; };
+		D7D86E8E1DF286CE00815BEC /* LFGPUImageEmptyFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D86E8C1DF286CE00815BEC /* LFGPUImageEmptyFilter.m */; };
 		F8A13342BDD6C1436E55D75B /* Pods_LuluBroadcaster.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1383794F7AE3E4AF62FC259A /* Pods_LuluBroadcaster.framework */; };
 /* End PBXBuildFile section */
 
@@ -209,6 +211,10 @@
 		D7D6EBE11DCACC1D005935B8 /* INSNanoSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = INSNanoSDK.framework; path = lib/Insta/release/INSNanoSDK.framework; sourceTree = "<group>"; };
 		D7D6EBE41DCACC31005935B8 /* INSMediaSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = INSMediaSDK.framework; path = lib/Insta/release/INSMediaSDK.framework; sourceTree = "<group>"; };
 		D7D6EBE51DCACC31005935B8 /* INSNanoSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = INSNanoSDK.framework; path = lib/Insta/release/INSNanoSDK.framework; sourceTree = "<group>"; };
+		D7D86E891DF286CE00815BEC /* LFGPUImageBeautyFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LFGPUImageBeautyFilter.h; path = Logic/Helper/filter/LFGPUImageBeautyFilter.h; sourceTree = "<group>"; };
+		D7D86E8A1DF286CE00815BEC /* LFGPUImageBeautyFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LFGPUImageBeautyFilter.m; path = Logic/Helper/filter/LFGPUImageBeautyFilter.m; sourceTree = "<group>"; };
+		D7D86E8B1DF286CE00815BEC /* LFGPUImageEmptyFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LFGPUImageEmptyFilter.h; path = Logic/Helper/filter/LFGPUImageEmptyFilter.h; sourceTree = "<group>"; };
+		D7D86E8C1DF286CE00815BEC /* LFGPUImageEmptyFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LFGPUImageEmptyFilter.m; path = Logic/Helper/filter/LFGPUImageEmptyFilter.m; sourceTree = "<group>"; };
 		DAFDB40B4891175C98C3CFD9 /* Pods-LuluBroadcaster.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LuluBroadcaster.release.xcconfig"; path = "Pods/Target Support Files/Pods-LuluBroadcaster/Pods-LuluBroadcaster.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -721,6 +727,10 @@
 		D7D4AF3C1DC86D7C00A782F7 /* Filter */ = {
 			isa = PBXGroup;
 			children = (
+				D7D86E891DF286CE00815BEC /* LFGPUImageBeautyFilter.h */,
+				D7D86E8A1DF286CE00815BEC /* LFGPUImageBeautyFilter.m */,
+				D7D86E8B1DF286CE00815BEC /* LFGPUImageEmptyFilter.h */,
+				D7D86E8C1DF286CE00815BEC /* LFGPUImageEmptyFilter.m */,
 				D70435231DC988A800EF5FAE /* GPUImageMyBeautifyFilter.h */,
 				D70435241DC988A800EF5FAE /* GPUImageMyBeautifyFilter.m */,
 			);
@@ -857,6 +867,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7D86E8D1DF286CE00815BEC /* LFGPUImageBeautyFilter.m in Sources */,
 				D7850CE31DDFCBD900E21D8A /* DanmuDatasource.m in Sources */,
 				D78D0C441DDD2C2E00DE1193 /* LuluSocket.m in Sources */,
 				D71CAB2D1DE62D0500DC890E /* FaceDetector.m in Sources */,
@@ -878,6 +889,7 @@
 				D76E56ED1DD91C8D004BE5B9 /* Broadcaster.m in Sources */,
 				D75590111DDC67D80050BB47 /* SettingViewController.m in Sources */,
 				D7D4AF221DC817E400A782F7 /* SettingSession.m in Sources */,
+				D7D86E8E1DF286CE00815BEC /* LFGPUImageEmptyFilter.m in Sources */,
 				D726B0B31DDEC093002B9068 /* BroadcasterDatasource.m in Sources */,
 				D7BA5C631DCAD78C000F1AB7 /* LiveController.m in Sources */,
 				D7D4AF0A1DC8037100A782F7 /* UserSession.m in Sources */,
