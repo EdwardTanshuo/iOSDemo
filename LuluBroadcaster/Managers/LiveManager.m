@@ -20,9 +20,6 @@
 #import <NSLogger/NSLogger.h>
 
 
-#define OUT_W 1440
-#define OUT_H 720
-
 @interface LiveManager()<INSLiveDataSourceProtocol, FaceDetectManagerDelegate>{
     CVPixelBufferRef m_pixelBuffer;
     CVPixelBufferRef m_faceBuffer;
@@ -54,68 +51,6 @@
 }
 
 - (instancetype)init{
-    m_pixelBuffer = NULL;
-    m_faceBuffer = NULL;
-    __weak LiveManager* wself = self;
-    
-    [FaceDetectManager sharedManager].delegate = self;
-    
-    self.frameRenderingSemaphore = dispatch_semaphore_create(1);
-    self.frameFaceSemaphore = dispatch_semaphore_create(1);
-    
-    self.isLiving = NO;
-    self.current_frame = 0;
-    
-    self.pixelBufferInput = [[YUGPUImageCVPixelBufferInput alloc] init];
-    
-    self.filter = [[GPUImageBrightnessFilter alloc] init];
-    [self.filter setBrightness:0.6];
-    
-    _output = [[GPUImageRawDataOutput alloc] initWithImageSize:CGSizeMake(OUT_W, OUT_H) resultsInBGRAFormat:YES];
-    __weak GPUImageRawDataOutput *weakOutput = _output;
-    CVPixelBufferRef* buffer = &m_pixelBuffer;
-    [_output setNewFrameAvailableBlock:^{
-        if(!wself){
-            return;
-        }
-        if (dispatch_semaphore_wait(wself.frameRenderingSemaphore, DISPATCH_TIME_NOW) != 0) {
-            return;
-        }
-        __strong GPUImageRawDataOutput *strongOutput = weakOutput;
-        [strongOutput lockFramebufferForReading];
-        GLubyte *outputBytes = [strongOutput rawBytesForImage];
-        NSInteger bytesPerRow = [strongOutput bytesPerRowInOutput];
-        CVPixelBufferCreateWithBytes(kCFAllocatorDefault, OUT_W, OUT_H, kCVPixelFormatType_32BGRA, outputBytes, bytesPerRow, nil, nil, nil, buffer);
-        [wself PixelBufferCallback:*buffer];;
-        CFRelease(*buffer);
-        [strongOutput unlockFramebufferAfterReading];
-        dispatch_semaphore_signal(wself.frameRenderingSemaphore);
-        
-    }];
-    
-    _face_output = [[GPUImageRawDataOutput alloc] initWithImageSize:CGSizeMake(OUT_W, OUT_H) resultsInBGRAFormat:YES];
-    __weak GPUImageRawDataOutput *weakFaceOutput = _face_output;
-    CVPixelBufferRef* face_buffer = &m_faceBuffer;
-    [_face_output setNewFrameAvailableBlock:^{
-        if(!wself){
-            return;
-        }
-        if (dispatch_semaphore_wait(wself.frameFaceSemaphore, DISPATCH_TIME_NOW) != 0) {
-            return;
-        }
-        __strong GPUImageRawDataOutput *strongOutput = weakFaceOutput;
-        [strongOutput lockFramebufferForReading];
-        GLubyte *outputBytes = [strongOutput rawBytesForImage];
-        NSInteger bytesPerRow = [strongOutput bytesPerRowInOutput];
-        CVPixelBufferCreateWithBytes(kCFAllocatorDefault, OUT_W, OUT_H, kCVPixelFormatType_32BGRA, outputBytes, bytesPerRow, nil, nil, nil, face_buffer);
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-            [[FaceDetectManager sharedManager] appendBuffer:*face_buffer];
-        });
-    }];
-    
-    self.scaler = [[GPUImageTransformFilter alloc] init];
-    [self.scaler forceProcessingAtSizeRespectingAspectRatio:CGSizeMake(OUT_W, OUT_H)];
-    
     return [super init];
     
 }
@@ -172,8 +107,74 @@
 }
 
 #pragma mark methods
-- (void)startLiveWithWidth:(NSInteger)stitchWidth WithHeight:(NSInteger)stitchHeight WithBitrate:(NSInteger)bitrate{
-    self.liveDataSource = [[INSLiveDataSource alloc] initWitCameraResolution:INSCameraVideoResType_3040_1520P30 stitchWidth:stitchWidth stitchHeight:stitchHeight bitrate:bitrate];
+- (void)setupLive{
+    SettingSession* setting = [SettingSession new];
+    
+    m_pixelBuffer = NULL;
+    m_faceBuffer = NULL;
+    __weak LiveManager* wself = self;
+    
+    [FaceDetectManager sharedManager].delegate = self;
+    
+    self.frameRenderingSemaphore = dispatch_semaphore_create(1);
+    self.frameFaceSemaphore = dispatch_semaphore_create(1);
+    
+    self.isLiving = NO;
+    self.current_frame = 0;
+    
+    self.pixelBufferInput = [[YUGPUImageCVPixelBufferInput alloc] init];
+    
+    self.filter = [[GPUImageBrightnessFilter alloc] init];
+    [self.filter setBrightness:setting.brightness];
+    
+    _output = [[GPUImageRawDataOutput alloc] initWithImageSize:CGSizeMake(setting.width, setting.height) resultsInBGRAFormat:YES];
+    __weak GPUImageRawDataOutput *weakOutput = _output;
+    CVPixelBufferRef* buffer = &m_pixelBuffer;
+    [_output setNewFrameAvailableBlock:^{
+        if(!wself){
+            return;
+        }
+        if (dispatch_semaphore_wait(wself.frameRenderingSemaphore, DISPATCH_TIME_NOW) != 0) {
+            return;
+        }
+        __strong GPUImageRawDataOutput *strongOutput = weakOutput;
+        [strongOutput lockFramebufferForReading];
+        GLubyte *outputBytes = [strongOutput rawBytesForImage];
+        NSInteger bytesPerRow = [strongOutput bytesPerRowInOutput];
+        CVPixelBufferCreateWithBytes(kCFAllocatorDefault, setting.width, setting.height, kCVPixelFormatType_32BGRA, outputBytes, bytesPerRow, nil, nil, nil, buffer);
+        [wself PixelBufferCallback:*buffer];;
+        CFRelease(*buffer);
+        [strongOutput unlockFramebufferAfterReading];
+        dispatch_semaphore_signal(wself.frameRenderingSemaphore);
+        
+    }];
+    
+    _face_output = [[GPUImageRawDataOutput alloc] initWithImageSize:CGSizeMake(setting.width, setting.height) resultsInBGRAFormat:YES];
+    __weak GPUImageRawDataOutput *weakFaceOutput = _face_output;
+    CVPixelBufferRef* face_buffer = &m_faceBuffer;
+    [_face_output setNewFrameAvailableBlock:^{
+        if(!wself){
+            return;
+        }
+        if (dispatch_semaphore_wait(wself.frameFaceSemaphore, DISPATCH_TIME_NOW) != 0) {
+            return;
+        }
+        __strong GPUImageRawDataOutput *strongOutput = weakFaceOutput;
+        [strongOutput lockFramebufferForReading];
+        GLubyte *outputBytes = [strongOutput rawBytesForImage];
+        NSInteger bytesPerRow = [strongOutput bytesPerRowInOutput];
+        CVPixelBufferCreateWithBytes(kCFAllocatorDefault, setting.width, setting.height, kCVPixelFormatType_32BGRA, outputBytes, bytesPerRow, nil, nil, nil, face_buffer);
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+            [[FaceDetectManager sharedManager] appendBuffer:*face_buffer];
+        });
+    }];
+    
+    self.scaler = [[GPUImageTransformFilter alloc] init];
+    [self.scaler forceProcessingAtSizeRespectingAspectRatio:CGSizeMake(setting.width, setting.height)];
+}
+
+- (void)startLiveWithWidth:(NSInteger)stitchWidth WithHeight:(NSInteger)stitchHeight WithBitrate:(NSInteger)bitrate WithQuality: (INSCameraVideoResType)quality{
+    self.liveDataSource = [[INSLiveDataSource alloc] initWitCameraResolution:quality stitchWidth:stitchWidth stitchHeight:stitchHeight bitrate:bitrate];
     self.liveDataSource.dataSourceDelegate = self;
     [self.liveDataSource start];
 }
@@ -183,6 +184,10 @@
     if(self.isLiving){
         return;
     }
+    
+    //设置参数
+    [self setupLive];
+    
     //禁止休眠
     [UIApplication sharedApplication].idleTimerDisabled = YES;
     
@@ -193,8 +198,23 @@
     if(view){
         [self.filter addTarget:g_v];
     }
-    SettingSession* session = [[SettingSession alloc] init];
-    [self startLiveWithWidth:session.width WithHeight:session.height WithBitrate:session.bitrate];
+    
+    //设置相机
+    SettingSession* setting = [SettingSession new];
+    switch (setting.quality) {
+        case SettingSessionCameraQualityLow:
+            [self startLiveWithWidth:1440 WithHeight:720 WithBitrate:600 * 1024 WithQuality:INSCameraVideoResType_1440_720P30];
+            break;
+        case SettingSessionCameraQualityMedium:
+            [self startLiveWithWidth:2160 WithHeight:1080 WithBitrate:2 * 1024 * 1024 WithQuality:INSCameraVideoResType_2160_1080P30];
+            break;
+        case SettingSessionCameraQualityHigh:
+            [self startLiveWithWidth:3040 WithHeight:1520 WithBitrate:8 * 1024 * 1024 WithQuality:INSCameraVideoResType_3040_1520P30];
+            break;
+        default:
+            break;
+    }
+    
     [[StreamManager sharedManager] startRTMP];
 }
 
@@ -216,16 +236,30 @@
 }
 
 - (void)tearDown{
+    SettingSession* setting = [SettingSession new];
+    
     [self.pixelBufferInput removeTarget: self.scaler];
     [self.scaler removeTarget:self.filter];
-    [self.scaler removeTarget:self.face_output];
+    
+    //remove face detector
+    if(setting.faceDetectOn){
+        [self.scaler removeTarget:self.face_output];
+    }
+    
     [self.filter removeTarget:self.output];
 }
 
 - (void)setupPipes{
+    SettingSession* setting = [SettingSession new];
+    
     [self.pixelBufferInput addTarget: self.scaler];
     [self.scaler addTarget:self.filter];
-    [self.scaler addTarget:self.face_output];
+    
+    //add face detector
+    if(setting.faceDetectOn){
+        [self.scaler addTarget:self.face_output];
+    }
+    
     [self.filter addTarget:self.output];
 }
 
@@ -239,7 +273,6 @@
     _current_frame++;
     
     if([StreamManager sharedManager].session && [StreamManager sharedManager].isStreaming && self.isLiving){
-        //[[StreamManager sharedManager] refreshBuffer:pixelFrameBuffer];
         [[StreamManager sharedManager].session pushVideo:pixelFrameBuffer];
     }
 }

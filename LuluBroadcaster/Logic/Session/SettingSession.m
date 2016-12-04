@@ -13,12 +13,21 @@
 #define WIDTH_KEY @"widthKey"
 #define URL_KEY @"urlKey"
 #define STREAM_TOKEN_KEY @"streamKey"
+#define BRIGHTNESS_KEY @"brightnessKey"
+#define FPS_KEY @"fpsKey"
+#define FACE_DETECTOR_KEY @"fdKey"
+#define QUALITY_KEY @"qualityKey"
 
 #define DEFAULT_BITRATE 600*1024
 #define DEFAULT_HEIGHT 720
 #define DEFAULT_WIDTH 1440
 #define DEFAULT_URL @"rtmp://182.254.151.173:1935/live"
 #define DEFAULT_STREAM_KEY @"kjkjkj"
+#define DEFAULT_BRIGHTNESS 0.2
+#define DEFAULT_FPS 15
+#define DEFAULT_FACE_DETECTOR 1
+#define DEFAULT_QUALITY SettingSessionCameraQualityLow
+
 
 @interface SettingSession()
 
@@ -30,6 +39,23 @@
 @synthesize height = _height;
 @synthesize url = _url;
 @synthesize streamKey = _streamKey;
+@synthesize brightness = _brightness;
+@synthesize fps = _fps;
+@synthesize faceDetectOn = _faceDetectOn;
+@synthesize quality = _quality;
+
+#pragma mark quality
+- (SettingSessionCameraQuality) quality{
+    _quality = [[NSUserDefaults standardUserDefaults] integerForKey:QUALITY_KEY];
+    if(!_quality){
+        [[NSUserDefaults standardUserDefaults] setInteger:DEFAULT_QUALITY forKey:QUALITY_KEY];
+        return DEFAULT_QUALITY;
+    }
+    return _quality;
+}
+- (void) setQuality:(SettingSessionCameraQuality)new_value{
+    [[NSUserDefaults standardUserDefaults] setInteger:new_value forKey:QUALITY_KEY];
+}
 
 #pragma mark bitrate
 - (NSUInteger) bitrate{
@@ -43,6 +69,47 @@
 - (void) setBitrate:(NSUInteger)new_value{
     [[NSUserDefaults standardUserDefaults] setInteger:new_value forKey:BITRATE_KEY];
 }
+
+#pragma mark face detector on
+- (BOOL) faceDetectOn{
+    _faceDetectOn = [[NSUserDefaults standardUserDefaults] boolForKey:FACE_DETECTOR_KEY];
+    if(!_faceDetectOn){
+        [[NSUserDefaults standardUserDefaults] setBool:DEFAULT_FACE_DETECTOR forKey:FACE_DETECTOR_KEY];
+        return DEFAULT_FACE_DETECTOR;
+    }
+    return _faceDetectOn;
+}
+- (void) setFaceDetectOn:(BOOL)new_value{
+    [[NSUserDefaults standardUserDefaults] setInteger:new_value forKey:FACE_DETECTOR_KEY];
+}
+
+
+#pragma mark fps
+- (NSUInteger) fps{
+    _fps = [[NSUserDefaults standardUserDefaults] integerForKey:FPS_KEY];
+    if(!_fps){
+        [[NSUserDefaults standardUserDefaults] setInteger:DEFAULT_FPS forKey:FPS_KEY];
+        return DEFAULT_FPS;
+    }
+    return _fps;
+}
+- (void) setFps:(NSUInteger)new_value{
+    [[NSUserDefaults standardUserDefaults] setInteger:new_value forKey:FPS_KEY];
+}
+
+#pragma mark brightness
+- (double) brightness{
+    _brightness = [[NSUserDefaults standardUserDefaults] doubleForKey:BRIGHTNESS_KEY];
+    if(!_brightness){
+        [[NSUserDefaults standardUserDefaults] setInteger:DEFAULT_BRIGHTNESS forKey:BRIGHTNESS_KEY];
+        return DEFAULT_BRIGHTNESS;
+    }
+    return _brightness;
+}
+- (void) setBrightness:(double)new_value{
+    [[NSUserDefaults standardUserDefaults] setDouble:new_value forKey:BRIGHTNESS_KEY];
+}
+
 
 #pragma mark width
 - (NSUInteger) width{

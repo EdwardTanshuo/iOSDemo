@@ -54,7 +54,6 @@
     if (_isStreaming)
         return;
     [self startSessionLive];
-    //_timer = [NSTimer scheduledTimerWithTimeInterval:0.04 target:self selector:@selector(rtmpProcess) userInfo:nil repeats:YES];
     _isStreaming = YES;
 }
 
@@ -63,22 +62,24 @@
         return;
     _isStreaming = NO;
     [self stopSessionLive];
-    //[_timer invalidate];
+    
 }
 
 #pragma mark -
 #pragma mark session
 - (LFLiveSession*)session {
     if (!_session) {
+        SettingSession* setting = [SettingSession new];
+        
         LFLiveVideoConfiguration* configuration = [LFLiveVideoConfiguration new];
         configuration.sessionPreset = LFCaptureSessionPreset540x960;
-        configuration.videoFrameRate = 20;
-        configuration.videoMaxFrameRate = 25;
-        configuration.videoMinFrameRate = 10;
-        configuration.videoBitRate = 2000 * 1000;
-        configuration.videoMaxBitRate = 2160 * 1000;
-        configuration.videoMinBitRate = 1400 * 1000;
-        configuration.videoSize = CGSizeMake(1440, 720);
+        configuration.videoFrameRate = setting.fps;
+        configuration.videoMaxFrameRate = setting.fps + 5;
+        configuration.videoMinFrameRate = setting.fps - 5;
+        configuration.videoBitRate = setting.bitrate;
+        configuration.videoMaxBitRate = setting.bitrate * 1.2;
+        configuration.videoMinBitRate = setting.bitrate * 0.8;
+        configuration.videoSize = CGSizeMake(setting.width, setting.height);
         configuration.outputImageOrientation = UIInterfaceOrientationLandscapeLeft;
         _session = [[LFLiveSession alloc] initWithAudioConfiguration:[LFLiveAudioConfiguration defaultConfiguration] videoConfiguration:configuration captureType:LFLiveCaptureMaskAudioInputVideo];
         
@@ -91,7 +92,7 @@
     LFLiveStreamInfo *streamInfo = [LFLiveStreamInfo new];
     SettingSession* setting = [[SettingSession alloc] init];
     streamInfo.url = [NSString stringWithFormat:@"%@/%@", setting.url, setting.streamKey];
-    //streamInfo.url = @"rtmp://10.10.17.182:1935/rtmplive/kjkjkj";
+    //streamInfo.url = @"rtmp://192.168.0.15:1935/rtmplive/kjkjkj";
     [self.session startLive:streamInfo];
     [self.session setRunning:YES];
 }
