@@ -59,10 +59,6 @@
     [[INSCameraAccessory defaultCamera] removeObserver:self forKeyPath:@"status"];
 }
 
-- (void) pudgeOutput: (GPUImageRawDataOutput*)output buffer: (CVPixelBufferRef)buffer semaphore: (dispatch_semaphore_t)semaphore{
-    [output unlockFramebufferAfterReading];
-    dispatch_semaphore_signal(semaphore);
-}
 
 
 
@@ -266,6 +262,12 @@
 - (void)parsePixelBuffer:(CVPixelBufferRef)pixelBuffer{
     [self.pixelBufferInput processCVPixelBuffer:pixelBuffer];
 }
+
+- (void) pudgeOutput: (GPUImageRawDataOutput*)output buffer: (CVPixelBufferRef)buffer semaphore: (dispatch_semaphore_t)semaphore{
+    [output unlockFramebufferAfterReading];
+    dispatch_semaphore_signal(semaphore);
+}
+
 
 #pragma mark-
 #pragma mark--视频数据处理回调

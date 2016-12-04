@@ -58,6 +58,21 @@
     [controller presentViewController:alert animated:YES completion:nil];
 }
 
++ (void)showLogoutActionSheetInViewController: (UIViewController*)controller{
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"确认登出？" message:@"登出将结束您的直播单元" preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertAction* act0 = [UIAlertAction actionWithTitle:@"是的" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"LOGOUT" object:nil];
+    }];
+    
+    UIAlertAction* act1 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    
+    [alert addAction:act0];
+    [alert addAction:act1];
+    [controller presentViewController:alert animated:YES completion:nil];
+}
+
 + (void)showHistoryViewController: (UIViewController*)controller{
     UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     HistoryViewController* history = [sb instantiateViewControllerWithIdentifier:@"history"];

@@ -30,6 +30,12 @@
     [super viewDidLoad];
     self.navigationItem.title = @"个人中心";
     [self setupView];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(logoutAction:) name:@"LOGOUT" object:nil];
+}
+
+- (void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -64,7 +70,10 @@
 }
 
 - (IBAction)logout:(id)sender {
-    [NavigationRouter showLoginControllerOnWindow:((AppDelegate*)[UIApplication sharedApplication].delegate).window];
+    [NavigationRouter showLogoutActionSheetInViewController:self];
 }
 
+- (void)logoutAction:(id)sender {
+    [NavigationRouter showLoginControllerOnWindow:((AppDelegate*)[UIApplication sharedApplication].delegate).window];
+}
 @end

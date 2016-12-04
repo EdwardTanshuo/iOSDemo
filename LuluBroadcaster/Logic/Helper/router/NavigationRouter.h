@@ -15,4 +15,5 @@
 + (void)showAlertInViewController: (UIViewController*)controller WithTitle: (NSString*)title WithMessage: (NSString*)msg;
 + (void)showCleanActionSheetInViewController: (UIViewController*)controller;
 + (void)showHistoryViewController: (UIViewController*)controller;
++ (void)showLogoutActionSheetInViewController: (UIViewController*)controller;
 @end

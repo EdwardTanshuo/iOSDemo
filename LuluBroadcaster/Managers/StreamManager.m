@@ -62,7 +62,6 @@
         return;
     _isStreaming = NO;
     [self stopSessionLive];
-    
 }
 
 #pragma mark -
@@ -98,8 +97,8 @@
 }
 
 - (void)stopSessionLive {
-    [self.session stopLive];
     [self.session setRunning:NO];
+    [self.session stopLive];
 }
 
 
