@@ -71,7 +71,7 @@
         SettingSession* setting = [SettingSession new];
         
         LFLiveVideoConfiguration* configuration = [LFLiveVideoConfiguration new];
-        configuration.sessionPreset = LFCaptureSessionPreset540x960;
+        configuration.sessionPreset = LFCaptureSessionPreset720x1280;
         configuration.videoFrameRate = setting.fps;
         configuration.videoMaxFrameRate = setting.fps + 5;
         configuration.videoMinFrameRate = setting.fps - 5;
@@ -90,8 +90,8 @@
 - (void)startSessionLive {
     LFLiveStreamInfo *streamInfo = [LFLiveStreamInfo new];
     SettingSession* setting = [[SettingSession alloc] init];
-    //streamInfo.url = [NSString stringWithFormat:@"%@/%@", setting.url, setting.streamKey];
-    streamInfo.url = @"rtmp://10.10.17.182:1935/rtmplive/kjkjkj";
+    streamInfo.url = [NSString stringWithFormat:@"%@/%@", setting.url, setting.streamKey];
+    //streamInfo.url = @"rtmp://10.10.17.182:1935/rtmplive/kjkjkj";
     [self.session startLive:streamInfo];
     [self.session setRunning:YES];
 }

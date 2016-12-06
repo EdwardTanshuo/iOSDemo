@@ -76,6 +76,9 @@
         case 2:
             self.qualitylabel.text = @"高";
             break;
+        case 3:
+            self.qualitylabel.text = @"原始";
+            break;
         default:
             break;
     }
@@ -119,6 +122,9 @@
             break;
         case 2:
             self.qualitylabel.text = @"高";
+            break;
+        case 3:
+            self.qualitylabel.text = @"原始";
             break;
         default:
             break;

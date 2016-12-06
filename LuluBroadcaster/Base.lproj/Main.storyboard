@@ -516,7 +516,7 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.20000000000000001" minValue="0.0" maxValue="2" translatesAutoresizingMaskIntoConstraints="NO" id="Aoi-fF-foK">
+                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.20000000000000001" minValue="0.0" maxValue="3" translatesAutoresizingMaskIntoConstraints="NO" id="Aoi-fF-foK">
                                                     <rect key="frame" x="85" y="10" width="426" height="31"/>
                                                     <connections>
                                                         <action selector="qualityAction:" destination="fff-8I-Uf3" eventType="valueChanged" id="E3d-mv-p1w"/>

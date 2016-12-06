@@ -11,7 +11,8 @@
 typedef NS_ENUM(NSInteger, SettingSessionCameraQuality) {
     SettingSessionCameraQualityLow = 0,
     SettingSessionCameraQualityMedium = 1,
-    SettingSessionCameraQualityHigh = 2
+    SettingSessionCameraQualityHigh = 2,
+    SettingSessionCameraQualityReal = 3
 };
 
 @interface SettingSession : NSObject
