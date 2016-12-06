@@ -199,13 +199,13 @@
     SettingSession* setting = [SettingSession new];
     switch (setting.quality) {
         case SettingSessionCameraQualityLow:
-            [self startLiveWithWidth:1440 WithHeight:720 WithBitrate:600 * 1024 WithQuality:INSCameraVideoResType_1440_720P30];
+            [self startLiveWithWidth:1440 WithHeight:720 WithBitrate:1200 * 1024 WithQuality:INSCameraVideoResType_1440_720P30];
             break;
         case SettingSessionCameraQualityMedium:
-            [self startLiveWithWidth:2160 WithHeight:1080 WithBitrate:2 * 1024 * 1024 WithQuality:INSCameraVideoResType_2160_1080P30];
+            [self startLiveWithWidth:2160 WithHeight:1080 WithBitrate:1200 * 1024 WithQuality:INSCameraVideoResType_2160_1080P30];
             break;
         case SettingSessionCameraQualityHigh:
-            [self startLiveWithWidth:3040 WithHeight:1520 WithBitrate:8 * 1024 * 1024 WithQuality:INSCameraVideoResType_3040_1520P30];
+            [self startLiveWithWidth:3040 WithHeight:1520 WithBitrate:1200 * 1024 WithQuality:INSCameraVideoResType_3040_1520P15];
             break;
         default:
             break;
