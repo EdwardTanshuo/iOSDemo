@@ -29,6 +29,7 @@
     self = [super init];
     if (self) {
         self.pomelo = [[Pomelo alloc] initWithDelegate:self];
+        [self setupEventListener];
     }
     return self;
 }
