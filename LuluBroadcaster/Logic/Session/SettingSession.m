@@ -18,7 +18,7 @@
 #define FACE_DETECTOR_KEY @"fdKey"
 #define QUALITY_KEY @"qualityKey"
 
-#define DEFAULT_BITRATE 600*1024
+#define DEFAULT_BITRATE 2*1024*1024
 #define DEFAULT_HEIGHT 720
 #define DEFAULT_WIDTH 1440
 #define DEFAULT_URL @"rtmp://182.254.151.173:1935/live"
@@ -26,7 +26,7 @@
 #define DEFAULT_BRIGHTNESS 0.2
 #define DEFAULT_FPS 15
 #define DEFAULT_FACE_DETECTOR 1
-#define DEFAULT_QUALITY SettingSessionCameraQualityLow
+#define DEFAULT_QUALITY SettingSessionCameraQualityMedium
 
 
 @interface SettingSession()
@@ -47,10 +47,6 @@
 #pragma mark quality
 - (SettingSessionCameraQuality) quality{
     _quality = [[NSUserDefaults standardUserDefaults] integerForKey:QUALITY_KEY];
-    if(!_quality){
-        [[NSUserDefaults standardUserDefaults] setInteger:DEFAULT_QUALITY forKey:QUALITY_KEY];
-        return DEFAULT_QUALITY;
-    }
     return _quality;
 }
 - (void) setQuality:(SettingSessionCameraQuality)new_value{
@@ -73,10 +69,7 @@
 #pragma mark face detector on
 - (BOOL) faceDetectOn{
     _faceDetectOn = [[NSUserDefaults standardUserDefaults] boolForKey:FACE_DETECTOR_KEY];
-    if(!_faceDetectOn){
-        [[NSUserDefaults standardUserDefaults] setBool:DEFAULT_FACE_DETECTOR forKey:FACE_DETECTOR_KEY];
-        return DEFAULT_FACE_DETECTOR;
-    }
+   
     return _faceDetectOn;
 }
 - (void) setFaceDetectOn:(BOOL)new_value{
@@ -100,10 +93,6 @@
 #pragma mark brightness
 - (double) brightness{
     _brightness = [[NSUserDefaults standardUserDefaults] doubleForKey:BRIGHTNESS_KEY];
-    if(!_brightness){
-        [[NSUserDefaults standardUserDefaults] setInteger:DEFAULT_BRIGHTNESS forKey:BRIGHTNESS_KEY];
-        return DEFAULT_BRIGHTNESS;
-    }
     return _brightness;
 }
 - (void) setBrightness:(double)new_value{

@@ -25,8 +25,7 @@
 }
 
 - (void)setupListener{
-    __weak DanmuSocket* wself = self;
-    
+   
     //链接事件
     [self.socket on:@"connect" callback:^(NSArray * _Nonnull datas, SocketAckEmitter * _Nonnull emitter) {
         self.connected = YES;

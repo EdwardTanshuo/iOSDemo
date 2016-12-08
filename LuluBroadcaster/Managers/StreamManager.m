@@ -71,7 +71,7 @@
         SettingSession* setting = [SettingSession new];
         
         LFLiveVideoConfiguration* configuration = [LFLiveVideoConfiguration new];
-        configuration.sessionPreset = LFCaptureSessionPreset720x1280;
+        
         configuration.videoFrameRate = setting.fps;
         configuration.videoMaxFrameRate = setting.fps + 5;
         configuration.videoMinFrameRate = setting.fps - 5;

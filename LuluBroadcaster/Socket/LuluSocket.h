@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <SocketIO/SocketIO-Swift.h>
 
-#define SOCKET_URL @"ws://release.mofangvr.com:30001/?EIO=4&transport=websocket"
+#define SOCKET_URL @"ws://release.mofangvr.com:30002/?EIO=4&transport=websocket"
 
 static inline NSURL* socket_url();
 

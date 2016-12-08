@@ -18,7 +18,7 @@
 #import "GPUImageMyBeautifyFilter.h"
 #import "LFGPUImageBeautyFilter.h"
 #import <NSLogger/NSLogger.h>
-
+#import "DanmuManager.h"
 
 @interface LiveManager()<INSLiveDataSourceProtocol, FaceDetectManagerDelegate>{
     CVPixelBufferRef m_pixelBuffer;
@@ -31,7 +31,7 @@
 @property (nonatomic, strong) GPUImageRawDataOutput* output;
 @property (nonatomic, strong) GPUImageRawDataOutput* face_output;
 @property (nonatomic, strong) YUGPUImageCVPixelBufferInput *pixelBufferInput;
-@property (nonatomic, strong) GPUImageBrightnessFilter* filter;
+@property (nonatomic, strong) GPUImageMyBeautifyFilter* filter;
 @property (nonatomic, strong) GPUImageTransformFilter* scaler;
 
 @property (nonatomic, assign) NSInteger current_frame;
@@ -121,8 +121,8 @@
     
     self.pixelBufferInput = [[YUGPUImageCVPixelBufferInput alloc] init];
     
-    self.filter = [[GPUImageBrightnessFilter alloc] init];
-    [self.filter setBrightness:setting.brightness];
+    self.filter = [[GPUImageMyBeautifyFilter alloc] init];
+    //[self.filter setBrightness:setting.brightness];
     
     _output = [[GPUImageRawDataOutput alloc] initWithImageSize:CGSizeMake(setting.width, setting.height) resultsInBGRAFormat:YES];
     __weak GPUImageRawDataOutput *weakOutput = _output;
@@ -188,6 +188,10 @@
     //禁止休眠
     [UIApplication sharedApplication].idleTimerDisabled = YES;
     
+    //danmu
+    [[DanmuManager sharedManager] connect];
+    
+    
     self.isLiving = YES;
     [self setupPipes];
     GPUImageView* g_v = (GPUImageView*)view;
@@ -231,6 +235,9 @@
     }
     //允许休眠
     [UIApplication sharedApplication].idleTimerDisabled = NO;
+    
+    //danmu
+    [[DanmuManager sharedManager] disconnect];
     
     self.isLiving = NO;
     

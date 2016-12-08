@@ -11,6 +11,17 @@
 		D70435251DC988A800EF5FAE /* GPUImageMyBeautifyFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = D70435241DC988A800EF5FAE /* GPUImageMyBeautifyFilter.m */; };
 		D71CAB2D1DE62D0500DC890E /* FaceDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = D71CAB2C1DE62D0500DC890E /* FaceDetector.m */; };
 		D71CAB311DE6347C00DC890E /* FaceDetectManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D71CAB301DE6347C00DC890E /* FaceDetectManager.m */; };
+		D722D5F41DF90FC50067F1A9 /* PomeloProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = D722D5F01DF90FC50067F1A9 /* PomeloProtocol.m */; };
+		D722D5F51DF90FC50067F1A9 /* Pomelo.m in Sources */ = {isa = PBXBuildFile; fileRef = D722D5F21DF90FC50067F1A9 /* Pomelo.m */; };
+		D722D6031DF9112A0067F1A9 /* SocketIOTransportXHR.m in Sources */ = {isa = PBXBuildFile; fileRef = D722D5F81DF9112A0067F1A9 /* SocketIOTransportXHR.m */; };
+		D722D6041DF9112A0067F1A9 /* SocketIOTransportWebsocket.m in Sources */ = {isa = PBXBuildFile; fileRef = D722D5FA1DF9112A0067F1A9 /* SocketIOTransportWebsocket.m */; };
+		D722D6051DF9112A0067F1A9 /* SocketIOPacket.m in Sources */ = {isa = PBXBuildFile; fileRef = D722D5FD1DF9112A0067F1A9 /* SocketIOPacket.m */; };
+		D722D6061DF9112A0067F1A9 /* SocketIOJSONSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = D722D5FF1DF9112A0067F1A9 /* SocketIOJSONSerialization.m */; };
+		D722D6071DF9112A0067F1A9 /* SocketIO.m in Sources */ = {isa = PBXBuildFile; fileRef = D722D6011DF9112A0067F1A9 /* SocketIO.m */; };
+		D722D6101DF9116A0067F1A9 /* SRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = D722D6091DF9116A0067F1A9 /* SRWebSocket.m */; };
+		D722D6111DF9116A0067F1A9 /* NSData+SRB64Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = D722D60C1DF9116A0067F1A9 /* NSData+SRB64Additions.m */; };
+		D722D6121DF9116A0067F1A9 /* base64.c in Sources */ = {isa = PBXBuildFile; fileRef = D722D60F1DF9116A0067F1A9 /* base64.c */; };
+		D722D6161DF911CD0067F1A9 /* GameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D722D6151DF911CD0067F1A9 /* GameManager.m */; };
 		D726B0AF1DDE84E2002B9068 /* StreamCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D726B0AD1DDE84E2002B9068 /* StreamCell.m */; };
 		D726B0B01DDE84E2002B9068 /* StreamCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D726B0AE1DDE84E2002B9068 /* StreamCell.xib */; };
 		D726B0B31DDEC093002B9068 /* BroadcasterDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = D726B0B21DDEC093002B9068 /* BroadcasterDatasource.m */; };
@@ -108,6 +119,30 @@
 		D71CAB2C1DE62D0500DC890E /* FaceDetector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FaceDetector.m; path = Logic/Helper/FaceDetector/FaceDetector.m; sourceTree = "<group>"; };
 		D71CAB2F1DE6347C00DC890E /* FaceDetectManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FaceDetectManager.h; path = Managers/FaceDetectManager.h; sourceTree = "<group>"; };
 		D71CAB301DE6347C00DC890E /* FaceDetectManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FaceDetectManager.m; path = Managers/FaceDetectManager.m; sourceTree = "<group>"; };
+		D722D5F01DF90FC50067F1A9 /* PomeloProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PomeloProtocol.m; path = Logic/Helper/Pomelo/PomeloProtocol.m; sourceTree = "<group>"; };
+		D722D5F11DF90FC50067F1A9 /* PomeloProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PomeloProtocol.h; path = Logic/Helper/Pomelo/PomeloProtocol.h; sourceTree = "<group>"; };
+		D722D5F21DF90FC50067F1A9 /* Pomelo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Pomelo.m; path = Logic/Helper/Pomelo/Pomelo.m; sourceTree = "<group>"; };
+		D722D5F31DF90FC50067F1A9 /* Pomelo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Pomelo.h; path = Logic/Helper/Pomelo/Pomelo.h; sourceTree = "<group>"; };
+		D722D5F81DF9112A0067F1A9 /* SocketIOTransportXHR.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SocketIOTransportXHR.m; path = Logic/Helper/Pomelo/socketio/SocketIOTransportXHR.m; sourceTree = "<group>"; };
+		D722D5F91DF9112A0067F1A9 /* SocketIOTransportXHR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SocketIOTransportXHR.h; path = Logic/Helper/Pomelo/socketio/SocketIOTransportXHR.h; sourceTree = "<group>"; };
+		D722D5FA1DF9112A0067F1A9 /* SocketIOTransportWebsocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SocketIOTransportWebsocket.m; path = Logic/Helper/Pomelo/socketio/SocketIOTransportWebsocket.m; sourceTree = "<group>"; };
+		D722D5FB1DF9112A0067F1A9 /* SocketIOTransportWebsocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SocketIOTransportWebsocket.h; path = Logic/Helper/Pomelo/socketio/SocketIOTransportWebsocket.h; sourceTree = "<group>"; };
+		D722D5FC1DF9112A0067F1A9 /* SocketIOTransport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SocketIOTransport.h; path = Logic/Helper/Pomelo/socketio/SocketIOTransport.h; sourceTree = "<group>"; };
+		D722D5FD1DF9112A0067F1A9 /* SocketIOPacket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SocketIOPacket.m; path = Logic/Helper/Pomelo/socketio/SocketIOPacket.m; sourceTree = "<group>"; };
+		D722D5FE1DF9112A0067F1A9 /* SocketIOPacket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SocketIOPacket.h; path = Logic/Helper/Pomelo/socketio/SocketIOPacket.h; sourceTree = "<group>"; };
+		D722D5FF1DF9112A0067F1A9 /* SocketIOJSONSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SocketIOJSONSerialization.m; path = Logic/Helper/Pomelo/socketio/SocketIOJSONSerialization.m; sourceTree = "<group>"; };
+		D722D6001DF9112A0067F1A9 /* SocketIOJSONSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SocketIOJSONSerialization.h; path = Logic/Helper/Pomelo/socketio/SocketIOJSONSerialization.h; sourceTree = "<group>"; };
+		D722D6011DF9112A0067F1A9 /* SocketIO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SocketIO.m; path = Logic/Helper/Pomelo/socketio/SocketIO.m; sourceTree = "<group>"; };
+		D722D6021DF9112A0067F1A9 /* SocketIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SocketIO.h; path = Logic/Helper/Pomelo/socketio/SocketIO.h; sourceTree = "<group>"; };
+		D722D6091DF9116A0067F1A9 /* SRWebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SRWebSocket.m; path = Logic/Helper/Pomelo/rocket/SRWebSocket.m; sourceTree = "<group>"; };
+		D722D60A1DF9116A0067F1A9 /* SRWebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SRWebSocket.h; path = Logic/Helper/Pomelo/rocket/SRWebSocket.h; sourceTree = "<group>"; };
+		D722D60B1DF9116A0067F1A9 /* SocketRocket-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "SocketRocket-Prefix.pch"; path = "Logic/Helper/Pomelo/rocket/SocketRocket-Prefix.pch"; sourceTree = "<group>"; };
+		D722D60C1DF9116A0067F1A9 /* NSData+SRB64Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSData+SRB64Additions.m"; path = "Logic/Helper/Pomelo/rocket/NSData+SRB64Additions.m"; sourceTree = "<group>"; };
+		D722D60D1DF9116A0067F1A9 /* NSData+SRB64Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSData+SRB64Additions.h"; path = "Logic/Helper/Pomelo/rocket/NSData+SRB64Additions.h"; sourceTree = "<group>"; };
+		D722D60E1DF9116A0067F1A9 /* base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = base64.h; path = Logic/Helper/Pomelo/rocket/base64.h; sourceTree = "<group>"; };
+		D722D60F1DF9116A0067F1A9 /* base64.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = base64.c; path = Logic/Helper/Pomelo/rocket/base64.c; sourceTree = "<group>"; };
+		D722D6141DF911CD0067F1A9 /* GameManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameManager.h; path = Managers/GameManager.h; sourceTree = "<group>"; };
+		D722D6151DF911CD0067F1A9 /* GameManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameManager.m; path = Managers/GameManager.m; sourceTree = "<group>"; };
 		D726B0AC1DDE84E2002B9068 /* StreamCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StreamCell.h; path = Views/StreamCell.h; sourceTree = "<group>"; };
 		D726B0AD1DDE84E2002B9068 /* StreamCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StreamCell.m; path = Views/StreamCell.m; sourceTree = "<group>"; };
 		D726B0AE1DDE84E2002B9068 /* StreamCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StreamCell.xib; path = Views/StreamCell.xib; sourceTree = "<group>"; };
@@ -299,6 +334,68 @@
 				D71CAB301DE6347C00DC890E /* FaceDetectManager.m */,
 			);
 			name = FaceDetect;
+			sourceTree = "<group>";
+		};
+		D722D5E91DF90F270067F1A9 /* pomelo */ = {
+			isa = PBXGroup;
+			children = (
+				D722D6081DF9112F0067F1A9 /* rocket */,
+				D722D5F71DF910DE0067F1A9 /* socketio */,
+				D722D5F61DF910CE0067F1A9 /* client */,
+			);
+			name = pomelo;
+			sourceTree = "<group>";
+		};
+		D722D5F61DF910CE0067F1A9 /* client */ = {
+			isa = PBXGroup;
+			children = (
+				D722D5F01DF90FC50067F1A9 /* PomeloProtocol.m */,
+				D722D5F11DF90FC50067F1A9 /* PomeloProtocol.h */,
+				D722D5F21DF90FC50067F1A9 /* Pomelo.m */,
+				D722D5F31DF90FC50067F1A9 /* Pomelo.h */,
+			);
+			name = client;
+			sourceTree = "<group>";
+		};
+		D722D5F71DF910DE0067F1A9 /* socketio */ = {
+			isa = PBXGroup;
+			children = (
+				D722D5F81DF9112A0067F1A9 /* SocketIOTransportXHR.m */,
+				D722D5F91DF9112A0067F1A9 /* SocketIOTransportXHR.h */,
+				D722D5FA1DF9112A0067F1A9 /* SocketIOTransportWebsocket.m */,
+				D722D5FB1DF9112A0067F1A9 /* SocketIOTransportWebsocket.h */,
+				D722D5FC1DF9112A0067F1A9 /* SocketIOTransport.h */,
+				D722D5FD1DF9112A0067F1A9 /* SocketIOPacket.m */,
+				D722D5FE1DF9112A0067F1A9 /* SocketIOPacket.h */,
+				D722D5FF1DF9112A0067F1A9 /* SocketIOJSONSerialization.m */,
+				D722D6001DF9112A0067F1A9 /* SocketIOJSONSerialization.h */,
+				D722D6011DF9112A0067F1A9 /* SocketIO.m */,
+				D722D6021DF9112A0067F1A9 /* SocketIO.h */,
+			);
+			name = socketio;
+			sourceTree = "<group>";
+		};
+		D722D6081DF9112F0067F1A9 /* rocket */ = {
+			isa = PBXGroup;
+			children = (
+				D722D6091DF9116A0067F1A9 /* SRWebSocket.m */,
+				D722D60A1DF9116A0067F1A9 /* SRWebSocket.h */,
+				D722D60B1DF9116A0067F1A9 /* SocketRocket-Prefix.pch */,
+				D722D60C1DF9116A0067F1A9 /* NSData+SRB64Additions.m */,
+				D722D60D1DF9116A0067F1A9 /* NSData+SRB64Additions.h */,
+				D722D60E1DF9116A0067F1A9 /* base64.h */,
+				D722D60F1DF9116A0067F1A9 /* base64.c */,
+			);
+			name = rocket;
+			sourceTree = "<group>";
+		};
+		D722D6131DF911A70067F1A9 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				D722D6141DF911CD0067F1A9 /* GameManager.h */,
+				D722D6151DF911CD0067F1A9 /* GameManager.m */,
+			);
+			name = Game;
 			sourceTree = "<group>";
 		};
 		D74B3B8E1DF44C0D00539722 /* params */ = {
@@ -562,6 +659,7 @@
 		D7D4AF011DC801EC00A782F7 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				D722D6131DF911A70067F1A9 /* Game */,
 				D71CAB2E1DE6345300DC890E /* FaceDetect */,
 				D7850CDA1DDFC88900E21D8A /* Danmu */,
 				D7D4AF2A1DC863D400A782F7 /* Live */,
@@ -709,6 +807,7 @@
 		D7D4AF371DC865E900A782F7 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				D722D5E91DF90F270067F1A9 /* pomelo */,
 				D71CAB2A1DE62CBB00DC890E /* faceDetect */,
 				D77EA5E51DE2E358008B0669 /* timeAgo */,
 				D76E56E41DD7E57A004BE5B9 /* customerTabBar */,
@@ -876,7 +975,9 @@
 				D7850CE31DDFCBD900E21D8A /* DanmuDatasource.m in Sources */,
 				D78D0C441DDD2C2E00DE1193 /* LuluSocket.m in Sources */,
 				D71CAB2D1DE62D0500DC890E /* FaceDetector.m in Sources */,
+				D722D6071DF9112A0067F1A9 /* SocketIO.m in Sources */,
 				D77EA5BB1DE12FA5008B0669 /* HistoryViewController.m in Sources */,
+				D722D6051DF9112A0067F1A9 /* SocketIOPacket.m in Sources */,
 				D76E56E71DD7E5C7004BE5B9 /* CustomerTabBarController.m in Sources */,
 				D7D4AEDE1DC7F33D00A782F7 /* AppDelegate.m in Sources */,
 				D726B0B61DDEE5F2002B9068 /* ListRequest.m in Sources */,
@@ -888,15 +989,21 @@
 				D77EA5DA1DE2D71F008B0669 /* TransactionDatasource.m in Sources */,
 				D7D4AF1C1DC8146400A782F7 /* StreamManager.m in Sources */,
 				D76E56E31DD6A2BD004BE5B9 /* ColorConstant.m in Sources */,
+				D722D6031DF9112A0067F1A9 /* SocketIOTransportXHR.m in Sources */,
 				D7D4AF141DC80B4400A782F7 /* HomepageController.m in Sources */,
+				D722D6061DF9112A0067F1A9 /* SocketIOJSONSerialization.m in Sources */,
 				D7D4AF2D1DC863F100A782F7 /* LiveManager.m in Sources */,
 				D726B0AF1DDE84E2002B9068 /* StreamCell.m in Sources */,
 				D76E56ED1DD91C8D004BE5B9 /* Broadcaster.m in Sources */,
+				D722D6101DF9116A0067F1A9 /* SRWebSocket.m in Sources */,
 				D75590111DDC67D80050BB47 /* SettingViewController.m in Sources */,
 				D7D4AF221DC817E400A782F7 /* SettingSession.m in Sources */,
 				D7D86E8E1DF286CE00815BEC /* LFGPUImageEmptyFilter.m in Sources */,
 				D726B0B31DDEC093002B9068 /* BroadcasterDatasource.m in Sources */,
 				D7BA5C631DCAD78C000F1AB7 /* LiveController.m in Sources */,
+				D722D6121DF9116A0067F1A9 /* base64.c in Sources */,
+				D722D6111DF9116A0067F1A9 /* NSData+SRB64Additions.m in Sources */,
+				D722D5F41DF90FC50067F1A9 /* PomeloProtocol.m in Sources */,
 				D7D4AF0A1DC8037100A782F7 /* UserSession.m in Sources */,
 				D77EA5BE1DE14B52008B0669 /* HistoryRequest.m in Sources */,
 				D7D4AEDB1DC7F33D00A782F7 /* main.m in Sources */,
@@ -907,7 +1014,9 @@
 				D7D4AF181DC80E7700A782F7 /* CameraManager.m in Sources */,
 				D77EA5CB1DE1A1FC008B0669 /* HistoryCell.m in Sources */,
 				D77EA5C61DE1976E008B0669 /* HistoryDatasource.m in Sources */,
+				D722D6161DF911CD0067F1A9 /* GameManager.m in Sources */,
 				D76E56E01DD6A1BB004BE5B9 /* CustomerNavigationController.m in Sources */,
+				D722D6041DF9112A0067F1A9 /* SocketIOTransportWebsocket.m in Sources */,
 				D71CAB311DE6347C00DC890E /* FaceDetectManager.m in Sources */,
 				D77EA5D31DE2C8C9008B0669 /* User.m in Sources */,
 				D77EA5D61DE2D321008B0669 /* TransactionRequest.m in Sources */,
@@ -918,6 +1027,7 @@
 				D77EA5ED1DE2E3B6008B0669 /* NavigationRouter.m in Sources */,
 				D78D0C4A1DDD2C8700DE1193 /* DanmuSocket.m in Sources */,
 				D76E56F01DD924E3004BE5B9 /* LoginRequest.m in Sources */,
+				D722D5F51DF90FC50067F1A9 /* Pomelo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -46,7 +46,7 @@
 
 + (CGFloat) height: (Danmu*)danmu{
     CGSize constraint = CGSizeMake(100.0, 20000.0);
-    CGRect rect = [[NSString stringWithFormat:@"%@ %@", danmu.user, danmu.word] boundingRectWithSize: constraint options: NSStringDrawingUsesLineFragmentOrigin attributes: @{NSForegroundColorAttributeName: [UIColor whiteColor], NSFontAttributeName: [UIFont systemFontOfSize: 12.0f]} context: nil];
+    CGRect rect = [[NSString stringWithFormat:@"%@:  %@", danmu.user, danmu.word] boundingRectWithSize: constraint options: NSStringDrawingUsesLineFragmentOrigin attributes: @{NSForegroundColorAttributeName: [UIColor whiteColor], NSFontAttributeName: [UIFont systemFontOfSize: 12.0f]} context: nil];
     return rect.size.height;
 }
 

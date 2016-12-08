@@ -248,7 +248,7 @@
             break;
             
         default:{
-            videoSize = CGSizeMake(360, 640);
+            videoSize = CGSizeMake(1440, 720);
         }
             break;
     }

@@ -32,6 +32,16 @@
 }
 
 #pragma mark -
+#pragma mark methods
+- (void)connect{
+    [[DanmuSocket sharedSocket] connect];
+}
+
+- (void)disconnect{
+    [[DanmuSocket sharedSocket] disconnect];
+}
+
+#pragma mark -
 #pragma mark DanmuDatasourceDelegate
 - (void)dataHasChanged:(NSArray<Danmu *> *)danmus{
     [self.delegate dataHasChanged:danmus];
@@ -44,6 +54,7 @@
 - (void)cleanDanmu{
     self.datasource.danmus = @[];
 }
+
 
 #pragma mark -
 #pragma mark DanmuSocketDelegate
