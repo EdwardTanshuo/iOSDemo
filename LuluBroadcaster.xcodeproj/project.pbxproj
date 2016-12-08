@@ -1171,7 +1171,10 @@
 					"$(PROJECT_DIR)/lib/RtmpLivePushSDK/VideoCore/RtmpManager/lib",
 				);
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-licucore",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.lulu.bc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -1209,7 +1212,10 @@
 					"$(PROJECT_DIR)/lib/RtmpLivePushSDK/VideoCore/RtmpManager/lib",
 				);
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-licucore",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.lulu.bc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

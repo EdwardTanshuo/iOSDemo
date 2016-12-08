@@ -31,9 +31,10 @@
 #pragma mark -
 #pragma mark PomeloReuqests
 - (void)entry: (NSString* _Nonnull)room;
-
-#pragma mark -
-#pragma mark PomeloEvents
-
+- (void)createGame: (NSString* _Nonnull)room;
+- (void)startGame: (NSString* _Nonnull)room;
+- (void)endGame: (NSString* _Nonnull)room;
+- (void)drawCard: (NSString* _Nonnull)room;
+- (void)finishTurn: (NSString* _Nonnull)room;
 
 @end

@@ -309,7 +309,7 @@ static __strong NSData *CRLFCRLF;
     _workQueue = dispatch_queue_create(NULL, DISPATCH_QUEUE_SERIAL);
     
     _callbackQueue = dispatch_get_main_queue();
-    dispatch_retain(_callbackQueue);
+    
     
     _readBuffer = [[NSMutableData alloc] init];
     _outputBuffer = [[NSMutableData alloc] init];
@@ -328,10 +328,7 @@ static __strong NSData *CRLFCRLF;
 
     [_inputStream close];
     [_outputStream close];
-    
-    dispatch_release(_callbackQueue);
-    dispatch_release(_workQueue);
-    
+   
     if (_receivedHTTPHeaders) {
         CFRelease(_receivedHTTPHeaders);
         _receivedHTTPHeaders = NULL;
@@ -605,7 +602,7 @@ static __strong NSData *CRLFCRLF;
 
 - (void)_writeData:(NSData *)data;
 {    
-    assert(dispatch_get_current_queue() == _workQueue);
+    
 
     if (_closeWhenFinishedWriting) {
             return;
@@ -718,7 +715,7 @@ static inline BOOL closeCodeIsValid(int closeCode) {
         _closeCode = SRStatusNoStatusReceived;
     }
     
-    assert(dispatch_get_current_queue() == _workQueue);
+    
     
     if (self.readyState == SR_OPEN) {
         [self closeWithCode:1000 reason:nil];
@@ -730,7 +727,7 @@ static inline BOOL closeCodeIsValid(int closeCode) {
 
 - (void)_disconnect;
 {
-    assert(dispatch_get_current_queue() == _workQueue);
+    
     SRFastLog(@"Trying to disconnect");
     _closeWhenFinishedWriting = YES;
     [self _pumpWriting];
