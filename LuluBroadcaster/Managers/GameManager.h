@@ -7,8 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#define GAME_IP @"10.10.17.182"
+#define GAME_PORT 3020
 
 @protocol GameManagerDelegate
+- (void)didConnected;
 - (void)entryCallBack:(id _Nullable) argsData;
 - (void)createCallBack:(id _Nullable) argsData;
 - (void)startCallBack:(id _Nullable) argsData;
@@ -36,5 +39,5 @@
 - (void)endGame: (NSString* _Nonnull)room;
 - (void)drawCard: (NSString* _Nonnull)room;
 - (void)finishTurn: (NSString* _Nonnull)room;
-
+- (void)connect;
 @end

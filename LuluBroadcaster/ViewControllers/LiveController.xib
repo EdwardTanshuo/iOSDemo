@@ -36,13 +36,26 @@
                         <constraint firstAttribute="height" constant="128" id="TCh-xp-IAZ"/>
                     </constraints>
                 </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fku-jx-F0Q">
+                    <rect key="frame" x="222" y="555" width="156" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="dGV-tz-rh6"/>
+                        <constraint firstAttribute="width" constant="156" id="vc6-dE-teO"/>
+                    </constraints>
+                    <state key="normal" title="创建游戏"/>
+                    <connections>
+                        <action selector="createGame:" destination="-1" eventType="touchUpInside" id="FpD-k6-ExP"/>
+                    </connections>
+                </button>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="3aa-xP-vcb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="2r1-Qd-HrP"/>
                 <constraint firstItem="X4l-Ve-97J" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="23" id="6g7-1C-lfJ"/>
                 <constraint firstItem="X4l-Ve-97J" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="24" id="EKZ-4W-SEp"/>
+                <constraint firstAttribute="bottom" secondItem="fku-jx-F0Q" secondAttribute="bottom" constant="15" id="HLK-Kz-Big"/>
                 <constraint firstItem="X4l-Ve-97J" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Hzb-Zt-Z5d"/>
+                <constraint firstItem="fku-jx-F0Q" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="IkU-OS-SnX"/>
                 <constraint firstItem="X4l-Ve-97J" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="23" id="bqY-Se-4H0"/>
                 <constraint firstAttribute="bottom" secondItem="3aa-xP-vcb" secondAttribute="bottom" id="e18-Xp-dCl"/>
                 <constraint firstAttribute="trailing" secondItem="3aa-xP-vcb" secondAttribute="trailing" id="w72-ud-DhD"/>

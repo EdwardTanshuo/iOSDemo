@@ -36,6 +36,13 @@
 
 #pragma mark -
 #pragma mark PomeloReuqests
+- (void)connect{
+    __weak GameManager* wself = self;
+    [_pomelo connectToHost:GAME_IP onPort:GAME_PORT withCallback:^(Pomelo *p) {
+        [wself.delegate didConnected];
+    }];
+}
+
 - (void)entry: (NSString* _Nonnull)room{
     __weak GameManager* wself = self;
     PomeloCallback cb = ^(id argsData) {

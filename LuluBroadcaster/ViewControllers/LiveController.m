@@ -14,8 +14,9 @@
 #import <NSLogger/LoggerClient.h>
 #import "DanmuManager.h"
 #import "DanmuCell.h"
+#import "GameManager.h"
 
-@interface LiveController ()<LiveDataSourceDelegate, DanmuDatasourceDelegate, UITableViewDelegate, UITableViewDataSource>
+@interface LiveController ()<LiveDataSourceDelegate, DanmuDatasourceDelegate, GameManagerDelegate, GameManagerEvent, UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) GPUImageView* imageView;
 
 @property (weak, nonatomic) IBOutlet UITableView *danmu_table;
@@ -40,10 +41,8 @@
     [self setupViews];
     [self setupDanmuTable];
     [self setupDanmuDatasource];
-    
+    [self setupGame];
     [self launchLive];
-  
-   
 }
 
 - (void)dealloc{
@@ -67,6 +66,11 @@
      [DanmuManager sharedManager].delegate = self;
 }
 
+- (void)setupGame{
+    [GameManager sharedManager].delegate = self;
+    [GameManager sharedManager].target = self;
+}
+
 - (void)setupDanmuTable{
     _danmu_table.delegate = self;
     _danmu_table.dataSource = self;
@@ -84,6 +88,9 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (IBAction)createGame:(id)sender {
+    [[GameManager sharedManager] connect];
+}
 
 #pragma mark -
 #pragma mark LiveDataSourceDelegate
@@ -162,4 +169,54 @@
         }
     });
 }
+
+#pragma mark -
+#pragma mark GameManagerDelegate
+- (void)didConnected{
+    [[GameManager sharedManager] entry:@"57f5e15f908766837cb858c7"];
+}
+
+- (void)entryCallBack:(id _Nullable) argsData{
+    if([[argsData objectForKey:@"code"] integerValue] == 200){
+        [[GameManager sharedManager] createGame:@"57f5e15f908766837cb858c7"];
+    }
+    
+}
+
+- (void)createCallBack:(id _Nullable) argsData{
+    if([[argsData objectForKey:@"code"] integerValue] == 200){
+        NSLog(@"OK");
+    }
+}
+
+- (void)startCallBack:(id _Nullable) argsData{
+
+}
+
+- (void)endCallBack:(id _Nullable) argsData{
+
+}
+
+- (void)drawCallBack:(id _Nullable) argsData{
+
+}
+
+- (void)finishTurnCallBack:(id _Nullable) argsData{
+
+}
+
+#pragma mark -
+#pragma mark GameManagerEvent
+- (void)PlayerEnterEvent: (NSDictionary* _Nullable)data{
+
+}
+
+- (void)PlayerLeaveEvent: (NSDictionary* _Nullable)data{
+
+}
+
+- (void)NewTurnEvent: (NSDictionary* _Nullable)data{
+
+}
+
 @end
