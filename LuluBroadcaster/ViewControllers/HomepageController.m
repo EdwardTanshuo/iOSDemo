@@ -149,7 +149,7 @@
 #pragma mark -
 #pragma mark CustomerTabBarControllerDelegate
 - (void)didPressCameraButton{
-    if(self.status == CameraStatusConnected){
+    if(/*self.status == CameraStatusConnected*/1){
         UserSession* session = [[UserSession alloc] init];
         [[GameManager sharedManager] enterGameWithCallback:^(NSError * _Nullable err, Scene*  _Nullable scene) {
             if(err){

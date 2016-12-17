@@ -82,8 +82,6 @@
 #pragma mark -
 #pragma mark actions
 - (IBAction)closeActions:(id)sender {
-    
-    
     [[LiveManager sharedManager] stopLive];
     [[GameManager sharedManager] endGame: _scene.room];
     [LiveManager sharedManager].delegate = nil;

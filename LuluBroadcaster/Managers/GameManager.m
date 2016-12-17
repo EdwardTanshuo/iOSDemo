@@ -126,6 +126,7 @@
     PomeloCallback cb = ^(id argsData) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [wself.delegate endDealerCallBack: argsData];
+            [wself.pomelo disconnect];
         });
     };
     [_pomelo requestWithRoute:@"scene.sceneHandler.endGame" andParams:@{@"roomId": room} andCallback:cb];
@@ -153,29 +154,23 @@
 
 - (void)enterGameWithCallback: (GameManagerResultCallback)callback room: (NSString* _Nonnull)room{
     __weak GameManager* wself = self;
-    
-    [self connectWithCallback:^(id argsData) {
-        if([self makeCode:argsData] == 200){
-            [wself entryWithCallback:^(id  _Nullable argsData) {
-                if([self makeCode:argsData] == 200){
-                    [wself createGameWithCallback:^(id  _Nullable argsData) {
-                        if([[argsData objectForKey:@"code"] integerValue] == 200){
-                            Scene* scene = [wself makeScene:argsData];
-                            callback(nil, scene);
-                        } else{
-                            NSError* error = [self makeError: argsData];
-                            callback(error, nil);
-                        }
-                    } room: room];
-                } else{
-                    NSError* error = [self makeError: argsData];
-                    callback(error, nil);
-                }
-            } room: room];
-        } else{
-            NSError* error = [self makeError: argsData];
-            callback(error, nil);
-        }
+    [wself connectWithCallback:^(id  _Nullable argsData) {
+        [wself entryWithCallback:^(id  _Nullable argsData) {
+            if([self makeCode:argsData] == 200){
+                [wself createGameWithCallback:^(id  _Nullable argsData) {
+                    if([[argsData objectForKey:@"code"] integerValue] == 200){
+                        Scene* scene = [wself makeScene:argsData];
+                        callback(nil, scene);
+                    } else{
+                        NSError* error = [self makeError: argsData];
+                        callback(error, nil);
+                    }
+                } room: room];
+            } else{
+                NSError* error = [self makeError: argsData];
+                callback(error, nil);
+            }
+        } room: room];
     }];
 }
 
