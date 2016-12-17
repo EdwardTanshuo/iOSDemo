@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Scene.h"
 
 @interface LiveController : UIViewController
-
+@property (strong, nonatomic)  Scene* scene;
 @end

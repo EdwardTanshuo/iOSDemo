@@ -8,11 +8,13 @@
 
 #import "HomepageController.h"
 #import "CameraManager.h"
+#import "GameManager.h"
 #import "NavigationRouter.h"
 #import "CustomerTabBarController.h"
 #import "StreamCell.h"
 #import "BroadcasterDatasource.h"
 #import "ListRequest.h"
+#import "UserSession.h"
 #import <SVPullToRefresh/SVPullToRefresh.h>
 
 @interface HomepageController ()<CameraManagerDelegate, CustomerTabBarControllerDelegate, UITableViewDelegate, UITableViewDataSource, BroadcasterDatasourceDelegate>
@@ -113,7 +115,7 @@
     _datasource.delegate = self;
 }
 
-- (void)startLive{
+- (void)startLiveWithScene: (Scene*) scene{
     [NavigationRouter popLiveControllerFrom:self];
 }
 
@@ -148,7 +150,15 @@
 #pragma mark CustomerTabBarControllerDelegate
 - (void)didPressCameraButton{
     if(self.status == CameraStatusConnected){
-        [self startLive];
+        UserSession* session = [[UserSession alloc] init];
+        [[GameManager sharedManager] enterGameWithCallback:^(NSError * _Nullable err, Scene*  _Nullable scene) {
+            if(err){
+                [NavigationRouter showAlertInViewController:self WithTitle:@"相机未连接" WithMessage: [err.userInfo objectForKey:@"msg"]];
+            }
+            else{
+                [self startLiveWithScene:scene];
+            }
+        } room: session.currentBroadcaster.room];
     }
     else{
         [NavigationRouter showAlertInViewController:self WithTitle:@"相机未连接" WithMessage:@"请检查您的nano是否已经连接"];

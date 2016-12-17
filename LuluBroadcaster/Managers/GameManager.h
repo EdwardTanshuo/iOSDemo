@@ -12,6 +12,9 @@
 #define GAME_IP @"10.10.17.182"
 #define GAME_PORT 3020
 
+typedef void (^_Nullable GameManagerCallback)(id _Nullable argsData);
+typedef void (^_Nullable GameManagerResultCallback)(NSError* _Nullable err, Scene* _Nullable argsData);
+
 @protocol GameManagerDelegate
 - (void)entryCallBack:(id _Nullable) argsData;
 - (void)createCallBack:(id _Nullable) argsData;
@@ -31,10 +34,15 @@
 - (void)disconnect:(NSError* _Nullable)error;
 @end
 
+@protocol GameManagerDatasource
+- (void) sceneHasUpdated: (Scene* _Nullable)scene;
+@end
+
 @interface GameManager : NSObject
 @property (nonatomic, strong, nonnull) Scene* scene;
 @property (nonatomic, weak, nullable) id<GameManagerDelegate> delegate;
 @property (nonatomic, weak, nullable) id<GameManagerEvent> target;
+@property (nonatomic, weak, nullable) id<GameManagerDatasource> datasource;
 + (GameManager* _Nonnull)sharedManager;
 
 #pragma mark -
@@ -48,4 +56,10 @@
 - (void)drawCard: (NSString* _Nonnull)room;
 - (void)finishTurn: (NSString* _Nonnull)room;
 - (void)connect;
+
+- (void)connectWithCallback: (GameManagerCallback)callback;
+- (void)entryWithCallback: (GameManagerCallback)callback room: (NSString* _Nonnull)room;
+- (void)createGameWithCallback: (GameManagerCallback)callback room: (NSString* _Nonnull)room;
+
+- (void)enterGameWithCallback: (GameManagerResultCallback)callback room: (NSString* _Nonnull)room;
 @end

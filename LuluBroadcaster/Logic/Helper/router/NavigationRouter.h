@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Scene.h"
 
 @interface NavigationRouter : NSObject
-+ (void)popLiveControllerFrom:(UIViewController*)parentController;
++ (void)popLiveControllerFrom:(UIViewController*)parentController WithScene:(Scene*)scene;
 + (void)showLoginControllerOnWindow: (UIWindow*)window;
 + (void)showTabControllerOnWindow: (UIWindow*)window;
 + (void)showAlertInViewController: (UIViewController*)controller WithTitle: (NSString*)title WithMessage: (NSString*)msg;

@@ -10,6 +10,7 @@
 #import "Pomelo.h"
 #import "PomeloProtocol.h"
 
+
 @interface GameManager()<PomeloDelegate>
 @property (nonatomic, strong) Pomelo* pomelo;
 @end
@@ -44,6 +45,14 @@
     }];
 }
 
+- (void)connectWithCallback: (GameManagerCallback)callback{
+    [_pomelo connectToHost:GAME_IP onPort:GAME_PORT withCallback:^(Pomelo *p) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            callback(p);
+        });
+    }];
+}
+
 - (void)entry: (NSString* _Nonnull)room{
     __weak GameManager* wself = self;
     PomeloCallback cb = ^(id argsData) {
@@ -54,11 +63,29 @@
     [_pomelo requestWithRoute:@"broadcaster.entryHandler.entry" andParams:@{@"roomId": room} andCallback:cb];
 }
 
+- (void)entryWithCallback: (GameManagerCallback)callback room: (NSString* _Nonnull)room{
+    PomeloCallback cb = ^(id argsData) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            callback(argsData);
+        });
+    };
+    [_pomelo requestWithRoute:@"broadcaster.entryHandler.entry" andParams:@{@"roomId": room} andCallback:cb];
+}
+
 - (void)createGame: (NSString* _Nonnull)room{
     __weak GameManager* wself = self;
     PomeloCallback cb = ^(id argsData) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [wself.delegate createCallBack:argsData];
+        });
+    };
+    [_pomelo requestWithRoute:@"scene.sceneHandler.createGame" andParams:@{@"roomId": room} andCallback:cb];
+}
+
+- (void)createGameWithCallback: (GameManagerCallback)callback room: (NSString* _Nonnull)room{
+    PomeloCallback cb = ^(id argsData) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            callback(argsData);
         });
     };
     [_pomelo requestWithRoute:@"scene.sceneHandler.createGame" andParams:@{@"roomId": room} andCallback:cb];
@@ -124,11 +151,72 @@
     [_pomelo requestWithRoute:@"scene.sceneHandler.finishTurn" andParams:@{@"roomId": room} andCallback:cb];
 }
 
+- (void)enterGameWithCallback: (GameManagerResultCallback)callback room: (NSString* _Nonnull)room{
+    __weak GameManager* wself = self;
+    
+    [self connectWithCallback:^(id argsData) {
+        if([self makeCode:argsData] == 200){
+            [wself entryWithCallback:^(id  _Nullable argsData) {
+                if([self makeCode:argsData] == 200){
+                    [wself createGameWithCallback:^(id  _Nullable argsData) {
+                        if([[argsData objectForKey:@"code"] integerValue] == 200){
+                            Scene* scene = [wself makeScene:argsData];
+                            callback(nil, scene);
+                        } else{
+                            NSError* error = [self makeError: argsData];
+                            callback(error, nil);
+                        }
+                    } room: room];
+                } else{
+                    NSError* error = [self makeError: argsData];
+                    callback(error, nil);
+                }
+            } room: room];
+        } else{
+            NSError* error = [self makeError: argsData];
+            callback(error, nil);
+        }
+    }];
+}
+
+- (NSError*) makeError: (id)data{
+    id errObj = [data objectForKey:@"error"];
+    if(errObj && [errObj isKindOfClass: [NSString class]]){
+        NSError* err = [NSError errorWithDomain: @"com.lulu.bc"
+                                           code: [[data objectForKey:@"code"] integerValue]
+                                       userInfo: @{@"msg": errObj}];
+        return err;
+    }
+    else{
+        return nil;
+    }
+}
+
+- (Scene*) makeScene: (id)data{
+    __weak GameManager* wself = self;
+    id resultObj = [data objectForKey:@"result"];
+    if(resultObj && [resultObj isKindOfClass: [NSDictionary class]]){
+        Scene* scene = [Scene sceneWithJSON:data];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [wself.datasource sceneHasUpdated:scene];
+        });
+        wself.scene = scene;
+        return scene;
+    }
+    else{
+        return nil;
+    }
+}
+
+- (NSInteger)makeCode: (id)data{
+    return [[data objectForKey:@"code"] integerValue];
+}
+
 #pragma mark -
 #pragma mark PomeloEvents
 - (void)setupEventListener{
     __weak GameManager* wself = self;
-  
+    
     [_pomelo onRoute:@"PlayerEnterEvent" withCallback:^(NSDictionary *data){
         dispatch_async(dispatch_get_main_queue(), ^{
             [wself.target PlayerEnterEvent:data];

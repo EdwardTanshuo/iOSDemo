@@ -13,9 +13,11 @@
 #import "HistoryViewController.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 
+
 @implementation NavigationRouter
-+ (void)popLiveControllerFrom:(UIViewController*)parentController{
++ (void)popLiveControllerFrom:(UIViewController*)parentController WithScene:(Scene*)scene{
     LiveController* vc = [[LiveController alloc] initWithNibName:@"LiveController" bundle:nil];
+    vc.scene = scene;
     [parentController presentViewController:vc animated:YES completion:nil];
 }
 
