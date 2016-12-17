@@ -157,7 +157,6 @@
 
 #pragma mark -
 #pragma mark UITableViewDatasource
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     StreamCell* cell = [tableView dequeueReusableCellWithIdentifier:@"StreamCellID"];
     cell.broadcaster = [self.datasource getModelAtIndexPath:indexPath];

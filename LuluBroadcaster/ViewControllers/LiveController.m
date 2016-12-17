@@ -92,6 +92,21 @@
     [[GameManager sharedManager] connect];
 }
 
+- (IBAction)startBet:(id)sender {
+     [[GameManager sharedManager] startBet:@"57c54f1b5894e71f0aab3a78"];
+}
+
+- (IBAction)startGame:(id)sender {
+    [[GameManager sharedManager] startGame:@"57c54f1b5894e71f0aab3a78"];
+}
+
+- (IBAction)endDealer:(id)sender {
+    [[GameManager sharedManager] endDealer:@"57c54f1b5894e71f0aab3a78"];
+}
+
+- (IBAction)endGame:(id)sender {
+     [[GameManager sharedManager] endGame:@"57c54f1b5894e71f0aab3a78"];
+}
 #pragma mark -
 #pragma mark LiveDataSourceDelegate
 
@@ -172,13 +187,11 @@
 
 #pragma mark -
 #pragma mark GameManagerDelegate
-- (void)didConnected{
-    [[GameManager sharedManager] entry:@"57f5e15f908766837cb858c7"];
-}
+
 
 - (void)entryCallBack:(id _Nullable) argsData{
     if([[argsData objectForKey:@"code"] integerValue] == 200){
-        [[GameManager sharedManager] createGame:@"57f5e15f908766837cb858c7"];
+        [[GameManager sharedManager] createGame:@"57c54f1b5894e71f0aab3a78"];
     }
     
 }
@@ -190,11 +203,25 @@
 }
 
 - (void)startCallBack:(id _Nullable) argsData{
+    if([[argsData objectForKey:@"code"] integerValue] == 200){
+        NSLog(@"OK");
+    }
+}
 
+- (void)betCallBack:(id)argsData{
+    if([[argsData objectForKey:@"code"] integerValue] == 200){
+        NSLog(@"OK");
+    }
+}
+
+- (void)endDealerCallBack:(id)argsData{
+    if([[argsData objectForKey:@"code"] integerValue] == 200){
+        NSLog(@"OK");
+    }
 }
 
 - (void)endCallBack:(id _Nullable) argsData{
-
+    
 }
 
 - (void)drawCallBack:(id _Nullable) argsData{
@@ -207,6 +234,10 @@
 
 #pragma mark -
 #pragma mark GameManagerEvent
+- (void)didConnected{
+    [[GameManager sharedManager] entry:@"57c54f1b5894e71f0aab3a78"];
+}
+
 - (void)PlayerEnterEvent: (NSDictionary* _Nullable)data{
 
 }
@@ -216,6 +247,10 @@
 }
 
 - (void)NewTurnEvent: (NSDictionary* _Nullable)data{
+
+}
+
+- (void)disconnect:(NSError *)error{
 
 }
 
