@@ -36,17 +36,6 @@
                         <constraint firstAttribute="height" constant="128" id="TCh-xp-IAZ"/>
                     </constraints>
                 </tableView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fku-jx-F0Q">
-                    <rect key="frame" x="222" y="555" width="156" height="30"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="30" id="dGV-tz-rh6"/>
-                        <constraint firstAttribute="width" constant="156" id="vc6-dE-teO"/>
-                    </constraints>
-                    <state key="normal" title="创建游戏"/>
-                    <connections>
-                        <action selector="createGame:" destination="-1" eventType="touchUpInside" id="FpD-k6-ExP"/>
-                    </connections>
-                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aUF-ad-Oyx">
                     <rect key="frame" x="222" y="511" width="156" height="30"/>
                     <constraints>
@@ -80,36 +69,21 @@
                         <action selector="endDealer:" destination="-1" eventType="touchUpInside" id="n80-1V-1mg"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4xv-wU-1Th">
-                    <rect key="frame" x="222" y="396" width="156" height="30"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="30" id="hfQ-6M-Udi"/>
-                        <constraint firstAttribute="width" constant="156" id="tTv-LX-eaS"/>
-                    </constraints>
-                    <state key="normal" title="结束游戏"/>
-                    <connections>
-                        <action selector="endGame:" destination="-1" eventType="touchUpInside" id="Uni-Cc-8ai"/>
-                    </connections>
-                </button>
             </subviews>
             <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="3aa-xP-vcb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="2r1-Qd-HrP"/>
                 <constraint firstItem="X4l-Ve-97J" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="23" id="6g7-1C-lfJ"/>
                 <constraint firstItem="aUF-ad-Oyx" firstAttribute="top" secondItem="0Mx-NF-8Nw" secondAttribute="bottom" constant="8" id="9h3-Xe-BCu"/>
-                <constraint firstItem="4xv-wU-1Th" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="AUe-wC-juU"/>
                 <constraint firstItem="X4l-Ve-97J" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="24" id="EKZ-4W-SEp"/>
-                <constraint firstAttribute="bottom" secondItem="fku-jx-F0Q" secondAttribute="bottom" constant="15" id="HLK-Kz-Big"/>
                 <constraint firstItem="X4l-Ve-97J" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Hzb-Zt-Z5d"/>
-                <constraint firstItem="fku-jx-F0Q" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="IkU-OS-SnX"/>
                 <constraint firstItem="0Mx-NF-8Nw" firstAttribute="centerX" secondItem="aUF-ad-Oyx" secondAttribute="centerX" id="aG0-uR-jEa"/>
+                <constraint firstAttribute="bottom" secondItem="aUF-ad-Oyx" secondAttribute="bottom" constant="59" id="aqH-n8-oT3"/>
                 <constraint firstItem="X4l-Ve-97J" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="23" id="bqY-Se-4H0"/>
                 <constraint firstAttribute="bottom" secondItem="3aa-xP-vcb" secondAttribute="bottom" id="e18-Xp-dCl"/>
                 <constraint firstItem="aUF-ad-Oyx" firstAttribute="centerX" secondItem="3aa-xP-vcb" secondAttribute="centerX" id="eWe-4e-8Dd"/>
-                <constraint firstItem="fku-jx-F0Q" firstAttribute="top" secondItem="aUF-ad-Oyx" secondAttribute="bottom" constant="14" id="fIp-Bx-anH"/>
                 <constraint firstItem="0Mx-NF-8Nw" firstAttribute="top" secondItem="7gu-vC-aTz" secondAttribute="bottom" constant="9" id="lsa-nX-mJC"/>
                 <constraint firstItem="7gu-vC-aTz" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="os3-GF-Fbx"/>
-                <constraint firstItem="7gu-vC-aTz" firstAttribute="top" secondItem="4xv-wU-1Th" secondAttribute="bottom" constant="8" id="piN-Kd-w9F"/>
                 <constraint firstAttribute="trailing" secondItem="3aa-xP-vcb" secondAttribute="trailing" id="w72-ud-DhD"/>
             </constraints>
             <variation key="default">

@@ -82,31 +82,29 @@
 #pragma mark -
 #pragma mark actions
 - (IBAction)closeActions:(id)sender {
+    
+    
     [[LiveManager sharedManager] stopLive];
+    [[GameManager sharedManager] endGame: _scene.room];
     [LiveManager sharedManager].delegate = nil;
     [DanmuManager sharedManager].delegate = nil;
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (IBAction)createGame:(id)sender {
-    [[GameManager sharedManager] connect];
-}
 
 - (IBAction)startBet:(id)sender {
-     [[GameManager sharedManager] startBet:@"57c54f1b5894e71f0aab3a78"];
+     [[GameManager sharedManager] startBet: _scene.room];
 }
 
 - (IBAction)startGame:(id)sender {
-    [[GameManager sharedManager] startGame:@"57c54f1b5894e71f0aab3a78"];
+    [[GameManager sharedManager] startGame: _scene.room];
 }
 
 - (IBAction)endDealer:(id)sender {
-    [[GameManager sharedManager] endDealer:@"57c54f1b5894e71f0aab3a78"];
+    [[GameManager sharedManager] endDealer: _scene.room];
 }
 
-- (IBAction)endGame:(id)sender {
-     [[GameManager sharedManager] endGame:@"57c54f1b5894e71f0aab3a78"];
-}
+
 #pragma mark -
 #pragma mark LiveDataSourceDelegate
 

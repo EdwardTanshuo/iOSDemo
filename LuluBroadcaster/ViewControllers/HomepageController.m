@@ -116,7 +116,7 @@
 }
 
 - (void)startLiveWithScene: (Scene*) scene{
-    [NavigationRouter popLiveControllerFrom:self];
+    [NavigationRouter popLiveControllerFrom:self WithScene:scene];
 }
 
 - (void)openCamera{

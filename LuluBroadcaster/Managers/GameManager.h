@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "Scene.h"
 
-#define GAME_IP @"10.10.17.182"
+#define GAME_IP @"10.10.17.199"
 #define GAME_PORT 3020
 
 typedef void (^_Nullable GameManagerCallback)(id _Nullable argsData);
