@@ -62,4 +62,8 @@ typedef void (^_Nullable GameManagerResultCallback)(NSError* _Nullable err, Scen
 - (void)createGameWithCallback: (GameManagerCallback)callback room: (NSString* _Nonnull)room;
 
 - (void)enterGameWithCallback: (GameManagerResultCallback)callback room: (NSString* _Nonnull)room;
+
+- (NSError* _Nullable) makeError: (id _Nullable)data;
+- (Scene* _Nullable) makeScene: (id _Nullable)data;
+- (NSInteger)makeCode: (id _Nullable)data;
 @end

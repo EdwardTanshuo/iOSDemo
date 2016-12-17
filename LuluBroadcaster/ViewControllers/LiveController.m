@@ -15,6 +15,7 @@
 #import "DanmuManager.h"
 #import "DanmuCell.h"
 #import "GameManager.h"
+#import "LiveAlertView.h"
 
 @interface LiveController ()<LiveDataSourceDelegate, DanmuDatasourceDelegate, GameManagerDelegate, GameManagerEvent, UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) GPUImageView* imageView;
@@ -202,17 +203,29 @@
     if([[argsData objectForKey:@"code"] integerValue] == 200){
         NSLog(@"OK");
     }
+    else{
+        NSError* error = [[GameManager sharedManager] makeError:argsData];
+        [LiveAlertView popOutInController:self error:error];
+    }
 }
 
 - (void)betCallBack:(id)argsData{
     if([[argsData objectForKey:@"code"] integerValue] == 200){
         NSLog(@"OK");
     }
+    else{
+        NSError* error = [[GameManager sharedManager] makeError:argsData];
+        [LiveAlertView popOutInController:self error:error];
+    }
 }
 
 - (void)endDealerCallBack:(id)argsData{
     if([[argsData objectForKey:@"code"] integerValue] == 200){
         NSLog(@"OK");
+    }
+    else{
+        NSError* error = [[GameManager sharedManager] makeError:argsData];
+        [LiveAlertView popOutInController:self error:error];
     }
 }
 
@@ -221,11 +234,23 @@
 }
 
 - (void)drawCallBack:(id _Nullable) argsData{
-
+    if([[argsData objectForKey:@"code"] integerValue] == 200){
+        NSLog(@"OK");
+    }
+    else{
+        NSError* error = [[GameManager sharedManager] makeError:argsData];
+        [LiveAlertView popOutInController:self error:error];
+    }
 }
 
 - (void)finishTurnCallBack:(id _Nullable) argsData{
-
+    if([[argsData objectForKey:@"code"] integerValue] == 200){
+        NSLog(@"OK");
+    }
+    else{
+        NSError* error = [[GameManager sharedManager] makeError:argsData];
+        [LiveAlertView popOutInController:self error:error];
+    }
 }
 
 #pragma mark -

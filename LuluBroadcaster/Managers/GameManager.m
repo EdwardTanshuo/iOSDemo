@@ -174,7 +174,7 @@
     }];
 }
 
-- (NSError*) makeError: (id)data{
+- (NSError* _Nullable) makeError: (id _Nullable)data{
     id errObj = [data objectForKey:@"error"];
     if(errObj && [errObj isKindOfClass: [NSString class]]){
         NSError* err = [NSError errorWithDomain: @"com.lulu.bc"
@@ -187,7 +187,7 @@
     }
 }
 
-- (Scene*) makeScene: (id)data{
+- (Scene* _Nullable) makeScene: (id _Nullable)data{
     __weak GameManager* wself = self;
     id resultObj = [data objectForKey:@"result"];
     if(resultObj && [resultObj isKindOfClass: [NSDictionary class]]){
@@ -203,7 +203,7 @@
     }
 }
 
-- (NSInteger)makeCode: (id)data{
+- (NSInteger)makeCode: (id _Nullable)data{
     return [[data objectForKey:@"code"] integerValue];
 }
 
