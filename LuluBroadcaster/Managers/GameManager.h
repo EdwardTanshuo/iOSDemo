@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Scene.h"
-#import "User.h"
+#import "UserDataSource.h"
 
 #define GAME_IP @"10.10.17.199"
 #define GAME_PORT 3020
@@ -29,7 +29,7 @@ typedef void (^_Nullable GameManagerResultCallback)(NSError* _Nullable err, Scen
 
 @protocol GameManagerEvent
 - (void)PlayerEnterEvent: (User* _Nullable)user;
-- (void)PlayerLeaveEvent: (User* _Nullable)scene;
+- (void)PlayerLeaveEvent: (User* _Nullable)user;
 - (void)NewTurnEvent: (Scene* _Nullable)scene;
 - (void)didConnected;
 - (void)disconnect:(NSError* _Nullable)error;
@@ -42,9 +42,12 @@ typedef void (^_Nullable GameManagerResultCallback)(NSError* _Nullable err, Scen
 
 @interface GameManager : NSObject
 @property (nonatomic, strong, nonnull) Scene* scene;
-@property (nonatomic, weak, nullable) id<GameManagerDelegate> delegate;
-@property (nonatomic, weak, nullable) id<GameManagerEvent> target;
-@property (nonatomic, weak, nullable) id<GameManagerDatasource> datasource;
+@property (nonatomic, weak, nullable)   id<GameManagerDelegate>             delegate;
+@property (nonatomic, weak, nullable)   id<GameManagerEvent>                target;
+@property (nonatomic, weak, nullable)   id<GameManagerDatasource>           datasource;
+@property (nonatomic, strong, nullable) UserDataSource*                     userDatasource;
+
+
 + (GameManager* _Nonnull)sharedManager;
 
 #pragma mark -

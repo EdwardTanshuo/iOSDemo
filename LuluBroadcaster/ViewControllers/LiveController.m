@@ -16,10 +16,12 @@
 #import "DanmuCell.h"
 #import "GameManager.h"
 #import "LiveAlertView.h"
+#import "ViewerCell.h"
 
-@interface LiveController ()<LiveDataSourceDelegate, DanmuDatasourceDelegate, GameManagerDelegate, GameManagerEvent, UITableViewDelegate, UITableViewDataSource>
+@interface LiveController ()<UICollectionViewDataSource, LiveDataSourceDelegate, DanmuDatasourceDelegate, GameManagerDelegate, GameManagerEvent, GameManagerDatasource, UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) GPUImageView* imageView;
 
+@property (weak, nonatomic) IBOutlet UICollectionView *collection;
 @property (weak, nonatomic) IBOutlet UITableView *danmu_table;
 @property (weak, nonatomic) IBOutlet UIButton *close;
 
@@ -70,6 +72,7 @@
 - (void)setupGame{
     [GameManager sharedManager].delegate = self;
     [GameManager sharedManager].target = self;
+    [GameManager sharedManager].datasource = self;
 }
 
 - (void)setupDanmuTable{
@@ -78,6 +81,23 @@
     _danmu_table.backgroundColor = [UIColor clearColor];
 
     [self.danmu_table registerNib:[UINib nibWithNibName:@"DanmuCell" bundle:nil] forCellReuseIdentifier:@"DanmuCellID"];
+}
+
+- (void)setupCollection{
+    self.collection.dataSource = self;
+    
+    UICollectionViewFlowLayout* layout = [[UICollectionViewFlowLayout alloc] init];
+    layout.itemSize = CGSizeMake(44.0f, 44.0);
+    layout.minimumLineSpacing = 8.0;
+    layout.minimumInteritemSpacing = 0.0;
+    layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+    
+    self.collection.collectionViewLayout = layout;
+    self.collection.showsVerticalScrollIndicator = NO;
+    self.collection.showsHorizontalScrollIndicator = NO;
+    self.collection.backgroundColor = [UIColor clearColor];
+    
+    [self.collection registerNib:[UINib nibWithNibName:@"ViewerCell" bundle:nil] forCellWithReuseIdentifier:@"ViewerCell"];
 }
 
 #pragma mark -
@@ -132,6 +152,7 @@
     [self updateTableContentInset];
     [self tableViewScrollToBottom: true];
 }
+
 
 #pragma mark -
 #pragma mark UITableViewDataSource
@@ -259,11 +280,11 @@
     [[GameManager sharedManager] entry:@"57c54f1b5894e71f0aab3a78"];
 }
 
-- (void)PlayerEnterEvent: (NSDictionary* _Nullable)data{
+- (void)PlayerEnterEvent:(User *)user{
 
 }
 
-- (void)PlayerLeaveEvent: (NSDictionary* _Nullable)data{
+- (void)PlayerLeaveEvent:(User *)user{
 
 }
 
@@ -272,7 +293,37 @@
 }
 
 - (void)disconnect:(NSError *)error{
-
+    
 }
+
+#pragma mark -
+#pragma mark GameManagerDatasource
+- (void)viewsHasUpdated:(NSArray<User *> *)users{
+    
+}
+
+- (void)sceneHasUpdated:(Scene *)scene{
+    
+}
+
+#pragma mark -
+#pragma mark UICollectionViewDataSource
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
+    return 1;
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    return 0;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    ViewerCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ViewerCell" forIndexPath:indexPath];
+    User* viewer = [[GameManager sharedManager].userDatasource getModelAtIndexPath:indexPath];
+    cell.viewer = viewer;
+    [cell configureCell];
+    return cell;
+}
+
+
 
 @end

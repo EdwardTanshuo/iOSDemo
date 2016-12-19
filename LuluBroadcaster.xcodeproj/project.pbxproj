@@ -94,6 +94,8 @@
 		D7D86E8D1DF286CE00815BEC /* LFGPUImageBeautyFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D86E8A1DF286CE00815BEC /* LFGPUImageBeautyFilter.m */; };
 		D7D86E8E1DF286CE00815BEC /* LFGPUImageEmptyFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D86E8C1DF286CE00815BEC /* LFGPUImageEmptyFilter.m */; };
 		D7DF03861E077A2E0067129B /* UserDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DF03851E077A2E0067129B /* UserDataSource.m */; };
+		D7DF038D1E079A5C0067129B /* ViewerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DF038B1E079A5C0067129B /* ViewerCell.m */; };
+		D7DF038E1E079A5C0067129B /* ViewerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7DF038C1E079A5C0067129B /* ViewerCell.xib */; };
 		F8A13342BDD6C1436E55D75B /* Pods_LuluBroadcaster.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1383794F7AE3E4AF62FC259A /* Pods_LuluBroadcaster.framework */; };
 /* End PBXBuildFile section */
 
@@ -268,6 +270,9 @@
 		D7D86E8C1DF286CE00815BEC /* LFGPUImageEmptyFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LFGPUImageEmptyFilter.m; path = Logic/Helper/filter/LFGPUImageEmptyFilter.m; sourceTree = "<group>"; };
 		D7DF03841E077A2E0067129B /* UserDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserDataSource.h; path = DataSource/UserDataSource.h; sourceTree = "<group>"; };
 		D7DF03851E077A2E0067129B /* UserDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserDataSource.m; path = DataSource/UserDataSource.m; sourceTree = "<group>"; };
+		D7DF038A1E079A5C0067129B /* ViewerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewerCell.h; path = Views/ViewerCell.h; sourceTree = "<group>"; };
+		D7DF038B1E079A5C0067129B /* ViewerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewerCell.m; path = Views/ViewerCell.m; sourceTree = "<group>"; };
+		D7DF038C1E079A5C0067129B /* ViewerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ViewerCell.xib; path = Views/ViewerCell.xib; sourceTree = "<group>"; };
 		DAFDB40B4891175C98C3CFD9 /* Pods-LuluBroadcaster.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LuluBroadcaster.release.xcconfig"; path = "Pods/Target Support Files/Pods-LuluBroadcaster/Pods-LuluBroadcaster.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -738,6 +743,9 @@
 				D77EA5E01DE2DD1F008B0669 /* TransactionCell.h */,
 				D77EA5E11DE2DD1F008B0669 /* TransactionCell.m */,
 				D77EA5E21DE2DD1F008B0669 /* TransactionCell.xib */,
+				D7DF038A1E079A5C0067129B /* ViewerCell.h */,
+				D7DF038B1E079A5C0067129B /* ViewerCell.m */,
+				D7DF038C1E079A5C0067129B /* ViewerCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -946,6 +954,7 @@
 			files = (
 				D77EA5E41DE2DD1F008B0669 /* TransactionCell.xib in Resources */,
 				D7D4AEE91DC7F33E00A782F7 /* LaunchScreen.storyboard in Resources */,
+				D7DF038E1E079A5C0067129B /* ViewerCell.xib in Resources */,
 				D7D4AEE61DC7F33E00A782F7 /* Assets.xcassets in Resources */,
 				D726B0B01DDE84E2002B9068 /* StreamCell.xib in Resources */,
 				D7850CEA1DDFEB4B00E21D8A /* DanmuCell.xib in Resources */,
@@ -1033,6 +1042,7 @@
 				D7D4AF1C1DC8146400A782F7 /* StreamManager.m in Sources */,
 				D76E56E31DD6A2BD004BE5B9 /* ColorConstant.m in Sources */,
 				D722D6031DF9112A0067F1A9 /* SocketIOTransportXHR.m in Sources */,
+				D7DF038D1E079A5C0067129B /* ViewerCell.m in Sources */,
 				D7D4AF141DC80B4400A782F7 /* HomepageController.m in Sources */,
 				D722D6061DF9112A0067F1A9 /* SocketIOJSONSerialization.m in Sources */,
 				D7D4AF2D1DC863F100A782F7 /* LiveManager.m in Sources */,

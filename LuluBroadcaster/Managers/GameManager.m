@@ -9,12 +9,10 @@
 #import "GameManager.h"
 #import "Pomelo.h"
 #import "PomeloProtocol.h"
-#import "UserDataSource.h"
 
 @interface GameManager()<PomeloDelegate, UserDatasourceDelegate>
 @property (nonatomic, strong) Pomelo*           pomelo;
 @property (nonatomic, strong) NSArray<User*>*   palyers;
-@property (nonatomic, strong) UserDataSource*   userDatasource;
 @end
 
 @implementation GameManager
