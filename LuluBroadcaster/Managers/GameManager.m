@@ -9,10 +9,12 @@
 #import "GameManager.h"
 #import "Pomelo.h"
 #import "PomeloProtocol.h"
+#import "UserDataSource.h"
 
-
-@interface GameManager()<PomeloDelegate>
-@property (nonatomic, strong) Pomelo* pomelo;
+@interface GameManager()<PomeloDelegate, UserDatasourceDelegate>
+@property (nonatomic, strong) Pomelo*           pomelo;
+@property (nonatomic, strong) NSArray<User*>*   palyers;
+@property (nonatomic, strong) UserDataSource*   userDatasource;
 @end
 
 @implementation GameManager
@@ -31,6 +33,8 @@
     if (self) {
         self.pomelo = [[Pomelo alloc] initWithDelegate:self];
         self.scene = [[Scene alloc] init];
+        self.userDatasource = [UserDataSource new];
+        self.userDatasource.delegate = self;
         [self setupEventListener];
     }
     return self;
@@ -191,12 +195,48 @@
     __weak GameManager* wself = self;
     id resultObj = [data objectForKey:@"result"];
     if(resultObj && [resultObj isKindOfClass: [NSDictionary class]]){
+        Scene* scene = [Scene sceneWithJSON:resultObj];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [wself.datasource sceneHasUpdated:scene];
+        });
+        wself.scene = scene;
+        return scene;
+    }
+    else{
+        return nil;
+    }
+}
+
+- (User* _Nullable) makeUser: (id _Nullable)data{
+    id resultObj = [data objectForKey:@"result"];
+    if(resultObj && [resultObj isKindOfClass: [NSDictionary class]]){
+        User* user = [User userWithJSON:resultObj];
+        return user;
+    }
+    else{
+        return nil;
+    }
+}
+
+- (Scene* _Nullable) updateScene: (id _Nullable)data{
+    __weak GameManager* wself = self;
+    if(data && [data isKindOfClass: [NSDictionary class]]){
         Scene* scene = [Scene sceneWithJSON:data];
         dispatch_async(dispatch_get_main_queue(), ^{
             [wself.datasource sceneHasUpdated:scene];
         });
         wself.scene = scene;
         return scene;
+    }
+    else{
+        return nil;
+    }
+}
+
+- (User* _Nullable) updateUser: (id _Nullable)data{
+    if(data && [data isKindOfClass: [NSDictionary class]]){
+        User* user = [User userWithJSON:data];
+        return user;
     }
     else{
         return nil;
@@ -214,19 +254,30 @@
     
     [_pomelo onRoute:@"PlayerEnterEvent" withCallback:^(NSDictionary *data){
         dispatch_async(dispatch_get_main_queue(), ^{
-            [wself.target PlayerEnterEvent:data];
+            User* user = [wself updateUser:data];
+            if(!user){
+                return;
+            }
+            [wself.userDatasource addUser:user];
+            [wself.target PlayerEnterEvent:user];
         });
     }];
     
     [_pomelo onRoute:@"PlayerLeaveEvent" withCallback:^(NSDictionary *data){
         dispatch_async(dispatch_get_main_queue(), ^{
-            [wself.target PlayerLeaveEvent:data];
+            User* user = [wself updateUser:data];
+            if(!user){
+                return;
+            }
+            [wself.userDatasource removeUser:user];
+            [wself.target PlayerLeaveEvent:user];
         });
     }];
     
     [_pomelo onRoute:@"NewTurnEvent" withCallback:^(NSDictionary *data){
         dispatch_async(dispatch_get_main_queue(), ^{
-            [wself.target NewTurnEvent:data];
+            Scene* scene = [wself updateScene:data];
+            [wself.target NewTurnEvent:scene];
         });
     }];
 }
@@ -234,5 +285,11 @@
 #pragma mark PomeloDelegate
 - (void)PomeloDidDisconnect:(Pomelo *)pomelo withError:(NSError *)error{
     [self.target disconnect:error];
+}
+
+#pragma mark -
+#pragma mark PomeloReuqests
+- (void)dataHasChanged:(NSArray<User *> *)users{
+    [self.datasource viewsHasUpdated:users];
 }
 @end

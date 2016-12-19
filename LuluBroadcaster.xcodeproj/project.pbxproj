@@ -93,6 +93,7 @@
 		D7D6EBE91DCACC31005935B8 /* INSNanoSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D7D6EBE51DCACC31005935B8 /* INSNanoSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D7D86E8D1DF286CE00815BEC /* LFGPUImageBeautyFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D86E8A1DF286CE00815BEC /* LFGPUImageBeautyFilter.m */; };
 		D7D86E8E1DF286CE00815BEC /* LFGPUImageEmptyFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D86E8C1DF286CE00815BEC /* LFGPUImageEmptyFilter.m */; };
+		D7DF03861E077A2E0067129B /* UserDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DF03851E077A2E0067129B /* UserDataSource.m */; };
 		F8A13342BDD6C1436E55D75B /* Pods_LuluBroadcaster.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1383794F7AE3E4AF62FC259A /* Pods_LuluBroadcaster.framework */; };
 /* End PBXBuildFile section */
 
@@ -265,6 +266,8 @@
 		D7D86E8A1DF286CE00815BEC /* LFGPUImageBeautyFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LFGPUImageBeautyFilter.m; path = Logic/Helper/filter/LFGPUImageBeautyFilter.m; sourceTree = "<group>"; };
 		D7D86E8B1DF286CE00815BEC /* LFGPUImageEmptyFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LFGPUImageEmptyFilter.h; path = Logic/Helper/filter/LFGPUImageEmptyFilter.h; sourceTree = "<group>"; };
 		D7D86E8C1DF286CE00815BEC /* LFGPUImageEmptyFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LFGPUImageEmptyFilter.m; path = Logic/Helper/filter/LFGPUImageEmptyFilter.m; sourceTree = "<group>"; };
+		D7DF03841E077A2E0067129B /* UserDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserDataSource.h; path = DataSource/UserDataSource.h; sourceTree = "<group>"; };
+		D7DF03851E077A2E0067129B /* UserDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserDataSource.m; path = DataSource/UserDataSource.m; sourceTree = "<group>"; };
 		DAFDB40B4891175C98C3CFD9 /* Pods-LuluBroadcaster.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LuluBroadcaster.release.xcconfig"; path = "Pods/Target Support Files/Pods-LuluBroadcaster/Pods-LuluBroadcaster.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -675,6 +678,7 @@
 		D7D4AF001DC801D700A782F7 /* Datasources */ = {
 			isa = PBXGroup;
 			children = (
+				D7DF03831E0779D30067129B /* user */,
 				D77EA5D71DE2D6F0008B0669 /* transaction */,
 				D77EA5C31DE1974D008B0669 /* history */,
 				D7850CE51DDFCBEB00E21D8A /* danmu */,
@@ -869,6 +873,15 @@
 			name = Filter;
 			sourceTree = "<group>";
 		};
+		D7DF03831E0779D30067129B /* user */ = {
+			isa = PBXGroup;
+			children = (
+				D7DF03841E077A2E0067129B /* UserDataSource.h */,
+				D7DF03851E077A2E0067129B /* UserDataSource.m */,
+			);
+			name = user;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1006,6 +1019,7 @@
 				D722D6071DF9112A0067F1A9 /* SocketIO.m in Sources */,
 				D77EA5BB1DE12FA5008B0669 /* HistoryViewController.m in Sources */,
 				D722D6051DF9112A0067F1A9 /* SocketIOPacket.m in Sources */,
+				D7DF03861E077A2E0067129B /* UserDataSource.m in Sources */,
 				D76E56E71DD7E5C7004BE5B9 /* CustomerTabBarController.m in Sources */,
 				D7501A731E049FB1000C7DED /* Card.m in Sources */,
 				D7D4AEDE1DC7F33D00A782F7 /* AppDelegate.m in Sources */,
