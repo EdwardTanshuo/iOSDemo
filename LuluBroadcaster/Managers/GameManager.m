@@ -286,7 +286,7 @@
 }
 
 #pragma mark -
-#pragma mark PomeloReuqests
+#pragma mark UserDatasourceDelegate
 - (void)dataHasChanged:(NSArray<User *> *)users{
     [self.datasource viewsHasUpdated:users];
 }

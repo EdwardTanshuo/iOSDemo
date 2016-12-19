@@ -21,5 +21,5 @@
 - (void)removeUser: (User* _Nonnull)user;
 - (User* _Nonnull) getModelAtIndexPath: (NSIndexPath* _Nonnull) indexPath;
 - (void)update: (NSArray<User*>* _Nullable)users;
-
+- (NSUInteger)numberOfUsers;
 @end

@@ -313,7 +313,7 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 0;
+    return [[GameManager sharedManager].userDatasource numberOfUsers];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -323,7 +323,5 @@
     [cell configureCell];
     return cell;
 }
-
-
 
 @end

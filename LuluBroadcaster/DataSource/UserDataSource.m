@@ -46,6 +46,7 @@
     NSArray *subArray = [_users filteredArrayUsingPredicate:predicate];
     if(!subArray || [subArray count] == 0){
         [_users insertObject:user atIndex:0];
+        [_delegate dataHasChanged:_users];
     }
 }
 
@@ -56,14 +57,18 @@
         return;
     }
     [_users removeObject:results[0]];
+    [_delegate dataHasChanged:_users];
 }
 
 - (User* _Nonnull) getModelAtIndexPath: (NSIndexPath* _Nonnull) indexPath{
-    return nil;
+    return self.users[indexPath.item];
 }
 
 - (void)update: (NSArray<User*>* _Nullable)users{
     self.users = users;
 }
 
+- (NSUInteger)numberOfUsers{
+    return [self.users count];
+}
 @end
