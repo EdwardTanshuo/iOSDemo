@@ -8,12 +8,14 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LiveController">
             <connections>
                 <outlet property="avatar" destination="Pza-h6-Ty5" id="66S-yJ-1t0"/>
+                <outlet property="betting" destination="aUF-ad-Oyx" id="a3F-7M-KYE"/>
                 <outlet property="broadcasterCount" destination="tTV-Gp-QiX" id="pBW-BY-JD3"/>
                 <outlet property="broadcasterName" destination="tpu-KJ-CEG" id="A2U-sr-7jU"/>
                 <outlet property="close" destination="X4l-Ve-97J" id="yBF-oy-kjj"/>
                 <outlet property="collection" destination="uLF-fx-JHD" id="yzy-vL-Pxo"/>
                 <outlet property="danmu_table" destination="3aa-xP-vcb" id="P4J-pZ-S2E"/>
                 <outlet property="diamond" destination="gh3-AX-5vd" id="M5X-ZZ-zGH"/>
+                <outlet property="list" destination="Qvj-dq-ulG" id="Yte-8v-uxm"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -87,9 +89,6 @@
                             <exclude reference="8RW-Eh-9FO"/>
                         </mask>
                     </variation>
-                    <connections>
-                        <action selector="startGame:" destination="-1" eventType="touchUpInside" id="1hs-Fz-WKd"/>
-                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gh3-AX-5vd">
                     <rect key="frame" x="228" y="570" width="145" height="21"/>

@@ -93,6 +93,8 @@
 		D7D6EBE91DCACC31005935B8 /* INSNanoSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D7D6EBE51DCACC31005935B8 /* INSNanoSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D7D86E8D1DF286CE00815BEC /* LFGPUImageBeautyFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D86E8A1DF286CE00815BEC /* LFGPUImageBeautyFilter.m */; };
 		D7D86E8E1DF286CE00815BEC /* LFGPUImageEmptyFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D86E8C1DF286CE00815BEC /* LFGPUImageEmptyFilter.m */; };
+		D7D89C0A1E09126D00EA660B /* GamePlatformController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D89C081E09126D00EA660B /* GamePlatformController.m */; };
+		D7D89C0B1E09126D00EA660B /* GamePlatformController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7D89C091E09126D00EA660B /* GamePlatformController.xib */; };
 		D7DF03861E077A2E0067129B /* UserDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DF03851E077A2E0067129B /* UserDataSource.m */; };
 		D7DF038D1E079A5C0067129B /* ViewerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DF038B1E079A5C0067129B /* ViewerCell.m */; };
 		D7DF038E1E079A5C0067129B /* ViewerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7DF038C1E079A5C0067129B /* ViewerCell.xib */; };
@@ -268,6 +270,9 @@
 		D7D86E8A1DF286CE00815BEC /* LFGPUImageBeautyFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LFGPUImageBeautyFilter.m; path = Logic/Helper/filter/LFGPUImageBeautyFilter.m; sourceTree = "<group>"; };
 		D7D86E8B1DF286CE00815BEC /* LFGPUImageEmptyFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LFGPUImageEmptyFilter.h; path = Logic/Helper/filter/LFGPUImageEmptyFilter.h; sourceTree = "<group>"; };
 		D7D86E8C1DF286CE00815BEC /* LFGPUImageEmptyFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LFGPUImageEmptyFilter.m; path = Logic/Helper/filter/LFGPUImageEmptyFilter.m; sourceTree = "<group>"; };
+		D7D89C071E09126D00EA660B /* GamePlatformController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GamePlatformController.h; path = ViewControllers/GamePlatformController.h; sourceTree = "<group>"; };
+		D7D89C081E09126D00EA660B /* GamePlatformController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GamePlatformController.m; path = ViewControllers/GamePlatformController.m; sourceTree = "<group>"; };
+		D7D89C091E09126D00EA660B /* GamePlatformController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GamePlatformController.xib; path = ViewControllers/GamePlatformController.xib; sourceTree = "<group>"; };
 		D7DF03841E077A2E0067129B /* UserDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserDataSource.h; path = DataSource/UserDataSource.h; sourceTree = "<group>"; };
 		D7DF03851E077A2E0067129B /* UserDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserDataSource.m; path = DataSource/UserDataSource.m; sourceTree = "<group>"; };
 		D7DF038A1E079A5C0067129B /* ViewerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewerCell.h; path = Views/ViewerCell.h; sourceTree = "<group>"; };
@@ -708,6 +713,7 @@
 		D7D4AF021DC8020500A782F7 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				D7D89C061E09124600EA660B /* gamePlatform */,
 				D74B3B8E1DF44C0D00539722 /* params */,
 				D77EA5B71DE12F32008B0669 /* transactions */,
 				D77EA5B61DE12F29008B0669 /* history */,
@@ -881,6 +887,16 @@
 			name = Filter;
 			sourceTree = "<group>";
 		};
+		D7D89C061E09124600EA660B /* gamePlatform */ = {
+			isa = PBXGroup;
+			children = (
+				D7D89C071E09126D00EA660B /* GamePlatformController.h */,
+				D7D89C081E09126D00EA660B /* GamePlatformController.m */,
+				D7D89C091E09126D00EA660B /* GamePlatformController.xib */,
+			);
+			name = gamePlatform;
+			sourceTree = "<group>";
+		};
 		D7DF03831E0779D30067129B /* user */ = {
 			isa = PBXGroup;
 			children = (
@@ -962,6 +978,7 @@
 				D7BA5C641DCAD78C000F1AB7 /* LiveController.xib in Resources */,
 				D77EA5F21DE2E3CD008B0669 /* NSDateTimeAgo.bundle in Resources */,
 				D77EA5CC1DE1A1FC008B0669 /* HistoryCell.xib in Resources */,
+				D7D89C0B1E09126D00EA660B /* GamePlatformController.xib in Resources */,
 				D7D4AEE41DC7F33D00A782F7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1043,6 +1060,7 @@
 				D76E56E31DD6A2BD004BE5B9 /* ColorConstant.m in Sources */,
 				D722D6031DF9112A0067F1A9 /* SocketIOTransportXHR.m in Sources */,
 				D7DF038D1E079A5C0067129B /* ViewerCell.m in Sources */,
+				D7D89C0A1E09126D00EA660B /* GamePlatformController.m in Sources */,
 				D7D4AF141DC80B4400A782F7 /* HomepageController.m in Sources */,
 				D722D6061DF9112A0067F1A9 /* SocketIOJSONSerialization.m in Sources */,
 				D7D4AF2D1DC863F100A782F7 /* LiveManager.m in Sources */,

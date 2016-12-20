@@ -20,15 +20,30 @@
 #import "ViewerCell.h"
 
 @interface LiveController ()<UICollectionViewDataSource, LiveDataSourceDelegate, DanmuDatasourceDelegate, GameManagerDelegate, GameManagerEvent, GameManagerDatasource, UITableViewDelegate, UITableViewDataSource>
+
+//video window
 @property (nonatomic, strong) GPUImageView* imageView;
 
+//image views
 @property (weak, nonatomic) IBOutlet UILabel *diamond;
-@property (weak, nonatomic) IBOutlet UICollectionView *collection;
-@property (weak, nonatomic) IBOutlet UITableView *danmu_table;
-@property (weak, nonatomic) IBOutlet UIButton *close;
 @property (weak, nonatomic) IBOutlet UIImageView *avatar;
+
+//viewers bar
+@property (weak, nonatomic) IBOutlet UICollectionView *collection;
+
+//danmu
+@property (weak, nonatomic) IBOutlet UITableView *danmu_table;
+
+//buttons
+@property (weak, nonatomic) IBOutlet UIButton *close;
+@property (weak, nonatomic) IBOutlet UIButton *betting;
+@property (weak, nonatomic) IBOutlet UIButton *list;
+
+//labels
 @property (weak, nonatomic) IBOutlet UILabel *broadcasterName;
 @property (weak, nonatomic) IBOutlet UILabel *broadcasterCount;
+
+
 @end
 
 @implementation LiveController
@@ -134,7 +149,8 @@
 
 
 - (IBAction)startBet:(id)sender {
-     [[GameManager sharedManager] startBet: _scene.room];
+    self.betting.userInteractionEnabled = NO;
+    [[GameManager sharedManager] startBet: _scene.room];
 }
 
 - (IBAction)startGame:(id)sender {
@@ -248,6 +264,8 @@
 }
 
 - (void)betCallBack:(id)argsData{
+    self.betting.userInteractionEnabled = YES;
+    
     if([[argsData objectForKey:@"code"] integerValue] == 200){
         NSLog(@"OK");
     }

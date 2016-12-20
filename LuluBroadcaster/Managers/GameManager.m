@@ -295,6 +295,7 @@
             [wself.target NewTurnEvent:scene];
         });
     }];
+    
 }
 #pragma mark -
 #pragma mark PomeloDelegate
