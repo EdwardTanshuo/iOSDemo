@@ -97,6 +97,8 @@
 		D7D89C0B1E09126D00EA660B /* GamePlatformController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7D89C091E09126D00EA660B /* GamePlatformController.xib */; };
 		D7D89C111E09235000EA660B /* BettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D89C0F1E09235000EA660B /* BettingController.m */; };
 		D7D89C121E09235000EA660B /* BettingController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7D89C101E09235000EA660B /* BettingController.xib */; };
+		D7D89C171E09FA3800EA660B /* PlayerDrawController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D89C151E09FA3800EA660B /* PlayerDrawController.m */; };
+		D7D89C181E09FA3800EA660B /* PlayerDrawController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7D89C161E09FA3800EA660B /* PlayerDrawController.xib */; };
 		D7DF03861E077A2E0067129B /* UserDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DF03851E077A2E0067129B /* UserDataSource.m */; };
 		D7DF038D1E079A5C0067129B /* ViewerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DF038B1E079A5C0067129B /* ViewerCell.m */; };
 		D7DF038E1E079A5C0067129B /* ViewerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7DF038C1E079A5C0067129B /* ViewerCell.xib */; };
@@ -278,6 +280,9 @@
 		D7D89C0E1E09235000EA660B /* BettingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BettingController.h; path = ViewControllers/BettingController.h; sourceTree = "<group>"; };
 		D7D89C0F1E09235000EA660B /* BettingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BettingController.m; path = ViewControllers/BettingController.m; sourceTree = "<group>"; };
 		D7D89C101E09235000EA660B /* BettingController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BettingController.xib; path = ViewControllers/BettingController.xib; sourceTree = "<group>"; };
+		D7D89C141E09FA3800EA660B /* PlayerDrawController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayerDrawController.h; path = ViewControllers/PlayerDrawController.h; sourceTree = "<group>"; };
+		D7D89C151E09FA3800EA660B /* PlayerDrawController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayerDrawController.m; path = ViewControllers/PlayerDrawController.m; sourceTree = "<group>"; };
+		D7D89C161E09FA3800EA660B /* PlayerDrawController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PlayerDrawController.xib; path = ViewControllers/PlayerDrawController.xib; sourceTree = "<group>"; };
 		D7DF03841E077A2E0067129B /* UserDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserDataSource.h; path = DataSource/UserDataSource.h; sourceTree = "<group>"; };
 		D7DF03851E077A2E0067129B /* UserDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserDataSource.m; path = DataSource/UserDataSource.m; sourceTree = "<group>"; };
 		D7DF038A1E079A5C0067129B /* ViewerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewerCell.h; path = Views/ViewerCell.h; sourceTree = "<group>"; };
@@ -895,6 +900,7 @@
 		D7D89C061E09124600EA660B /* gamePlatform */ = {
 			isa = PBXGroup;
 			children = (
+				D7D89C131E09FA1000EA660B /* playerDraw */,
 				D7D89C0D1E09230E00EA660B /* betting */,
 				D7D89C0C1E09230500EA660B /* drawing */,
 			);
@@ -919,6 +925,16 @@
 				D7D89C101E09235000EA660B /* BettingController.xib */,
 			);
 			name = betting;
+			sourceTree = "<group>";
+		};
+		D7D89C131E09FA1000EA660B /* playerDraw */ = {
+			isa = PBXGroup;
+			children = (
+				D7D89C141E09FA3800EA660B /* PlayerDrawController.h */,
+				D7D89C151E09FA3800EA660B /* PlayerDrawController.m */,
+				D7D89C161E09FA3800EA660B /* PlayerDrawController.xib */,
+			);
+			name = playerDraw;
 			sourceTree = "<group>";
 		};
 		D7DF03831E0779D30067129B /* user */ = {
@@ -998,6 +1014,7 @@
 				D7DF038E1E079A5C0067129B /* ViewerCell.xib in Resources */,
 				D7D4AEE61DC7F33E00A782F7 /* Assets.xcassets in Resources */,
 				D726B0B01DDE84E2002B9068 /* StreamCell.xib in Resources */,
+				D7D89C181E09FA3800EA660B /* PlayerDrawController.xib in Resources */,
 				D7850CEA1DDFEB4B00E21D8A /* DanmuCell.xib in Resources */,
 				D78D0B621DDA7CA100B01108 /* LoginController.xib in Resources */,
 				D7BA5C641DCAD78C000F1AB7 /* LiveController.xib in Resources */,
@@ -1087,6 +1104,7 @@
 				D7DF038D1E079A5C0067129B /* ViewerCell.m in Sources */,
 				D7D89C0A1E09126D00EA660B /* GamePlatformController.m in Sources */,
 				D7D4AF141DC80B4400A782F7 /* HomepageController.m in Sources */,
+				D7D89C171E09FA3800EA660B /* PlayerDrawController.m in Sources */,
 				D722D6061DF9112A0067F1A9 /* SocketIOJSONSerialization.m in Sources */,
 				D7D4AF2D1DC863F100A782F7 /* LiveManager.m in Sources */,
 				D726B0AF1DDE84E2002B9068 /* StreamCell.m in Sources */,

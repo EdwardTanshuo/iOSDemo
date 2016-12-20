@@ -21,6 +21,7 @@
 
 #import "GamePlatformController.h"
 #import "BettingController.h"
+#import "PlayerDrawController.h"
 
 @interface LiveController ()<UICollectionViewDataSource, LiveDataSourceDelegate, DanmuDatasourceDelegate, GameManagerDelegate, GameManagerEvent, GameManagerDatasource, UITableViewDelegate, UITableViewDataSource>
 
@@ -73,7 +74,7 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated{
-    
+    [self showScene:self.scene];
 }
 
 - (void)dealloc{
@@ -386,6 +387,7 @@
                 [_currentGameUIController.view removeFromSuperview];
             }
             BettingController* vc = [[BettingController alloc] initWithNibName:@"BettingController" bundle:nil];
+            vc.scene = self.scene;
             vc.view.frame = self.view.bounds;
             [vc.view layoutIfNeeded];
             [self.view addSubview:vc.view];
@@ -397,14 +399,26 @@
                 [_currentGameUIController.view removeFromSuperview];
             }
             GamePlatformController* vc = [[GamePlatformController alloc] initWithNibName:@"GamePlatformController" bundle:nil];
+            vc.scene = self.scene;
             vc.view.frame = self.view.bounds;
             [vc.view layoutIfNeeded];
             [self.view addSubview:vc.view];
             self.currentGameUIController = vc;
             break;
         }
-        case SceneStatusPlayerTurn:
+        case SceneStatusPlayerTurn:{
+            if(_currentGameUIController){
+                [_currentGameUIController.view removeFromSuperview];
+            }
+            PlayerDrawController* vc = [[PlayerDrawController alloc] initWithNibName:@"PlayerDrawController" bundle:nil];
+            vc.scene = self.scene;
+            vc.view.frame = self.view.bounds;
+            [vc.view layoutIfNeeded];
+            [self.view addSubview:vc.view];
+            self.currentGameUIController = vc;
+
             break;
+        }
     }
 }
 @end
