@@ -14,8 +14,8 @@
 @end
 
 @interface UserDataSource : NSObject
-@property (nonatomic, strong, nonnull) NSArray<User*>* users;
-@property (nonatomic, weak, nullable) id<UserDatasourceDelegate> delegate;
+@property (nonatomic, strong, nonnull) NSArray<User*>*              users;
+@property (nonatomic, weak, nullable) id<UserDatasourceDelegate>    delegate;
 
 - (void)addUser: (User* _Nonnull)user;
 - (void)removeUser: (User* _Nonnull)user;

@@ -245,6 +245,23 @@
     return [[data objectForKey:@"code"] integerValue];
 }
 
+
+- (NSUInteger) numberOfDiamond{
+    NSUInteger sum = 0;
+    
+    if(!self.scene.player_bets || ![self.scene.player_bets isKindOfClass: [NSDictionary class]]){
+        return sum;
+    }else{
+        for(NSString* key in self.scene.player_bets.allKeys){
+            id item = [self.scene.player_bets objectForKey:key];
+            if([item isKindOfClass:[NSNumber class]]){
+                sum += [item integerValue];
+            }
+        }
+    }
+    return sum;
+}
+
 #pragma mark -
 #pragma mark PomeloEvents
 - (void)setupEventListener{

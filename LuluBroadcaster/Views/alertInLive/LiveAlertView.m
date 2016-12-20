@@ -22,10 +22,11 @@
     self = [super init];
     if (self) {
         self.textColor = [UIColor lightTextColor];
-        self.font = [UIFont systemFontOfSize:23.0f];
+        self.font = [UIFont systemFontOfSize:15.0f];
         self.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.3];
         self.clipsToBounds = YES;
         self.layer.cornerRadius = 8.0f;
+        self.textAlignment = NSTextAlignmentCenter;
         _timer = [NSTimer scheduledTimerWithTimeInterval:DURATION target:self selector:@selector(timeUp) userInfo:nil repeats:NO];
     }
     return self;

@@ -10,7 +10,7 @@
 #import "Scene.h"
 #import "UserDataSource.h"
 
-#define GAME_IP @"10.10.17.199"
+#define GAME_IP @"10.10.17.182"
 #define GAME_PORT 3020
 
 typedef void (^_Nullable GameManagerCallback)(id _Nullable argsData);
@@ -41,7 +41,7 @@ typedef void (^_Nullable GameManagerResultCallback)(NSError* _Nullable err, Scen
 @end
 
 @interface GameManager : NSObject
-@property (nonatomic, strong, nonnull) Scene* scene;
+@property (nonatomic, strong, nonnull) Scene*                               scene;
 @property (nonatomic, weak, nullable)   id<GameManagerDelegate>             delegate;
 @property (nonatomic, weak, nullable)   id<GameManagerEvent>                target;
 @property (nonatomic, weak, nullable)   id<GameManagerDatasource>           datasource;
@@ -71,4 +71,6 @@ typedef void (^_Nullable GameManagerResultCallback)(NSError* _Nullable err, Scen
 - (NSError* _Nullable) makeError: (id _Nullable)data;
 - (Scene* _Nullable) makeScene: (id _Nullable)data;
 - (NSInteger)makeCode: (id _Nullable)data;
+
+- (NSUInteger) numberOfDiamond;
 @end

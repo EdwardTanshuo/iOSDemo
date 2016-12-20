@@ -60,4 +60,6 @@
                               };
     [KZPropertyMapper mapValuesFrom:data toInstance:self usingMapping:mapping];
 }
+
+
 @end

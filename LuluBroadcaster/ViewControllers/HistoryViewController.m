@@ -109,5 +109,4 @@
     return CELL_HEIGHT;
 }
 
-
 @end

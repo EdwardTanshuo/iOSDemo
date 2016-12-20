@@ -44,6 +44,14 @@
                               @"dealer_bets": KZProperty(dealer_bets),
                               @"turns": KZProperty(turns),
                               };
+    
+    //dealer
+    id dealer = [data objectForKey:@"dealer"];
+    if(dealer && [dealer isKindOfClass:[NSDictionary class]]){
+        Broadcaster* temp = [Broadcaster broadcasterPHPWithJSON:dealer];
+        self.dealer = temp;
+    }
+    
     //dealer_deck
     id dealerDeck = [data objectForKey:@"dealer_deck"];
     if(dealerDeck && [dealerDeck isKindOfClass:[NSArray class]]){

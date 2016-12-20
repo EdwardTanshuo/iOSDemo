@@ -12,6 +12,7 @@
 #import "CameraManager.h"
 #import <GPUImage/GPUImageFramework.h>
 #import <NSLogger/LoggerClient.h>
+#import <SDWebImage/UIImageView+WebCache.h>
 #import "DanmuManager.h"
 #import "DanmuCell.h"
 #import "GameManager.h"
@@ -21,10 +22,13 @@
 @interface LiveController ()<UICollectionViewDataSource, LiveDataSourceDelegate, DanmuDatasourceDelegate, GameManagerDelegate, GameManagerEvent, GameManagerDatasource, UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) GPUImageView* imageView;
 
+@property (weak, nonatomic) IBOutlet UILabel *diamond;
 @property (weak, nonatomic) IBOutlet UICollectionView *collection;
 @property (weak, nonatomic) IBOutlet UITableView *danmu_table;
 @property (weak, nonatomic) IBOutlet UIButton *close;
-
+@property (weak, nonatomic) IBOutlet UIImageView *avatar;
+@property (weak, nonatomic) IBOutlet UILabel *broadcasterName;
+@property (weak, nonatomic) IBOutlet UILabel *broadcasterCount;
 @end
 
 @implementation LiveController
@@ -48,6 +52,10 @@
     [self launchLive];
 }
 
+- (void)viewDidAppear:(BOOL)animated{
+    
+}
+
 - (void)dealloc{
    
 }
@@ -63,6 +71,20 @@
     [_imageView setBackgroundColorRed:0 green:0 blue:0 alpha:1.0];
     [self.view insertSubview:_imageView atIndex:0];
     
+    _avatar.clipsToBounds = YES;
+    _avatar.layer.cornerRadius = _avatar.frame.size.height / 2.0;
+    [_avatar sd_setImageWithURL: [NSURL URLWithString:self.scene.dealer.profileImageURL]
+               placeholderImage: [UIImage new]
+                      completed: ^(UIImage *image,
+                                   NSError *error,
+                                   SDImageCacheType cacheType,
+                                   NSURL *imageURL) {
+        
+    }];
+    
+    self.broadcasterName.text = self.scene.dealer.name;
+    self.broadcasterCount.text = [NSString stringWithFormat:@"%ld", [[GameManager sharedManager].userDatasource numberOfUsers]];
+    self.diamond.text = [NSString stringWithFormat:@"%ld", [[GameManager sharedManager] numberOfDiamond]];
 }
 
 - (void)setupDanmuDatasource{
@@ -209,9 +231,8 @@
 
 - (void)entryCallBack:(id _Nullable) argsData{
     if([[argsData objectForKey:@"code"] integerValue] == 200){
-        [[GameManager sharedManager] createGame:@"57c54f1b5894e71f0aab3a78"];
+        NSLog(@"OK");
     }
-    
 }
 
 - (void)createCallBack:(id _Nullable) argsData{
@@ -223,10 +244,6 @@
 - (void)startCallBack:(id _Nullable) argsData{
     if([[argsData objectForKey:@"code"] integerValue] == 200){
         NSLog(@"OK");
-    }
-    else{
-        NSError* error = [[GameManager sharedManager] makeError:argsData];
-        [LiveAlertView popOutInController:self error:error];
     }
 }
 
@@ -277,7 +294,7 @@
 #pragma mark -
 #pragma mark GameManagerEvent
 - (void)didConnected{
-    [[GameManager sharedManager] entry:@"57c54f1b5894e71f0aab3a78"];
+    
 }
 
 - (void)PlayerEnterEvent:(User *)user{
@@ -299,11 +316,12 @@
 #pragma mark -
 #pragma mark GameManagerDatasource
 - (void)viewsHasUpdated:(NSArray<User *> *)users{
-    
+    [self.collection reloadData];
+    self.broadcasterCount.text = [NSString stringWithFormat:@"%ld", [[GameManager sharedManager].userDatasource numberOfUsers]];
 }
 
 - (void)sceneHasUpdated:(Scene *)scene{
-    
+    [self showScene: scene];
 }
 
 #pragma mark -
@@ -324,4 +342,19 @@
     return cell;
 }
 
+#pragma mark -
+#pragma mark scene constructor
+- (void) showScene: (Scene*)scene{
+    switch(scene.status){
+        case SceneStatusInit:
+            
+            break;
+        case SceneStatusBetting:
+            break;
+        case SceneStatusDealerTurn:
+            break;
+        case SceneStatusPlayerTurn:
+            break;
+    }
+}
 @end
