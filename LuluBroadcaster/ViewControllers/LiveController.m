@@ -19,6 +19,9 @@
 #import "LiveAlertView.h"
 #import "ViewerCell.h"
 
+#import "GamePlatformController.h"
+#import "BettingController.h"
+
 @interface LiveController ()<UICollectionViewDataSource, LiveDataSourceDelegate, DanmuDatasourceDelegate, GameManagerDelegate, GameManagerEvent, GameManagerDatasource, UITableViewDelegate, UITableViewDataSource>
 
 //video window
@@ -43,6 +46,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *broadcasterName;
 @property (weak, nonatomic) IBOutlet UILabel *broadcasterCount;
 
+//current game UI
+@property (nonatomic, strong) UIViewController* currentGameUIController;
 
 @end
 
@@ -72,7 +77,7 @@
 }
 
 - (void)dealloc{
-   
+    
 }
 
 - (void)launchLive{
@@ -94,8 +99,8 @@
                                    NSError *error,
                                    SDImageCacheType cacheType,
                                    NSURL *imageURL) {
-        
-    }];
+                          
+                      }];
     
     self.broadcasterName.text = self.scene.dealer.name;
     self.broadcasterCount.text = [NSString stringWithFormat:@"%ld", [[GameManager sharedManager].userDatasource numberOfUsers]];
@@ -103,7 +108,7 @@
 }
 
 - (void)setupDanmuDatasource{
-     [DanmuManager sharedManager].delegate = self;
+    [DanmuManager sharedManager].delegate = self;
 }
 
 - (void)setupGame{
@@ -116,7 +121,7 @@
     _danmu_table.delegate = self;
     _danmu_table.dataSource = self;
     _danmu_table.backgroundColor = [UIColor clearColor];
-
+    
     [self.danmu_table registerNib:[UINib nibWithNibName:@"DanmuCell" bundle:nil] forCellReuseIdentifier:@"DanmuCellID"];
 }
 
@@ -171,11 +176,11 @@
 
 - (void)recieveOnRawFragment:(CVPixelBufferRef)pixelBuffer timestamp:(int64_t)timestamp{
     
-  
+    
 }
 
 - (void)recieveError:(NSError *)error{
-     self.view.backgroundColor = [UIColor blackColor];
+    self.view.backgroundColor = [UIColor blackColor];
 }
 
 
@@ -258,16 +263,22 @@
 }
 
 - (void)startCallBack:(id _Nullable) argsData{
-    if([[argsData objectForKey:@"code"] integerValue] == 200){
-        NSLog(@"OK");
+    self.betting.userInteractionEnabled = YES;
+    
+    if([[GameManager sharedManager] makeCode: argsData] == 200){
+        self.scene = [[GameManager sharedManager] makeScene:argsData];
+    }
+    else{
+        NSError* error = [[GameManager sharedManager] makeError:argsData];
+        [LiveAlertView popOutInController:self error:error];
     }
 }
 
 - (void)betCallBack:(id)argsData{
     self.betting.userInteractionEnabled = YES;
     
-    if([[argsData objectForKey:@"code"] integerValue] == 200){
-        NSLog(@"OK");
+    if([[GameManager sharedManager] makeCode: argsData] == 200){
+        self.scene = [[GameManager sharedManager] makeScene:argsData];
     }
     else{
         NSError* error = [[GameManager sharedManager] makeError:argsData];
@@ -316,15 +327,15 @@
 }
 
 - (void)PlayerEnterEvent:(User *)user{
-
+    
 }
 
 - (void)PlayerLeaveEvent:(User *)user{
-
+    
 }
 
 - (void)NewTurnEvent: (NSDictionary* _Nullable)data{
-
+    
 }
 
 - (void)disconnect:(NSError *)error{
@@ -364,13 +375,34 @@
 #pragma mark scene constructor
 - (void) showScene: (Scene*)scene{
     switch(scene.status){
-        case SceneStatusInit:
-            
+        case SceneStatusInit:{
+            if(_currentGameUIController){
+                [_currentGameUIController.view removeFromSuperview];
+            }
             break;
-        case SceneStatusBetting:
+        }
+        case SceneStatusBetting:{
+            if(_currentGameUIController){
+                [_currentGameUIController.view removeFromSuperview];
+            }
+            BettingController* vc = [[BettingController alloc] initWithNibName:@"BettingController" bundle:nil];
+            vc.view.frame = self.view.bounds;
+            [vc.view layoutIfNeeded];
+            [self.view addSubview:vc.view];
+            self.currentGameUIController = vc;
             break;
-        case SceneStatusDealerTurn:
+        }
+        case SceneStatusDealerTurn:{
+            if(_currentGameUIController){
+                [_currentGameUIController.view removeFromSuperview];
+            }
+            GamePlatformController* vc = [[GamePlatformController alloc] initWithNibName:@"GamePlatformController" bundle:nil];
+            vc.view.frame = self.view.bounds;
+            [vc.view layoutIfNeeded];
+            [self.view addSubview:vc.view];
+            self.currentGameUIController = vc;
             break;
+        }
         case SceneStatusPlayerTurn:
             break;
     }
