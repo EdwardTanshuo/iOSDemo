@@ -30,7 +30,7 @@
 #pragma mark -
 #pragma mark anctions
 - (IBAction)endAction:(id)sender {
-    
+     [[GameManager sharedManager] endDealer:self.scene.room];
 }
 
 - (IBAction)drawAction:(id)sender {
