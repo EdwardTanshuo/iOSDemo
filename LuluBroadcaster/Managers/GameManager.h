@@ -73,4 +73,5 @@ typedef void (^_Nullable GameManagerResultCallback)(NSError* _Nullable err, Scen
 - (NSInteger)makeCode: (id _Nullable)data;
 
 - (NSUInteger) numberOfDiamond;
+
 @end

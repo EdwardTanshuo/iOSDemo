@@ -85,8 +85,8 @@
                     <state key="normal" image="live_list"/>
                     <variation key="default">
                         <mask key="constraints">
-                            <exclude reference="b9L-vc-8z1"/>
                             <exclude reference="8RW-Eh-9FO"/>
+                            <exclude reference="b9L-vc-8z1"/>
                         </mask>
                     </variation>
                 </button>

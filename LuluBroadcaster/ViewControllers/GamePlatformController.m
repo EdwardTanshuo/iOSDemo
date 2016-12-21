@@ -10,6 +10,8 @@
 
 @interface GamePlatformController ()
 @property (weak, nonatomic) IBOutlet UIView *panel;
+@property (weak, nonatomic) IBOutlet UIButton *drawButton;
+@property (weak, nonatomic) IBOutlet UIButton *endButton;
 
 @end
 
@@ -23,6 +25,16 @@
 - (void)setupViews{
     self.panel.clipsToBounds = YES;
     self.panel.layer.cornerRadius = 16.0f;
+}
+
+#pragma mark -
+#pragma mark anctions
+- (IBAction)endAction:(id)sender {
+    
+}
+
+- (IBAction)drawAction:(id)sender {
+    [[GameManager sharedManager] drawCard:self.scene.room];
 }
 
 @end
