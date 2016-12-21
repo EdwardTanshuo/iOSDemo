@@ -288,8 +288,8 @@
 }
 
 - (void)endDealerCallBack:(id)argsData{
-    if([[argsData objectForKey:@"code"] integerValue] == 200){
-        NSLog(@"OK");
+    if([[GameManager sharedManager] makeCode: argsData] == 200){
+        self.scene = [[GameManager sharedManager] makeScene:argsData];
     }
     else{
         NSError* error = [[GameManager sharedManager] makeError:argsData];
@@ -335,7 +335,7 @@
     
 }
 
-- (void)NewTurnEvent: (NSDictionary* _Nullable)data{
+- (void)NewTurnEvent:(Scene *)scene{
     
 }
 

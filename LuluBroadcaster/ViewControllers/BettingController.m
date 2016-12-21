@@ -40,7 +40,7 @@ static NSInteger secondRemain;
 }
 
 - (void)setupTimer{
-    secondRemain = 60;
+    secondRemain = (NSInteger)(self.scene.durationBet / 1000.0f);
     self.timerLabel.text = [NSString stringWithFormat:@"%ld", secondRemain];
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(tick) userInfo:nil repeats:YES];
 }
@@ -57,6 +57,9 @@ static NSInteger secondRemain;
 
 - (void)timeup{
     [self.timer invalidate];
+    if([GameManager sharedManager].scene.status != SceneStatusBetting){
+        return;
+    }
     [GameManager sharedManager].scene.status = SceneStatusInit;
     [[GameManager sharedManager].datasource sceneHasUpdated:[GameManager sharedManager].scene];
 }
@@ -65,6 +68,7 @@ static NSInteger secondRemain;
 #pragma mark actions
 - (IBAction)startGame:(id)sender {
     //self.startButton.userInteractionEnabled = NO;
+    [self.timer invalidate];
     [[GameManager sharedManager] startGame: self.scene.room];
 }
 

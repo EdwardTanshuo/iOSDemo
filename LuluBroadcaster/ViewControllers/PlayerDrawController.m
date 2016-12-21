@@ -36,7 +36,7 @@ static NSInteger secondRemain;
 }
 
 - (void)setupTimer{
-    secondRemain = 60;
+    secondRemain = (NSInteger)(self.scene.durationPlayerTurn / 1000.0f);
     self.timerLabel.text = [NSString stringWithFormat:@"%ld", secondRemain];
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(tick) userInfo:nil repeats:YES];
 }

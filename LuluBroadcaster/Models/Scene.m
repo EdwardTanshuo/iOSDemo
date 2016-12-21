@@ -43,6 +43,9 @@
     NSDictionary* mapping = @{@"room": KZProperty(room),
                               @"dealer_bets": KZProperty(dealer_bets),
                               @"turns": KZProperty(turns),
+                              @"durationBet": KZProperty(durationBet),
+                              @"durationPlayerTurn": KZProperty(durationPlayerTurn),
+                              @"durationDealerTurn": KZProperty(durationDealerTurn)
                               };
     
     //dealer

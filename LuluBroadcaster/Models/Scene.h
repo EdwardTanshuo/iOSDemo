@@ -32,7 +32,9 @@ typedef NS_ENUM(NSInteger, SceneStatus) {
 @property (nonatomic, strong, nonnull) CardValue*                                   dealer_value;
 @property (nonatomic, assign) NSInteger                                             dealer_bets;
 @property (nonatomic, strong, nonnull) NSArray<Card*>*                              dealer_deck;
-
+@property (nonatomic, assign) double                                                durationBet;
+@property (nonatomic, assign) double                                                durationPlayerTurn;
+@property (nonatomic, assign) double                                                durationDealerTurn;
 + (Scene* _Nonnull) sceneWithJSON:(id _Nonnull)data;
 @end
 

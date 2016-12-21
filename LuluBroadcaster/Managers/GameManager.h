@@ -15,6 +15,7 @@
 
 typedef void (^_Nullable GameManagerCallback)(id _Nullable argsData);
 typedef void (^_Nullable GameManagerResultCallback)(NSError* _Nullable err, Scene* _Nullable argsData);
+typedef void (^_Nullable GameManagerDrawCardCallback)(NSError* _Nullable err, Card* _Nullable card, CardValue* _Nullable value);
 
 @protocol GameManagerDelegate
 - (void)entryCallBack:(id _Nullable) argsData;
@@ -66,6 +67,7 @@ typedef void (^_Nullable GameManagerResultCallback)(NSError* _Nullable err, Scen
 - (void)connectWithCallback: (GameManagerCallback)callback;
 - (void)entryWithCallback: (GameManagerCallback)callback room: (NSString* _Nonnull)room;
 - (void)createGameWithCallback: (GameManagerCallback)callback room: (NSString* _Nonnull)room;
+- (void)drawCardWithCallback: (GameManagerDrawCardCallback)callback room: (NSString* _Nonnull)room;
 
 - (void)enterGameWithCallback: (GameManagerResultCallback)callback room: (NSString* _Nonnull)room;
 

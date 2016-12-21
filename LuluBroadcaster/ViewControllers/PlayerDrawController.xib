@@ -13,7 +13,7 @@
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view clearsContextBeforeDrawing="NO" alpha="0.55000000000000004" contentMode="scaleToFill" id="i5M-Pr-FkT">
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -40,7 +40,7 @@
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="0.0" alpha="0.54787795608108103" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="7nc-fh-mDv" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="0e7-TE-M7U"/>
                 <constraint firstItem="7nc-fh-mDv" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="JH5-1s-UY2"/>

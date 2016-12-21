@@ -144,6 +144,25 @@
     [_pomelo requestWithRoute:@"scene.sceneHandler.dealerDrawCard" andParams:@{@"roomId": room} andCallback:cb];
 }
 
+- (void)drawCardWithCallback: (GameManagerDrawCardCallback)callback room: (NSString* _Nonnull)room{
+    __weak GameManager* wself = self;
+    PomeloCallback cb = ^(id argsData) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if([wself makeCode:argsData] == 200){
+                Card* card = [wself makeCard:argsData];
+                CardValue* value = [wself makeCardValue:argsData];
+                callback(nil, card, value);
+            }
+            else{
+                NSError* err = [wself makeError:argsData];
+                callback(err, nil, nil);
+            }
+        });
+    };
+    [_pomelo requestWithRoute:@"scene.sceneHandler.dealerDrawCard" andParams:@{@"roomId": room} andCallback:cb];
+}
+
+
 - (void)finishTurn: (NSString* _Nonnull)room{
     __weak GameManager* wself = self;
     PomeloCallback cb = ^(id argsData) {
@@ -216,10 +235,34 @@
     }
 }
 
+- (Card* _Nullable) makeCard: (id _Nullable)data{
+    id resultObj = [[data objectForKey:@"result"] objectForKey:@"newCard"];
+    if(resultObj && [resultObj isKindOfClass: [NSDictionary class]]){
+        Card* card = [Card cardWithJSON:resultObj];
+        return card;
+    }
+    else{
+        return nil;
+    }
+}
+
+- (CardValue* _Nullable) makeCardValue: (id _Nullable)data{
+    id resultObj = [[data objectForKey:@"result"] objectForKey:@"newValue"];
+    if(resultObj && [resultObj isKindOfClass: [NSDictionary class]]){
+        CardValue* value = [CardValue valueWithJSON: resultObj];
+        return value;
+    }
+    else{
+        return nil;
+    }
+}
+
+
 - (Scene* _Nullable) updateScene: (id _Nullable)data{
     __weak GameManager* wself = self;
-    if(data && [data isKindOfClass: [NSDictionary class]]){
-        Scene* scene = [Scene sceneWithJSON:data];
+    id resultObj = [data objectForKey:@"body"];
+    if(resultObj && [resultObj isKindOfClass: [NSDictionary class]]){
+        Scene* scene = [Scene sceneWithJSON:resultObj];
         dispatch_async(dispatch_get_main_queue(), ^{
             [wself.datasource sceneHasUpdated:scene];
         });
@@ -232,8 +275,9 @@
 }
 
 - (User* _Nullable) updateUser: (id _Nullable)data{
-    if(data && [data isKindOfClass: [NSDictionary class]]){
-        User* user = [User userWithJSON:data];
+    id resultObj = [data objectForKey:@"body"];
+    if(resultObj && [resultObj isKindOfClass: [NSDictionary class]]){
+        User* user = [User userWithJSON:resultObj];
         return user;
     }
     else{
