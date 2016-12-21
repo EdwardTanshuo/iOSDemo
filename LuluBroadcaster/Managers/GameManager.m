@@ -141,7 +141,7 @@
             [wself.delegate drawCallBack:argsData];
         });
     };
-    [_pomelo requestWithRoute:@"scene.sceneHandler.drawCard" andParams:@{@"roomId": room} andCallback:cb];
+    [_pomelo requestWithRoute:@"scene.sceneHandler.dealerDrawCard" andParams:@{@"roomId": room} andCallback:cb];
 }
 
 - (void)finishTurn: (NSString* _Nonnull)room{
@@ -289,10 +289,17 @@
         });
     }];
     
-    [_pomelo onRoute:@"NewTurnEvent" withCallback:^(NSDictionary *data){
+    [_pomelo onRoute:@"EndPlayerEvent" withCallback:^(NSDictionary *data){
         dispatch_async(dispatch_get_main_queue(), ^{
             Scene* scene = [wself updateScene:data];
             [wself.target NewTurnEvent:scene];
+        });
+    }];
+    
+    [_pomelo onRoute:@"BetStartEvent" withCallback:^(NSDictionary *data){
+        dispatch_async(dispatch_get_main_queue(), ^{
+            Scene* scene = [wself updateScene:data];
+            [wself.target BetStartEvent:scene];
         });
     }];
     
@@ -302,6 +309,12 @@
 - (void)PomeloDidDisconnect:(Pomelo *)pomelo withError:(NSError *)error{
     [self.target disconnect:error];
 }
+
+- (void)Pomelo:(Pomelo *)pomelo didReceiveMessage:(NSArray *)message{
+
+}
+
+
 
 #pragma mark -
 #pragma mark UserDatasourceDelegate

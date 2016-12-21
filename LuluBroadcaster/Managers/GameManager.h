@@ -31,6 +31,7 @@ typedef void (^_Nullable GameManagerResultCallback)(NSError* _Nullable err, Scen
 - (void)PlayerEnterEvent: (User* _Nullable)user;
 - (void)PlayerLeaveEvent: (User* _Nullable)user;
 - (void)NewTurnEvent: (Scene* _Nullable)scene;
+- (void)BetStartEvent: (Scene* _Nullable)scene;
 - (void)didConnected;
 - (void)disconnect:(NSError* _Nullable)error;
 @end

@@ -339,6 +339,10 @@
     
 }
 
+- (void)BetStartEvent:(Scene *)scene{
+
+}
+
 - (void)disconnect:(NSError *)error{
     
 }
