@@ -46,7 +46,7 @@ static NSInteger secondRemain;
 - (void)tick{
     secondRemain --;
     self.timerLabel.text = [NSString stringWithFormat:@"%ld", secondRemain];
-    if(secondRemain == 0){
+    if(secondRemain <= 0){
         [self timeup];
     }
 }

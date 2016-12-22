@@ -71,6 +71,8 @@
     [self setupDanmuDatasource];
     [self setupGame];
     [self launchLive];
+    
+    [self showScene: _scene];
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -340,6 +342,10 @@
 }
 
 - (void)BetStartEvent:(Scene *)scene{
+
+}
+
+- (void)GameStartEvent:(Scene *)scene{
 
 }
 

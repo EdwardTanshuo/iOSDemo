@@ -14,7 +14,7 @@
 #define GAME_PORT 3020
 
 typedef void (^_Nullable GameManagerCallback)(id _Nullable argsData);
-typedef void (^_Nullable GameManagerResultCallback)(NSError* _Nullable err, Scene* _Nullable argsData);
+typedef void (^_Nullable GameManagerResultCallback)(NSError* _Nullable err, Scene* _Nullable scene);
 typedef void (^_Nullable GameManagerDrawCardCallback)(NSError* _Nullable err, Card* _Nullable card, CardValue* _Nullable value);
 
 @protocol GameManagerDelegate
@@ -33,6 +33,7 @@ typedef void (^_Nullable GameManagerDrawCardCallback)(NSError* _Nullable err, Ca
 - (void)PlayerLeaveEvent: (User* _Nullable)user;
 - (void)NewTurnEvent: (Scene* _Nullable)scene;
 - (void)BetStartEvent: (Scene* _Nullable)scene;
+- (void)GameStartEvent: (Scene* _Nullable)scene;
 - (void)didConnected;
 - (void)disconnect:(NSError* _Nullable)error;
 @end
@@ -68,6 +69,7 @@ typedef void (^_Nullable GameManagerDrawCardCallback)(NSError* _Nullable err, Ca
 - (void)entryWithCallback: (GameManagerCallback)callback room: (NSString* _Nonnull)room;
 - (void)createGameWithCallback: (GameManagerCallback)callback room: (NSString* _Nonnull)room;
 - (void)drawCardWithCallback: (GameManagerDrawCardCallback)callback room: (NSString* _Nonnull)room;
+- (void)finishTurnWithCallback: (GameManagerResultCallback)callback room: (NSString* _Nonnull)room;
 
 - (void)enterGameWithCallback: (GameManagerResultCallback)callback room: (NSString* _Nonnull)room;
 

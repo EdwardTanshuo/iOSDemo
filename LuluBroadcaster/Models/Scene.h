@@ -35,7 +35,10 @@ typedef NS_ENUM(NSInteger, SceneStatus) {
 @property (nonatomic, assign) double                                                durationBet;
 @property (nonatomic, assign) double                                                durationPlayerTurn;
 @property (nonatomic, assign) double                                                durationDealerTurn;
+
 + (Scene* _Nonnull) sceneWithJSON:(id _Nonnull)data;
+
+- (NSUInteger) totalBet;
 @end
 
 

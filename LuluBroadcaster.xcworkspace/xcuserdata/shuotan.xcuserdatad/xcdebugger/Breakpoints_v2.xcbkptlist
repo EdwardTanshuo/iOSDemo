@@ -1740,7 +1740,23 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LuluBroadcaster/ViewControllers/LiveController.m"
-            timestampString = "503970628.180104"
+            timestampString = "504056435.670264"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "243"
+            endingLineNumber = "243"
+            landmarkName = "-tableViewScrollToBottom:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LuluBroadcaster/ViewControllers/LiveController.m"
+            timestampString = "504056435.670264"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "241"
@@ -1756,11 +1772,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LuluBroadcaster/ViewControllers/LiveController.m"
-            timestampString = "503970628.180104"
+            timestampString = "504056435.670264"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "239"
-            endingLineNumber = "239"
+            startingLineNumber = "248"
+            endingLineNumber = "248"
             landmarkName = "-tableViewScrollToBottom:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1772,11 +1788,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LuluBroadcaster/ViewControllers/LiveController.m"
-            timestampString = "503970628.180104"
+            timestampString = "504056435.670264"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "246"
-            endingLineNumber = "246"
+            startingLineNumber = "247"
+            endingLineNumber = "247"
             landmarkName = "-tableViewScrollToBottom:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1788,27 +1804,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LuluBroadcaster/ViewControllers/LiveController.m"
-            timestampString = "503970628.180104"
+            timestampString = "504056435.670264"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "245"
-            endingLineNumber = "245"
-            landmarkName = "-tableViewScrollToBottom:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LuluBroadcaster/ViewControllers/LiveController.m"
-            timestampString = "503970628.180104"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "257"
-            endingLineNumber = "257"
+            startingLineNumber = "259"
+            endingLineNumber = "259"
             landmarkName = "-entryCallBack:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1820,11 +1820,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LuluBroadcaster/ViewControllers/LiveController.m"
-            timestampString = "503970628.180104"
+            timestampString = "504056435.670264"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "238"
-            endingLineNumber = "238"
+            startingLineNumber = "240"
+            endingLineNumber = "240"
             landmarkName = "-tableViewScrollToBottom:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1836,11 +1836,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LuluBroadcaster/ViewControllers/LiveController.m"
-            timestampString = "503970628.180104"
+            timestampString = "504056435.670264"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "259"
-            endingLineNumber = "259"
+            startingLineNumber = "261"
+            endingLineNumber = "261"
             landmarkName = "-createCallBack:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1852,11 +1852,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LuluBroadcaster/ViewControllers/LiveController.m"
-            timestampString = "503970628.180104"
+            timestampString = "504056435.670264"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "250"
-            endingLineNumber = "250"
+            startingLineNumber = "252"
+            endingLineNumber = "252"
             landmarkName = "@implementation LiveController"
             landmarkType = "3">
          </BreakpointContent>
@@ -1884,11 +1884,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LuluBroadcaster/Managers/GameManager.m"
-            timestampString = "504009709.818695"
+            timestampString = "504061432.36115"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "193"
-            endingLineNumber = "193"
+            startingLineNumber = "211"
+            endingLineNumber = "211"
             landmarkName = "-enterGameWithCallback:room:"
             landmarkType = "5">
             <Locations>
@@ -1964,11 +1964,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LuluBroadcaster/ViewControllers/LiveController.m"
-            timestampString = "504003202.524318"
+            timestampString = "504056731.946113"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "348"
-            endingLineNumber = "348"
+            startingLineNumber = "354"
+            endingLineNumber = "354"
             landmarkName = "-disconnect:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1996,11 +1996,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LuluBroadcaster/ViewControllers/LiveController.m"
-            timestampString = "503970628.180104"
+            timestampString = "504056435.670264"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "97"
-            endingLineNumber = "97"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
             landmarkName = "-setupViews"
             landmarkType = "5">
          </BreakpointContent>
@@ -2044,11 +2044,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LuluBroadcaster/Managers/GameManager.m"
-            timestampString = "504009709.818695"
+            timestampString = "504061432.36115"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "302"
-            endingLineNumber = "302"
+            startingLineNumber = "320"
+            endingLineNumber = "320"
             landmarkName = "-numberOfDiamond"
             landmarkType = "5">
          </BreakpointContent>
@@ -2060,11 +2060,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LuluBroadcaster/ViewControllers/LiveController.m"
-            timestampString = "504003202.524318"
+            timestampString = "504056731.946113"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "381"
-            endingLineNumber = "381"
+            startingLineNumber = "387"
+            endingLineNumber = "387"
             landmarkName = "-showScene:"
             landmarkType = "5">
          </BreakpointContent>
@@ -2076,11 +2076,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LuluBroadcaster/ViewControllers/LiveController.m"
-            timestampString = "503970628.180104"
+            timestampString = "504056435.670264"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "279"
-            endingLineNumber = "279"
+            startingLineNumber = "281"
+            endingLineNumber = "281"
             landmarkName = "-betCallBack:"
             landmarkType = "5">
          </BreakpointContent>
@@ -2092,11 +2092,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LuluBroadcaster/ViewControllers/LiveController.m"
-            timestampString = "504003202.524318"
+            timestampString = "504056731.946113"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "402"
-            endingLineNumber = "402"
+            startingLineNumber = "408"
+            endingLineNumber = "408"
             landmarkName = "-showScene:"
             landmarkType = "5">
          </BreakpointContent>
@@ -2108,11 +2108,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LuluBroadcaster/Managers/GameManager.m"
-            timestampString = "504009709.818695"
+            timestampString = "504061432.36115"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "213"
-            endingLineNumber = "213"
+            startingLineNumber = "231"
+            endingLineNumber = "231"
             landmarkName = "-makeScene:"
             landmarkType = "5">
          </BreakpointContent>
@@ -2220,11 +2220,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LuluBroadcaster/ViewControllers/LiveController.m"
-            timestampString = "503970628.180104"
+            timestampString = "504056435.670264"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "270"
-            endingLineNumber = "270"
+            startingLineNumber = "272"
+            endingLineNumber = "272"
             landmarkName = "-startCallBack:"
             landmarkType = "5">
          </BreakpointContent>
@@ -2236,11 +2236,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LuluBroadcaster/ViewControllers/LiveController.m"
-            timestampString = "503970628.180104"
+            timestampString = "504056435.670264"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "274"
-            endingLineNumber = "274"
+            startingLineNumber = "276"
+            endingLineNumber = "276"
             landmarkName = "-startCallBack:"
             landmarkType = "5">
          </BreakpointContent>
@@ -2316,11 +2316,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LuluBroadcaster/Managers/GameManager.m"
-            timestampString = "504009709.818695"
+            timestampString = "504061432.36115"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "344"
-            endingLineNumber = "344"
+            startingLineNumber = "362"
+            endingLineNumber = "362"
             landmarkName = "-setupEventListener"
             landmarkType = "5">
          </BreakpointContent>
@@ -2332,11 +2332,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LuluBroadcaster/Managers/GameManager.m"
-            timestampString = "504009709.818695"
+            timestampString = "504061432.36115"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "343"
-            endingLineNumber = "343"
+            startingLineNumber = "361"
+            endingLineNumber = "361"
             landmarkName = "-setupEventListener"
             landmarkType = "5">
             <Locations>
@@ -2380,11 +2380,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LuluBroadcaster/Managers/GameManager.m"
-            timestampString = "504009709.818695"
+            timestampString = "504061432.36115"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "363"
-            endingLineNumber = "363"
+            startingLineNumber = "389"
+            endingLineNumber = "389"
             landmarkName = "@implementation GameManager"
             landmarkType = "3">
          </BreakpointContent>
@@ -2396,11 +2396,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LuluBroadcaster/Managers/GameManager.m"
-            timestampString = "504009709.818695"
+            timestampString = "504061432.36115"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "350"
-            endingLineNumber = "350"
+            startingLineNumber = "375"
+            endingLineNumber = "375"
             landmarkName = "-setupEventListener"
             landmarkType = "5">
             <Locations>
@@ -2444,11 +2444,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LuluBroadcaster/ViewControllers/LiveController.m"
-            timestampString = "504003193.348546"
+            timestampString = "504056435.670264"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "338"
-            endingLineNumber = "338"
+            startingLineNumber = "340"
+            endingLineNumber = "340"
             landmarkName = "-NewTurnEvent:"
             landmarkType = "5">
          </BreakpointContent>
@@ -2460,11 +2460,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LuluBroadcaster/ViewControllers/LiveController.m"
-            timestampString = "504003362.86637"
+            timestampString = "504056731.946113"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "382"
-            endingLineNumber = "382"
+            startingLineNumber = "388"
+            endingLineNumber = "388"
             landmarkName = "-showScene:"
             landmarkType = "5">
          </BreakpointContent>
@@ -2476,11 +2476,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LuluBroadcaster/Managers/GameManager.m"
-            timestampString = "504009709.818695"
+            timestampString = "504061432.36115"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "345"
-            endingLineNumber = "345"
+            startingLineNumber = "363"
+            endingLineNumber = "363"
             landmarkName = "-setupEventListener"
             landmarkType = "5">
          </BreakpointContent>
@@ -2492,11 +2492,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LuluBroadcaster/Managers/GameManager.m"
-            timestampString = "504009709.818695"
+            timestampString = "504061432.36115"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "270"
-            endingLineNumber = "270"
+            startingLineNumber = "288"
+            endingLineNumber = "288"
             landmarkName = "-updateScene:"
             landmarkType = "5">
          </BreakpointContent>
@@ -2508,11 +2508,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LuluBroadcaster/Managers/GameManager.m"
-            timestampString = "504009709.818695"
+            timestampString = "504061432.36115"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "269"
-            endingLineNumber = "269"
+            startingLineNumber = "287"
+            endingLineNumber = "287"
             landmarkName = "-updateScene:"
             landmarkType = "5">
          </BreakpointContent>
@@ -2524,11 +2524,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LuluBroadcaster/Managers/GameManager.m"
-            timestampString = "504009709.818695"
+            timestampString = "504061432.36115"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "273"
-            endingLineNumber = "273"
+            startingLineNumber = "291"
+            endingLineNumber = "291"
             landmarkName = "-updateScene:"
             landmarkType = "5">
          </BreakpointContent>
@@ -2540,11 +2540,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LuluBroadcaster/ViewControllers/LiveController.m"
-            timestampString = "504005488.220998"
+            timestampString = "504056731.946113"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "358"
-            endingLineNumber = "358"
+            startingLineNumber = "364"
+            endingLineNumber = "364"
             landmarkName = "-sceneHasUpdated:"
             landmarkType = "5">
          </BreakpointContent>
@@ -2556,11 +2556,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LuluBroadcaster/Managers/GameManager.m"
-            timestampString = "504009709.818695"
+            timestampString = "504061432.36115"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "272"
-            endingLineNumber = "272"
+            startingLineNumber = "290"
+            endingLineNumber = "290"
             landmarkName = "-updateScene:"
             landmarkType = "5">
             <Locations>
@@ -2604,11 +2604,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LuluBroadcaster/Managers/GameManager.m"
-            timestampString = "504009709.818695"
+            timestampString = "504061432.36115"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "271"
-            endingLineNumber = "271"
+            startingLineNumber = "289"
+            endingLineNumber = "289"
             landmarkName = "-updateScene:"
             landmarkType = "5">
          </BreakpointContent>
@@ -2636,11 +2636,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LuluBroadcaster/ViewControllers/GamePlatformController.m"
-            timestampString = "504010809.577209"
+            timestampString = "504061432.36115"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
+            startingLineNumber = "124"
+            endingLineNumber = "124"
             landmarkName = "-endAction:"
             landmarkType = "5">
          </BreakpointContent>
@@ -2716,11 +2716,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LuluBroadcaster/ViewControllers/GamePlatformController.m"
-            timestampString = "504009709.818695"
+            timestampString = "504060118.195138"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
             landmarkName = "-genPlatform"
             landmarkType = "5">
             <Locations>
@@ -2764,11 +2764,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LuluBroadcaster/ViewControllers/GamePlatformController.m"
-            timestampString = "504009709.818695"
+            timestampString = "504060118.195138"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
             landmarkName = "-genPlatform"
             landmarkType = "5">
          </BreakpointContent>
@@ -2796,11 +2796,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LuluBroadcaster/ViewControllers/GamePlatformController.m"
-            timestampString = "504010809.577209"
+            timestampString = "504061432.36115"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "83"
-            endingLineNumber = "83"
+            startingLineNumber = "140"
+            endingLineNumber = "140"
             landmarkName = "-drawAction:"
             landmarkType = "5">
          </BreakpointContent>
@@ -2828,12 +2828,204 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LuluBroadcaster/Managers/GameManager.m"
-            timestampString = "504010535.04111"
+            timestampString = "504061432.36115"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "239"
-            endingLineNumber = "239"
+            startingLineNumber = "257"
+            endingLineNumber = "257"
             landmarkName = "-makeCard:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LuluBroadcaster/ViewControllers/BettingController.m"
+            timestampString = "504055840.076966"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "-timeup"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LuluBroadcaster/ViewControllers/BettingController.m"
+            timestampString = "504056225.092295"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "-viewDidLoad"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LuluBroadcaster/ViewControllers/GamePlatformController.m"
+            timestampString = "504061472.891389"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "127"
+            endingLineNumber = "127"
+            landmarkName = "-endAction:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LuluBroadcaster/ViewControllers/GamePlatformController.m"
+            timestampString = "504061476.58153"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
+            landmarkName = "-endAction:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LuluBroadcaster/ViewControllers/GamePlatformController.m"
+            timestampString = "504061482.309564"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "125"
+            endingLineNumber = "125"
+            landmarkName = "-endAction:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LuluBroadcaster/Managers/GameManager.m"
+            timestampString = "504061497.334179"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "178"
+            endingLineNumber = "178"
+            landmarkName = "-finishTurnWithCallback:room:"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[GameManager finishTurnWithCallback:room:]"
+                  moduleName = "LuluBroadcaster"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shuotan/Desktop/LuluBroadcaster/LuluBroadcaster/Managers/GameManager.m"
+                  timestampString = "504061497.351061"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "178"
+                  endingLineNumber = "178"
+                  offsetFromSymbolStart = "120">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__43-[GameManager finishTurnWithCallback:room:]_block_invoke"
+                  moduleName = "LuluBroadcaster"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shuotan/Desktop/LuluBroadcaster/LuluBroadcaster/Managers/GameManager.m"
+                  timestampString = "504061497.351208"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "178"
+                  endingLineNumber = "178"
+                  offsetFromSymbolStart = "24">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LuluBroadcaster/Managers/GameManager.m"
+            timestampString = "504061516.604981"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "179"
+            endingLineNumber = "179"
+            landmarkName = "-finishTurnWithCallback:room:"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__43-[GameManager finishTurnWithCallback:room:]_block_invoke"
+                  moduleName = "LuluBroadcaster"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shuotan/Desktop/LuluBroadcaster/LuluBroadcaster/Managers/GameManager.m"
+                  timestampString = "504061516.608809"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "179"
+                  endingLineNumber = "179"
+                  offsetFromSymbolStart = "68">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__43-[GameManager finishTurnWithCallback:room:]_block_invoke_2"
+                  moduleName = "LuluBroadcaster"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shuotan/Desktop/LuluBroadcaster/LuluBroadcaster/Managers/GameManager.m"
+                  timestampString = "504061516.608961"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "179"
+                  endingLineNumber = "179"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LuluBroadcaster/Managers/GameManager.m"
+            timestampString = "504061525.347275"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "181"
+            endingLineNumber = "181"
+            landmarkName = "-finishTurnWithCallback:room:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -103,4 +103,13 @@
     [KZPropertyMapper mapValuesFrom:data toInstance:self usingMapping:mapping];
 }
 
+#pragma mark -
+#pragma mark methods
+- (NSUInteger) totalBet{
+    NSUInteger sum = 0;
+    for(NSString* key in self.player_bets.allKeys){
+        sum += [self.player_bets[key] integerValue];
+    }
+    return sum;
+}
 @end

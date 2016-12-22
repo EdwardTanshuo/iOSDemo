@@ -170,7 +170,25 @@
             [wself.delegate finishTurnCallBack:argsData];
         });
     };
-    [_pomelo requestWithRoute:@"scene.sceneHandler.finishTurn" andParams:@{@"roomId": room} andCallback:cb];
+    [_pomelo requestWithRoute:@"scene.sceneHandler.dealerFinish" andParams:@{@"roomId": room} andCallback:cb];
+}
+
+- (void)finishTurnWithCallback: (GameManagerResultCallback)callback room: (NSString* _Nonnull)room{
+    __weak GameManager* wself = self;
+    PomeloCallback cb = ^(id argsData) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            //[wself.delegate finishTurnCallBack:argsData];
+            if([wself makeCode:argsData] == 200){
+                Scene* scene = [wself makeScene:argsData];
+                callback(nil, scene);
+            }
+            else{
+                NSError* err = [wself makeError:argsData];
+                callback(err, nil);
+            }
+        });
+    };
+    [_pomelo requestWithRoute:@"scene.sceneHandler.dealerFinish" andParams:@{@"roomId": room} andCallback:cb];
 }
 
 - (void)enterGameWithCallback: (GameManagerResultCallback)callback room: (NSString* _Nonnull)room{
@@ -214,7 +232,7 @@
     if(resultObj && [resultObj isKindOfClass: [NSDictionary class]]){
         Scene* scene = [Scene sceneWithJSON:resultObj];
         dispatch_async(dispatch_get_main_queue(), ^{
-            [wself.datasource sceneHasUpdated:scene];
+            //[wself.datasource sceneHasUpdated:scene];
         });
         wself.scene = scene;
         return scene;
@@ -347,7 +365,15 @@
         });
     }];
     
+    [_pomelo onRoute:@"GameStartEvent" withCallback:^(NSDictionary *data){
+        dispatch_async(dispatch_get_main_queue(), ^{
+            Scene* scene = [wself updateScene:data];
+            [wself.target GameStartEvent:scene];
+        });
+    }];
+    
 }
+
 #pragma mark -
 #pragma mark PomeloDelegate
 - (void)PomeloDidDisconnect:(Pomelo *)pomelo withError:(NSError *)error{
