@@ -30,8 +30,8 @@
 }
 
 - (void)appendBuffer: (CVPixelBufferRef)buffer{
-    size_t width = CVPixelBufferGetWidth(buffer);
-    size_t height = CVPixelBufferGetHeight(buffer);
+    size_t width = CVPixelBufferGetWidth(buffer) / [UIScreen mainScreen].scale;
+    size_t height = CVPixelBufferGetHeight(buffer) / [UIScreen mainScreen].scale;
     NSArray* features = [self.detector DetectFaceFromBuffer:buffer];
     dispatch_async(dispatch_get_main_queue(), ^{
         [_delegate faceHasBeenDetected:features size:CGSizeMake(width, height)];
