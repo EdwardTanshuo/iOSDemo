@@ -21,7 +21,7 @@
                     <rect key="frame" x="180" y="236" width="240" height="128"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WdQ-8U-qGG">
-                            <rect key="frame" x="8" y="53" width="224" height="21"/>
+                            <rect key="frame" x="8" y="83" width="224" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="224" id="EHh-we-hr2"/>
                                 <constraint firstAttribute="height" constant="21" id="PXj-6U-jcW"/>
@@ -30,13 +30,32 @@
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="玩家抽卡中请耐心等待" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wkc-rT-3Vm">
+                            <rect key="frame" x="8" y="8" width="224" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="21" id="Ndx-FF-9js"/>
+                                <constraint firstAttribute="width" constant="224" id="UZV-5f-6ib"/>
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="mc9-g6-6ot"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="mc9-g6-6ot"/>
+                                </mask>
+                            </variation>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
+                        <constraint firstItem="wkc-rT-3Vm" firstAttribute="top" secondItem="7nc-fh-mDv" secondAttribute="top" constant="8" id="DCO-k2-T4v"/>
                         <constraint firstAttribute="height" constant="128" id="Qaj-ON-z3Y"/>
                         <constraint firstAttribute="width" constant="240" id="RoQ-X5-dt9"/>
+                        <constraint firstAttribute="trailing" secondItem="wkc-rT-3Vm" secondAttribute="trailing" constant="8" id="bgW-hu-ypa"/>
                         <constraint firstItem="WdQ-8U-qGG" firstAttribute="centerX" secondItem="7nc-fh-mDv" secondAttribute="centerX" id="edw-ZB-Ssh"/>
-                        <constraint firstItem="WdQ-8U-qGG" firstAttribute="centerY" secondItem="7nc-fh-mDv" secondAttribute="centerY" id="yJd-0e-Jfs"/>
+                        <constraint firstItem="wkc-rT-3Vm" firstAttribute="leading" secondItem="7nc-fh-mDv" secondAttribute="leading" constant="8" id="tzg-xb-C3k"/>
+                        <constraint firstItem="WdQ-8U-qGG" firstAttribute="centerY" secondItem="7nc-fh-mDv" secondAttribute="centerY" constant="29.5" id="yJd-0e-Jfs"/>
                     </constraints>
                 </view>
             </subviews>

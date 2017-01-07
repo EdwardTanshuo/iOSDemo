@@ -91,7 +91,7 @@
     LFLiveStreamInfo *streamInfo = [LFLiveStreamInfo new];
     SettingSession* setting = [[SettingSession alloc] init];
     streamInfo.url = [NSString stringWithFormat:@"%@/%@", setting.url, setting.streamKey];
-    //streamInfo.url = @"rtmp://10.10.17.182:1935/rtmplive/kjkjkj";
+    //streamInfo.url = @"rtmp://10.10.17.199:1935/rtmplive/kjkjkj";
     [self.session startLive:streamInfo];
     [self.session setRunning:YES];
 }

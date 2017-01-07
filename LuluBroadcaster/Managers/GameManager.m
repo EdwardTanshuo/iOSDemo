@@ -213,6 +213,10 @@
     }];
 }
 
+- (void)sendFaceCoordinate: (NSDictionary* _Nonnull)params{
+    [_pomelo notifyWithRoute:@"scene.sceneHandler.updateFaceDetectorCoor" andParams:@{@"params": params}];
+}
+
 - (NSError* _Nullable) makeError: (id _Nullable)data{
     id errObj = [data objectForKey:@"error"];
     if(errObj && [errObj isKindOfClass: [NSString class]]){

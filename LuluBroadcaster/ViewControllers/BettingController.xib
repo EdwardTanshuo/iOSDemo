@@ -38,19 +38,31 @@
                                 <constraint firstAttribute="height" constant="21" id="m6f-sz-tLU"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="等待玩家下注" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ymg-2W-ZFP">
+                            <rect key="frame" x="8" y="8" width="224" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="21" id="zxF-cM-2gg"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="2UE-jb-a3F" secondAttribute="trailing" constant="8" id="47R-70-ZdR"/>
+                        <constraint firstItem="Ymg-2W-ZFP" firstAttribute="leading" secondItem="pKn-84-f5C" secondAttribute="leading" constant="8" id="C9N-1h-TaF"/>
                         <constraint firstItem="2UE-jb-a3F" firstAttribute="centerX" secondItem="pKn-84-f5C" secondAttribute="centerX" id="DeU-DO-ojt"/>
                         <constraint firstItem="qC4-LH-ruU" firstAttribute="top" secondItem="2UE-jb-a3F" secondAttribute="bottom" constant="24" id="I3l-0H-k9V"/>
                         <constraint firstItem="2UE-jb-a3F" firstAttribute="leading" secondItem="pKn-84-f5C" secondAttribute="leading" constant="8" id="KpT-19-x4h"/>
                         <constraint firstAttribute="trailing" secondItem="qC4-LH-ruU" secondAttribute="trailing" id="TDT-Nm-pDY"/>
+                        <constraint firstAttribute="trailing" secondItem="Ymg-2W-ZFP" secondAttribute="trailing" constant="8" id="VQT-UL-Cqg"/>
                         <constraint firstAttribute="bottom" secondItem="qC4-LH-ruU" secondAttribute="bottom" id="c7k-6A-Zhd"/>
                         <constraint firstAttribute="width" constant="240" id="oJA-KF-BtY"/>
+                        <constraint firstItem="Ymg-2W-ZFP" firstAttribute="top" secondItem="pKn-84-f5C" secondAttribute="top" constant="8" id="xGL-xi-Pay"/>
                         <constraint firstItem="qC4-LH-ruU" firstAttribute="leading" secondItem="pKn-84-f5C" secondAttribute="leading" id="yhl-au-7Xm"/>
                         <constraint firstAttribute="height" constant="128" id="zky-8S-Kkk"/>
                     </constraints>

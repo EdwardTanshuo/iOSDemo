@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 @protocol FaceDetectManagerDelegate
-- (void)faceHasBeenDetected: (NSArray* _Nonnull)features;
+- (void)faceHasBeenDetected: (NSArray* _Nonnull)features
+                       size: (CGSize)size;
 @end
 
 @interface FaceDetectManager : NSObject

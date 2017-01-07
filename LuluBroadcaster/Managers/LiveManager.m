@@ -19,6 +19,7 @@
 #import "LFGPUImageBeautyFilter.h"
 #import <NSLogger/NSLogger.h>
 #import "DanmuManager.h"
+#import "GameManager.h"
 
 @interface LiveManager()<INSLiveDataSourceProtocol, FaceDetectManagerDelegate>{
     CVPixelBufferRef m_pixelBuffer;
@@ -306,7 +307,7 @@
 
 #pragma mark-
 #pragma mark--FaceDetectManagerDelegate
-- (void)faceHasBeenDetected:(NSArray *)features{
+- (void)faceHasBeenDetected:(NSArray *)features size:(CGSize)size{
     LogMessage(@"face", 0, @"detector callback: %ld faces has been detected", [features count]);
     for (CIFaceFeature *f in features) {
         if (f.hasLeftEyePosition) {
@@ -318,10 +319,14 @@
         if (f.hasMouthPosition) {
             LogMessage(@"face", 0, @"Mouth %g %g", f.mouthPosition.x, f.mouthPosition.y);
         }
+        //send info to server
+        [[GameManager sharedManager] sendFaceCoordinate:@{@"lex": @(f.leftEyePosition.x), @"ley": @(f.leftEyePosition.y), @"rex": @(f.rightEyePosition.x), @"rey": @(f.rightEyePosition.y), @"mpx": @(f.mouthPosition.x), @"mpy": @(f.mouthPosition.y), @"bounds": @[@(f.bounds.size.width), @(f.bounds.size.height)], @"size": @[@(size.width), @(size.height)]}];
+        
     }
+    
+    //clean buffer
     [self pudgeOutput:self.face_output buffer:m_faceBuffer semaphore:self.frameFaceSemaphore];
 }
-
 
 @end
 
