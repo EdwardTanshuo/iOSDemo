@@ -50,6 +50,9 @@
 //current game UI
 @property (nonatomic, strong) UIViewController* currentGameUIController;
 
+//face rect
+@property (nonatomic, strong) UIImageView* faceRect;
+
 @end
 
 @implementation LiveController
@@ -70,6 +73,7 @@
     [self setupDanmuTable];
     [self setupDanmuDatasource];
     [self setupGame];
+    [self setupFaceRect];
     [self launchLive];
     
     [self showScene: _scene];
@@ -145,6 +149,11 @@
     [self.collection registerNib:[UINib nibWithNibName:@"ViewerCell" bundle:nil] forCellWithReuseIdentifier:@"ViewerCell"];
 }
 
+- (void)setupFaceRect{
+    _faceRect = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"face"]];
+    _faceRect.frame = CGRectMake(0, 0, 0, 0);
+}
+
 #pragma mark -
 #pragma mark actions
 - (IBAction)closeActions:(id)sender {
@@ -188,6 +197,10 @@
 
 
 - (void)bufferFetched:(CVPixelBufferRef)buffer{
+    
+}
+
+- (void)recieveFaceCoor:(CGRect)rect{
     
 }
 

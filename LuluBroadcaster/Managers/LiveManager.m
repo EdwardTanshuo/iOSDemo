@@ -28,12 +28,12 @@
 }
 
 @property (nonatomic, strong) INSLiveDataSource* liveDataSource;
-@property (nonatomic, weak)   GPUImageView* view;
-@property (nonatomic, strong) GPUImageRawDataOutput* output;
-@property (nonatomic, strong) GPUImageRawDataOutput* face_output;
-@property (nonatomic, strong) YUGPUImageCVPixelBufferInput *pixelBufferInput;
-@property (nonatomic, strong) GPUImageMyBeautifyFilter* filter;
-@property (nonatomic, strong) GPUImageTransformFilter* scaler;
+@property (nonatomic, weak)   GPUImageView*                     view;
+@property (nonatomic, strong) GPUImageRawDataOutput*            output;
+@property (nonatomic, strong) GPUImageRawDataOutput*            face_output;
+@property (nonatomic, strong) YUGPUImageCVPixelBufferInput*     pixelBufferInput;
+@property (nonatomic, strong) YUGPUImageCVPixelBufferInput*     faceInput;
+@property (nonatomic, strong) GPUImageHSBFilter*                filter;
 
 @property (nonatomic, assign) NSInteger current_frame;
 @property (nonatomic, strong) dispatch_semaphore_t frameRenderingSemaphore;
@@ -101,6 +101,7 @@
 
 - (void) sourceOnStitchPixelBuffer:(CVPixelBufferRef)pixelBuffer timestamp:(int64_t)timestamp{
     [self parsePixelBuffer: pixelBuffer];
+    [self parseFaceBuffer: pixelBuffer];
     [_delegate recieveStichedFragment:pixelBuffer timestamp:timestamp];
 }
 
@@ -121,9 +122,14 @@
     self.current_frame = 0;
     
     self.pixelBufferInput = [[YUGPUImageCVPixelBufferInput alloc] init];
+    self.faceInput = [[YUGPUImageCVPixelBufferInput alloc] init];
+    [self.pixelBufferInput forceProcessingAtSize:CGSizeMake(setting.width, setting.height)];
+    [self.faceInput forceProcessingAtSize:CGSizeMake(setting.width, setting.height)];
     
-    self.filter = [[GPUImageMyBeautifyFilter alloc] init];
-    //[self.filter setBrightness:setting.brightness];
+    // Adjust HSB
+    self.filter = [[GPUImageHSBFilter alloc] init];
+    [self.filter adjustBrightness:(setting.brightness + 1.0)];
+    [self.filter adjustSaturation:(setting.brightness + 1.0)];
     
     _output = [[GPUImageRawDataOutput alloc] initWithImageSize:CGSizeMake(setting.width, setting.height) resultsInBGRAFormat:YES];
     __weak GPUImageRawDataOutput *weakOutput = _output;
@@ -166,9 +172,6 @@
             [[FaceDetectManager sharedManager] appendBuffer:*face_buffer];
         });
     }];
-    
-    self.scaler = [[GPUImageTransformFilter alloc] init];
-    [self.scaler forceProcessingAtSizeRespectingAspectRatio:CGSizeMake(setting.width, setting.height)];
 }
 
 - (void)startLiveWithWidth:(NSInteger)stitchWidth WithHeight:(NSInteger)stitchHeight WithBitrate:(NSInteger)bitrate WithQuality: (INSCameraVideoResType)quality{
@@ -260,33 +263,33 @@
 - (void)tearDown{
     SettingSession* setting = [SettingSession new];
     
-    [self.pixelBufferInput removeTarget: self.scaler];
-    [self.scaler removeTarget:self.filter];
+    [self.pixelBufferInput removeTarget: self.filter];
+    [self.filter removeTarget:self.output];
     
     //remove face detector
     if(setting.faceDetectOn){
-        [self.scaler removeTarget:self.face_output];
+        [self.faceInput removeTarget:self.face_output];
     }
-    
-    [self.filter removeTarget:self.output];
 }
 
 - (void)setupPipes{
     SettingSession* setting = [SettingSession new];
     
-    [self.pixelBufferInput addTarget: self.scaler];
-    [self.scaler addTarget:self.filter];
+    [self.pixelBufferInput addTarget: self.filter];
+    [self.filter addTarget:self.output];
     
     //add face detector
     if(setting.faceDetectOn){
-        [self.scaler addTarget:self.face_output];
+        [self.faceInput addTarget: self.face_output];
     }
-    
-    [self.filter addTarget:self.output];
 }
 
 - (void)parsePixelBuffer:(CVPixelBufferRef)pixelBuffer{
     [self.pixelBufferInput processCVPixelBuffer:pixelBuffer];
+}
+
+- (void)parseFaceBuffer:(CVPixelBufferRef)pixelBuffer{
+    [self.faceInput processCVPixelBuffer:pixelBuffer];
 }
 
 - (void) pudgeOutput: (GPUImageRawDataOutput*)output buffer: (CVPixelBufferRef)buffer semaphore: (dispatch_semaphore_t)semaphore{
@@ -308,20 +311,14 @@
 #pragma mark-
 #pragma mark--FaceDetectManagerDelegate
 - (void)faceHasBeenDetected:(NSArray *)features size:(CGSize)size{
+    __weak LiveManager* wself = self;
     LogMessage(@"face", 0, @"detector callback: %ld faces has been detected", [features count]);
     for (CIFaceFeature *f in features) {
-        if (f.hasLeftEyePosition) {
-            LogMessage(@"face", 0, @"Left eye %g %g", f.leftEyePosition.x, f.leftEyePosition.y);
-        }
-        if (f.hasRightEyePosition) {
-            LogMessage(@"face", 0, @"Right eye %g %g", f.rightEyePosition.x, f.rightEyePosition.y);
-        }
-        if (f.hasMouthPosition) {
-            LogMessage(@"face", 0, @"Mouth %g %g", f.mouthPosition.x, f.mouthPosition.y);
-        }
         //send info to server
         [[GameManager sharedManager] sendFaceCoordinate:@{@"lex": @(f.leftEyePosition.x), @"ley": @(f.leftEyePosition.y), @"rex": @(f.rightEyePosition.x), @"rey": @(f.rightEyePosition.y), @"mpx": @(f.mouthPosition.x), @"mpy": @(f.mouthPosition.y), @"bounds": @[@(f.bounds.size.width), @(f.bounds.size.height)], @"size": @[@(size.width), @(size.height)]}];
-        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [wself.delegate recieveFaceCoor:f.bounds];
+        });
     }
     
     //clean buffer

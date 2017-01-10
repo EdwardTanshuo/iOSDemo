@@ -13,6 +13,7 @@
 - (void) recieveStichedFragment:(CVPixelBufferRef)pixelBuffer timestamp:(int64_t)timestamp;
 - (void) recieveOnRawFragment:(CVPixelBufferRef)pixelBuffer timestamp:(int64_t)timestamp;
 - (void) recieveError:(NSError *)error;
+- (void) recieveFaceCoor: (CGRect)rect;
 @end
 
 
