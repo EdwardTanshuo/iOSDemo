@@ -6,8 +6,8 @@
 //  Copyright © 2016 ShuoTan. All rights reserved.
 //
 
-#define BASE_URL @"http://release.mofangvr.com:3000/api/"
-#define PHP_URL @"http://release.mofangvr.com/api/"
+#define BASE_URL @"http://122.112.227.196/broadcasterApi/"
+#define PHP_URL @"http://122.112.227.196/broadcasterApi/"
 
 #import <Foundation/Foundation.h>
 #import "Broadcaster.h"

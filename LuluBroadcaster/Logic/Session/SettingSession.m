@@ -21,12 +21,12 @@
 #define DEFAULT_BITRATE 2*1024*1024
 #define DEFAULT_HEIGHT 720
 #define DEFAULT_WIDTH 1440
-#define DEFAULT_URL @"rtmp://182.254.151.173:1935/live"
+#define DEFAULT_URL @"rtmp://122.112.246.201:1935/rtmplive"
 #define DEFAULT_STREAM_KEY @"kjkjkj"
 #define DEFAULT_BRIGHTNESS 0.2
-#define DEFAULT_FPS 15
+#define DEFAULT_FPS 30
 #define DEFAULT_FACE_DETECTOR 1
-#define DEFAULT_QUALITY SettingSessionCameraQualityMedium
+#define DEFAULT_QUALITY SettingSessionCameraQualityReal
 
 
 @interface SettingSession()

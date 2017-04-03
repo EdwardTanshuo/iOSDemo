@@ -38,14 +38,14 @@
 
 - (void)doMappingWithData: (id)data{
     NSDictionary* mapping = @{@"name": KZProperty(name),
-                              @"email": KZProperty(email),
+                              @"user_name": KZProperty(email),
                               @"wowzaUri": KZProperty(wowzaUri),
                               @"wowzaLogin":KZProperty(wowzaLogin),
                               @"wowzaPassword":KZProperty(wowzaPassword),
-                              @"profileImageURL":KZProperty(profileImageURL),
+                              @"avatar":KZProperty(profileImageURL),
                               @"danmuPassword":KZProperty(danmuPassword),
-                              @"_id":KZProperty(room),
-                              @"viewers_count":KZProperty(viewers_count)
+                              @"id":KZProperty(room),
+                             
                               };
     [KZPropertyMapper mapValuesFrom:data toInstance:self usingMapping:mapping];
 }

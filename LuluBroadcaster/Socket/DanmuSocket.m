@@ -71,7 +71,8 @@
 #pragma mark
 #pragma mark actions
 - (void)authWithRoom: (NSString* _Nonnull)room WithPassword: (NSString* _Nonnull)pass{
-    [self.socket emit:@"authentication" withItems:@[@{@"room":room, @"password":pass}]];
+    [self.socket emit:@"authentication" with:@[@{@"room":room, @"password":pass}]];
+    //[self.socket emit:@"authentication" with:@[@{@"room":room, @"password":pass}]];
 }
 
 

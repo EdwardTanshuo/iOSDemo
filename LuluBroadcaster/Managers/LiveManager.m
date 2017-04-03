@@ -220,7 +220,8 @@
             [[StreamManager sharedManager] startRTMP];
             break;
         case SettingSessionCameraQualityReal:
-            _real_streamer = [[INSFlatLiveStreamer alloc] initWithRtmpAddress:[NSURL URLWithString:[NSString stringWithFormat:@"%@/%@", setting.url, setting.streamKey]] cameraResolution:INSCameraVideoResType_3040_1520P30 stitchWidth:setting.width stitchHeight:setting.height bitrate:setting.bitrate];
+            _real_streamer = [[INSFlatLiveStreamer alloc] initWithRtmpAddress:[NSURL URLWithString:[NSString stringWithFormat:@"%@/%@", setting.url, setting.streamKey]] cameraResolution:INSCameraVideoResType_2160_1080P30 stitchWidth:setting.width stitchHeight:setting.height bitrate:setting.bitrate];
+            [self startLiveWithWidth:setting.width WithHeight:setting.height WithBitrate:setting.bitrate WithQuality:INSCameraVideoResType_2160_1080P30];
             //_real_streamer = [[INSFlatLiveStreamer alloc] initWithRtmpAddress:[NSURL URLWithString:[NSString stringWithFormat:@"rtmp://10.10.17.182:1935/rtmplive/kjkjkj"]] cameraResolution:INSCameraVideoResType_3040_1520P30 stitchWidth:setting.width stitchHeight:setting.height bitrate:setting.bitrate];
            
             [_real_streamer startLive];
