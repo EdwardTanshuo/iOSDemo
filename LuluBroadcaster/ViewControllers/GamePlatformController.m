@@ -16,6 +16,7 @@ static NSInteger secondRemain;
 
 @interface GamePlatformController (){
     NSMutableArray* veins;
+    NSMutableArray* veinLs;
 }
 
 @property (weak, nonatomic) IBOutlet UIView         *panel;
@@ -29,15 +30,33 @@ static NSInteger secondRemain;
 @property (weak, nonatomic) IBOutlet UIImageView    *vein4;
 @property (weak, nonatomic) IBOutlet UIImageView    *vein5;
 
+@property (weak, nonatomic) IBOutlet UILabel *veinL0;
+@property (weak, nonatomic) IBOutlet UILabel *veinL1;
+@property (weak, nonatomic) IBOutlet UILabel *veinL2;
+@property (weak, nonatomic) IBOutlet UILabel *veinL3;
+@property (weak, nonatomic) IBOutlet UILabel *veinL4;
+@property (weak, nonatomic) IBOutlet UILabel *veinL5;
+
+
+
 @property (weak, nonatomic) IBOutlet UILabel        *valueLabel;
 @property (weak, nonatomic) IBOutlet UILabel        *timerLabel;
-@property (weak, nonatomic) IBOutlet UILabel *betLabel;
+@property (weak, nonatomic) IBOutlet UILabel        *betLabel;
 
 @property (strong, nonatomic) NSTimer               *timer;
 
 @end
 
 @implementation GamePlatformController
+
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations{
+    return UIInterfaceOrientationMaskAll;
+}
+
+- (BOOL)shouldAutorotate{
+    return NO;
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -60,6 +79,14 @@ static NSInteger secondRemain;
     [veins addObject: _vein3];
     [veins addObject: _vein4];
     [veins addObject: _vein5];
+    
+    veinLs = [[NSMutableArray alloc] init];
+    [veinLs addObject: _veinL0];
+    [veinLs addObject: _veinL1];
+    [veinLs addObject: _veinL2];
+    [veinLs addObject: _veinL3];
+    [veinLs addObject: _veinL4];
+    [veinLs addObject: _veinL5];
     
     [self genPlatform];
     [self genValue];
@@ -93,12 +120,37 @@ static NSInteger secondRemain;
 
 #pragma mark -
 #pragma mark methods
+
+- (void)cleanPlatform{
+    for(UILabel* iter in veinLs){
+        iter.text = @"";
+    }
+    
+    for(UIImageView* iter in veins){
+        iter.image = [UIImage new];
+    }
+}
+
 - (void)genPlatform{
+    [self cleanPlatform];
     NSInteger index = 0;
     for(id iter in self.scene.dealer_platfrom){
         if([iter isKindOfClass:[Card class]]){
             Card* card = iter;
-            [veins[index] sd_setImageWithURL: [NSURL URLWithString:card.thumb]];
+            NSInteger value = card.value;
+            if(value == 14){
+                value = 1;
+            }
+            value --;
+            ((UIImageView*)(veins[index])).image = [UIImage imageNamed:[NSString stringWithFormat:@"z%ld", (long)value]];
+            if(card.value == 14){
+                ((UILabel*)(veinLs[index])).text = [NSString stringWithFormat:@"5/55"];
+               
+            } else if(card.value > 10){
+                ((UILabel*)(veinLs[index])).text = [NSString stringWithFormat:@"50"];
+            } else{
+                ((UILabel*)(veinLs[index])).text = [NSString stringWithFormat:@"%ld", (long)card.value * 5];
+            }
         }
         index ++;
     }
@@ -125,7 +177,7 @@ static NSInteger secondRemain;
             [LiveAlertView popOutInController:wself error:err];
         } else if(scene){
             self.scene = scene;
-            [[GameManager sharedManager].datasource sceneHasUpdated:[GameManager sharedManager].scene];
+            [[GameManager sharedManager].datasource sceneHasUpdated:scene];
         }
         
     } room:self.scene.room];

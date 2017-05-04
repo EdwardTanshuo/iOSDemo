@@ -10,7 +10,9 @@
 #import "Pomelo.h"
 #import "PomeloProtocol.h"
 
-@interface GameManager()<PomeloDelegate, UserDatasourceDelegate>
+@interface GameManager()<PomeloDelegate, UserDatasourceDelegate>{
+    NSArray<Gift*>* gifts;
+}
 @property (nonatomic, strong) Pomelo*           pomelo;
 @property (nonatomic, strong) NSArray<User*>*   palyers;
 @end
@@ -29,6 +31,7 @@
 {
     self = [super init];
     if (self) {
+        gifts = @[];
         self.pomelo = [[Pomelo alloc] initWithDelegate:self];
         self.scene = [[Scene alloc] init];
         self.userDatasource = [UserDataSource new];
@@ -40,6 +43,10 @@
 
 #pragma mark -
 #pragma mark PomeloReuqests
+- (NSArray<Gift*>* _Nonnull)giftList{
+    return gifts;
+}
+
 - (void)connect{
     __weak GameManager* wself = self;
     [_pomelo connectToHost:GAME_IP onPort:GAME_PORT withCallback:^(Pomelo *p) {
@@ -91,6 +98,29 @@
         });
     };
     [_pomelo requestWithRoute:@"scene.sceneHandler.createGame" andParams:@{@"roomId": room} andCallback:cb];
+}
+- (void)requestGiftsWithCallback:(GiftsCallback)callback{
+    PomeloCallback cb = ^(id argsData) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            id list = argsData[@"result"][@"result"][@"items"];
+            if(list && [list isKindOfClass:[NSArray class]]){
+                NSMutableArray* array = [NSMutableArray new];
+                for(id iter in list){
+                    [array addObject:[Gift giftWithJSON:iter]];
+                }
+                gifts = array;
+                if(callback){
+                    callback(nil, array);
+                }
+                return;
+            }
+            if(callback){
+                callback(nil, @[]);
+            }
+            return;
+        });
+    };
+    [_pomelo requestWithRoute:@"scene.sceneHandler.listGift" andParams:@{} andCallback:cb];
 }
 
 - (void)startBet: (NSString* _Nonnull)room{
@@ -214,7 +244,7 @@
 }
 
 - (void)sendFaceCoordinate: (NSDictionary* _Nonnull)params{
-    [_pomelo notifyWithRoute:@"scene.sceneHandler.updateFaceDetectorCoor" andParams:@{@"params": params}];
+    [_pomelo notifyWithRoute:@"scene.sceneHandler.updateCoor" andParams:@{@"params": params}];
 }
 
 - (NSError* _Nullable) makeError: (id _Nullable)data{
@@ -312,7 +342,7 @@
 }
 
 
-- (NSUInteger) numberOfDiamond{
+- (NSUInteger)numberOfDiamond{
     NSUInteger sum = 0;
     
     if(!self.scene.player_bets || ![self.scene.player_bets isKindOfClass: [NSDictionary class]]){
@@ -373,6 +403,31 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             Scene* scene = [wself updateScene:data];
             [wself.target GameStartEvent:scene];
+        });
+    }];
+    
+    [_pomelo onRoute:@"PlayerBetEvent" withCallback:^(NSDictionary *data){
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [wself.target PlayerBetEvent:self.scene];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"PlayerBetEvent" object:data];
+        });
+    }];
+    
+    [_pomelo onRoute:@"DanmuEvent" withCallback:^(NSDictionary *data){
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [wself.msgDelegate recievedanmu:data[@"body"][@"msg"] WithUser:data[@"body"][@"user"][@"name"]];
+        });
+    }];
+    
+    [_pomelo onRoute:@"GiftEvent" withCallback:^(NSDictionary *data){
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [wself.msgDelegate recieveGift:[data[@"body"][@"gift_id"] integerValue] WithUser:data[@"body"][@"user_name"]];
+        });
+    }];
+    
+    [_pomelo onRoute:@"DealerFinishEvent" withCallback:^(NSDictionary *data){
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [wself.target TurnFinishEvent:data];
         });
     }];
     

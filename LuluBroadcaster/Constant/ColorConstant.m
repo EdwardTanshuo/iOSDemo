@@ -12,4 +12,8 @@
 + (UIColor*) mclMediumPinkColor{
     return [UIColor colorWithRed:206.0 / 255.0 green:133.0 / 255.0 blue:209.0 / 255.0 alpha:1.0];
 }
+
++ (UIColor*) mclMediumBlue{
+    return [UIColor colorWithRed:138.0 / 255.0 green:43.0 / 255.0 blue:226.0 / 255.0 alpha:1.0];
+}
 @end

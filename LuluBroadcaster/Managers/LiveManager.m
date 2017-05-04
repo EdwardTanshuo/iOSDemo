@@ -25,6 +25,8 @@
     CVPixelBufferRef m_pixelBuffer;
     CVPixelBufferRef m_faceBuffer;
     __weak GPUImageView* pano;
+    
+    BOOL isReal;
 }
 
 @property (nonatomic, strong) INSLiveDataSource* liveDataSource;
@@ -54,7 +56,7 @@
 
 - (instancetype)init{
     return [super init];
-    
+    isReal = NO;
 }
 
 - (void) dealloc{
@@ -68,6 +70,7 @@
 #pragma mark INSLiveDataSourceProtocol
 
 - (void) sourceOnError:(NSError *)error{
+    LogMessage(@"err", 0, @"%@", [NSString stringWithFormat:@"%@", error]);
     [_delegate recieveError:error];
 }
 
@@ -100,7 +103,10 @@
 }
 
 - (void) sourceOnStitchPixelBuffer:(CVPixelBufferRef)pixelBuffer timestamp:(int64_t)timestamp{
-    [self parsePixelBuffer: pixelBuffer];
+    LogMessage(@"here", 0, @"here");
+    if(!isReal){
+        [self parsePixelBuffer: pixelBuffer];
+    }
     [self parseFaceBuffer: pixelBuffer];
     [_delegate recieveStichedFragment:pixelBuffer timestamp:timestamp];
 }
@@ -192,9 +198,7 @@
     //禁止休眠
     [UIApplication sharedApplication].idleTimerDisabled = YES;
     
-    //danmu
-    [[DanmuManager sharedManager] connect];
-    
+        
     
     self.isLiving = YES;
     [self setupPipes];
@@ -208,22 +212,26 @@
     SettingSession* setting = [SettingSession new];
     switch (setting.quality) {
         case SettingSessionCameraQualityLow:
+            isReal = NO;
             [self startLiveWithWidth:setting.width WithHeight:setting.height WithBitrate:setting.bitrate WithQuality:INSCameraVideoResType_1440_720P30];
             [[StreamManager sharedManager] startRTMP];
             break;
         case SettingSessionCameraQualityMedium:
+            isReal = NO;
             [self startLiveWithWidth:setting.width WithHeight:setting.height WithBitrate:setting.bitrate WithQuality:INSCameraVideoResType_2160_1080P30];
             [[StreamManager sharedManager] startRTMP];
             break;
         case SettingSessionCameraQualityHigh:
+            isReal = NO;
             [self startLiveWithWidth:setting.width WithHeight:setting.height WithBitrate:setting.bitrate WithQuality:INSCameraVideoResType_3040_1520P30];
             [[StreamManager sharedManager] startRTMP];
             break;
         case SettingSessionCameraQualityReal:
-            _real_streamer = [[INSFlatLiveStreamer alloc] initWithRtmpAddress:[NSURL URLWithString:[NSString stringWithFormat:@"%@/%@", setting.url, setting.streamKey]] cameraResolution:INSCameraVideoResType_2160_1080P30 stitchWidth:setting.width stitchHeight:setting.height bitrate:setting.bitrate];
+            isReal = YES;
+            _real_streamer = [[INSFlatLiveStreamer alloc] initWithRtmpAddress:[NSURL URLWithString:[NSString stringWithFormat:@"%@/%@", setting.url, setting.streamKey]] cameraResolution:INSCameraVideoResType_3040_1520P30 stitchWidth:setting.width stitchHeight:setting.height bitrate:setting.bitrate];
             [self startLiveWithWidth:setting.width WithHeight:setting.height WithBitrate:setting.bitrate WithQuality:INSCameraVideoResType_2160_1080P30];
-            //_real_streamer = [[INSFlatLiveStreamer alloc] initWithRtmpAddress:[NSURL URLWithString:[NSString stringWithFormat:@"rtmp://10.10.17.182:1935/rtmplive/kjkjkj"]] cameraResolution:INSCameraVideoResType_3040_1520P30 stitchWidth:setting.width stitchHeight:setting.height bitrate:setting.bitrate];
-           
+            LogMessage(@"live", 0, @"detector callback: %@ faces has been detected", [NSString stringWithFormat:@"%@/%@  ***start living",setting.url, setting.streamKey]);
+            
             [_real_streamer startLive];
             self.isLiving = YES;
             break;
@@ -242,7 +250,7 @@
     [UIApplication sharedApplication].idleTimerDisabled = NO;
     
     //danmu
-    [[DanmuManager sharedManager] disconnect];
+    //[[DanmuManager sharedManager] disconnect];
     
     self.isLiving = NO;
     

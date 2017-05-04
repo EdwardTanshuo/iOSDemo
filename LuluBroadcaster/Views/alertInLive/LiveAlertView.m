@@ -52,6 +52,7 @@
     [view setupLabel:err];
     view.frame = CGRectMake(0, 0, controller.view.bounds.size.width / 2.0f, controller.view.bounds.size.width / 2.0f * 9.0f / 16.0f);
     view.center = controller.view.center;
+    
     [controller.view addSubview:view];
 }
 @end

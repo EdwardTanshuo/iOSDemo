@@ -16,6 +16,5 @@
 + (DanmuManager* _Nonnull)sharedManager;
 - (void)sendDanmu: (Danmu* _Nonnull)danmu;
 - (void)cleanDanmu;
-- (void)connect;
-- (void)disconnect;
+
 @end

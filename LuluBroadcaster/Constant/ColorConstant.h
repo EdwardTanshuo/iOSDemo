@@ -10,4 +10,5 @@
 
 @interface ColorConstant : NSObject
 + (UIColor*) mclMediumPinkColor;
++ (UIColor*) mclMediumBlue;
 @end

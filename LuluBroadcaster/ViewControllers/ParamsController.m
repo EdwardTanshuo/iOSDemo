@@ -32,6 +32,9 @@
     return UIInterfaceOrientationMaskAll;
 }
 
+- (BOOL)shouldAutorotate{
+    return NO;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -41,11 +44,15 @@
     [self setupParams];
 }
 
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+     [cell setBackgroundColor:[UIColor clearColor]];
+}
 
 #pragma mark -
 #pragma mark setups
 - (void)setupUI{
     self.tableView.tableFooterView = [UIView new];
+    self.view.userInteractionEnabled = NO;
 }
 
 - (void)setupParams{
@@ -142,5 +149,6 @@
 - (IBAction)faceDetectorOnAction:(id)sender {
     self.setting.faceDetectOn = self.facedetector.on;
 }
+    
 
 @end

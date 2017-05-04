@@ -7,9 +7,9 @@
 //
 
 #import "DanmuManager.h"
-#import "DanmuSocket.h"
+#import "GameManager.h"
 
-@interface DanmuManager()<DanmuDatasourceDelegate, DanmuSocketDelegate>
+@interface DanmuManager()<DanmuDatasourceDelegate, MessageEvent>
 
 @end
 
@@ -27,18 +27,8 @@
 - (instancetype)init{
     self.datasource = [[DanmuDatasource alloc] init];
     self.datasource.delegate = self;
-    [DanmuSocket sharedSocket].delegate = self;
+    [GameManager sharedManager].msgDelegate = self;
     return [super init];
-}
-
-#pragma mark -
-#pragma mark methods
-- (void)connect{
-    [[DanmuSocket sharedSocket] connect];
-}
-
-- (void)disconnect{
-    [[DanmuSocket sharedSocket] disconnect];
 }
 
 #pragma mark -
@@ -57,9 +47,21 @@
 
 
 #pragma mark -
-#pragma mark DanmuSocketDelegate
-- (void)hasRecievedDanmu:(Danmu *)danmu{
+#pragma mark DanmuManagerDelegate
+- (void)recievedanmu: (NSString* _Nullable)text WithUser: (NSString* _Nullable)user{
+    Danmu* danmu = [[Danmu alloc] initWithUser:user WithMessage:text WithType:NormalDanmuType];
     [self sendDanmu:danmu];
+}
+
+- (void)recieveGift:(NSInteger)gid WithUser:(NSString *)user{
+    NSArray* list = [[GameManager sharedManager] giftList];
+    for(Gift* iter in list){
+        if(iter.gid == gid){
+            Danmu* danmu = [[Danmu alloc] initWithUser:user WithMessage:[NSString stringWithFormat:@"%@  价值: %ld", iter.name, (long)iter.cost] WithType:GiftDanmuType];
+            [self sendDanmu:danmu];
+            return;
+        }
+    }
 }
 @end
 

@@ -9,9 +9,10 @@
 #import "Danmu.h"
 
 @implementation Danmu
-- (instancetype _Nonnull)initWithUser:(NSString* _Nonnull)user WithMessage:(NSString* _Nonnull) message{
+- (instancetype _Nonnull)initWithUser:(NSString* _Nonnull)user WithMessage:(NSString* _Nonnull) message WithType:(DanmuType)type{
     self.user = user;
     self.word = message;
+    self.type = type;
     return [super init];
 }
 @end

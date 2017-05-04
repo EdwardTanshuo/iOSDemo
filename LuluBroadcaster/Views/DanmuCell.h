@@ -13,5 +13,5 @@
 @property (strong, nonatomic, nullable) Danmu*  danmu;
 
 - (void) configureWithDanmu: (Danmu* _Nonnull)danmu;
-+ (CGFloat) height: (Danmu* _Nonnull)danmu;
+- (CGFloat) height: (Danmu* _Nonnull)danmu;
 @end

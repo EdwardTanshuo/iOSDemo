@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -15,17 +18,17 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="msH-47-mtw">
-                        <rect key="frame" x="8" y="11" width="304" height="21"/>
+                        <rect key="frame" x="8" y="0.0" width="304" height="44"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="msH-47-mtw" secondAttribute="trailing" constant="8" id="NUP-aO-OQW"/>
+                    <constraint firstAttribute="trailing" secondItem="msH-47-mtw" secondAttribute="trailing" constant="8" id="9p7-zF-1Vg"/>
                     <constraint firstItem="msH-47-mtw" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="gds-26-xAx"/>
-                    <constraint firstAttribute="bottom" secondItem="msH-47-mtw" secondAttribute="bottom" constant="11" id="kUm-fq-wpJ"/>
-                    <constraint firstItem="msH-47-mtw" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="xjF-Vi-Bjz"/>
+                    <constraint firstAttribute="bottom" secondItem="msH-47-mtw" secondAttribute="bottom" id="kUm-fq-wpJ"/>
+                    <constraint firstItem="msH-47-mtw" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="xjF-Vi-Bjz"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

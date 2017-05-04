@@ -23,7 +23,7 @@
     _base_url = BASE_URL;
     _php_url = PHP_URL;
     
-    _apis = @{@"login": @"login", @"broadcasters": @"account/feed", @"history": @"transactions/borad", @"transactions": @"transactions"};
+    _apis = @{@"login": @"broadcasterApi/login", @"broadcasters": @"account/feed", @"history": @"transactions/borad", @"transactions": @"transactions", @"followers": @"api/broadcasters/followers", @"scenes": @"api/broadcasters/scenes"};
     _manager = [AFHTTPSessionManager manager];
     _manager.requestSerializer = [AFJSONRequestSerializer serializer];
     _manager.responseSerializer = [AFJSONResponseSerializer serializer];

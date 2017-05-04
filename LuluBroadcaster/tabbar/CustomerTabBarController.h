@@ -17,4 +17,5 @@
 
 - (void)active;
 - (void)inactive;
+- (void)processing;
 @end

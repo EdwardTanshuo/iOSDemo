@@ -6,8 +6,8 @@
 //  Copyright © 2016 ShuoTan. All rights reserved.
 //
 
-#define BASE_URL @"http://122.112.227.196/broadcasterApi/"
-#define PHP_URL @"http://122.112.227.196/broadcasterApi/"
+#define BASE_URL @"http://122.112.227.196/"
+#define PHP_URL @"http://122.112.227.196/"
 
 #import <Foundation/Foundation.h>
 #import "Broadcaster.h"

@@ -8,14 +8,16 @@
 
 #import <Foundation/Foundation.h>
 #import "Scene.h"
+#import "Gift.h"
 #import "UserDataSource.h"
 
-#define GAME_IP @"10.10.17.61"
+#define GAME_IP @"122.112.227.196"
 #define GAME_PORT 3020
 
 typedef void (^_Nullable GameManagerCallback)(id _Nullable argsData);
 typedef void (^_Nullable GameManagerResultCallback)(NSError* _Nullable err, Scene* _Nullable scene);
 typedef void (^_Nullable GameManagerDrawCardCallback)(NSError* _Nullable err, Card* _Nullable card, CardValue* _Nullable value);
+typedef void (^_Nullable GiftsCallback)(NSError* _Nullable err, NSArray<Gift*>* _Nullable list);
 
 @protocol GameManagerDelegate
 - (void)entryCallBack:(id _Nullable) argsData;
@@ -34,8 +36,15 @@ typedef void (^_Nullable GameManagerDrawCardCallback)(NSError* _Nullable err, Ca
 - (void)NewTurnEvent: (Scene* _Nullable)scene;
 - (void)BetStartEvent: (Scene* _Nullable)scene;
 - (void)GameStartEvent: (Scene* _Nullable)scene;
+- (void)PlayerBetEvent: (Scene* _Nullable)scene;
+- (void)TurnFinishEvent: (NSDictionary* _Nullable)data;
 - (void)didConnected;
 - (void)disconnect:(NSError* _Nullable)error;
+@end
+
+@protocol MessageEvent
+- (void)recievedanmu: (NSString* _Nullable)text WithUser: (NSString* _Nullable)user;
+- (void)recieveGift: (NSInteger)gid WithUser: (NSString* _Nullable)user;
 @end
 
 @protocol GameManagerDatasource
@@ -47,6 +56,7 @@ typedef void (^_Nullable GameManagerDrawCardCallback)(NSError* _Nullable err, Ca
 @property (nonatomic, strong, nonnull)  Scene*                              scene;
 @property (nonatomic, weak, nullable)   id<GameManagerDelegate>             delegate;
 @property (nonatomic, weak, nullable)   id<GameManagerEvent>                target;
+@property (nonatomic, weak, nullable)   id<MessageEvent>                    msgDelegate;
 @property (nonatomic, weak, nullable)   id<GameManagerDatasource>           datasource;
 @property (nonatomic, strong, nullable) UserDataSource*                     userDatasource;
 
@@ -55,6 +65,8 @@ typedef void (^_Nullable GameManagerDrawCardCallback)(NSError* _Nullable err, Ca
 
 #pragma mark -
 #pragma mark PomeloReuqests
+- (NSArray<Gift*>* _Nonnull)giftList;
+
 - (void)entry: (NSString* _Nonnull)room;
 - (void)createGame: (NSString* _Nonnull)room;
 - (void)startBet: (NSString* _Nonnull)room;
@@ -64,6 +76,7 @@ typedef void (^_Nullable GameManagerDrawCardCallback)(NSError* _Nullable err, Ca
 - (void)drawCard: (NSString* _Nonnull)room;
 - (void)finishTurn: (NSString* _Nonnull)room;
 - (void)sendFaceCoordinate: (NSDictionary* _Nonnull)params;
+
 - (void)connect;
 
 - (void)connectWithCallback: (GameManagerCallback)callback;
@@ -71,7 +84,7 @@ typedef void (^_Nullable GameManagerDrawCardCallback)(NSError* _Nullable err, Ca
 - (void)createGameWithCallback: (GameManagerCallback)callback room: (NSString* _Nonnull)room;
 - (void)drawCardWithCallback: (GameManagerDrawCardCallback)callback room: (NSString* _Nonnull)room;
 - (void)finishTurnWithCallback: (GameManagerResultCallback)callback room: (NSString* _Nonnull)room;
-
+- (void)requestGiftsWithCallback: (GiftsCallback)callback;
 - (void)enterGameWithCallback: (GameManagerResultCallback)callback room: (NSString* _Nonnull)room;
 
 - (NSError* _Nullable) makeError: (id _Nullable)data;

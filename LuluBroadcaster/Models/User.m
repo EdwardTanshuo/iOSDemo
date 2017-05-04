@@ -16,11 +16,19 @@
     return user;
 }
 
++ (User* _Nonnull) followerWithJSON:(id _Nonnull)data{
+    User* user = [[User alloc] init];
+    [user doMappingWithFollowerData:data];
+    return user;
+}
+
 - (instancetype)init{
     self.avatar = @"";
     self.name = @"";
     self.foreignId = 0;
     self.uid = @"";
+    self.intimacy = @"";
+    self.level = @"";
     return [super init];
 }
 
@@ -30,6 +38,17 @@
                               @"foreignId": KZProperty(foreignId),
                               @"avatar": KZProperty(avatar),
                               @"name": KZProperty(name),
+                              };
+    [KZPropertyMapper mapValuesFrom:data toInstance:self usingMapping:mapping];
+}
+
+- (void)doMappingWithFollowerData: (id)data{
+    NSDictionary* mapping = @{@"user_id": KZProperty(uid),
+                              @"sex": KZProperty(sex),
+                              @"avatar": KZProperty(avatar),
+                              @"username": KZProperty(name),
+                              @"level": KZProperty(level),
+                              @"intimacy": KZProperty(intimacy)
                               };
     [KZPropertyMapper mapValuesFrom:data toInstance:self usingMapping:mapping];
 }

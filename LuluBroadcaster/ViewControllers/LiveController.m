@@ -6,10 +6,13 @@
 //  Copyright © 2016 ShuoTan. All rights reserved.
 //
 
+#import "UserSession.h"
+
 #import "LiveController.h"
 #import "LiveManager.h"
 #import "StreamManager.h"
 #import "CameraManager.h"
+#import "CaptureManager.h"
 #import <GPUImage/GPUImageFramework.h>
 #import <NSLogger/LoggerClient.h>
 #import <SDWebImage/UIImageView+WebCache.h>
@@ -23,7 +26,11 @@
 #import "BettingController.h"
 #import "PlayerDrawController.h"
 
-@interface LiveController ()<UICollectionViewDataSource, LiveDataSourceDelegate, DanmuDatasourceDelegate, GameManagerDelegate, GameManagerEvent, GameManagerDatasource, UITableViewDelegate, UITableViewDataSource>
+#import "RankController.h"
+
+@interface LiveController ()<UICollectionViewDataSource, LiveDataSourceDelegate, DanmuDatasourceDelegate, GameManagerDelegate, GameManagerEvent, GameManagerDatasource, UITableViewDelegate, UITableViewDataSource>{
+    NSInteger player_num;
+}
 
 //video window
 @property (nonatomic, strong) GPUImageView* imageView;
@@ -46,6 +53,7 @@
 //labels
 @property (weak, nonatomic) IBOutlet UILabel *broadcasterName;
 @property (weak, nonatomic) IBOutlet UILabel *broadcasterCount;
+@property (weak, nonatomic) IBOutlet UILabel *infoPad;
 
 //current game UI
 @property (nonatomic, strong) UIViewController* currentGameUIController;
@@ -61,6 +69,10 @@
     return UIInterfaceOrientationMaskAll;
 }
 
+- (BOOL)shouldAutorotate{
+    return NO;
+}
+
 - (BOOL)prefersStatusBarHidden{
     return YES;
 }
@@ -69,6 +81,8 @@
     
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    player_num = 0;
+    
     [self setupViews];
     [self setupDanmuTable];
     [self setupDanmuDatasource];
@@ -81,6 +95,8 @@
 
 - (void)viewDidAppear:(BOOL)animated{
     [self showScene:self.scene];
+    
+    [[CaptureManager sharedManager] showVideoOnView:self.view];
 }
 
 - (void)dealloc{
@@ -93,15 +109,18 @@
 }
 
 - (void)setupViews{
-    _imageView = [[GPUImageView alloc] initWithFrame:self.view.bounds];
+    _imageView = nil;
+    /*_imageView = [[GPUImageView alloc] initWithFrame:self.view.bounds];
     _imageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [_imageView setBackgroundColorRed:0 green:0 blue:0 alpha:1.0];
-    [self.view insertSubview:_imageView atIndex:0];
+    [self.view insertSubview:_imageView atIndex:0];*/
     
     _avatar.clipsToBounds = YES;
+    _avatar.layer.cornerRadius = 1.0f;
+    _avatar.layer.borderColor = [[UIColor whiteColor] CGColor];
     _avatar.layer.cornerRadius = _avatar.frame.size.height / 2.0;
     [_avatar sd_setImageWithURL: [NSURL URLWithString:self.scene.dealer.profileImageURL]
-               placeholderImage: [UIImage new]
+               placeholderImage: [UIImage imageNamed:@"placeholder"]
                       completed: ^(UIImage *image,
                                    NSError *error,
                                    SDImageCacheType cacheType,
@@ -111,7 +130,7 @@
     
     self.broadcasterName.text = self.scene.dealer.name;
     self.broadcasterCount.text = [NSString stringWithFormat:@"%ld", [[GameManager sharedManager].userDatasource numberOfUsers]];
-    self.diamond.text = [NSString stringWithFormat:@"%ld", [[GameManager sharedManager] numberOfDiamond]];
+    self.diamond.text = [NSString stringWithFormat:@"%ld", _scene.dealer.wealth];
 }
 
 - (void)setupDanmuDatasource{
@@ -157,6 +176,7 @@
 #pragma mark -
 #pragma mark actions
 - (IBAction)closeActions:(id)sender {
+    
     [[LiveManager sharedManager] stopLive];
     [[GameManager sharedManager] endGame: _scene.room];
     [LiveManager sharedManager].delegate = nil;
@@ -230,7 +250,8 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return [DanmuCell height:[[DanmuManager sharedManager].datasource getModelAtIndexPath:indexPath]];
+    DanmuCell* cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
+    return [cell height:[[DanmuManager sharedManager].datasource getModelAtIndexPath:indexPath]];
 }
 
 #pragma mark -
@@ -313,7 +334,13 @@
 }
 
 - (void)endCallBack:(id _Nullable) argsData{
-    
+    if([[GameManager sharedManager] makeCode: argsData] == 200){
+        self.scene = [[GameManager sharedManager] makeScene:argsData];
+    }
+    else{
+        NSError* error = [[GameManager sharedManager] makeError:argsData];
+        [LiveAlertView popOutInController:self error:error];
+    }
 }
 
 - (void)drawCallBack:(id _Nullable) argsData{
@@ -362,6 +389,14 @@
 
 }
 
+- (void)PlayerBetEvent:(Scene *)scene{
+    //_infoPad.text = [NSString stringWithFormat:@"%lu人", (unsigned long)scene.player_bets.count];
+}
+
+- (void)TurnFinishEvent:(NSDictionary *)data{
+    [RankController popoutWithList:data[@"body"][@"rankingList"] WithController:self];
+}
+
 - (void)disconnect:(NSError *)error{
     
 }
@@ -398,6 +433,8 @@
 #pragma mark -
 #pragma mark scene constructor
 - (void) showScene: (Scene*)scene{
+    //_infoPad.text = [NSString stringWithFormat:@"%lu人", (unsigned long)scene.player_bets.count];
+    self.diamond.text = [NSString stringWithFormat:@"%ld", scene.dealer.wealth];
     switch(scene.status){
         case SceneStatusInit:{
             if(_currentGameUIController){
@@ -439,7 +476,6 @@
             [vc.view layoutIfNeeded];
             [self.view addSubview:vc.view];
             self.currentGameUIController = vc;
-
             break;
         }
     }

@@ -26,6 +26,11 @@
     return UIInterfaceOrientationMaskAll;
 }
 
+- (BOOL)shouldAutorotate{
+    return NO;
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"个人中心";

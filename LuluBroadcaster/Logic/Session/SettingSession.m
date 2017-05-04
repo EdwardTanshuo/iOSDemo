@@ -18,14 +18,14 @@
 #define FACE_DETECTOR_KEY @"fdKey"
 #define QUALITY_KEY @"qualityKey"
 
-#define DEFAULT_BITRATE 2*1024*1024
-#define DEFAULT_HEIGHT 720
-#define DEFAULT_WIDTH 1440
-#define DEFAULT_URL @"rtmp://122.112.246.201:1935/rtmplive"
+#define DEFAULT_BITRATE 3*1024*1024
+#define DEFAULT_HEIGHT 960
+#define DEFAULT_WIDTH 1920
+#define DEFAULT_URL @"rtmp://123.206.176.106:1935/live"
 #define DEFAULT_STREAM_KEY @"kjkjkj"
 #define DEFAULT_BRIGHTNESS 0.2
 #define DEFAULT_FPS 30
-#define DEFAULT_FACE_DETECTOR 1
+#define DEFAULT_FACE_DETECTOR 0
 #define DEFAULT_QUALITY SettingSessionCameraQualityReal
 
 
@@ -47,6 +47,11 @@
 #pragma mark quality
 - (SettingSessionCameraQuality) quality{
     _quality = [[NSUserDefaults standardUserDefaults] integerForKey:QUALITY_KEY];
+    if(!_quality){
+        [[NSUserDefaults standardUserDefaults] setInteger:DEFAULT_QUALITY forKey:QUALITY_KEY];
+        return DEFAULT_QUALITY;
+    }
+
     return _quality;
 }
 - (void) setQuality:(SettingSessionCameraQuality)new_value{

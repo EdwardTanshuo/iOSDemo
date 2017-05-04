@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		D70435221DC9704F00EF5FAE /* YUGPUImageCVPixelBufferInput.m in Sources */ = {isa = PBXBuildFile; fileRef = D70435211DC9704F00EF5FAE /* YUGPUImageCVPixelBufferInput.m */; };
 		D70435251DC988A800EF5FAE /* GPUImageMyBeautifyFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = D70435241DC988A800EF5FAE /* GPUImageMyBeautifyFilter.m */; };
+		D711ED631EAF2B8E003C0E7D /* IndicatorController.m in Sources */ = {isa = PBXBuildFile; fileRef = D711ED611EAF2B8E003C0E7D /* IndicatorController.m */; };
+		D711ED641EAF2B8E003C0E7D /* IndicatorController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D711ED621EAF2B8E003C0E7D /* IndicatorController.xib */; };
 		D71CAB2D1DE62D0500DC890E /* FaceDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = D71CAB2C1DE62D0500DC890E /* FaceDetector.m */; };
 		D71CAB311DE6347C00DC890E /* FaceDetectManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D71CAB301DE6347C00DC890E /* FaceDetectManager.m */; };
 		D722D5F41DF90FC50067F1A9 /* PomeloProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = D722D5F01DF90FC50067F1A9 /* PomeloProtocol.m */; };
@@ -26,14 +28,32 @@
 		D726B0B01DDE84E2002B9068 /* StreamCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D726B0AE1DDE84E2002B9068 /* StreamCell.xib */; };
 		D726B0B31DDEC093002B9068 /* BroadcasterDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = D726B0B21DDEC093002B9068 /* BroadcasterDatasource.m */; };
 		D726B0B61DDEE5F2002B9068 /* ListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D726B0B51DDEE5F2002B9068 /* ListRequest.m */; };
+		D73C357F1EB0805F0004AD32 /* SceneRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D73C357E1EB0805F0004AD32 /* SceneRequest.m */; };
+		D73C35821EB080FD0004AD32 /* Record.m in Sources */ = {isa = PBXBuildFile; fileRef = D73C35811EB080FD0004AD32 /* Record.m */; };
+		D73C35861EB084BC0004AD32 /* SceneDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = D73C35851EB084BC0004AD32 /* SceneDatasource.m */; };
+		D73C358A1EB094100004AD32 /* SceneController.m in Sources */ = {isa = PBXBuildFile; fileRef = D73C35891EB094100004AD32 /* SceneController.m */; };
+		D73C358E1EB096120004AD32 /* SceneCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D73C358C1EB096120004AD32 /* SceneCell.m */; };
+		D73C358F1EB096120004AD32 /* SceneCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D73C358D1EB096120004AD32 /* SceneCell.xib */; };
+		D73C35941EB0E4E20004AD32 /* RankController.m in Sources */ = {isa = PBXBuildFile; fileRef = D73C35921EB0E4E20004AD32 /* RankController.m */; };
+		D73C35951EB0E4E20004AD32 /* RankController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D73C35931EB0E4E20004AD32 /* RankController.xib */; };
+		D73C35991EB0E92B0004AD32 /* RankCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D73C35971EB0E92B0004AD32 /* RankCell.m */; };
+		D73C359A1EB0E92B0004AD32 /* RankCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D73C35981EB0E92B0004AD32 /* RankCell.xib */; };
 		D74338BA1DD46BBB00CC3831 /* GPUImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D74338B71DD46BB200CC3831 /* GPUImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D74338BB1DD46BD000CC3831 /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D74338B71DD46BB200CC3831 /* GPUImage.framework */; };
+		D749DB7A1E9C752F009CDF0B /* FollowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D749DB781E9C752F009CDF0B /* FollowController.m */; };
+		D749DB7E1E9C7CBF009CDF0B /* FollowRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D749DB7D1E9C7CBF009CDF0B /* FollowRequest.m */; };
+		D749DB851E9C7FC1009CDF0B /* FollowerDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = D749DB841E9C7FC1009CDF0B /* FollowerDatasource.m */; };
+		D749DB891E9C8A48009CDF0B /* FollowerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D749DB871E9C8A48009CDF0B /* FollowerCell.m */; };
+		D749DB8A1E9C8A48009CDF0B /* FollowerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D749DB881E9C8A48009CDF0B /* FollowerCell.xib */; };
 		D74B3B911DF44C2B00539722 /* ParamsController.m in Sources */ = {isa = PBXBuildFile; fileRef = D74B3B901DF44C2B00539722 /* ParamsController.m */; };
 		D7501A701E049F82000C7DED /* Scene.m in Sources */ = {isa = PBXBuildFile; fileRef = D7501A6F1E049F82000C7DED /* Scene.m */; };
 		D7501A731E049FB1000C7DED /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = D7501A721E049FB1000C7DED /* Card.m */; };
 		D7501A761E04A282000C7DED /* CardValue.m in Sources */ = {isa = PBXBuildFile; fileRef = D7501A751E04A282000C7DED /* CardValue.m */; };
 		D7501A7D1E04ED74000C7DED /* LiveAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = D7501A7C1E04ED74000C7DED /* LiveAlertView.m */; };
 		D75590111DDC67D80050BB47 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D75590101DDC67D80050BB47 /* SettingViewController.m */; };
+		D760EB0B1EA056D800569ABA /* DanmuManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D760EB091EA056D800569ABA /* DanmuManager.m */; };
+		D760EB0E1EA06DA800569ABA /* Gift.m in Sources */ = {isa = PBXBuildFile; fileRef = D760EB0D1EA06DA800569ABA /* Gift.m */; };
+		D76A99081E988EDB00BC5821 /* CaptureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D76A99071E988EDB00BC5821 /* CaptureManager.m */; };
 		D76D22561E20892600AB5D98 /* Broad.m in Sources */ = {isa = PBXBuildFile; fileRef = D76D22541E20892600AB5D98 /* Broad.m */; };
 		D76E56E01DD6A1BB004BE5B9 /* CustomerNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D76E56DF1DD6A1BB004BE5B9 /* CustomerNavigationController.m */; };
 		D76E56E31DD6A2BD004BE5B9 /* ColorConstant.m in Sources */ = {isa = PBXBuildFile; fileRef = D76E56E21DD6A2BD004BE5B9 /* ColorConstant.m */; };
@@ -50,21 +70,17 @@
 		D77EA5D31DE2C8C9008B0669 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = D77EA5D21DE2C8C9008B0669 /* User.m */; };
 		D77EA5D61DE2D321008B0669 /* TransactionRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D77EA5D51DE2D321008B0669 /* TransactionRequest.m */; };
 		D77EA5DA1DE2D71F008B0669 /* TransactionDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = D77EA5D91DE2D71F008B0669 /* TransactionDatasource.m */; };
-		D77EA5DE1DE2D9D1008B0669 /* TransactionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D77EA5DD1DE2D9D1008B0669 /* TransactionViewController.m */; };
 		D77EA5E31DE2DD1F008B0669 /* TransactionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D77EA5E11DE2DD1F008B0669 /* TransactionCell.m */; };
 		D77EA5E41DE2DD1F008B0669 /* TransactionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D77EA5E21DE2DD1F008B0669 /* TransactionCell.xib */; };
 		D77EA5ED1DE2E3B6008B0669 /* NavigationRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = D77EA5EC1DE2E3B6008B0669 /* NavigationRouter.m */; };
 		D77EA5F11DE2E3CD008B0669 /* NSDate+TimeAgo.m in Sources */ = {isa = PBXBuildFile; fileRef = D77EA5EF1DE2E3CD008B0669 /* NSDate+TimeAgo.m */; };
 		D77EA5F21DE2E3CD008B0669 /* NSDateTimeAgo.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D77EA5F01DE2E3CD008B0669 /* NSDateTimeAgo.bundle */; };
-		D7850CDD1DDFC8B900E21D8A /* DanmuManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D7850CDC1DDFC8B900E21D8A /* DanmuManager.m */; };
 		D7850CE01DDFCA0300E21D8A /* Danmu.m in Sources */ = {isa = PBXBuildFile; fileRef = D7850CDF1DDFCA0300E21D8A /* Danmu.m */; };
 		D7850CE31DDFCBD900E21D8A /* DanmuDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = D7850CE21DDFCBD900E21D8A /* DanmuDatasource.m */; };
 		D7850CE91DDFEB4B00E21D8A /* DanmuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D7850CE71DDFEB4B00E21D8A /* DanmuCell.m */; };
 		D7850CEA1DDFEB4B00E21D8A /* DanmuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7850CE81DDFEB4B00E21D8A /* DanmuCell.xib */; };
 		D78D0B611DDA7CA100B01108 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = D78D0B5F1DDA7CA100B01108 /* LoginController.m */; };
 		D78D0B621DDA7CA100B01108 /* LoginController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D78D0B601DDA7CA100B01108 /* LoginController.xib */; };
-		D78D0C441DDD2C2E00DE1193 /* LuluSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = D78D0C431DDD2C2E00DE1193 /* LuluSocket.m */; };
-		D78D0C4A1DDD2C8700DE1193 /* DanmuSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = D78D0C491DDD2C8700DE1193 /* DanmuSocket.m */; };
 		D7979E1E1DCB50AC0056B35A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7979E1D1DCB50AC0056B35A /* CoreData.framework */; };
 		D7AEC2071DD1996300F9BC7F /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D7AEC2061DD1996300F9BC7F /* libz.tbd */; };
 		D7AEC2091DD1997300F9BC7F /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D7AEC2081DD1997300F9BC7F /* libstdc++.tbd */; };
@@ -128,6 +144,9 @@
 		D70435211DC9704F00EF5FAE /* YUGPUImageCVPixelBufferInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YUGPUImageCVPixelBufferInput.m; path = Logic/Helper/buffer2image/YUGPUImageCVPixelBufferInput.m; sourceTree = "<group>"; };
 		D70435231DC988A800EF5FAE /* GPUImageMyBeautifyFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPUImageMyBeautifyFilter.h; path = Logic/Helper/filter/GPUImageMyBeautifyFilter.h; sourceTree = "<group>"; };
 		D70435241DC988A800EF5FAE /* GPUImageMyBeautifyFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPUImageMyBeautifyFilter.m; path = Logic/Helper/filter/GPUImageMyBeautifyFilter.m; sourceTree = "<group>"; };
+		D711ED601EAF2B8E003C0E7D /* IndicatorController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IndicatorController.h; path = ViewControllers/IndicatorController.h; sourceTree = "<group>"; };
+		D711ED611EAF2B8E003C0E7D /* IndicatorController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IndicatorController.m; path = ViewControllers/IndicatorController.m; sourceTree = "<group>"; };
+		D711ED621EAF2B8E003C0E7D /* IndicatorController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = IndicatorController.xib; path = ViewControllers/IndicatorController.xib; sourceTree = "<group>"; };
 		D71CAB2B1DE62D0500DC890E /* FaceDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FaceDetector.h; path = Logic/Helper/FaceDetector/FaceDetector.h; sourceTree = "<group>"; };
 		D71CAB2C1DE62D0500DC890E /* FaceDetector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FaceDetector.m; path = Logic/Helper/FaceDetector/FaceDetector.m; sourceTree = "<group>"; };
 		D71CAB2F1DE6347C00DC890E /* FaceDetectManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FaceDetectManager.h; path = Managers/FaceDetectManager.h; sourceTree = "<group>"; };
@@ -163,7 +182,33 @@
 		D726B0B21DDEC093002B9068 /* BroadcasterDatasource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BroadcasterDatasource.m; path = DataSource/BroadcasterDatasource.m; sourceTree = "<group>"; };
 		D726B0B41DDEE5F2002B9068 /* ListRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ListRequest.h; path = Request/ListRequest.h; sourceTree = "<group>"; };
 		D726B0B51DDEE5F2002B9068 /* ListRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ListRequest.m; path = Request/ListRequest.m; sourceTree = "<group>"; };
+		D73C357D1EB0805F0004AD32 /* SceneRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SceneRequest.h; path = Request/SceneRequest.h; sourceTree = "<group>"; };
+		D73C357E1EB0805F0004AD32 /* SceneRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SceneRequest.m; path = Request/SceneRequest.m; sourceTree = "<group>"; };
+		D73C35801EB080FD0004AD32 /* Record.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Record.h; path = Models/Record.h; sourceTree = "<group>"; };
+		D73C35811EB080FD0004AD32 /* Record.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Record.m; path = Models/Record.m; sourceTree = "<group>"; };
+		D73C35841EB084BC0004AD32 /* SceneDatasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SceneDatasource.h; path = DataSource/SceneDatasource.h; sourceTree = "<group>"; };
+		D73C35851EB084BC0004AD32 /* SceneDatasource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SceneDatasource.m; path = DataSource/SceneDatasource.m; sourceTree = "<group>"; };
+		D73C35881EB094100004AD32 /* SceneController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SceneController.h; path = ViewControllers/SceneController.h; sourceTree = "<group>"; };
+		D73C35891EB094100004AD32 /* SceneController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SceneController.m; path = ViewControllers/SceneController.m; sourceTree = "<group>"; };
+		D73C358B1EB096120004AD32 /* SceneCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SceneCell.h; path = Views/SceneCell.h; sourceTree = "<group>"; };
+		D73C358C1EB096120004AD32 /* SceneCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SceneCell.m; path = Views/SceneCell.m; sourceTree = "<group>"; };
+		D73C358D1EB096120004AD32 /* SceneCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SceneCell.xib; path = Views/SceneCell.xib; sourceTree = "<group>"; };
+		D73C35911EB0E4E20004AD32 /* RankController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RankController.h; path = ViewControllers/RankController.h; sourceTree = "<group>"; };
+		D73C35921EB0E4E20004AD32 /* RankController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RankController.m; path = ViewControllers/RankController.m; sourceTree = "<group>"; };
+		D73C35931EB0E4E20004AD32 /* RankController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RankController.xib; path = ViewControllers/RankController.xib; sourceTree = "<group>"; };
+		D73C35961EB0E92B0004AD32 /* RankCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RankCell.h; path = Views/RankCell.h; sourceTree = "<group>"; };
+		D73C35971EB0E92B0004AD32 /* RankCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RankCell.m; path = Views/RankCell.m; sourceTree = "<group>"; };
+		D73C35981EB0E92B0004AD32 /* RankCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RankCell.xib; path = Views/RankCell.xib; sourceTree = "<group>"; };
 		D74338B71DD46BB200CC3831 /* GPUImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GPUImage.framework; path = lib/GPUImage/GPUImage.framework; sourceTree = "<group>"; };
+		D749DB771E9C752F009CDF0B /* FollowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FollowController.h; path = ViewControllers/FollowController.h; sourceTree = "<group>"; };
+		D749DB781E9C752F009CDF0B /* FollowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FollowController.m; path = ViewControllers/FollowController.m; sourceTree = "<group>"; };
+		D749DB7C1E9C7CBF009CDF0B /* FollowRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FollowRequest.h; path = Request/FollowRequest.h; sourceTree = "<group>"; };
+		D749DB7D1E9C7CBF009CDF0B /* FollowRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FollowRequest.m; path = Request/FollowRequest.m; sourceTree = "<group>"; };
+		D749DB831E9C7FC1009CDF0B /* FollowerDatasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FollowerDatasource.h; path = DataSource/FollowerDatasource.h; sourceTree = "<group>"; };
+		D749DB841E9C7FC1009CDF0B /* FollowerDatasource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FollowerDatasource.m; path = DataSource/FollowerDatasource.m; sourceTree = "<group>"; };
+		D749DB861E9C8A48009CDF0B /* FollowerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FollowerCell.h; path = Views/FollowerCell.h; sourceTree = "<group>"; };
+		D749DB871E9C8A48009CDF0B /* FollowerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FollowerCell.m; path = Views/FollowerCell.m; sourceTree = "<group>"; };
+		D749DB881E9C8A48009CDF0B /* FollowerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FollowerCell.xib; path = Views/FollowerCell.xib; sourceTree = "<group>"; };
 		D74B3B8F1DF44C2B00539722 /* ParamsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ParamsController.h; path = ViewControllers/ParamsController.h; sourceTree = "<group>"; };
 		D74B3B901DF44C2B00539722 /* ParamsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ParamsController.m; path = ViewControllers/ParamsController.m; sourceTree = "<group>"; };
 		D7501A6E1E049F82000C7DED /* Scene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Scene.h; path = Models/Scene.h; sourceTree = "<group>"; };
@@ -176,6 +221,12 @@
 		D7501A7C1E04ED74000C7DED /* LiveAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LiveAlertView.m; path = Views/alertInLive/LiveAlertView.m; sourceTree = "<group>"; };
 		D755900F1DDC67D80050BB47 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingViewController.h; path = ViewControllers/SettingViewController.h; sourceTree = "<group>"; };
 		D75590101DDC67D80050BB47 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingViewController.m; path = ViewControllers/SettingViewController.m; sourceTree = "<group>"; };
+		D760EB091EA056D800569ABA /* DanmuManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DanmuManager.m; path = Managers/DanmuManager.m; sourceTree = "<group>"; };
+		D760EB0A1EA056D800569ABA /* DanmuManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DanmuManager.h; path = Managers/DanmuManager.h; sourceTree = "<group>"; };
+		D760EB0C1EA06DA800569ABA /* Gift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Gift.h; path = Models/Gift.h; sourceTree = "<group>"; };
+		D760EB0D1EA06DA800569ABA /* Gift.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Gift.m; path = Models/Gift.m; sourceTree = "<group>"; };
+		D76A99061E988EDB00BC5821 /* CaptureManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CaptureManager.h; path = Managers/CaptureManager.h; sourceTree = "<group>"; };
+		D76A99071E988EDB00BC5821 /* CaptureManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CaptureManager.m; path = Managers/CaptureManager.m; sourceTree = "<group>"; };
 		D76D22541E20892600AB5D98 /* Broad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Broad.m; path = Models/Broad.m; sourceTree = "<group>"; };
 		D76D22551E20892600AB5D98 /* Broad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Broad.h; path = Models/Broad.h; sourceTree = "<group>"; };
 		D76E56DE1DD6A1BB004BE5B9 /* CustomerNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomerNavigationController.h; path = navigationController/CustomerNavigationController.h; sourceTree = "<group>"; };
@@ -207,8 +258,6 @@
 		D77EA5D51DE2D321008B0669 /* TransactionRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TransactionRequest.m; path = Request/TransactionRequest.m; sourceTree = "<group>"; };
 		D77EA5D81DE2D71F008B0669 /* TransactionDatasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TransactionDatasource.h; path = DataSource/TransactionDatasource.h; sourceTree = "<group>"; };
 		D77EA5D91DE2D71F008B0669 /* TransactionDatasource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TransactionDatasource.m; path = DataSource/TransactionDatasource.m; sourceTree = "<group>"; };
-		D77EA5DC1DE2D9D1008B0669 /* TransactionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TransactionViewController.h; path = ViewControllers/TransactionViewController.h; sourceTree = "<group>"; };
-		D77EA5DD1DE2D9D1008B0669 /* TransactionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TransactionViewController.m; path = ViewControllers/TransactionViewController.m; sourceTree = "<group>"; };
 		D77EA5E01DE2DD1F008B0669 /* TransactionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TransactionCell.h; path = Views/TransactionCell.h; sourceTree = "<group>"; };
 		D77EA5E11DE2DD1F008B0669 /* TransactionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TransactionCell.m; path = Views/TransactionCell.m; sourceTree = "<group>"; };
 		D77EA5E21DE2DD1F008B0669 /* TransactionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TransactionCell.xib; path = Views/TransactionCell.xib; sourceTree = "<group>"; };
@@ -217,8 +266,6 @@
 		D77EA5EE1DE2E3CD008B0669 /* NSDate+TimeAgo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+TimeAgo.h"; path = "Logic/Helper/timeAgo/NSDate+TimeAgo.h"; sourceTree = "<group>"; };
 		D77EA5EF1DE2E3CD008B0669 /* NSDate+TimeAgo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+TimeAgo.m"; path = "Logic/Helper/timeAgo/NSDate+TimeAgo.m"; sourceTree = "<group>"; };
 		D77EA5F01DE2E3CD008B0669 /* NSDateTimeAgo.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = NSDateTimeAgo.bundle; path = Logic/Helper/timeAgo/NSDateTimeAgo.bundle; sourceTree = "<group>"; };
-		D7850CDB1DDFC8B900E21D8A /* DanmuManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DanmuManager.h; path = Managers/DanmuManager.h; sourceTree = "<group>"; };
-		D7850CDC1DDFC8B900E21D8A /* DanmuManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DanmuManager.m; path = Managers/DanmuManager.m; sourceTree = "<group>"; };
 		D7850CDE1DDFCA0300E21D8A /* Danmu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Danmu.h; path = Models/Danmu.h; sourceTree = "<group>"; };
 		D7850CDF1DDFCA0300E21D8A /* Danmu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Danmu.m; path = Models/Danmu.m; sourceTree = "<group>"; };
 		D7850CE11DDFCBD900E21D8A /* DanmuDatasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DanmuDatasource.h; path = DataSource/DanmuDatasource.h; sourceTree = "<group>"; };
@@ -229,10 +276,6 @@
 		D78D0B5E1DDA7CA100B01108 /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginController.h; path = ViewControllers/LoginController.h; sourceTree = "<group>"; };
 		D78D0B5F1DDA7CA100B01108 /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginController.m; path = ViewControllers/LoginController.m; sourceTree = "<group>"; };
 		D78D0B601DDA7CA100B01108 /* LoginController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginController.xib; path = ViewControllers/LoginController.xib; sourceTree = "<group>"; };
-		D78D0C421DDD2C2E00DE1193 /* LuluSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LuluSocket.h; path = Socket/LuluSocket.h; sourceTree = "<group>"; };
-		D78D0C431DDD2C2E00DE1193 /* LuluSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LuluSocket.m; path = Socket/LuluSocket.m; sourceTree = "<group>"; };
-		D78D0C481DDD2C8700DE1193 /* DanmuSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DanmuSocket.h; path = Socket/DanmuSocket.h; sourceTree = "<group>"; };
-		D78D0C491DDD2C8700DE1193 /* DanmuSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DanmuSocket.m; path = Socket/DanmuSocket.m; sourceTree = "<group>"; };
 		D7979E1D1DCB50AC0056B35A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		D7AEC2061DD1996300F9BC7F /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		D7AEC2081DD1997300F9BC7F /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
@@ -353,6 +396,16 @@
 			name = buffer2image;
 			sourceTree = "<group>";
 		};
+		D711ED5F1EAF2B72003C0E7D /* indicator */ = {
+			isa = PBXGroup;
+			children = (
+				D711ED601EAF2B8E003C0E7D /* IndicatorController.h */,
+				D711ED611EAF2B8E003C0E7D /* IndicatorController.m */,
+				D711ED621EAF2B8E003C0E7D /* IndicatorController.xib */,
+			);
+			name = indicator;
+			sourceTree = "<group>";
+		};
 		D71CAB2A1DE62CBB00DC890E /* faceDetect */ = {
 			isa = PBXGroup;
 			children = (
@@ -433,6 +486,52 @@
 			name = Game;
 			sourceTree = "<group>";
 		};
+		D73C35831EB084800004AD32 /* scene */ = {
+			isa = PBXGroup;
+			children = (
+				D73C35841EB084BC0004AD32 /* SceneDatasource.h */,
+				D73C35851EB084BC0004AD32 /* SceneDatasource.m */,
+			);
+			name = scene;
+			sourceTree = "<group>";
+		};
+		D73C35871EB090780004AD32 /* scene */ = {
+			isa = PBXGroup;
+			children = (
+				D73C35881EB094100004AD32 /* SceneController.h */,
+				D73C35891EB094100004AD32 /* SceneController.m */,
+			);
+			name = scene;
+			sourceTree = "<group>";
+		};
+		D73C35901EB0E4980004AD32 /* rank */ = {
+			isa = PBXGroup;
+			children = (
+				D73C35911EB0E4E20004AD32 /* RankController.h */,
+				D73C35921EB0E4E20004AD32 /* RankController.m */,
+				D73C35931EB0E4E20004AD32 /* RankController.xib */,
+			);
+			name = rank;
+			sourceTree = "<group>";
+		};
+		D749DB761E9C742F009CDF0B /* follows */ = {
+			isa = PBXGroup;
+			children = (
+				D749DB771E9C752F009CDF0B /* FollowController.h */,
+				D749DB781E9C752F009CDF0B /* FollowController.m */,
+			);
+			name = follows;
+			sourceTree = "<group>";
+		};
+		D749DB7F1E9C7F75009CDF0B /* followers */ = {
+			isa = PBXGroup;
+			children = (
+				D749DB831E9C7FC1009CDF0B /* FollowerDatasource.h */,
+				D749DB841E9C7FC1009CDF0B /* FollowerDatasource.m */,
+			);
+			name = followers;
+			sourceTree = "<group>";
+		};
 		D74B3B8E1DF44C0D00539722 /* params */ = {
 			isa = PBXGroup;
 			children = (
@@ -458,6 +557,24 @@
 				D75590101DDC67D80050BB47 /* SettingViewController.m */,
 			);
 			name = setting;
+			sourceTree = "<group>";
+		};
+		D760EB051EA056A900569ABA /* Danmu */ = {
+			isa = PBXGroup;
+			children = (
+				D760EB091EA056D800569ABA /* DanmuManager.m */,
+				D760EB0A1EA056D800569ABA /* DanmuManager.h */,
+			);
+			name = Danmu;
+			sourceTree = "<group>";
+		};
+		D76A99051E988EBB00BC5821 /* Front Capture */ = {
+			isa = PBXGroup;
+			children = (
+				D76A99061E988EDB00BC5821 /* CaptureManager.h */,
+				D76A99071E988EDB00BC5821 /* CaptureManager.m */,
+			);
+			name = "Front Capture";
 			sourceTree = "<group>";
 		};
 		D76E56E41DD7E57A004BE5B9 /* customerTabBar */ = {
@@ -496,15 +613,6 @@
 			name = history;
 			sourceTree = "<group>";
 		};
-		D77EA5B71DE12F32008B0669 /* transactions */ = {
-			isa = PBXGroup;
-			children = (
-				D77EA5DC1DE2D9D1008B0669 /* TransactionViewController.h */,
-				D77EA5DD1DE2D9D1008B0669 /* TransactionViewController.m */,
-			);
-			name = transactions;
-			sourceTree = "<group>";
-		};
 		D77EA5C31DE1974D008B0669 /* history */ = {
 			isa = PBXGroup;
 			children = (
@@ -531,15 +639,6 @@
 				D77EA5F01DE2E3CD008B0669 /* NSDateTimeAgo.bundle */,
 			);
 			name = timeAgo;
-			sourceTree = "<group>";
-		};
-		D7850CDA1DDFC88900E21D8A /* Danmu */ = {
-			isa = PBXGroup;
-			children = (
-				D7850CDB1DDFC8B900E21D8A /* DanmuManager.h */,
-				D7850CDC1DDFC8B900E21D8A /* DanmuManager.m */,
-			);
-			name = Danmu;
 			sourceTree = "<group>";
 		};
 		D7850CE41DDFCBDE00E21D8A /* broadcaster */ = {
@@ -578,17 +677,6 @@
 				D78D0B601DDA7CA100B01108 /* LoginController.xib */,
 			);
 			name = login;
-			sourceTree = "<group>";
-		};
-		D78D0C411DDD2BFD00DE1193 /* Sockets */ = {
-			isa = PBXGroup;
-			children = (
-				D78D0C421DDD2C2E00DE1193 /* LuluSocket.h */,
-				D78D0C431DDD2C2E00DE1193 /* LuluSocket.m */,
-				D78D0C481DDD2C8700DE1193 /* DanmuSocket.h */,
-				D78D0C491DDD2C8700DE1193 /* DanmuSocket.m */,
-			);
-			name = Sockets;
 			sourceTree = "<group>";
 		};
 		D7BA5C7C1DCAF185000F1AB7 /* Resources */ = {
@@ -634,7 +722,6 @@
 		D7D4AEFC1DC8019C00A782F7 /* Logics */ = {
 			isa = PBXGroup;
 			children = (
-				D78D0C411DDD2BFD00DE1193 /* Sockets */,
 				D76E7EB01DD69F0200794450 /* Constants */,
 				D7D4AF371DC865E900A782F7 /* Helpers */,
 				D7D4AF071DC8031800A782F7 /* Sessions */,
@@ -674,6 +761,10 @@
 				D7501A721E049FB1000C7DED /* Card.m */,
 				D7501A741E04A282000C7DED /* CardValue.h */,
 				D7501A751E04A282000C7DED /* CardValue.m */,
+				D760EB0C1EA06DA800569ABA /* Gift.h */,
+				D760EB0D1EA06DA800569ABA /* Gift.m */,
+				D73C35801EB080FD0004AD32 /* Record.h */,
+				D73C35811EB080FD0004AD32 /* Record.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -691,6 +782,10 @@
 				D77EA5BD1DE14B52008B0669 /* HistoryRequest.m */,
 				D77EA5D41DE2D321008B0669 /* TransactionRequest.h */,
 				D77EA5D51DE2D321008B0669 /* TransactionRequest.m */,
+				D749DB7C1E9C7CBF009CDF0B /* FollowRequest.h */,
+				D749DB7D1E9C7CBF009CDF0B /* FollowRequest.m */,
+				D73C357D1EB0805F0004AD32 /* SceneRequest.h */,
+				D73C357E1EB0805F0004AD32 /* SceneRequest.m */,
 			);
 			name = Requests;
 			sourceTree = "<group>";
@@ -698,6 +793,8 @@
 		D7D4AF001DC801D700A782F7 /* Datasources */ = {
 			isa = PBXGroup;
 			children = (
+				D73C35831EB084800004AD32 /* scene */,
+				D749DB7F1E9C7F75009CDF0B /* followers */,
 				D7DF03831E0779D30067129B /* user */,
 				D77EA5D71DE2D6F0008B0669 /* transaction */,
 				D77EA5C31DE1974D008B0669 /* history */,
@@ -710,9 +807,10 @@
 		D7D4AF011DC801EC00A782F7 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				D760EB051EA056A900569ABA /* Danmu */,
+				D76A99051E988EBB00BC5821 /* Front Capture */,
 				D722D6131DF911A70067F1A9 /* Game */,
 				D71CAB2E1DE6345300DC890E /* FaceDetect */,
-				D7850CDA1DDFC88900E21D8A /* Danmu */,
 				D7D4AF2A1DC863D400A782F7 /* Live */,
 				D7D4AF1D1DC8146A00A782F7 /* Stream */,
 				D7D4AF191DC80E7F00A782F7 /* Camera */,
@@ -723,9 +821,12 @@
 		D7D4AF021DC8020500A782F7 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				D73C35901EB0E4980004AD32 /* rank */,
+				D711ED5F1EAF2B72003C0E7D /* indicator */,
+				D749DB761E9C742F009CDF0B /* follows */,
+				D73C35871EB090780004AD32 /* scene */,
 				D7D89C061E09124600EA660B /* gamePlatform */,
 				D74B3B8E1DF44C0D00539722 /* params */,
-				D77EA5B71DE12F32008B0669 /* transactions */,
 				D77EA5B61DE12F29008B0669 /* history */,
 				D755900E1DDC67AC0050BB47 /* setting */,
 				D78D0B5D1DDA7C8100B01108 /* login */,
@@ -762,6 +863,15 @@
 				D7DF038A1E079A5C0067129B /* ViewerCell.h */,
 				D7DF038B1E079A5C0067129B /* ViewerCell.m */,
 				D7DF038C1E079A5C0067129B /* ViewerCell.xib */,
+				D749DB861E9C8A48009CDF0B /* FollowerCell.h */,
+				D749DB871E9C8A48009CDF0B /* FollowerCell.m */,
+				D749DB881E9C8A48009CDF0B /* FollowerCell.xib */,
+				D73C358B1EB096120004AD32 /* SceneCell.h */,
+				D73C358C1EB096120004AD32 /* SceneCell.m */,
+				D73C358D1EB096120004AD32 /* SceneCell.xib */,
+				D73C35961EB0E92B0004AD32 /* RankCell.h */,
+				D73C35971EB0E92B0004AD32 /* RankCell.m */,
+				D73C35981EB0E92B0004AD32 /* RankCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -1011,17 +1121,22 @@
 			files = (
 				D77EA5E41DE2DD1F008B0669 /* TransactionCell.xib in Resources */,
 				D7D89C121E09235000EA660B /* BettingController.xib in Resources */,
+				D73C359A1EB0E92B0004AD32 /* RankCell.xib in Resources */,
 				D7D4AEE91DC7F33E00A782F7 /* LaunchScreen.storyboard in Resources */,
 				D7DF038E1E079A5C0067129B /* ViewerCell.xib in Resources */,
 				D7D4AEE61DC7F33E00A782F7 /* Assets.xcassets in Resources */,
 				D726B0B01DDE84E2002B9068 /* StreamCell.xib in Resources */,
+				D749DB8A1E9C8A48009CDF0B /* FollowerCell.xib in Resources */,
+				D73C35951EB0E4E20004AD32 /* RankController.xib in Resources */,
 				D7D89C181E09FA3800EA660B /* PlayerDrawController.xib in Resources */,
 				D7850CEA1DDFEB4B00E21D8A /* DanmuCell.xib in Resources */,
+				D711ED641EAF2B8E003C0E7D /* IndicatorController.xib in Resources */,
 				D78D0B621DDA7CA100B01108 /* LoginController.xib in Resources */,
 				D7BA5C641DCAD78C000F1AB7 /* LiveController.xib in Resources */,
 				D77EA5F21DE2E3CD008B0669 /* NSDateTimeAgo.bundle in Resources */,
 				D77EA5CC1DE1A1FC008B0669 /* HistoryCell.xib in Resources */,
 				D7D89C0B1E09126D00EA660B /* GamePlatformController.xib in Resources */,
+				D73C358F1EB096120004AD32 /* SceneCell.xib in Resources */,
 				D7D4AEE41DC7F33D00A782F7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1083,7 +1198,6 @@
 			files = (
 				D7D86E8D1DF286CE00815BEC /* LFGPUImageBeautyFilter.m in Sources */,
 				D7850CE31DDFCBD900E21D8A /* DanmuDatasource.m in Sources */,
-				D78D0C441DDD2C2E00DE1193 /* LuluSocket.m in Sources */,
 				D71CAB2D1DE62D0500DC890E /* FaceDetector.m in Sources */,
 				D722D6071DF9112A0067F1A9 /* SocketIO.m in Sources */,
 				D77EA5BB1DE12FA5008B0669 /* HistoryViewController.m in Sources */,
@@ -1093,16 +1207,20 @@
 				D7501A731E049FB1000C7DED /* Card.m in Sources */,
 				D7D4AEDE1DC7F33D00A782F7 /* AppDelegate.m in Sources */,
 				D726B0B61DDEE5F2002B9068 /* ListRequest.m in Sources */,
+				D73C35991EB0E92B0004AD32 /* RankCell.m in Sources */,
 				D7850CE91DDFEB4B00E21D8A /* DanmuCell.m in Sources */,
-				D7850CDD1DDFC8B900E21D8A /* DanmuManager.m in Sources */,
+				D749DB891E9C8A48009CDF0B /* FollowerCell.m in Sources */,
 				D76E56EA1DD91C37004BE5B9 /* LuluRequest.m in Sources */,
 				D7850CE01DDFCA0300E21D8A /* Danmu.m in Sources */,
+				D711ED631EAF2B8E003C0E7D /* IndicatorController.m in Sources */,
+				D749DB7A1E9C752F009CDF0B /* FollowController.m in Sources */,
 				D77EA5F11DE2E3CD008B0669 /* NSDate+TimeAgo.m in Sources */,
 				D77EA5DA1DE2D71F008B0669 /* TransactionDatasource.m in Sources */,
 				D7D4AF1C1DC8146400A782F7 /* StreamManager.m in Sources */,
 				D76E56E31DD6A2BD004BE5B9 /* ColorConstant.m in Sources */,
 				D722D6031DF9112A0067F1A9 /* SocketIOTransportXHR.m in Sources */,
 				D7DF038D1E079A5C0067129B /* ViewerCell.m in Sources */,
+				D760EB0B1EA056D800569ABA /* DanmuManager.m in Sources */,
 				D7D89C0A1E09126D00EA660B /* GamePlatformController.m in Sources */,
 				D7D4AF141DC80B4400A782F7 /* HomepageController.m in Sources */,
 				D7D89C171E09FA3800EA660B /* PlayerDrawController.m in Sources */,
@@ -1110,40 +1228,48 @@
 				D7D4AF2D1DC863F100A782F7 /* LiveManager.m in Sources */,
 				D726B0AF1DDE84E2002B9068 /* StreamCell.m in Sources */,
 				D76E56ED1DD91C8D004BE5B9 /* Broadcaster.m in Sources */,
+				D73C35941EB0E4E20004AD32 /* RankController.m in Sources */,
+				D749DB851E9C7FC1009CDF0B /* FollowerDatasource.m in Sources */,
 				D722D6101DF9116A0067F1A9 /* SRWebSocket.m in Sources */,
 				D75590111DDC67D80050BB47 /* SettingViewController.m in Sources */,
 				D7D4AF221DC817E400A782F7 /* SettingSession.m in Sources */,
 				D7D86E8E1DF286CE00815BEC /* LFGPUImageEmptyFilter.m in Sources */,
+				D76A99081E988EDB00BC5821 /* CaptureManager.m in Sources */,
 				D7501A701E049F82000C7DED /* Scene.m in Sources */,
 				D726B0B31DDEC093002B9068 /* BroadcasterDatasource.m in Sources */,
 				D7BA5C631DCAD78C000F1AB7 /* LiveController.m in Sources */,
+				D73C357F1EB0805F0004AD32 /* SceneRequest.m in Sources */,
 				D722D6121DF9116A0067F1A9 /* base64.c in Sources */,
 				D722D6111DF9116A0067F1A9 /* NSData+SRB64Additions.m in Sources */,
 				D722D5F41DF90FC50067F1A9 /* PomeloProtocol.m in Sources */,
+				D73C358E1EB096120004AD32 /* SceneCell.m in Sources */,
 				D7D4AF0A1DC8037100A782F7 /* UserSession.m in Sources */,
 				D77EA5BE1DE14B52008B0669 /* HistoryRequest.m in Sources */,
 				D7D4AEDB1DC7F33D00A782F7 /* main.m in Sources */,
+				D760EB0E1EA06DA800569ABA /* Gift.m in Sources */,
+				D73C358A1EB094100004AD32 /* SceneController.m in Sources */,
 				D77EA5CF1DE2C7EA008B0669 /* Transaction.m in Sources */,
 				D70435251DC988A800EF5FAE /* GPUImageMyBeautifyFilter.m in Sources */,
 				D78D0B611DDA7CA100B01108 /* LoginController.m in Sources */,
 				D7D4AF181DC80E7700A782F7 /* CameraManager.m in Sources */,
 				D77EA5CB1DE1A1FC008B0669 /* HistoryCell.m in Sources */,
+				D73C35861EB084BC0004AD32 /* SceneDatasource.m in Sources */,
 				D77EA5C61DE1976E008B0669 /* HistoryDatasource.m in Sources */,
 				D722D6161DF911CD0067F1A9 /* GameManager.m in Sources */,
 				D76E56E01DD6A1BB004BE5B9 /* CustomerNavigationController.m in Sources */,
+				D749DB7E1E9C7CBF009CDF0B /* FollowRequest.m in Sources */,
 				D722D6041DF9112A0067F1A9 /* SocketIOTransportWebsocket.m in Sources */,
 				D71CAB311DE6347C00DC890E /* FaceDetectManager.m in Sources */,
 				D77EA5D31DE2C8C9008B0669 /* User.m in Sources */,
 				D77EA5D61DE2D321008B0669 /* TransactionRequest.m in Sources */,
+				D73C35821EB080FD0004AD32 /* Record.m in Sources */,
 				D76D22561E20892600AB5D98 /* Broad.m in Sources */,
 				D70435221DC9704F00EF5FAE /* YUGPUImageCVPixelBufferInput.m in Sources */,
 				D77EA5E31DE2DD1F008B0669 /* TransactionCell.m in Sources */,
 				D74B3B911DF44C2B00539722 /* ParamsController.m in Sources */,
 				D7501A7D1E04ED74000C7DED /* LiveAlertView.m in Sources */,
-				D77EA5DE1DE2D9D1008B0669 /* TransactionViewController.m in Sources */,
 				D77EA5ED1DE2E3B6008B0669 /* NavigationRouter.m in Sources */,
 				D7D89C111E09235000EA660B /* BettingController.m in Sources */,
-				D78D0C4A1DDD2C8700DE1193 /* DanmuSocket.m in Sources */,
 				D7501A761E04A282000C7DED /* CardValue.m in Sources */,
 				D76E56F01DD924E3004BE5B9 /* LoginRequest.m in Sources */,
 				D722D5F51DF90FC50067F1A9 /* Pomelo.m in Sources */,

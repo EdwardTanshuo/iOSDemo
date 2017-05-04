@@ -35,7 +35,7 @@
 - (void)loginWithEmail: (NSString* _Nonnull) email
               Password: (NSString* _Nonnull) password
               Callback: (void (^_Nullable)(Broadcaster * _Nullable, NSError * _Nullable))complete{
-    NSLog(@"%@",[self urlByService:@"login"]);
+    
     [self postWithURL:[self urlByService:@"login"] Parameters:@{@"user_name": email, @"password": password} Success:^(id  _Nullable responseObject) {
     
         if(responseObject[@"result"]){

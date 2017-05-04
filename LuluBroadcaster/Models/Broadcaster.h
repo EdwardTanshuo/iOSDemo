@@ -16,7 +16,11 @@
 @property (nonatomic, strong, nonnull) NSString* profileImageURL;
 @property (nonatomic, strong, nonnull) NSString* danmuPassword;
 @property (nonatomic, strong, nonnull) NSString* room;
+@property (nonatomic, strong, nonnull) NSString* bio;
+
 @property (nonatomic, assign) NSInteger viewers_count;
+@property (nonatomic, assign) NSInteger wealth;
+@property (nonatomic, assign) NSInteger followers_count;
 
 + (Broadcaster* _Nonnull)broadcasterWithJSON:(id _Nonnull)data;
 + (Broadcaster* _Nonnull)broadcasterPHPWithJSON:(id _Nonnull)data;

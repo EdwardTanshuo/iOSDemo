@@ -32,20 +32,25 @@
     self.danmuPassword = @"";
     self.room = @"";
     self.viewers_count = 0;
-    
+    self.followers_count = 0;
+    self.wealth = 0;
+    self.bio = @"";
     return [super init];
 }
 
 - (void)doMappingWithData: (id)data{
     NSDictionary* mapping = @{@"name": KZProperty(name),
                               @"user_name": KZProperty(email),
-                              @"wowzaUri": KZProperty(wowzaUri),
+                              @"stream_link": KZProperty(wowzaUri),
                               @"wowzaLogin":KZProperty(wowzaLogin),
                               @"wowzaPassword":KZProperty(wowzaPassword),
                               @"avatar":KZProperty(profileImageURL),
-                              @"danmuPassword":KZProperty(danmuPassword),
+                              @"danmu_password":KZProperty(danmuPassword),
                               @"id":KZProperty(room),
-                             
+                              @"bio":KZProperty(bio),
+                              @"viewers_count":KZProperty(viewers_count),
+                              @"followers_count":KZProperty(followers_count),
+                              @"wealth":KZProperty(wealth)
                               };
     [KZPropertyMapper mapValuesFrom:data toInstance:self usingMapping:mapping];
 }
@@ -56,7 +61,9 @@
                               @"avatar":KZProperty(profileImageURL),
                               @"danmu_password":KZProperty(danmuPassword),
                               @"id":KZProperty(room),
-                              @"viewers_count":KZProperty(viewers_count)
+                              @"viewers_count":KZProperty(viewers_count),
+                              @"followers_count":KZProperty(followers_count),
+                              @"wealth":KZProperty(wealth)
                               };
     [KZPropertyMapper mapValuesFrom:data toInstance:self usingMapping:mapping];
 }

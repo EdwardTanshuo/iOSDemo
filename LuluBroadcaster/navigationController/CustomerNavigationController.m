@@ -24,12 +24,9 @@
     [self.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
     self.navigationBar.shadowImage = [UIImage new];
     self.navigationBar.titleTextAttributes = @{NSFontAttributeName: [UIFont fontWithName:@"Avenir-Heavy" size:17.0], NSForegroundColorAttributeName: [UIColor whiteColor]};
-    self.navigationBar.barTintColor = [ColorConstant mclMediumPinkColor];
-    self.navigationBar.translucent = NO;
+    self.navigationBar.barTintColor = [UIColor clearColor];
+    self.navigationBar.translucent = YES;
     self.navigationBar.tintColor = [UIColor whiteColor];
-    
-    //tabbar
-    self.tabBarItem.imageInsets = UIEdgeInsetsMake(4.0, 0.0, -4.0, 0.0);
     
     //status bar
     [self preferredStatusBarStyle];
