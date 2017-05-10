@@ -17,6 +17,8 @@ static NSInteger secondRemain;
 @interface GamePlatformController (){
     NSMutableArray* veins;
     NSMutableArray* veinLs;
+    
+    BOOL lock;
 }
 
 @property (weak, nonatomic) IBOutlet UIView         *panel;
@@ -64,11 +66,14 @@ static NSInteger secondRemain;
     [self setupViews];
     [self setupVeins];
     [self setupTimer];
+    
+    lock = NO;
 }
 
 - (void)setupViews{
     self.panel.clipsToBounds = YES;
     self.panel.layer.cornerRadius = 16.0f;
+    self.drawButton.userInteractionEnabled = YES;
 }
 
 - (void)setupVeins{
@@ -94,6 +99,7 @@ static NSInteger secondRemain;
 }
 
 - (void)setupTimer{
+    self.timerLabel.textColor = [UIColor whiteColor];
     secondRemain = (NSInteger)(self.scene.durationDealerTurn / 1000.0f);
     self.timerLabel.text = [NSString stringWithFormat:@"%ld", secondRemain];
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(tick) userInfo:nil repeats:YES];
@@ -103,6 +109,11 @@ static NSInteger secondRemain;
 #pragma mark timer
 - (void)tick{
     secondRemain --;
+    if(secondRemain == 5){
+        self.timerLabel.textColor = [UIColor redColor];
+        [self loopDrawWhenLessThan85];
+    }
+    
     self.timerLabel.text = [NSString stringWithFormat:@"剩余时间： %ld秒", secondRemain];
     if(secondRemain <= 0){
         [self timeup];
@@ -159,6 +170,7 @@ static NSInteger secondRemain;
 - (void)genValue{
     if(self.scene.dealer_value.busted){
         self.valueLabel.text = @"爆炸了";
+        self.drawButton.userInteractionEnabled = NO;
     } else{
         self.valueLabel.text = [NSString stringWithFormat:@"当前战斗力总和：%ld", self.scene.dealer_value.value * 5];
     }
@@ -166,6 +178,39 @@ static NSInteger secondRemain;
 
 - (void)genBet{
     self.betLabel.text = [NSString stringWithFormat:@"%ld", [self.scene totalBet]];
+}
+
+- (void)loopDrawWhenLessThan85{
+    __weak GamePlatformController* wself = self;
+    if(lock){
+        dispatch_time_t time = dispatch_time(DISPATCH_TIME_NOW, 0.5*NSEC_PER_SEC);
+        dispatch_after(time, dispatch_get_main_queue(), ^{
+            [wself loopDrawWhenLessThan85];
+        });
+        
+    }
+    
+    if(self.scene.dealer_value.value * 5 > 85){
+        [wself genValue];
+        return;
+    }
+    
+    lock = YES;
+    self.valueLabel.text = @"自动抽卡...";
+    [[GameManager sharedManager] drawCardWithCallback:^(NSError * _Nullable err, Card* _Nullable card, CardValue * _Nullable value) {
+        lock = NO;
+        if(err){
+            [LiveAlertView popOutInController:wself error:err];
+            [wself genValue];
+        } else if(card){
+            NSMutableArray* temp = [NSMutableArray arrayWithArray:wself.scene.dealer_platfrom];
+            [temp addObject: card];
+            wself.scene.dealer_platfrom = temp;
+            [wself genPlatform];
+            wself.scene.dealer_value = value;
+            [wself performSelectorOnMainThread:@selector(loopDrawWhenLessThan85) withObject:nil waitUntilDone:NO];
+        }
+    } room:self.scene.room];
 }
 
 #pragma mark -
@@ -185,7 +230,12 @@ static NSInteger secondRemain;
 
 - (IBAction)drawAction:(id)sender {
     __weak GamePlatformController* wself = self;
+    if(lock){
+        return;
+    }
+    lock = YES;
     [[GameManager sharedManager] drawCardWithCallback:^(NSError * _Nullable err, Card* _Nullable card, CardValue * _Nullable value) {
+        lock = NO;
         if(err){
             [LiveAlertView popOutInController:wself error:err];
         } else if(card){

@@ -11,7 +11,7 @@
 #import "Gift.h"
 #import "UserDataSource.h"
 
-#define GAME_IP @"122.112.227.196"
+#define GAME_IP @"game.mofangvr.com"
 #define GAME_PORT 3020
 
 typedef void (^_Nullable GameManagerCallback)(id _Nullable argsData);

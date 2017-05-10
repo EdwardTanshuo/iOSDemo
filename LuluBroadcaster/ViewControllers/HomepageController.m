@@ -6,6 +6,8 @@
 //  Copyright © 2016 ShuoTan. All rights reserved.
 //
 
+#define TEST_MODE
+
 #import "HomepageController.h"
 #import "CameraManager.h"
 #import "GameManager.h"
@@ -156,7 +158,11 @@
     if(lock){
         return;
     }
+#ifdef TEST_MODE
+    if(YES){
+#else
     if(self.status == CameraStatusConnected){
+#endif
         lock = YES;
         UserSession* session = [[UserSession alloc] init];
         [[GameManager sharedManager] enterGameWithCallback:^(NSError * _Nullable err, Scene*  _Nullable scene) {
