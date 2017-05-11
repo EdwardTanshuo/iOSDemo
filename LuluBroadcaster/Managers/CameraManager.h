@@ -22,9 +22,14 @@ typedef NS_ENUM(NSInteger, CameraStatus) {
 - (void) cameraConnectFail:(CameraManager*) manager;
 @end
 
+@protocol GameStreamSyncDelegate
+- (void) cameraDidDisconnect:(CameraManager*) manager;
+@end
+
 @interface CameraManager : NSObject
 
 @property (nonatomic, weak) id<CameraManagerDelegate> delegate;
+@property (nonatomic, weak) id<GameStreamSyncDelegate> syncDelegate;
 @property (nonatomic, assign) enum CameraStatus status;
 
 #pragma mark singleton

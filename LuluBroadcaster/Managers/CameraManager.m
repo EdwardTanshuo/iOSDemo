@@ -40,18 +40,23 @@
             case INSConnectStatusDisconnect:
                 _status = CameraStatusDisconnected;
                 [_delegate cameraDidDisconnect: self];
+                [_syncDelegate cameraDidDisconnect:self];
+                LogMessage(@"camera", 0, @"disconnected");
                 break;
             case INSConnectStatusConnecting:
                 _status = CameraStatusConnecting;
                 [_delegate cameraIsConnecting: self];
+                LogMessage(@"camera", 0, @"connection");
                 break;
             case INSConnectStatusConnected:
                  _status = CameraStatusConnected;
                 [_delegate cameraDidConnect: self];
+                LogMessage(@"camera", 0, @"connected");
                 break;
             case INSConnectStatusError:
                 _status = CameraStatusDisconnected;
                 [_delegate cameraConnectFail: self];
+                LogMessage(@"camera", 0, @"error");
                 break;
                 
             default:

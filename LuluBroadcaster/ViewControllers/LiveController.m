@@ -28,7 +28,7 @@
 
 #import "RankController.h"
 
-@interface LiveController ()<UICollectionViewDataSource, LiveDataSourceDelegate, DanmuDatasourceDelegate, GameManagerDelegate, GameManagerEvent, GameManagerDatasource, UITableViewDelegate, UITableViewDataSource>{
+@interface LiveController ()<UICollectionViewDataSource, LiveDataSourceDelegate, DanmuDatasourceDelegate, GameManagerDelegate, GameManagerEvent, GameManagerDatasource, UITableViewDelegate, UITableViewDataSource, GameStreamSyncDelegate, StreamManagerDelegate>{
     NSInteger player_num;
 }
 
@@ -88,8 +88,9 @@
     [self setupDanmuDatasource];
     [self setupGame];
     [self setupFaceRect];
+    [self setupCameraListener];
+    [self setupStreamListener];
     [self launchLive];
-    
     [self showScene: _scene];
 }
 
@@ -100,12 +101,17 @@
 }
 
 - (void)dealloc{
-    
+    [self tearOff];
 }
 
-- (void)launchLive{
-    [LiveManager sharedManager].delegate = self;
-    [[LiveManager sharedManager] startLiveWithView:_imageView];
+- (void)tearOff{
+    [GameManager sharedManager].delegate = nil;
+    [GameManager sharedManager].target = nil;
+    [GameManager sharedManager].datasource = nil;
+    [CameraManager sharedManager].syncDelegate = nil;
+    [LiveManager sharedManager].delegate = nil;
+    [StreamManager sharedManager].delegate = nil;
+    [DanmuManager sharedManager].delegate = nil;
 }
 
 - (void)setupViews{
@@ -135,6 +141,14 @@
 
 - (void)setupDanmuDatasource{
     [DanmuManager sharedManager].delegate = self;
+}
+
+- (void)setupCameraListener{
+    [CameraManager sharedManager].syncDelegate = self;
+}
+
+- (void)setupStreamListener{
+    [StreamManager sharedManager].delegate = self;
 }
 
 - (void)setupGame{
@@ -174,13 +188,19 @@
 }
 
 #pragma mark -
+#pragma mark methods
+- (void)launchLive{
+    [LiveManager sharedManager].delegate = self;
+    [[LiveManager sharedManager] startLiveWithView:_imageView];
+}
+
+
+#pragma mark -
 #pragma mark actions
 - (IBAction)closeActions:(id)sender {
-    
+    [self tearOff];
     [[LiveManager sharedManager] stopLive];
     [[GameManager sharedManager] endGame: _scene.room];
-    [LiveManager sharedManager].delegate = nil;
-    [DanmuManager sharedManager].delegate = nil;
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -285,8 +305,6 @@
 
 #pragma mark -
 #pragma mark GameManagerDelegate
-
-
 - (void)entryCallBack:(id _Nullable) argsData{
     if([[argsData objectForKey:@"code"] integerValue] == 200){
         NSLog(@"OK");
@@ -479,5 +497,25 @@
             break;
         }
     }
+}
+
+#pragma mark -
+#pragma mark <GameStreamSyncDelegate>
+- (void)cameraDidDisconnect:(CameraManager *)manager{
+    [self closeActions:nil];
+}
+
+#pragma mark -
+#pragma mark <StreamManagerDelegate>
+- (void)started{
+
+}
+
+- (void)stop{
+    [self closeActions:nil];
+}
+
+- (void)failed{
+    [self closeActions:nil];
 }
 @end

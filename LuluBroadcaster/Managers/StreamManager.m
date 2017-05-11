@@ -8,11 +8,12 @@
 
 #import "StreamManager.h"
 #import "SettingSession.h"
-#import <INSNanoSDK/INSNanoSDK.h>
+#import "UserSession.h"
+
 #import <NSLogger/NSLogger.h>
 
 
-@interface StreamManager()<LFLiveSessionDelegate>{
+@interface StreamManager(){
     CVPixelBufferRef m_buffer;
 }
 @property (nonatomic, strong) dispatch_semaphore_t bufferCopySemaphore;
@@ -69,9 +70,7 @@
 - (LFLiveSession*)session {
     if (!_session) {
         SettingSession* setting = [SettingSession new];
-        
         LFLiveVideoConfiguration* configuration = [LFLiveVideoConfiguration new];
-        
         configuration.videoFrameRate = setting.fps;
         configuration.videoMaxFrameRate = setting.fps + 5;
         configuration.videoMinFrameRate = setting.fps - 5;
@@ -90,7 +89,8 @@
 - (void)startSessionLive {
     LFLiveStreamInfo *streamInfo = [LFLiveStreamInfo new];
     SettingSession* setting = [[SettingSession alloc] init];
-    streamInfo.url = [NSString stringWithFormat:@"%@/%@", setting.url, setting.streamKey];
+    UserSession* userSession = [UserSession new];
+    streamInfo.url = [NSString stringWithFormat:@"%@/%@?user=%@", setting.url, setting.streamKey, userSession.currentBroadcaster.room];
     //streamInfo.url = @"rtmp://10.10.17.199:1935/rtmplive/kjkjkj";
     [self.session startLive:streamInfo];
     [self.session setRunning:YES];
@@ -118,4 +118,20 @@
     LogMessage(@"stream", 0, @"%lu", (unsigned long)errorCode);
 }
 
+#pragma mark-
+#pragma mark <INSLiveStreamerStateDelegate>
+- (void)streamer:(id<INSLiveStreamer>)streamer onError:(NSError*)error{
+    LogMessage(@"stream", 0, @"error:%@", error);
+    [self.delegate failed];
+}
+
+- (void)streamerOnStop:(id<INSLiveStreamer>)streamer{
+    LogMessage(@"stream", 0, @"stop:%@", streamer);
+    [self.delegate stop];
+}
+
+- (void)streamerOnStart:(id<INSLiveStreamer>)streamer{
+    LogMessage(@"stream", 0, @"start:%@", streamer);
+    [self.delegate started];
+}
 @end

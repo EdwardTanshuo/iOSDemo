@@ -10,6 +10,7 @@
 
 #import "LiveManager.h"
 #import "SettingSession.h"
+#import "UserSession.h"
 #import "StreamManager.h"
 #import "FaceDetectManager.h"
 #import <GPUImage/GPUImageFramework.h>
@@ -198,8 +199,11 @@
     //禁止休眠
     [UIApplication sharedApplication].idleTimerDisabled = YES;
     
+    //获取信息
+    SettingSession* setting = [SettingSession new];
+    UserSession* session = [UserSession new];
         
-    
+    //设置管道
     self.isLiving = YES;
     [self setupPipes];
     GPUImageView* g_v = (GPUImageView*)view;
@@ -209,7 +213,6 @@
     }
     
     //设置相机
-    SettingSession* setting = [SettingSession new];
     switch (setting.quality) {
         case SettingSessionCameraQualityLow:
             isReal = NO;
@@ -228,11 +231,13 @@
             break;
         case SettingSessionCameraQualityReal:
             isReal = YES;
-            _real_streamer = [[INSFlatLiveStreamer alloc] initWithRtmpAddress:[NSURL URLWithString:[NSString stringWithFormat:@"%@/%@", setting.url, setting.streamKey]] cameraResolution:INSCameraVideoResType_3040_1520P30 stitchWidth:setting.width stitchHeight:setting.height bitrate:setting.bitrate];
+            _real_streamer = [[INSFlatLiveStreamer alloc] initWithRtmpAddress:[NSURL URLWithString:[NSString stringWithFormat:@"%@/%@?user=%@", setting.url, setting.streamKey, session.currentBroadcaster.room]] cameraResolution:INSCameraVideoResType_3040_1520P30 stitchWidth:setting.width stitchHeight:setting.height bitrate:setting.bitrate];
             [self startLiveWithWidth:setting.width WithHeight:setting.height WithBitrate:setting.bitrate WithQuality:INSCameraVideoResType_2160_1080P30];
             LogMessage(@"live", 0, @"detector callback: %@ faces has been detected", [NSString stringWithFormat:@"%@/%@  ***start living",setting.url, setting.streamKey]);
             
+            _real_streamer.stateDelegate = [StreamManager sharedManager];
             [_real_streamer startLive];
+            
             self.isLiving = YES;
             break;
         default:

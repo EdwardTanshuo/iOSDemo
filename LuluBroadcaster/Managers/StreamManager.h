@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
 #import <LFLiveKit/LFLiveKit.h>
+#import <INSNanoSDK/INSNanoSDK.h>
 
 @protocol StreamManagerDelegate
 - (void)ready;
@@ -20,7 +21,7 @@
 @end
 
 
-@interface StreamManager : NSObject
+@interface StreamManager : NSObject<LFLiveSessionDelegate, INSLiveStreamerStateDelegate>
 @property (nonatomic, weak) id<StreamManagerDelegate> delegate;
 @property (nonatomic, assign) BOOL isStreaming;
 @property (nonatomic, strong) LFLiveSession* session;
