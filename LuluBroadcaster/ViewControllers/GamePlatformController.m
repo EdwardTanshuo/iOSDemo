@@ -110,6 +110,7 @@ static NSInteger secondRemain;
 - (void)tick{
     secondRemain --;
     if(secondRemain == 5){
+        self.drawButton.userInteractionEnabled = NO;
         self.timerLabel.textColor = [UIColor redColor];
         [self loopDrawWhenLessThan85];
     }
@@ -173,6 +174,9 @@ static NSInteger secondRemain;
         self.drawButton.userInteractionEnabled = NO;
     } else{
         self.valueLabel.text = [NSString stringWithFormat:@"当前战斗力总和：%ld", self.scene.dealer_value.value * 5];
+        if(self.scene.dealer_value.value * 5 > 85){
+            self.drawButton.userInteractionEnabled = NO;
+        }
     }
 }
 
