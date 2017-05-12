@@ -41,25 +41,50 @@
     return self;
 }
 
-#pragma mark -
-#pragma mark PomeloReuqests
 - (NSArray<Gift*>* _Nonnull)giftList{
     return gifts;
 }
 
-- (void)connect{
-    __weak GameManager* wself = self;
-    [_pomelo connectToHost:GAME_IP onPort:GAME_PORT withCallback:^(Pomelo *p) {
-        [wself.target didConnected];
-    }];
-}
 
-- (void)connectWithCallback: (GameManagerCallback)callback{
+#pragma mark -
+#pragma mark connection
+- (void)connectGatewayWithCallback: (GameManagerCallback)callback{
+    //__weak GameManager* wself = self;
     [_pomelo connectToHost:GAME_IP onPort:GAME_PORT withCallback:^(Pomelo *p) {
         dispatch_async(dispatch_get_main_queue(), ^{
             callback(p);
         });
     }];
+}
+
+- (void)connectWithIP:(NSString* _Nonnull)url WithPort:(NSInteger)port{
+    __weak GameManager* wself = self;
+    [_pomelo connectToHost:url onPort:port withCallback:^(Pomelo *p) {
+        [wself.target didConnected];
+    }];
+}
+
+- (void)connectWithIP:(NSString* _Nonnull)url WithPort:(NSInteger)port WithCallback: (GameManagerCallback)callback{
+    [_pomelo connectToHost:url onPort:port withCallback:^(Pomelo *p) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            callback(p);
+        });
+    }];
+}
+
+#pragma mark -
+#pragma mark PomeloReuqests
+- (void)queryServerInfoWithRoom:(NSString* _Nonnull)room WithCallback:(ServerInfoCallback)callback{
+    __weak GameManager* wself = self;
+    PomeloCallback cb = ^(id argsData) {
+        NSLog(@"%@", argsData);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [wself.pomelo disconnectWithCallback:^(id cb) {
+                callback(nil, GAME_IP, [[argsData objectForKey:@"port"] integerValue]);
+            }];
+        });
+    };
+    [_pomelo requestWithRoute:@"gate_sio.gateHandler.queryBroadcaster" andParams:@{@"room": room} andCallback:cb];
 }
 
 - (void)entry: (NSString* _Nonnull)room{
@@ -223,23 +248,28 @@
 
 - (void)enterGameWithCallback: (GameManagerResultCallback)callback room: (NSString* _Nonnull)room{
     __weak GameManager* wself = self;
-    [wself connectWithCallback:^(id  _Nullable argsData) {
-        [wself entryWithCallback:^(id  _Nullable argsData) {
-            if([self makeCode:argsData] == 200){
-                [wself createGameWithCallback:^(id  _Nullable argsData) {
-                    if([[argsData objectForKey:@"code"] integerValue] == 200){
-                        Scene* scene = [wself makeScene:argsData];
-                        callback(nil, scene);
+    [wself connectGatewayWithCallback:^(id  _Nullable argsData) {
+        [wself queryServerInfoWithRoom:room WithCallback:^(NSError * _Nullable err, NSString * _Nullable url, NSInteger port) {
+            [wself connectWithIP:url WithPort:port WithCallback:^(id  _Nullable argsData) {
+                [wself entryWithCallback:^(id  _Nullable argsData) {
+                    if([self makeCode:argsData] == 200){
+                        [wself createGameWithCallback:^(id  _Nullable argsData) {
+                            if([[argsData objectForKey:@"code"] integerValue] == 200){
+                                Scene* scene = [wself makeScene:argsData];
+                                callback(nil, scene);
+                            } else{
+                                NSError* error = [self makeError: argsData];
+                                callback(error, nil);
+                            }
+                        } room: room];
                     } else{
                         NSError* error = [self makeError: argsData];
                         callback(error, nil);
                     }
                 } room: room];
-            } else{
-                NSError* error = [self makeError: argsData];
-                callback(error, nil);
-            }
-        } room: room];
+            }];
+        }];
+
     }];
 }
 

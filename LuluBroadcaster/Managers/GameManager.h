@@ -12,12 +12,13 @@
 #import "UserDataSource.h"
 
 #define GAME_IP @"game.mofangvr.com"
-#define GAME_PORT 3020
+#define GAME_PORT 3015
 
 typedef void (^_Nullable GameManagerCallback)(id _Nullable argsData);
 typedef void (^_Nullable GameManagerResultCallback)(NSError* _Nullable err, Scene* _Nullable scene);
 typedef void (^_Nullable GameManagerDrawCardCallback)(NSError* _Nullable err, Card* _Nullable card, CardValue* _Nullable value);
 typedef void (^_Nullable GiftsCallback)(NSError* _Nullable err, NSArray<Gift*>* _Nullable list);
+typedef void (^_Nullable ServerInfoCallback)(NSError* _Nullable err, NSString* _Nullable url, NSInteger port);
 
 @protocol GameManagerDelegate
 - (void)entryCallBack:(id _Nullable) argsData;
@@ -67,6 +68,7 @@ typedef void (^_Nullable GiftsCallback)(NSError* _Nullable err, NSArray<Gift*>* 
 #pragma mark PomeloReuqests
 - (NSArray<Gift*>* _Nonnull)giftList;
 
+- (void)connectWithIP:(NSString* _Nonnull)url WithPort:(NSInteger)port;
 - (void)entry: (NSString* _Nonnull)room;
 - (void)createGame: (NSString* _Nonnull)room;
 - (void)startBet: (NSString* _Nonnull)room;
@@ -77,9 +79,9 @@ typedef void (^_Nullable GiftsCallback)(NSError* _Nullable err, NSArray<Gift*>* 
 - (void)finishTurn: (NSString* _Nonnull)room;
 - (void)sendFaceCoordinate: (NSDictionary* _Nonnull)params;
 
-- (void)connect;
-
-- (void)connectWithCallback: (GameManagerCallback)callback;
+- (void)queryServerInfoWithRoom:(NSString* _Nonnull)room WithCallback:(ServerInfoCallback)callback;
+- (void)connectGatewayWithCallback: (GameManagerCallback)callback;
+- (void)connectWithIP:(NSString* _Nonnull)url WithPort:(NSInteger)port WithCallback: (GameManagerCallback)callback;
 - (void)entryWithCallback: (GameManagerCallback)callback room: (NSString* _Nonnull)room;
 - (void)createGameWithCallback: (GameManagerCallback)callback room: (NSString* _Nonnull)room;
 - (void)drawCardWithCallback: (GameManagerDrawCardCallback)callback room: (NSString* _Nonnull)room;
