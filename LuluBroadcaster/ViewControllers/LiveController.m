@@ -502,7 +502,9 @@
 #pragma mark -
 #pragma mark <GameStreamSyncDelegate>
 - (void)cameraDidDisconnect:(CameraManager *)manager{
+#ifndef TEST_MODE
     [self closeActions:nil];
+#endif
 }
 
 #pragma mark -
@@ -512,10 +514,14 @@
 }
 
 - (void)stop{
+#ifndef TEST_MODE
     [self closeActions:nil];
+#endif
 }
 
 - (void)failed{
+#ifndef TEST_MODE
     [self closeActions:nil];
+#endif
 }
 @end

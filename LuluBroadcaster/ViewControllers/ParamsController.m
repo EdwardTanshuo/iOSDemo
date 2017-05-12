@@ -52,7 +52,11 @@
 #pragma mark setups
 - (void)setupUI{
     self.tableView.tableFooterView = [UIView new];
+#ifdef TEST_MODE
+    self.view.userInteractionEnabled = YES;
+#else
     self.view.userInteractionEnabled = NO;
+#endif
 }
 
 - (void)setupParams{

@@ -21,13 +21,17 @@
 #define DEFAULT_BITRATE 3*1024*1024
 #define DEFAULT_HEIGHT 960
 #define DEFAULT_WIDTH 1920
-#define DEFAULT_URL @"rtmp://stream.mofangvr.com:1935/live"
 #define DEFAULT_STREAM_KEY @"kjkjkj"
 #define DEFAULT_BRIGHTNESS 0.2
 #define DEFAULT_FPS 30
 #define DEFAULT_FACE_DETECTOR 0
 #define DEFAULT_QUALITY SettingSessionCameraQualityReal
 
+#ifdef TEST_MODE
+#define DEFAULT_URL @"rtmp://stream.mofangvr.com:1935/live"
+#else
+#define DEFAULT_URL @"rtmp://stream.mofangvr.com:1935/live"
+#endif
 
 @interface SettingSession()
 

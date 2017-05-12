@@ -6,8 +6,6 @@
 //  Copyright © 2016 ShuoTan. All rights reserved.
 //
 
-#define TEST_MODE
-
 #import "HomepageController.h"
 #import "CameraManager.h"
 #import "GameManager.h"

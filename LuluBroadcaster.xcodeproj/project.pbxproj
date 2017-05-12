@@ -1401,6 +1401,14 @@
 					"$(PROJECT_DIR)/LuluBroadcaster",
 					"$(PROJECT_DIR)/lib/GPUImage",
 				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"${inherited}",
+					"NSLOGGER_WAS_HERE=1",
+					"TEST_MODE=1",
+					"NSLOGGER_BUILD_USERNAME=\"${USER}\"",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_ROOT}/Headers/Public\"",
