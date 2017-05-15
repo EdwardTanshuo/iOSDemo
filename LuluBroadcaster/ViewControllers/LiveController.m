@@ -407,6 +407,10 @@
 
 }
 
+- (void)GameEndEvent:(Scene *)scene{
+    [self closeActions:nil];
+}
+
 - (void)PlayerBetEvent:(Scene *)scene{
     //_infoPad.text = [NSString stringWithFormat:@"%lu人", (unsigned long)scene.player_bets.count];
 }

@@ -6,8 +6,13 @@
 //  Copyright © 2016 ShuoTan. All rights reserved.
 //
 
-#define BASE_URL @"http://122.112.227.196/"
-#define PHP_URL @"http://122.112.227.196/"
+#ifdef TEST_MODE
+    #define BASE_URL @"http://mofangvr.com/"
+    #define PHP_URL @"http://mofangvr.com/"
+#else
+    #define BASE_URL @"http://release.mofangvr.com/"
+    #define PHP_URL @"http://release.mofangvr.com/"
+#endif
 
 #import <Foundation/Foundation.h>
 #import "Broadcaster.h"

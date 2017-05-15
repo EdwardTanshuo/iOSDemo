@@ -436,6 +436,14 @@
         });
     }];
     
+    [_pomelo onRoute:@"DealerLeaveEvent" withCallback:^(NSDictionary *data){
+        dispatch_async(dispatch_get_main_queue(), ^{
+            Scene* scene = [wself updateScene:data];
+            [wself.target GameEndEvent:scene];
+        });
+    }];
+    
+    
     [_pomelo onRoute:@"PlayerBetEvent" withCallback:^(NSDictionary *data){
         dispatch_async(dispatch_get_main_queue(), ^{
             [wself.target PlayerBetEvent:self.scene];

@@ -14,7 +14,7 @@
 #ifdef TEST_MODE
     #define GAME_IP @"game.mofangvr.com"
 #else
-    #define GAME_IP @"game.mofangvr.com"
+    #define GAME_IP @"release.game.mofangvr.com"
 #endif
 
 #define GAME_PORT 3015
@@ -42,8 +42,10 @@ typedef void (^_Nullable ServerInfoCallback)(NSError* _Nullable err, NSString* _
 - (void)NewTurnEvent: (Scene* _Nullable)scene;
 - (void)BetStartEvent: (Scene* _Nullable)scene;
 - (void)GameStartEvent: (Scene* _Nullable)scene;
+- (void)GameEndEvent: (Scene* _Nullable)scene;
 - (void)PlayerBetEvent: (Scene* _Nullable)scene;
 - (void)TurnFinishEvent: (NSDictionary* _Nullable)data;
+
 - (void)didConnected;
 - (void)disconnect:(NSError* _Nullable)error;
 @end

@@ -30,7 +30,7 @@
 #ifdef TEST_MODE
 #define DEFAULT_URL @"rtmp://stream.mofangvr.com:1935/live"
 #else
-#define DEFAULT_URL @"rtmp://stream.mofangvr.com:1935/live"
+#define DEFAULT_URL @"rtmp://release.stream.mofangvr.com:1935/live"
 #endif
 
 @interface SettingSession()
