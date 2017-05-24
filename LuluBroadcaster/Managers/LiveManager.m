@@ -231,10 +231,9 @@
             break;
         case SettingSessionCameraQualityReal:
             isReal = YES;
-            _real_streamer = [[INSFlatLiveStreamer alloc] initWithRtmpAddress:[NSURL URLWithString:[NSString stringWithFormat:@"%@/%@?user=%@", setting.url, setting.streamKey, session.currentBroadcaster.room]] cameraResolution:INSCameraVideoResType_3040_1520P30 stitchWidth:setting.width stitchHeight:setting.height bitrate:setting.bitrate];
-            [self startLiveWithWidth:setting.width WithHeight:setting.height WithBitrate:setting.bitrate WithQuality:INSCameraVideoResType_2160_1080P30];
-            LogMessage(@"live", 0, @"detector callback: %@ faces has been detected", [NSString stringWithFormat:@"%@/%@  ***start living",setting.url, setting.streamKey]);
-            
+            _real_streamer = [[INSFlatLiveStreamer alloc] initWithRtmpAddress:[NSURL URLWithString:[NSString stringWithFormat:@"%@/%@?user=%@", setting.url, setting.streamKey, session.currentBroadcaster.room]] cameraResolution:INSCameraVideoResType_2160_1080P30 stitchWidth:setting.width stitchHeight:setting.height bitrate:setting.bitrate];
+            //[self startLiveWithWidth:setting.width WithHeight:setting.height WithBitrate:setting.bitrate WithQuality:INSCameraVideoResType_2160_1080P30];
+            LogMessage(@"stream", 0, @"!!!!!!!!!!!!!start real stream");
             _real_streamer.stateDelegate = [StreamManager sharedManager];
             [_real_streamer startLive];
             

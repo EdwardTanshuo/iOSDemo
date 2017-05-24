@@ -14,6 +14,8 @@
 #import "UserSession.h"
 #import "NavigationRouter.h"
 
+#import <KZPropertyMapper/KZPropertyMapper.h>
+
 @interface AppDelegate ()
 
 @end
@@ -37,6 +39,9 @@
     
     //judge user have token
     [NavigationRouter showLoginControllerOnWindow:self.window];
+    
+    //turnoff log from mapper
+    [KZPropertyMapper logIgnoredValues:YES];
     
     return YES;
 }

@@ -134,4 +134,8 @@
     LogMessage(@"stream", 0, @"start:%@", streamer);
     [self.delegate started];
 }
+
+- (void)streamerOnLiveFps:(double)fps duration:(double)duration{
+     LogMessage(@"stream", 0, @"fps:%.1f\nduration: %.1f", fps, duration);
+}
 @end
