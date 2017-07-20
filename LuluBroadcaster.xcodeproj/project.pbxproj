@@ -1406,8 +1406,8 @@
 					"COCOAPODS=1",
 					"${inherited}",
 					"NSLOGGER_WAS_HERE=1",
-					"TEST_MODE=1",
 					"NSLOGGER_BUILD_USERNAME=\"${USER}\"",
+					TEST_MODE,
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",

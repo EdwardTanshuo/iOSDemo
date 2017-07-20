@@ -23,7 +23,7 @@
     _base_url = BASE_URL;
     _php_url = PHP_URL;
     
-    _apis = @{@"login": @"broadcasterApi/login", @"broadcasters": @"account/feed", @"history": @"transactions/borad", @"transactions": @"transactions", @"followers": @"api/broadcasters/followers", @"scenes": @"api/broadcasters/scenes"};
+    _apis = @{@"XXXXXXXXX": @"XXXXXXXXX", @"XXXXXXXXX": @"XXXXXXXXX", @"XXXXXXXXX": @"XXXXXXXXX", @"XXXXXXXXX": @"XXXXXXXXX", @"XXXXXXXXX": @"XXXXXXXXX", @"XXXXXXXXX": @"XXXXXXXXX"};
     _manager = [AFHTTPSessionManager manager];
     _manager.requestSerializer = [AFJSONRequestSerializer serializer];
     _manager.responseSerializer = [AFJSONResponseSerializer serializer];
@@ -31,13 +31,13 @@
     [securityPolicy setValidatesDomainName:NO];
     [securityPolicy setAllowInvalidCertificates:YES];
     _manager.securityPolicy = securityPolicy;
-    [_manager.requestSerializer setValue:@"d858bd235c7faf19f5da18a1118788e2" forHTTPHeaderField:@"X_MCV_TOKEN"];
+    [_manager.requestSerializer setValue:@"XXXXXXXXX" forHTTPHeaderField:@"XXXXXXXXX"];
    
     return [super init];
 }
 
 - (void)addAuth: (NSString* _Nonnull)token{
-     [_manager.requestSerializer setValue:token forHTTPHeaderField:@"authorization"];
+     [_manager.requestSerializer setValue:token forHTTPHeaderField:@"XXXXXXXXX"];
 }
 
 - (void)dealloc{
@@ -69,7 +69,7 @@
 {
     if(lock){
         NSError* err = nil;
-        err = [NSError errorWithDomain:@"com.mofangvr.lulu" code:500 userInfo:@{@"msg": @"too busy"}];
+        err = [NSError errorWithDomain:@"XXXXXXXXX" code:500 userInfo:@{@"XXXXXXXXX": @"XXXXXXXXX"}];
         return failure(err);
     }
     lock = YES;
@@ -94,7 +94,7 @@
 {
     if(lock){
         NSError* err = nil;
-        err = [NSError errorWithDomain:@"com.mofangvr.lulu" code:500 userInfo:@{@"msg": @"too busy"}];
+        err = [NSError errorWithDomain:@"XXXXXXXXX" code:500 userInfo:@{@"XXXXXXXXX": @"XXXXXXXXX"}];
         return failure(err);
     }
     lock = YES;
@@ -114,19 +114,19 @@
 - (NSError* _Nullable)checkResponse: (id _Nullable)response{
     NSError* error = nil;
     if(!response){
-        error = [NSError errorWithDomain:@"com.mofangvr.lulu" code:404 userInfo:@{@"msg": @"unhandle error"}];
+        error = [NSError errorWithDomain:@"XXXXXXXXX" code:404 userInfo:@{@"XXXXXXXXX": @"XXXXXXXXX"}];
         return error;
     }
-    else if(![[response objectForKey:@"errCode"] isKindOfClass:[NSNumber class]]){
-        error = [NSError errorWithDomain:@"com.mofangvr.lulu" code:403 userInfo:@{@"msg": @"unsupport response format, must include errCode"}];
+    else if(![[response objectForKey:@"XXXXXXXXX"] isKindOfClass:[NSNumber class]]){
+        error = [NSError errorWithDomain:@"XXXXXXXXX" code:403 userInfo:@{@"XXXXXXXXX": @"XXXXXXXXX"}];
         return error;
     }
-    else if([[response objectForKey:@"errCode"] integerValue] != 0){
-        NSString* message = [response objectForKey:@"message"];
+    else if([[response objectForKey:@"XXXXXXXXX"] integerValue] != 0){
+        NSString* message = [response objectForKey:@"XXXXXXXXX"];
         if(!message){
-            message = @"no info";
+            message = @"XXXXXXXXX";
         }
-        error = [NSError errorWithDomain:@"com.mofangvr.lulu" code:[[response objectForKey:@"errCode"] integerValue] userInfo:@{@"msg": message}];
+        error = [NSError errorWithDomain:@"XXXXXXXXX" code:[[response objectForKey:@"XXXXXXXXX"] integerValue] userInfo:@{@"XXXXXXXXX": message}];
         return error;
     }
     return nil;

@@ -1,6 +1,0 @@
-framework module INSNanoSDK {
-  umbrella header "INSNanoSDK.h"
-
-  export *
-  module * { export * }
-}

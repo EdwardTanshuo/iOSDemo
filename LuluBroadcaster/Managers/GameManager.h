@@ -12,7 +12,7 @@
 #import "UserDataSource.h"
 
 #ifdef TEST_MODE
-    #define GAME_IP @"game.mofangvr.com"
+    #define GAME_IP @"release.game.mofangvr.com"
 #else
     #define GAME_IP @"release.game.mofangvr.com"
 #endif

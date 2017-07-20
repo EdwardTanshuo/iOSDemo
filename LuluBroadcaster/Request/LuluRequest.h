@@ -7,11 +7,11 @@
 //
 
 #ifdef TEST_MODE
-    #define BASE_URL @"http://mofangvr.com/"
-    #define PHP_URL @"http://mofangvr.com/"
+    #define BASE_URL @"XXXXXXXXX"
+    #define PHP_URL @"XXXXXXXXX"
 #else
-    #define BASE_URL @"http://release.mofangvr.com/"
-    #define PHP_URL @"http://release.mofangvr.com/"
+    #define BASE_URL @"XXXXXXXXX"
+    #define PHP_URL @"XXXXXXXXX/"
 #endif
 
 #import <Foundation/Foundation.h>
